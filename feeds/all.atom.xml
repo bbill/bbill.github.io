@@ -1,5 +1,135 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>SDN Hands ON!</title><link href="https://bbill.github.io/" rel="alternate"></link><link href="https://bbill.github.io/feeds/all.atom.xml" rel="self"></link><id>https://bbill.github.io/</id><updated>2015-12-29T00:00:00+08:00</updated><entry><title>SDN 教学大纲</title><link href="https://bbill.github.io/test_slug.html" rel="alternate"></link><published>2015-12-29T00:00:00+08:00</published><author><name>service@tooyum.com</name></author><id>tag:bbill.github.io,2017-09-25:test_slug.html</id><summary type="html">&lt;div id="table-of-contents"&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>SDN Hands ON!</title><link href="https://bbill.github.io/" rel="alternate"></link><link href="https://bbill.github.io/feeds/all.atom.xml" rel="self"></link><id>https://bbill.github.io/</id><updated>2017-10-16T00:00:00+08:00</updated><entry><title>升级Pica8操作系统</title><link href="https://bbill.github.io/lab/upgrade_picos.html" rel="alternate"></link><published>2017-10-16T00:00:00+08:00</published><author><name>bill</name></author><id>tag:bbill.github.io,2017-10-16:lab/upgrade_picos.html</id><summary type="html">&lt;p&gt;
+更新前需要做如下检查，确保能使用upgrade命令升级：
+&lt;/p&gt;
+
+
+&lt;ol class="org-ol"&gt;
+&lt;li&gt;确定备份分区状态（它必须是ok或者up-to-date）
+
+&lt;blockquote&gt;
+&lt;p&gt;
+admin@PicOS-OVS$cat /etc/picos/fs&lt;sub&gt;status&lt;/sub&gt;
+&lt;/p&gt;
+
+&lt;p&gt;
+primary: ok
+&lt;/p&gt;
+
+&lt;p&gt;
+secondary: up-to-date
+&lt;/p&gt;
+
+&lt;p&gt;
+admin@PicOS-OVS$
+&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+
+&lt;li&gt;上传更新image文件到交换机的/cftmp 目录
+
+&lt;p&gt;
+假设您用来下载的主机系统为linux，IP地址为 10.10.10.16，下载的文
+件名为 picos-2.8.0-P5401-45ec985.tar.gz 在确保交换机可以ping 通
+10.10.50.16后，可以在 &lt;b&gt;交换机&lt;/b&gt; 上执行
+&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;
+admin@PicOS-OVS$cd &lt;i&gt;cftmp&lt;/i&gt;
+&lt;/p&gt;
+
+&lt;p&gt;
+admin@PicOS-OVS$sudo scp user@10.10.50.16:/home/user/picos-2.8.0-P5401-45ec985.tar.gz ./
+&lt;/p&gt;
+
+&lt;p&gt;
+admin@PicOS-OVS$sudo scp user@10.10.50.16:/home/user/picos-2.8.0-P5401-45ec985.tar.gz.md5 ./
+&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;
+此步骤的目的是将升级映像复制到交换机的/cftmp 目录下。
+&lt;/p&gt;
+&lt;/li&gt;
+
+&lt;li&gt;在/cftmp下执行upgrade命令升级交换机版本
+
+&lt;blockquote&gt;
+&lt;p&gt;
+admin@PicOS-OVS$ cd /cftmp
+admin@PicOS-OVS$ sudo upgrade picos-2.8.0-P5401-45ec985.tar.gz  
+&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;
+./etc/lsb-release
+&lt;/p&gt;
+
+&lt;p&gt;
+Upgrading P5401
+&lt;/p&gt;
+
+&lt;p&gt;
+Upgrade P5401 started
+&lt;/p&gt;
+
+&lt;p&gt;
+Checking MD5 of image
+&lt;/p&gt;
+
+&lt;p&gt;
+MD5 Check OK!
+&lt;/p&gt;
+
+&lt;p&gt;
+./etc/p1upgrade.sh
+&lt;/p&gt;
+
+&lt;p&gt;
+Back up PicOS configuration files
+&lt;/p&gt;
+
+&lt;p&gt;
+/ovs/ovs-vswitchd.conf.db /etc/picos/picos&lt;sub&gt;start&lt;/sub&gt;.conf
+&lt;/p&gt;
+
+&lt;p&gt;
+Config files saved locally as
+&lt;/p&gt;
+
+&lt;p&gt;
+/cftmp/CONFIG&lt;sub&gt;FILE&lt;/sub&gt;&lt;sub&gt;P5401&lt;/sub&gt;-10.10.51.162-@20170116.tgz
+&lt;/p&gt;
+
+&lt;p&gt;
+Backup PicOS license files
+&lt;/p&gt;
+
+&lt;p&gt;
+/etc/picos/switch-public.key /etc/picos/pica.lic
+&lt;/p&gt;
+
+&lt;p&gt;
+License files saved locally as
+&lt;/p&gt;
+
+&lt;p&gt;
+/cftmp/LICENSE&lt;sub&gt;FILE&lt;/sub&gt;&lt;sub&gt;P5401&lt;/sub&gt;-10.10.51.162-@20170116.tgz
+&lt;/p&gt;
+
+&lt;p&gt;
+Rebooting in 10 seconds!
+&lt;/p&gt;
+
+&lt;p&gt;
+admin@PicOS-OVS$
+&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</summary><category term="pica8"></category><category term="maitainence"></category><category term="openflow"></category><category term="hardware"></category><category term="upgrade"></category></entry><entry><title>SDN 教学大纲</title><link href="https://bbill.github.io/test_slug.html" rel="alternate"></link><published>2015-12-29T00:00:00+08:00</published><author><name>service@tooyum.com</name></author><id>tag:bbill.github.io,2017-09-25:test_slug.html</id><summary type="html">&lt;div id="table-of-contents"&gt;
 &lt;h2&gt;Table of Contents&lt;/h2&gt;
 &lt;div id="text-table-of-contents"&gt;
 &lt;ul&gt;
@@ -76,7 +206,7 @@
 &lt;/li&gt;
 &lt;li&gt;控制平面（Control Plane）
 &lt;/li&gt;
-&lt;li&gt;资料平面（Data Plane）
+&lt;li&gt;数据平面（Data Plane）
 &lt;/li&gt;
 &lt;li&gt;OpenFlow 架构与运作原理
 &lt;/li&gt;

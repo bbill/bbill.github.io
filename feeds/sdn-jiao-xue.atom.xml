@@ -76,7 +76,7 @@
 &lt;/li&gt;
 &lt;li&gt;控制平面（Control Plane）
 &lt;/li&gt;
-&lt;li&gt;资料平面（Data Plane）
+&lt;li&gt;数据平面（Data Plane）
 &lt;/li&gt;
 &lt;li&gt;OpenFlow 架构与运作原理
 &lt;/li&gt;
