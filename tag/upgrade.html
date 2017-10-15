@@ -23,7 +23,83 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="https://bbill.github.io/lab/upgrade_picos.html">升级Pica8操作系统</a></h1>
+                    <h1 class="entry-title"><a href="https://bbill.github.io/lab/upgrade_P-3290.html">在P-3290 系统上安装 PicOS 操作系统</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2017-10-16T00:00:00+08:00">
+                Published: Mon 16 October 2017
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="https://bbill.github.io/author/bill.html">bill</a>
+        </address>
+<p>In <a href="https://bbill.github.io/category/lab.html">lab</a>.</p>
+<p>tags: <a href="https://bbill.github.io/tag/p-3290.html">P-3290</a> <a href="https://bbill.github.io/tag/upgrade.html">upgrade</a> <a href="https://bbill.github.io/tag/pica8.html">pica8</a> <a href="https://bbill.github.io/tag/sdn.html">sdn</a> <a href="https://bbill.github.io/tag/openflow.html">openflow</a> <a href="https://bbill.github.io/tag/baremetal.html">baremetal</a> </p>
+</footer><!-- /.post-info --><div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. 重启交换机</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> 重启交换机</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+以3290 为例，不同交换机进入 底层 shell的方法不同
+</p>
+
+<p>
+使用串口连接交换机，重启后在系统出现
+</p>
+
+<p>
+press any key to stop autoboot 时，按回车
+</p>
+
+<p>
+会进入一个shell
+</p>
+
+<p>
+执行run flash<sub>bootcmd</sub>
+</p>
+
+<p>
+等待运行结束，出现菜单选项时，敲两次 <b>ctrl +d</b>, 进入shell
+</p>
+
+
+<div class="org-src-container">
+
+<pre class="src src-bash">cd /cf_card
+rm –rf [a-y]* 
+tftp -gr picos-2.9.2.5-P3290-30f7332.tar.gz -l z.tgz 192.168.10.250
+tar xzvf z.tgz
+sync
+reboot
+</pre>
+</div>
+
+<p>
+重启交换机确认，系统已经更新至最新版本。
+</p>
+</div>
+</div>
+                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="https://bbill.github.io/lab/upgrade_picos.html" rel="bookmark"
+                           title="Permalink to 升级Pica8操作系统">升级Pica8操作系统</a></h1>
+                </header>
+
+                <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2017-10-16T00:00:00+08:00">
                 Published: Mon 16 October 2017
@@ -34,7 +110,7 @@
         </address>
 <p>In <a href="https://bbill.github.io/category/lab.html">lab</a>.</p>
 <p>tags: <a href="https://bbill.github.io/tag/pica8.html">pica8</a> <a href="https://bbill.github.io/tag/maitainence.html">maitainence</a> <a href="https://bbill.github.io/tag/openflow.html">openflow</a> <a href="https://bbill.github.io/tag/hardware.html">hardware</a> <a href="https://bbill.github.io/tag/upgrade.html">upgrade</a> </p>
-</footer><!-- /.post-info --><p>
+</footer><!-- /.post-info -->                <p>
 更新前需要做如下检查，确保能使用upgrade命令升级：
 </p>
 
@@ -75,97 +151,12 @@ admin@PicOS-OVS$cd <i>cftmp</i>
 </p>
 
 <p>
-admin@PicOS-OVS$sudo scp user@10.10.50.16:/home/user/picos-2.8.0-P5401-45ec985.tar.gz ./
-</p>
-
-<p>
-admin@PicOS-OVS$sudo scp user@10.10.50.16:/home/user/picos-2.8.0-P5401-45ec985.tar.gz.md5 ./
-</p>
-</blockquote>
-
-<p>
-此步骤的目的是将升级映像复制到交换机的/cftmp 目录下。
-</p>
-</li>
-
-<li>在/cftmp下执行upgrade命令升级交换机版本
-
-<blockquote>
-<p>
-admin@PicOS-OVS$ cd /cftmp
-admin@PicOS-OVS$ sudo upgrade picos-2.8.0-P5401-45ec985.tar.gz  
-</p>
-</blockquote>
-
-<blockquote>
-<p>
-./etc/lsb-release
-</p>
-
-<p>
-Upgrading P5401
-</p>
-
-<p>
-Upgrade P5401 started
-</p>
-
-<p>
-Checking MD5 of image
-</p>
-
-<p>
-MD5 Check OK!
-</p>
-
-<p>
-./etc/p1upgrade.sh
-</p>
-
-<p>
-Back up PicOS configuration files
-</p>
-
-<p>
-/ovs/ovs-vswitchd.conf.db /etc/picos/picos<sub>start</sub>.conf
-</p>
-
-<p>
-Config files saved locally as
-</p>
-
-<p>
-/cftmp/CONFIG<sub>FILE</sub><sub>P5401</sub>-10.10.51.162-@20170116.tgz
-</p>
-
-<p>
-Backup PicOS license files
-</p>
-
-<p>
-/etc/picos/switch-public.key /etc/picos/pica.lic
-</p>
-
-<p>
-License files saved locally as
-</p>
-
-<p>
-/cftmp/LICENSE<sub>FILE</sub><sub>P5401</sub>-10.10.51.162-@20170116.tgz
-</p>
-
-<p>
-Rebooting in 10 seconds!
-</p>
-
-<p>
-admin@PicOS-OVS$
-</p>
-</blockquote>
-</li>
-</ol>
-                </article>
-            </aside><!-- /#featured -->
+admin@PicOS-OVS$sudo scp ...</p></blockquote></li></ol>
+                <a class="readmore" href="https://bbill.github.io/lab/upgrade_picos.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+                </ol><!-- /#posts-list -->
+                </section><!-- /#content -->
         <section id="extras" class="body">
                 <div class="blogroll">
                         <h2>blogroll</h2>

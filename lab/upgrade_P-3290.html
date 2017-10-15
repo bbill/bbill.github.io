@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
         <meta charset="utf-8" />
-        <title>SDN Hands ON! - bill</title>
+        <title>在P-3290 系统上安装 PicOS 操作系统</title>
         <link rel="stylesheet" href="https://bbill.github.io/theme/css/main.css" />
         <link href="https://bbill.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="SDN Hands ON! Atom Feed" />
 
@@ -15,15 +15,20 @@
         <header id="banner" class="body">
                 <h1><a href="https://bbill.github.io/">SDN Hands ON! </a></h1>
                 <nav><ul>
-                    <li><a href="https://bbill.github.io/category/lab.html">lab</a></li>
+                    <li class="active"><a href="https://bbill.github.io/category/lab.html">lab</a></li>
                     <li><a href="https://bbill.github.io/category/sdn-jiao-xue.html">SDN 教学</a></li>
                     <li><a href="https://bbill.github.io/category/shi-yan.html">实验</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="https://bbill.github.io/lab/upgrade_P-3290.html" rel="bookmark"
+           title="Permalink to 在P-3290 系统上安装 PicOS 操作系统">在P-3290 系统上安装 PicOS 操作系统</a></h1>
+    </header>
 
-            <aside id="featured" class="body">
-                <article>
-                    <h1 class="entry-title"><a href="https://bbill.github.io/lab/upgrade_P-3290.html">在P-3290 系统上安装 PicOS 操作系统</a></h1>
+    <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2017-10-16T00:00:00+08:00">
                 Published: Mon 16 October 2017
@@ -34,7 +39,7 @@
         </address>
 <p>In <a href="https://bbill.github.io/category/lab.html">lab</a>.</p>
 <p>tags: <a href="https://bbill.github.io/tag/p-3290.html">P-3290</a> <a href="https://bbill.github.io/tag/upgrade.html">upgrade</a> <a href="https://bbill.github.io/tag/pica8.html">pica8</a> <a href="https://bbill.github.io/tag/sdn.html">sdn</a> <a href="https://bbill.github.io/tag/openflow.html">openflow</a> <a href="https://bbill.github.io/tag/baremetal.html">baremetal</a> </p>
-</footer><!-- /.post-info --><div id="table-of-contents">
+</footer><!-- /.post-info -->      <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
@@ -86,77 +91,11 @@ reboot
 </p>
 </div>
 </div>
-                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
 
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="https://bbill.github.io/lab/upgrade_picos.html" rel="bookmark"
-                           title="Permalink to 升级Pica8操作系统">升级Pica8操作系统</a></h1>
-                </header>
+    </div><!-- /.entry-content -->
 
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2017-10-16T00:00:00+08:00">
-                Published: Mon 16 October 2017
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="https://bbill.github.io/author/bill.html">bill</a>
-        </address>
-<p>In <a href="https://bbill.github.io/category/lab.html">lab</a>.</p>
-<p>tags: <a href="https://bbill.github.io/tag/pica8.html">pica8</a> <a href="https://bbill.github.io/tag/maitainence.html">maitainence</a> <a href="https://bbill.github.io/tag/openflow.html">openflow</a> <a href="https://bbill.github.io/tag/hardware.html">hardware</a> <a href="https://bbill.github.io/tag/upgrade.html">upgrade</a> </p>
-</footer><!-- /.post-info -->                <p>
-更新前需要做如下检查，确保能使用upgrade命令升级：
-</p>
-
-
-<ol class="org-ol">
-<li>确定备份分区状态（它必须是ok或者up-to-date）
-
-<blockquote>
-<p>
-admin@PicOS-OVS$cat /etc/picos/fs<sub>status</sub>
-</p>
-
-<p>
-primary: ok
-</p>
-
-<p>
-secondary: up-to-date
-</p>
-
-<p>
-admin@PicOS-OVS$
-</p>
-</blockquote>
-</li>
-
-<li>上传更新image文件到交换机的/cftmp 目录
-
-<p>
-假设您用来下载的主机系统为linux，IP地址为 10.10.10.16，下载的文
-件名为 picos-2.8.0-P5401-45ec985.tar.gz 在确保交换机可以ping 通
-10.10.50.16后，可以在 <b>交换机</b> 上执行
-</p>
-
-<blockquote>
-<p>
-admin@PicOS-OVS$cd <i>cftmp</i>
-</p>
-
-<p>
-admin@PicOS-OVS$sudo scp ...</p></blockquote></li></ol>
-                <a class="readmore" href="https://bbill.github.io/lab/upgrade_picos.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-                </ol><!-- /#posts-list -->
-                </section><!-- /#content -->
+  </article>
+</section>
         <section id="extras" class="body">
                 <div class="blogroll">
                         <h2>blogroll</h2>
