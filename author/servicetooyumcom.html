@@ -3,8 +3,7 @@
 <head>
         <meta charset="utf-8" />
         <title>SDN Hands ON! - service@tooyum.com</title>
-        <link rel="stylesheet" href="https://bbill.github.io/theme/css/main.css" />
-        <link href="https://bbill.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="SDN Hands ON! Atom Feed" />
+        <link rel="stylesheet" href="/theme/css/main.css" />
 
         <!--[if IE]>
             <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -13,32 +12,27 @@
 
 <body id="index" class="home">
         <header id="banner" class="body">
-                <h1><a href="https://bbill.github.io/">SDN Hands ON! </a></h1>
+                <h1><a href="/">SDN Hands ON! </a></h1>
                 <nav><ul>
-                    <li><a href="https://bbill.github.io/category/chan-pin.html">产品</a></li>
-                    <li><a href="https://bbill.github.io/category/lab.html">lab</a></li>
-                    <li><a href="https://bbill.github.io/category/sdn-jiao-xue.html">SDN 教学</a></li>
-                    <li><a href="https://bbill.github.io/category/shi-yan.html">实验</a></li>
+                    <li><a href="/category/chan-pin.html">产品</a></li>
+                    <li><a href="/category/lab.html">lab</a></li>
+                    <li><a href="/category/shi-yan.html">实验</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="https://bbill.github.io/test_slug.html">SDN 教学大纲</a></h1>
+                    <h1 class="entry-title"><a href="/lab/jiaxuedagang.html">SDN 教学大纲</a></h1>
 <footer class="post-info">
-        <abbr class="published" title="2017-09-25T00:00:00+08:00">
-                Published: Mon 25 September 2017
-        </abbr>
-		<br />
-        <abbr class="modified" title="2015-12-29T00:00:00+08:00">
-                Updated: Tue 29 December 2015
+        <abbr class="published" title="2017-10-21T00:00:00+08:00">
+                Published: Sat 21 October 2017
         </abbr>
 
         <address class="vcard author">
-                By                         <a class="url fn" href="https://bbill.github.io/author/servicetooyumcom.html">service@tooyum.com</a>
+                By                         <a class="url fn" href="/author/servicetooyumcom.html">service@tooyum.com</a>
         </address>
-<p>In <a href="https://bbill.github.io/category/sdn-jiao-xue.html">SDN 教学</a>.</p>
-<p>tags: <a href="https://bbill.github.io/tag/ryu.html">ryu</a> <a href="https://bbill.github.io/tag/openflow.html">openflow</a> <a href="https://bbill.github.io/tag/mininet.html">mininet</a> <a href="https://bbill.github.io/tag/estinet.html">estinet</a> </p>
+<p>In <a href="/category/shi-yan.html">实验</a>.</p>
+<p>tags: <a href="/tag/ryu.html">ryu</a> <a href="/tag/openflow.html">openflow</a> <a href="/tag/mininet.html">mininet</a> <a href="/tag/estinet.html">estinet</a> </p>
 </footer><!-- /.post-info --><div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
@@ -116,7 +110,7 @@
 </li>
 <li>控制平面（Control Plane）
 </li>
-<li>数据平面（Data Plane）
+<li>资料平面（Data Plane）
 </li>
 <li>OpenFlow 架构与运作原理
 </li>
@@ -230,7 +224,70 @@
 
             <li><article class="hentry">
                 <header>
-                    <h1><a href="https://bbill.github.io/ryu_lab1.html" rel="bookmark"
+                    <h1><a href="/test.html" rel="bookmark"
+                           title="Permalink to Ryu 控制器的安装及基本操作">Ryu 控制器的安装及基本操作</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2017-10-20T00:00:00+08:00">
+                Published: Fri 20 October 2017
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/servicetooyumcom.html">service@tooyum.com</a>
+        </address>
+<p>In <a href="/category/shi-yan.html">实验</a>.</p>
+
+</footer><!-- /.post-info -->                <div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. 实验环境</a></li>
+<li><a href="#sec-2">2. 实验目的</a></li>
+<li><a href="#sec-3">3. 操作步骤</a>
+<ul>
+<li><a href="#sec-3-1">3.1. 安装一些后续需要使用的软件</a></li>
+<li><a href="#sec-3-2">3.2. 安装 ryu</a></li>
+<li><a href="#sec-3-3">3.3. 安装 mininet</a></li>
+<li><a href="#sec-3-4">3.4. ryu 控制和mininet连接</a></li>
+</ul>
+</li>
+<li><a href="#sec-4">4. 附录</a>
+<ul>
+<li><a href="#sec-4-1">4.1. 用到的命令</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> 实验环境</h2>
+<div class="outline-text-2" id="text-1">
+<ol class="org-ol">
+<li>一台可以上网的主机station X (IP 地址 192.168.10.X）
+</li>
+<li>ubuntu 14.04 操作系统,用户名 user 密码 linux123
+</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> 实验目的</h2>
+<div class="outline-text-2" id="text-2">
+<ol class="org-ol">
+<li>掌握Linux ...</li></ol></div></div>
+                <a class="readmore" href="/test.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/lab/ryu_lab1.html" rel="bookmark"
                            title="Permalink to Ryu 控制器的安装及基本操作">Ryu 控制器的安装及基本操作</a></h1>
                 </header>
 
@@ -240,17 +297,17 @@
                 Published: Sun 24 September 2017
         </abbr>
 		<br />
-        <abbr class="modified" title="2015-12-29T00:00:00+08:00">
-                Updated: Tue 29 December 2015
+        <abbr class="modified" title="2016-12-29T00:00:00+08:00">
+                Updated: Thu 29 December 2016
         </abbr>
 
         <address class="vcard author">
-                By                         <a class="url fn" href="https://bbill.github.io/author/servicetooyumcom.html">service@tooyum.com</a>
+                By                         <a class="url fn" href="/author/servicetooyumcom.html">service@tooyum.com</a>
         </address>
-<p>In <a href="https://bbill.github.io/category/shi-yan.html">实验</a>.</p>
-<p>tags: <a href="https://bbill.github.io/tag/ryu.html">ryu</a> <a href="https://bbill.github.io/tag/openflow.html">openflow</a> <a href="https://bbill.github.io/tag/mininet.html">mininet</a> </p>
+<p>In <a href="/category/shi-yan.html">实验</a>.</p>
+<p>tags: <a href="/tag/ryu.html">ryu</a> <a href="/tag/openflow.html">openflow</a> <a href="/tag/mininet.html">mininet</a> </p>
 </footer><!-- /.post-info -->                RYU 安装操作
-                <a class="readmore" href="https://bbill.github.io/ryu_lab1.html">read more</a>
+                <a class="readmore" href="/lab/ryu_lab1.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
                 </ol><!-- /#posts-list -->
@@ -262,13 +319,6 @@
                             <li><a href="http://www.tooyum.com/">tooyum</a></li>
                         </ul>
                 </div><!-- /.blogroll -->
-                <div class="social">
-                        <h2>social</h2>
-                        <ul>
-                            <li><a href="https://bbill.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
-
-                        </ul>
-                </div><!-- /.social -->
         </section><!-- /#extras -->
 
         <footer id="contentinfo" class="body">
