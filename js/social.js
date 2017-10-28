@@ -12,14 +12,6 @@ var links = [{
         args: {
             id: 'harttle'
         }
-    },{
-        plugin: 'facebook',
-        url: 'http://xxx.com'
-    }, {
-        plugin: 'google-plus',
-        args: {
-            id: '杨珺'
-        }
     }, {
         plugin: 'weibo', 
         args: {
