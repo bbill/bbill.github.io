@@ -22,197 +22,152 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/lab/jiaxuedagang.html">SDN 教学大纲</a></h1>
+                    <h1 class="entry-title"><a href="/product/barefoot.html">Barefoot P4 Switch</a></h1>
 <footer class="post-info">
-        <abbr class="published" title="2017-10-21T00:00:00+08:00">
-                Published: Sat 21 October 2017
+        <abbr class="published" title="2017-10-28T00:00:00+08:00">
+                Published: Sat 28 October 2017
         </abbr>
 
         <address class="vcard author">
-                By                         <a class="url fn" href="/author/servicetooyumcom.html">service@tooyum.com</a>
+                By                         <a class="url fn" href="/author/bill.html">bill</a>
         </address>
-<p>In <a href="/category/shi-yan.html">实验</a>.</p>
-<p>tags: <a href="/tag/ryu.html">ryu</a> <a href="/tag/openflow.html">openflow</a> <a href="/tag/mininet.html">mininet</a> <a href="/tag/estinet.html">estinet</a> </p>
+<p>In <a href="/category/chan-pin.html">产品</a>.</p>
+<p>tags: <a href="/tag/sdn.html">sdn</a> <a href="/tag/openflow.html">openflow</a> <a href="/tag/p4.html">p4</a> <a href="/tag/tofino.html">tofino</a> <a href="/tag/barefoot.html">barefoot</a> <a href="/tag/onie.html">onie</a> <a href="/tag/capilano.html">capilano</a> </p>
 </footer><!-- /.post-info --><div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#sec-1">1. 教学环境准备</a>
-<ul>
-<li><a href="#sec-1-1">1.1. 仿真工具</a></li>
-<li><a href="#sec-1-2">1.2. 常用工具</a></li>
-</ul>
-</li>
-<li><a href="#sec-2">2. 传统网络基础</a></li>
-<li><a href="#sec-3">3. SDN 与 OpenFlow 技术基本概念</a></li>
-<li><a href="#sec-4">4. SDN 网络入门实验</a></li>
-<li><a href="#sec-5">5. 了解流表</a></li>
-<li><a href="#sec-6">6. RYU控制器初步</a></li>
-<li><a href="#sec-7">7. 进阶应用</a></li>
-<li><a href="#sec-8">8. 实体交换机验证</a></li>
+<li><a href="#sec-1">1. Barefoot Tofino™</a></li>
+<li><a href="#sec-2">2. Barefoot Capilano™ SDE</a></li>
+<li><a href="#sec-3">3. Wedge 100BF-32X</a></li>
+<li><a href="#sec-4">4. CPU,BMC,Platform Software</a></li>
+<li><a href="#sec-5">5. Wedge 100B Series – A Summary</a></li>
 </ul>
 </div>
 </div>
+
 
 
 <div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1"><span class="section-number-2">1</span> 教学环境准备</h2>
+<h2 id="sec-1"><span class="section-number-2">1</span> Barefoot Tofino™</h2>
 <div class="outline-text-2" id="text-1">
-</div><div id="outline-container-sec-1-1" class="outline-3">
-<h3 id="sec-1-1"><span class="section-number-3">1.1</span> 仿真工具</h3>
-<div class="outline-text-3" id="text-1-1">
-<p>
-可选开源(mininet)，商用(estinet)仿真软件
+<ul class="org-ul">
+<li>6.5 Tb/s P4-programmable Ethernet Switch
+</li>
+<li>Port Configurations
+<ul class="org-ul">
+<li>65x100GE/40GE
+</li>
+<li>130x50GE
+</li>
+<li>260x10/25GE
+</li>
+</ul>
+</li>
+<li>Programmable Packet Processing Pipeline
+<ul class="org-ul">
+<li>switch.p4 forwarding plane program
+</li>
+</ul>
+</li>
+<li>CPU Interface
+<ul class="org-ul">
+<li>PCIe Gen3 x4
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> Barefoot Capilano™ SDE</h2>
+<div class="outline-text-2" id="text-2">
+
+<div class="figure">
+<p><img src="../fig/capilano.png" alt="capilano.png" width="450;" />
 </p>
 </div>
 </div>
-<div id="outline-container-sec-1-2" class="outline-3">
-<h3 id="sec-1-2"><span class="section-number-3">1.2</span> 常用工具</h3>
-<div class="outline-text-3" id="text-1-2">
-<ol class="org-ol">
-<li>Wireshark 网路抓包工具
-</li>
-<li>xterm
-</li>
-<li>tcptrace
-</li>
-<li>WinSCP
-</li>
-<li>Gnuplot
-</li>
-<li>Docker 与 OVS 介绍
-</li>
-</ol>
 </div>
-</div>
-</div>
-
-
-<div id="outline-container-sec-2" class="outline-2">
-<h2 id="sec-2"><span class="section-number-2">2</span> 传统网络基础</h2>
-<div class="outline-text-2" id="text-2">
-<ol class="org-ol">
-<li>NAT 网路地址址转换（Network Address Translation）
-</li>
-<li>DHCP 动态主机设定协议（Dynamic Host Configuration Protocol）
-</li>
-<li>域名解析 DNS（Domain Name System）
-</li>
-</ol>
-</div>
-</div>
-
 <div id="outline-container-sec-3" class="outline-2">
-<h2 id="sec-3"><span class="section-number-2">3</span> SDN 与 OpenFlow 技术基本概念</h2>
+<h2 id="sec-3"><span class="section-number-2">3</span> Wedge 100BF-32X</h2>
 <div class="outline-text-2" id="text-3">
-<ol class="org-ol">
-<li>软体定义网路（Software-Defined Networking）
-</li>
-<li>控制平面（Control Plane）
-</li>
-<li>资料平面（Data Plane）
-</li>
-<li>OpenFlow 架构与运作原理
-</li>
-<li>SDN 控制器（SDN Controller）
-<ol class="org-ol">
-<li>POX
-</li>
-<li>RYU
-</li>
-<li>ONOS
-</li>
-<li>ODL
-</li>
-</ol>
-</li>
-<li>OVS（Open vSwitch）/ ovs-ofctl 简介
-</li>
-<li>网路功能虚拟化
-</li>
-<li>SDN与网路安全
-</li>
-</ol>
-</div>
-</div>
 
+<div class="figure">
+<p><img src="../fig/wedge_100bf-32x.png" alt="wedge_100bf-32x.png" width="450;" />
+</p>
+</div>
+</div>
+</div>
 
 <div id="outline-container-sec-4" class="outline-2">
-<h2 id="sec-4"><span class="section-number-2">4</span> SDN 网络入门实验</h2>
+<h2 id="sec-4"><span class="section-number-2">4</span> CPU,BMC,Platform Software</h2>
 <div class="outline-text-2" id="text-4">
-<ol class="org-ol">
-<li>RYU 控制器安装启动
+<ul class="org-ul">
+<li>CPU
+<ul class="org-ul">
+<li>Modular COM Express Type 6
 </li>
-<li>仿真工具建立一个简单的拓扑
+<li>PCIe Gen2/3 x4
 </li>
-<li>控制器和交换机（仿真拓扑）的对接
+<li>Intel Xeon D-1517
+<ul class="org-ul">
+<li>4 Core@2.2GHz
 </li>
-<li>验证
+<li>8GB DDR4 SDRAM
 </li>
-</ol>
+<li>128GB M.2 SSD
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>BMC
+<ul class="org-ul">
+<li>ASPEED AST1250A1-GP
+</li>
+<li>400MHz
+</li>
+</ul>
+</li>
+<li>Platform Software
+<ul class="org-ul">
+<li>OpenBMC
+</li>
+<li>ONIE
+</li>
+<li>ONL
+</li>
+<li>Debian
+</li>
+</ul>
+</li>
+</ul>
 </div>
 </div>
-
 
 <div id="outline-container-sec-5" class="outline-2">
-<h2 id="sec-5"><span class="section-number-2">5</span> 了解流表</h2>
+<h2 id="sec-5"><span class="section-number-2">5</span> Wedge 100B Series – A Summary</h2>
 <div class="outline-text-2" id="text-5">
-<ol class="org-ol">
-<li>查看
+<ul class="org-ul">
+<li>Two platforms
+<ul class="org-ul">
+<li>Wedge  100BF-32X - 1RU 32x100GE
 </li>
-<li>增加删除修改
+<li>Wedge  100BF-65X - 2RU 65x100GE
 </li>
-<li>匹配项
+</ul>
 </li>
-<li>动作
+<li>Derived from Wedge 100
 </li>
-</ol>
-</div>
-</div>
-
-<div id="outline-container-sec-6" class="outline-2">
-<h2 id="sec-6"><span class="section-number-2">6</span> RYU控制器初步</h2>
-<div class="outline-text-2" id="text-6">
-<ol class="org-ol">
-<li>控制器框架
+<li>Includes several cost and quality enhancements
 </li>
-<li>事件驱动
+<li>User-programmable forwarding plane using P4, Tofino &amp; Capilano
 </li>
-<li>一个简单的APP（HUB）
+<li>Includes the World’s Fastest and Fully Programmable Ethernet Switch ASIC
 </li>
-</ol>
-</div>
-</div>
-
-<div id="outline-container-sec-7" class="outline-2">
-<h2 id="sec-7"><span class="section-number-2">7</span> 进阶应用</h2>
-<div class="outline-text-2" id="text-7">
-<ol class="org-ol">
-<li>simpleswitch
-</li>
-<li>arp proxy
-</li>
-<li>security （自定义策略）
-<ol class="org-ol">
-<li>Firewall
-</li>
-<li>QOS
-</li>
-</ol>
-</li>
-<li>RYU: Dijkstra 算法
-</li>
-</ol>
-</div>
-</div>
-
-<div id="outline-container-sec-8" class="outline-2">
-<h2 id="sec-8"><span class="section-number-2">8</span> 实体交换机验证</h2>
-<div class="outline-text-2" id="text-8">
-<ol class="org-ol">
-<li>在实体交换机上验证自己的APP
-</li>
-</ol>
+</ul>
 </div>
 </div>
                 </article>
@@ -224,23 +179,23 @@
 
             <li><article class="hentry">
                 <header>
-                    <h1><a href="/product/barefoot.html" rel="bookmark"
-                           title="Permalink to Barefoot P4 Switch">Barefoot P4 Switch</a></h1>
+                    <h1><a href="/lab/jiaxuedagang.html" rel="bookmark"
+                           title="Permalink to SDN 教学大纲">SDN 教学大纲</a></h1>
                 </header>
 
                 <div class="entry-content">
 <footer class="post-info">
-        <abbr class="published" title="2017-10-20T00:00:00+08:00">
-                Published: Fri 20 October 2017
+        <abbr class="published" title="2017-10-21T00:00:00+08:00">
+                Published: Sat 21 October 2017
         </abbr>
 
         <address class="vcard author">
-                By                         <a class="url fn" href="/author/bill.html">bill</a>
+                By                         <a class="url fn" href="/author/servicetooyumcom.html">service@tooyum.com</a>
         </address>
-<p>In <a href="/category/chan-pin.html">产品</a>.</p>
-<p>tags: <a href="/tag/sdn.html">sdn</a> <a href="/tag/openflow.html">openflow</a> <a href="/tag/p4.html">p4</a> <a href="/tag/tofino.html">tofino</a> <a href="/tag/barefoot.html">barefoot</a> <a href="/tag/onie.html">onie</a> <a href="/tag/capilano.html">capilano</a> </p>
-</footer><!-- /.post-info -->                Barefoot P4 交换机概况
-                <a class="readmore" href="/product/barefoot.html">read more</a>
+<p>In <a href="/category/shi-yan.html">实验</a>.</p>
+<p>tags: <a href="/tag/ryu.html">ryu</a> <a href="/tag/openflow.html">openflow</a> <a href="/tag/mininet.html">mininet</a> <a href="/tag/estinet.html">estinet</a> </p>
+</footer><!-- /.post-info -->                一个简单的教学大纲,
+                <a class="readmore" href="/lab/jiaxuedagang.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
 
