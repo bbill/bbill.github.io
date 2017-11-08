@@ -12,34 +12,37 @@ var links = [{
         args: {
             id: 'harttle'
         }
+    },{
+        plugin: 'google-plus',
+        args: {
+            id: 'weilai.long'
+        }
     }, {
         plugin: 'weibo', 
         args: {
-            appid: 'xxx',
-            source: 'http://harttle.com'
+            source: 'http://tooyum.com'
         }
     }, {
         plugin: 'wechat'
     }, {
-        plugin: 'qrcode',
-        url: 'http://harttle.com'
+        plugin: 'qrcode'
     }, {
         plugin: 'linkedin',
         args: {
-            id: 'harttle'
+            id: 'william long'
         }
     }, {
         plugin: 'rss',
-        url: 'http://harttle.com/feed.xml'
+        url: 'https://bbill.github.io/feeds/all.atom.xml'
     }, {
         plugin: 'github',
         args: {
-            id: 'harttle'
+            id: 'bbill'
         }
     }, {
         plugin: 'twitter',
         args: {
-            id: 'harttleharttle'
+            id: ''
         }
     }];
 

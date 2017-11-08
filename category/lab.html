@@ -22,7 +22,595 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/lab/upgrade_P-3290.html">在P-3290 系统上安装 PicOS 操作系统</a></h1>
+                    <h1 class="entry-title"><a href="/pica8_quick_start.html">Pica8 白盒交换机快速上手</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2017-11-08T00:00:00+08:00">
+                Published: Wed 08 November 2017
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/bill.html">bill</a>
+        </address>
+<p>In <a href="/category/lab.html">lab</a>.</p>
+<p>tags: <a href="/tag/pica.html">pica</a> <a href="/tag/white-box.html">white box</a> <a href="/tag/openflow.html">openflow</a> <a href="/tag/sdn.html">sdn</a> </p>
+</footer><!-- /.post-info --><div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. 初始设置和访问</a>
+<ul>
+<li><a href="#sec-1-1">1.1. 登陆交换机</a></li>
+<li><a href="#sec-1-2">1.2. 设定默认启动模式</a></li>
+<li><a href="#sec-1-3">1.3. 设置 Openflow SDN网络</a></li>
+</ul>
+</li>
+<li><a href="#sec-2">2. TAP简单上手</a></li>
+<li><a href="#sec-3">3. 软件版本升级</a></li>
+<li><a href="#sec-4">4. 手册及参考</a></li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> 初始设置和访问</h2>
+<div class="outline-text-2" id="text-1">
+</div><div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1"><span class="section-number-3">1.1</span> 登陆交换机</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+交换机开箱后的初始登录，可以通过 串口(RJ45)来进行。 找到交换机 的console
+口(一般会标有Con)。通过windows 主机上的超级终端工具，或者putty,
+securecrt 等 终端工具，配置串口参数为 115200,
+8/N/1,硬件流控设为没有（关闭）.后即可 登录。默认用户名 admin ，密码
+<b>pica8</b> 。
+</p>
+
+
+<div class="figure">
+<p><img src="http://www.tooyum.com/images/rs232.png" alt="rs232.png" />
+</p>
+</div>
+<pre class="example">
+PicOS-OVS login: admin
+Password:
+
+admin@XorPlus$
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2"><span class="section-number-3">1.2</span> 设定默认启动模式</h3>
+<div class="outline-text-3" id="text-1-2">
+<ol class="org-ol">
+<li>验证当前Pica8模式 [sec-4-0-0-1]
+
+<p>
+通过发出下面的命令检查PICOS交换机 的当前模式。
+</p>
+
+<pre class="example">
+admin@XorPlus$ps -ef | grep xorp | grep -v grep
+admin@XorPlus$ps -ef | grep ovs | grep -v grep
+admin@XorPlus$
+admin@XorPlus$
+</pre>
+
+<p>
+如果有xorp 进程输出表明目前处于传统模式（可通过crossflow
+支持混杂），如 果有ovs 输出则为纯 SDN模式。
+</p>
+
+<p>
+默认启动模式可以通过如下命令向导进行切换，以切换到 SDN模式为例：
+</p>
+</li>
+
+<li>运行Pica8模式切换程序 [sec-4-0-0-2]
+
+<p>
+由于我们建立Pica8交换机的SDN应用程序，我们将把交换机设为
+OVS模式以支持 OpenFlow。要做到这一点，我们将运行Pica8模式切换程序。
+</p>
+
+<p>
+在命令行中输入'sudo picos<sub>boot'</sub> ，当系统提示时输入' 2 '
+选择OVS模式。
+</p>
+
+<pre class="example">
+admin@XorPlus$sudo picos_boot
+Please configure the default system start-up options:
+ (Press other key if no change)
+    [1]  PicOS L2/L3
+    [2]  PicOS Open vSwitch/OpenFlow
+    [3]  No start-up options   * default
+Enter your choice (1,2,3):2
+</pre>
+
+<p>
+接下来的一系列提示将设置 eth0接口 IP地址
+。OpenFlow的包和SSH通信将使用
+这个IP地址。输入IP地址，子网掩码和默认网关。
+</p>
+
+<pre class="example">
+PicOS Open vSwitch/OpenFlow is selected.
+
+Note: Defaultly, the OVS server is runned with static local management IP and port 6640.
+The default way of vswitch connecting to server is PTCP.
+
+Please set a static IP and netmask for the switch (e.g. 128.0.0.10/24) : 192.168.16.101/24
+
+Please set the gateway IP (e.g 172.168.1.2):192.168.16.1
+
+admin@XorPlus$
+</pre>
+</li>
+
+<li>启动PicOS 服务 [sec-4-0-0-3]
+
+<p>
+验证PICOS模式的改变。启动PICOS服务 'sudo service picos start'
+来应用这 个改变
+</p>
+
+<pre class="example">
+admin@XorPlus$sudo service picos start
+[....] Stopping enhanced syslogd: rsyslogd.
+[....] Starting enhanced syslogd: rsyslogd.
+[....] Stopping internet superserver: xinetd.
+[....] Restarting OpenBSD Secure Shell server: sshd.
+[....] Create OVS database file.
+RTNETLINK answers: No such process
+[....] Starting: PicOS Open vSwitch/OpenFlow.
+[....] Starting web server: lighttpd.
+</pre>
+</li>
+
+<li>验证 PicOS 模式 [sec-4-0-0-4]
+
+<p>
+验证对 'picos\<sub>start</sub>.conf' 文件的改变。
+</p>
+
+<pre class="example">
+admin@XorPlus$more /etc/picos/picos_start.conf
+# configuration file for PicOS
+
+[PICOS]
+picos_start=ovs
+
+[XORPPLUS]
+xorpplus_rtrmgr_verbose=
+xorpplus_log_facility=local0
+xorpplus_finder_client_address=127.0.0.1
+xorpplis_finder_server_address=127.0.0.1
+
+[OVS]
+ovs_database_file=/ovs/ovs-vswitchd.conf.db
+ovs_db_sock_file=/ovs/var/run/openvswitch/db.sock
+ovs_switch_ip_address=192.168.16.101
+ovs_switch_ip_netmask=255.255.255.0
+ovs_switch_gateway_ip=192.168.16.1
+ovs_switch_tcp_port=6633
+ovs_host_name=PicOS-OVS
+
+[ZTP]
+ztp_disable=false
+</pre>
+
+<p>
+验证OVS进程正在运行:
+</p>
+
+<p>
+如果进程输出如下，则Pica8 交换机运行在 OVS/Openflow 模式下。
+</p>
+
+<pre class="example">
+admin@XorPlus$ps -ef | grep ovs | grep -v grep
+root      3182     1  0 05:26 ttyS0    00:00:00 ovsdb-server /ovs/ovs-vswitchd.conf.db --remote=ptcp:6633:192.168.16.101 --remote=punix:/ovs/var/run/openvswitch/db.sock
+root      3184     1  0 05:26 ttyS0    00:00:00 ovs-vswitchd --pidfile=ovs-vswitchd.pid --overwrite-pidfile
+</pre>
+
+<p>
+现在重新启动交换机，以确保配置是持久的。这可能需要几分钟的时间才能完成。
+</p>
+
+<pre class="example">
+admin@XorPlus$sudo reboot
+
+Broadcast message from root@PicOS-OVS (ttyS0) (Tue Oct 21 05:47:19 2014):
+
+The system is going down for reboot NOW!
+</pre>
+</li>
+
+<li>验证 Pica8 网络连通性 [sec-4-0-0-5]
+
+<p>
+一旦重启完成后，作为管理员重新登录，检查和验证eth0接口到默认
+网关的网络连接。需要注意的是主机名已经按照‘ picos\<sub>start</sub>.conf
+“文件更改。
+</p>
+
+<pre class="example">
+admin@PicOS-OVS$ifconfig eth0
+eth0      Link encap:Ethernet  HWaddr 48:6e:73:02:00:22
+          inet addr:192.168.16.101  Bcast:192.168.16.255  Mask:255.255.255.0
+          inet6 addr: fe80::4a6e:73ff:fe02:22/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:8 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:15 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:608 (608.0 B)  TX bytes:3082 (3.0 KiB)
+          Base address:0x2000
+
+admin@PicOS-OVS$
+admin@PicOS-OVS$ping 192.168.16.1
+PING 192.168.16.1 (192.168.16.1) 56(84) bytes of data.
+64 bytes from 192.168.16.1: icmp_req=1 ttl=64 time=32.7 ms
+64 bytes from 192.168.16.1: icmp_req=2 ttl=64 time=2.00 ms
+64 bytes from 192.168.16.1: icmp_req=3 ttl=64 time=0.939 ms
+^C
+--- 192.168.16.1 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2002ms
+rtt min/avg/max/mdev = 0.939/11.900/32.754/14.752 ms
+</pre>
+</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-sec-1-3" class="outline-3">
+<h3 id="sec-1-3"><span class="section-number-3">1.3</span> 设置 Openflow SDN网络</h3>
+<div class="outline-text-3" id="text-1-3">
+<ol class="org-ol">
+<li>创建虚拟交换机 [sec-4-0-0-6]
+
+<p>
+接下来的步骤将指导如何创建使用OpenFlow的一个基本的桥(虚拟交换机)。
+</p>
+
+<p>
+在开始设定之前需要确认交换机的license
+是否激活，在交换机的命令行界面里执行
+</p>
+
+<pre class="example">
+license -s
+</pre>
+
+<p>
+如果显示：
+</p>
+
+<pre class="example">
+No license installed.Use below information to create a license
+</pre>
+
+<p>
+&#x2026;
+</p>
+
+<p>
+请将输出的Hardware ID，发邮件到 service@tooyum.com,
+我们会帮助申请license，并发回。 您收到 file.lic
+文件后将该文件复制到交换机的 /etc 目录下。或者创建一个新的文件并
+将file.lic 文件的内容复制到该文件中。 然后在交换机上执行
+</p>
+
+<pre class="example">
+sudo license -i /etc/file.lic
+</pre>
+
+<p>
+并再次执行
+</p>
+
+<pre class="example">
+license -s
+</pre>
+
+<p>
+以确认 license 成功导入。
+</p>
+
+<p>
+在成功激活所有端口后，可以使用如下 open vSwitch
+命令,创建一个虚拟交换机br0。以命令行为例：
+</p>
+
+<pre class="example">
+admin@PicOS-OVS$ovs-vsctl add-br br0 -- set bridge br0 datapath_type=pica8
+
+device ovs-pica8 entered promiscuous mode
+device br0 entered promiscuous mode
+admin@PicOS-OVS$
+</pre>
+</li>
+
+<li>验证虚拟交换机 [sec-4-0-0-7]
+
+<p>
+下一步验证桥已成功创建。
+</p>
+
+<pre class="example">
+admin@PicOS-OVS$ovs-ofctl show br0
+OFPT_FEATURES_REPLY (OF1.4) (xid=0x2): dpid:5e3ea67edf6c5f60
+n_tables:254, n_buffers:256
+capabilities: FLOW_STATS TABLE_STATS PORT_STATS GROUP_STATS
+OFPST_PORT_DESC reply (OF1.4) (xid=0x4):
+ LOCAL(br0): addr:a6:7e:df:6c:5f:60
+     config:     0
+     state:      LINK_UP
+     current:    10MB-FD COPPER
+     supported:  10MB-FD COPPER
+     speed: 10 Mbps now, 10 Mbps max
+OFPT_GET_CONFIG_REPLY (OF1.4) (xid=0x6): frags=normal miss_send_len=0
+</pre>
+
+<p>
+问：br0 包含物理接口吗？
+</p>
+
+<p>
+回答：不包含。虽然虚拟交换机已经创建，物理接口需要被添加到虚拟交换机。
+</p>
+</li>
+
+<li>给虚拟交换机加入接口 [sec-4-0-0-8]
+
+<p>
+接下来，我们将添加物理接口给虚拟交换机br0。实验拓扑结构，我们将加入
+GE-1/1/1 ， GE-1/1/2 ，和GE-1/1/48,请注意，务必正确输入下面命令。
+</p>
+
+<pre class="example">
+admin@PicOS-OVS$ovs-vsctl add-port br0 ge-1/1/1 vlan_mode=access tag=10 -- set Interface ge-1/1/1 type=pica8
+admin@PicOS-OVS$ovs-vsctl add-port br0 ge-1/1/2 vlan_mode=access tag=10 -- set Interface ge-1/1/2 type=pica8
+admin@PicOS-OVS$ovs-vsctl add-port br0 ge-1/1/48 -- set Interface ge-1/1/48 type=pica8
+admin@PicOS-OVS$
+</pre>
+</li>
+
+<li>验证虚拟交换机连接 [sec-4-0-0-9]
+
+<p>
+我们可以使用相同的命令验证对br0的修改。
+</p>
+
+<pre class="example">
+admin@PicOS-OVS$ovs-ofctl show br0
+OFPT_FEATURES_REPLY (OF1.4) (xid=0x2): dpid:5e3e486e73020023
+n_tables:254, n_buffers:256
+capabilities: FLOW_STATS TABLE_STATS PORT_STATS GROUP_STATS
+OFPST_PORT_DESC reply (OF1.4) (xid=0x4):
+ 1(ge-1/1/1): addr:48:6e:73:02:00:23
+     config:     0
+     state:      LINK_UP
+     current:    1GB-FD COPPER AUTO_NEG
+     advertised: 10MB-HD 10MB-FD 100MB-HD 100MB-FD 1GB-FD COPPER AUTO_NEG
+     supported:  10MB-HD 10MB-FD 100MB-HD 100MB-FD 1GB-FD COPPER AUTO_NEG
+     peer:       10MB-HD 10MB-FD 100MB-HD 100MB-FD 1GB-FD COPPER
+     speed: 1000 Mbps now, 1000 Mbps max
+ 2(ge-1/1/2): addr:48:6e:73:02:00:23
+     config:     0
+     state:      LINK_UP
+     current:    1GB-FD COPPER AUTO_NEG
+     advertised: 10MB-HD 10MB-FD 100MB-HD 100MB-FD 1GB-FD COPPER AUTO_NEG
+     supported:  10MB-HD 10MB-FD 100MB-HD 100MB-FD 1GB-FD COPPER AUTO_NEG
+     peer:       10MB-HD 10MB-FD 100MB-HD 100MB-FD 1GB-FD COPPER
+     speed: 1000 Mbps now, 1000 Mbps max
+ 48(ge-1/1/48): addr:48:6e:73:02:00:23
+     config:     0
+     state:      LINK_UP
+     current:    1GB-FD COPPER AUTO_NEG
+     advertised: 10MB-HD 10MB-FD 100MB-HD 100MB-FD 1GB-FD COPPER AUTO_NEG
+     supported:  10MB-HD 10MB-FD 100MB-HD 100MB-FD 1GB-FD COPPER AUTO_NEG
+     peer:       10MB-HD 10MB-FD 100MB-HD 100MB-FD 1GB-FD COPPER
+     speed: 1000 Mbps now, 1000 Mbps max
+ LOCAL(br0): addr:48:6e:73:02:00:23
+     config:     0
+     state:      LINK_UP
+     current:    10MB-FD COPPER
+     supported:  10MB-FD COPPER
+     speed: 10 Mbps now, 10 Mbps max
+OFPT_GET_CONFIG_REPLY (OF1.4) (xid=0x6): frags=normal miss_send_len=0
+admin@PicOS-OVS$
+</pre>
+
+<p>
+问：在交换机上运行什么版本的OpenFlow？
+</p>
+
+<p>
+答：如OFPT\<sub>GET\</sub><sub>CONFIG\</sub><sub>REPLY</sub> 所示，PicOS
+2.4.1交换机默认运行OF1.4。
+</p>
+</li>
+
+<li>测试主机连接 [sec-4-0-0-10]
+
+<p>
+vBridge添加物理端口后，我们将试图通过Pica8交换机转发一些数据包。从连接在1口上的主机ping
+2口上连接的主机。
+</p>
+
+<pre class="example">
+pica8@of-dev01-traff01:~$ ping 10.10.11.3
+PING 10.10.11.3 (10.10.11.3) 56(84) bytes of data.
+^C
+--- 10.10.11.3 ping statistics ---
+3 packets transmitted, 0 received, +1 errors, 100% packet loss, time 2000ms
+</pre>
+
+<p>
+ping失败，是因为Pica8交换机尚未连接到OpenFlow控制器。由
+于Pica8遵循OpenFlow的标准，不匹配任何流规则的流量包，应首先通 过
+OFPT\<sub>PACKET\</sub><sub>OUT</sub> 消息重定向到控制器。
+</p>
+</li>
+
+<li>验证控制器可达 [sec-4-0-0-11]
+
+<p>
+我们必须配置交换机连接到通过OpenFlow的控制器。
+</p>
+
+<pre class="example">
+admin@PicOS-OVS$ping 192.168.16.82 -c 3
+PING 192.168.16.82 (192.168.16.82) 56(84) bytes of data.
+64 bytes from 192.168.16.82: icmp_req=1 ttl=64 time=3.28 ms
+64 bytes from 192.168.16.82: icmp_req=2 ttl=64 time=0.393 ms
+64 bytes from 192.168.16.82: icmp_req=3 ttl=64 time=0.458 ms
+
+--- 192.168.16.82 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2001ms
+rtt min/avg/max/mdev = 0.393/1.378/3.284/1.348 ms
+</pre>
+</li>
+
+<li>配置Pica8交换机连接到Ryu Openflow 控制器。 [sec-4-0-0-12]
+
+<p>
+配置Pica8交换机连接到通过对应的 Ryu 控制器。
+</p>
+
+<pre class="example">
+admin@PicOS-OVS$
+admin@PicOS-OVS$ovs-vsctl set-controller br0 tcp:192.168.16.82:6633
+admin@PicOS-OVS$
+</pre>
+</li>
+
+<li>验证OpenFlow的连接 [sec-4-0-0-13]
+
+<p>
+验证Pica8 交换机 有一个到端口6633的连接 。
+</p>
+
+<pre class="example">
+admin@PicOS-OVS$
+admin@PicOS-OVS$netstat -n | grep 6633
+admin@PicOS-OVS$
+</pre>
+
+<p>
+问：交换机和控制器是否打开了一个会话？
+</p>
+
+<p>
+答：不可以，要搞清楚OpenFlow的各种设备支持哪些版本。回想一下我们以前的步骤，
+所述交换机默认为OF1.4
+。也许我们的应用程序不支持默认版本。请注意，您还
+可以看到会话状态处于TIME\<sub>WAIT或FIN\</sub><sub>WAIT2</sub> 状态。
+</p>
+</li>
+
+<li>设置 OpenFlow 版本 [sec-4-0-0-14]
+
+<p>
+我们将试图通过设置交换机的OpenFlow的版本为1.3来解决交换机和控制器之间的问题：
+。在交换机上使用下面的命令进行此更改。
+</p>
+
+<pre class="example">
+admin@PicOS-OVS$
+admin@PicOS-OVS$ovs-vsctl set Bridge br0 protocols=OpenFlow13
+admin@PicOS-OVS$
+</pre>
+</li>
+
+<li>验证OpenFlow的连接 [sec-4-0-0-15]
+
+<p>
+运行'netstat -n | grep 6633'命令，看看是否已经解决了问题。
+</p>
+
+<pre class="example">
+admin@PicOS-OVS$netstat -n | grep 6633
+tcp        0      0 192.168.16.101:56974    192.168.16.82:6633      ESTABLISHED
+admin@PicOS-OVS$
+</pre>
+
+<p>
+问：交换机打开了和控制器的会话吗？
+</p>
+
+<p>
+答：是的！成功，我们已经通过OpenFlow的控制器连接到Pica8交换机。
+</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> TAP简单上手</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+系统启动后，将需要设定的流表命令追加到/etc/rc3.d/S06tap，如果要确认效果，可以执行
+</p>
+
+<pre class="example">
+source /etc/rc3.d/S06tap
+</pre>
+
+<p>
+用类似如下命令查看生效的流表：
+</p>
+
+<pre class="example">
+ovs-ofctl dump-flows br0
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> 软件版本升级</h2>
+</div>
+
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> 手册及参考</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+由于产品版本更新较快，随机并没有附操作手册。
+</p>
+
+<p>
+Pica8 交换机的配置文档主要有:
+</p>
+
+<p>
+在OVS模式下的纯OpenFlow配置手册及传统交换机（二、三层）配置手册请访问
+<a href="https://pan.baidu.com/s/1c2zpZeK">https://pan.baidu.com/s/1c2zpZeK</a>
+</p>
+
+<p>
+如果要查找最新的文档请参考
+<a href="http://www.pica8.com/support/documentation/">Pica8 文档</a>.
+</p>
+</div>
+</div>
+                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/lab/upgrade_P-3290.html" rel="bookmark"
+                           title="Permalink to 在P-3290 系统上安装 PicOS 操作系统">在P-3290 系统上安装 PicOS 操作系统</a></h1>
+                </header>
+
+                <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2017-10-16T00:00:00+08:00">
                 Published: Mon 16 October 2017
@@ -33,7 +621,7 @@
         </address>
 <p>In <a href="/category/lab.html">lab</a>.</p>
 <p>tags: <a href="/tag/p-3290.html">P-3290</a> <a href="/tag/upgrade.html">upgrade</a> <a href="/tag/pica8.html">pica8</a> <a href="/tag/sdn.html">sdn</a> <a href="/tag/openflow.html">openflow</a> <a href="/tag/baremetal.html">baremetal</a> </p>
-</footer><!-- /.post-info --><div id="table-of-contents">
+</footer><!-- /.post-info -->                <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
@@ -73,24 +661,10 @@ press any key to stop autoboot 时，按回车
 
 <pre class="src src-bash">cd /cf_card
 rm –rf [a-y]* 
-tftp -gr picos-2.9.2.5-P3290-30f7332.tar.gz -l z.tgz 192.168.10.250
-tar xzvf z.tgz
-sync
-reboot
-</pre>
-</div>
-
-<p>
-重启交换机确认，系统已经更新至最新版本。
-</p>
-</div>
-</div>
-                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
+tftp -gr picos-2.9.2.5-P3290-30f7332.tar.gz -l z.tgz 192.168 ...</pre></div></div></div>
+                <a class="readmore" href="/lab/upgrade_P-3290.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>
