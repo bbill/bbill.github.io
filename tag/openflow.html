@@ -217,7 +217,7 @@ root      3184     1  0 05:26 ttyS0    00:00:00 ovs-vswitchd --pidfile=ovs-vswit
 </pre>
 
 <p>
-现在重新启动交换机，以确保配置是持久的。这可能需要几分钟的时间才能完成。
+现在重新启动交换机，以确保配置是持久的。这可能需要几分钟的时间才能完成。(如果确认 /etc/picos/picos<sub>start</sub>.conf 已经成功修改，则此步骤可以省略）
 </p>
 
 <pre class="example">
@@ -274,6 +274,8 @@ rtt min/avg/max/mdev = 0.939/11.900/32.754/14.752 ms
 <p>
 接下来的步骤将指导如何创建使用OpenFlow的一个基本的桥(虚拟交换机)。
 </p>
+<ol class="org-ol">
+<li>license 检查
 
 <p>
 在开始设定之前需要确认交换机的license
@@ -297,10 +299,10 @@ No license installed.Use below information to create a license
 </p>
 
 <p>
-请将输出的Hardware ID，发邮件到 service@tooyum.com,
-我们会帮助申请license，并发回。 您收到 file.lic
-文件后将该文件复制到交换机的 /etc 目录下。或者创建一个新的文件并
-将file.lic 文件的内容复制到该文件中。 然后在交换机上执行
+请将输出的Hardware ID，发邮件到 service@tooyum.com,我们会帮助申
+请license，并发回。 您收到 file.lic文件后将该文件复制到交换机的
+/etc 目录下。或者创建一个新的文件并将file.lic 文件的内容复制到
+该文件中。 然后在交换机上执行
 </p>
 
 <pre class="example">
@@ -318,6 +320,9 @@ license -s
 <p>
 以确认 license 成功导入。
 </p>
+</li>
+
+<li>船舰虚拟交换机
 
 <p>
 在成功激活所有端口后，可以使用如下 open vSwitch
@@ -331,6 +336,8 @@ device ovs-pica8 entered promiscuous mode
 device br0 entered promiscuous mode
 admin@PicOS-OVS$
 </pre>
+</li>
+</ol>
 </li>
 
 <li>验证虚拟交换机 [sec-4-0-0-7]
@@ -371,13 +378,51 @@ GE-1/1/1 ， GE-1/1/2 ，和GE-1/1/48,请注意，务必正确输入下面命令
 </p>
 
 <pre class="example">
-admin@PicOS-OVS$ovs-vsctl add-port br0 ge-1/1/1 vlan_mode=access tag=10 -- set Interface ge-1/1/1 type=pica8
-admin@PicOS-OVS$ovs-vsctl add-port br0 ge-1/1/2 vlan_mode=access tag=10 -- set Interface ge-1/1/2 type=pica8
-admin@PicOS-OVS$ovs-vsctl add-port br0 ge-1/1/48 -- set Interface ge-1/1/48 type=pica8
+admin@PicOS-OVS$ovs-vsctl add-port br0 ge-1/1/1 vlan_mode=trunk tag=1 -- set interface ge-1/1/1 type=pica8
+admin@PicOS-OVS$ovs-vsctl add-port br0 ge-1/1/2 vlan_mode=trunk tag=1 -- set interface ge-1/1/2 type=pica8
+admin@PicOS-OVS$ovs-vsctl add-port br0 ge-1/1/48 vlan_mode=trunk tag=1 -- set interface ge-1/1/48 type=pica8
 admin@PicOS-OVS$
 </pre>
-</li>
 
+<p>
+如果您需要连续的加入每个千兆端口则可以用一个 for 循环来简化输入,以24口千兆+4口万兆交换机为例：
+</p>
+
+<p>
+添加千兆端口
+</p>
+
+<pre class="example">
+for i in $(seq 1 24);do ovs-vsctl add-port br0 ge-1/1/$i vlan_mode=trunk tag=1 -- set interface ge-1/1/$i type=pica8;done
+</pre>
+
+<p>
+添加万兆端口，万兆端口的编号视不同平台不同，可能是 （25~28，49~52等请根据实际情况调整）。
+</p>
+
+<pre class="example">
+for i in $(seq 25 28);do ovs-vsctl add-port br0 te-1/1/$i vlan_mode=trunk tag=1 -- set interface te-1/1/$i type=pica8;done
+</pre>
+</li>
+</ol>
+
+
+<p>
+一般来说采用outband模式进行SDN网络管理无须额外设定，但是如果测试时
+ 为了方便将SDN交换机的数据端口和管理端口挂接在相同的二层网络里可能
+ 会导致交换机触发inband相关配置（因为在PicOS 2.4 以后默认的连接方式
+ 为 in-band），为了规避可能的问题，可以用如下命令禁用：
+</p>
+
+
+<pre class="example">
+ovs-vsctl set bridge br0 other_config=disable-in-band=true
+</pre>
+
+
+
+
+<ol class="org-ol">
 <li>验证虚拟交换机连接 [sec-4-0-0-9]
 
 <p>

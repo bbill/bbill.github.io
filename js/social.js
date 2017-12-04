@@ -10,17 +10,17 @@ var links = [{
     },{
         plugin: 'facebook',
         args: {
-            id: 'harttle'
+
         }
     },{
         plugin: 'google-plus',
         args: {
-            id: 'weilai.long'
+
         }
     }, {
         plugin: 'weibo', 
         args: {
-            source: 'http://tooyum.com'
+
         }
     }, {
         plugin: 'wechat'
@@ -29,7 +29,7 @@ var links = [{
     }, {
         plugin: 'linkedin',
         args: {
-            id: 'william long'
+
         }
     }, {
         plugin: 'rss',
@@ -37,7 +37,7 @@ var links = [{
     }, {
         plugin: 'github',
         args: {
-            id: 'bbill'
+
         }
     }, {
         plugin: 'twitter',
