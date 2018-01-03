@@ -22,10 +22,10 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/pica8_quick_start.html">Pica8 白盒交换机快速上手</a></h1>
+                    <h1 class="entry-title"><a href="/lab/pica8_quick_start.html">Pica8 白盒交换机快速上手</a></h1>
 <footer class="post-info">
-        <abbr class="published" title="2017-11-08T00:00:00+08:00">
-                Published: Wed 08 November 2017
+        <abbr class="published" title="2018-01-02T00:00:00+08:00">
+                Published: Tue 02 January 2018
         </abbr>
 
         <address class="vcard author">
@@ -403,9 +403,15 @@ for i in $(seq 1 24);do ovs-vsctl add-port br0 ge-1/1/$i vlan_mode=trunk tag=1 -
 <pre class="example">
 for i in $(seq 25 28);do ovs-vsctl add-port br0 te-1/1/$i vlan_mode=trunk tag=1 -- set interface te-1/1/$i type=pica8;done
 </pre>
-</li>
-</ol>
 
+<p>
+5101 添加所有端口可以采用如下命令：
+</p>
+
+<pre class="example">
+for i in $(seq 1 40);do ovs-vsctl add-port br0 te-1/1/$i vlan_mode=trunk tag=1 -- set interface te-1/1/$i type=pica8;done
+for i in $(seq 41 48);do ovs-vsctl add-port br0 qe-1/1/$i vlan_mode=trunk tag=1 -- set interface qe-1/1/$i type=pica8;done
+</pre>
 
 <p>
 一般来说采用outband模式进行SDN网络管理无须额外设定，但是如果测试时
@@ -413,6 +419,8 @@ for i in $(seq 25 28);do ovs-vsctl add-port br0 te-1/1/$i vlan_mode=trunk tag=1 
  会导致交换机触发inband相关配置（因为在PicOS 2.4 以后默认的连接方式
  为 in-band），为了规避可能的问题，可以用如下命令禁用：
 </p>
+</li>
+</ol>
 
 
 <pre class="example">

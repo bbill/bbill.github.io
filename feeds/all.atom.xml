@@ -34,9 +34,10 @@ securecrt 等 终端工具，配置串口参数为 115200,
 
 
 &lt;div class="figure"&gt;
-&lt;p&gt;&lt;img src="./fig/rs232.png" alt="rs232.png" /&gt;
+&lt;p&gt;&lt;img src="http://www.tooyum.com/images/rs232.png" alt="rs232.png" width="300px" /&gt;
 &lt;/p&gt;
 &lt;/div&gt;
+
 &lt;pre class="example"&gt;
 PicOS-OVS login: admin
 Password:
@@ -81,7 +82,7 @@ OVS模式以支持 OpenFlow。要做到这一点，我们将运行Pica8模式切
 &lt;/p&gt;
 
 &lt;p&gt;
-在命令行中输入'sudo picos\&lt;sub&gt;boot'&lt;/sub&gt; ，当系统提示时输入' 2 '
+在命令行中输入'sudo picos&lt;sub&gt;boot'&lt;/sub&gt; ，当系统提示时输入' 2 '
 选择OVS模式。
 &lt;/p&gt;
 
@@ -182,7 +183,7 @@ root      3184     1  0 05:26 ttyS0    00:00:00 ovs-vswitchd --pidfile=ovs-vswit
 &lt;/pre&gt;
 
 &lt;p&gt;
-现在重新启动交换机，以确保配置是持久的。这可能需要几分钟的时间才能完成。
+现在重新启动交换机，以确保配置是持久的。这可能需要几分钟的时间才能完成。(如果确认 /etc/picos/picos&lt;sub&gt;start&lt;/sub&gt;.conf 已经成功修改，则此步骤可以省略）
 &lt;/p&gt;
 
 &lt;pre class="example"&gt;
@@ -239,6 +240,8 @@ rtt min/avg/max/mdev = 0.939/11.900/32.754/14.752 ms
 &lt;p&gt;
 接下来的步骤将指导如何创建使用OpenFlow的一个基本的桥(虚拟交换机)。
 &lt;/p&gt;
+&lt;ol class="org-ol"&gt;
+&lt;li&gt;license 检查
 
 &lt;p&gt;
 在开始设定之前需要确认交换机的license
@@ -262,10 +265,10 @@ No license installed.Use below information to create a license
 &lt;/p&gt;
 
 &lt;p&gt;
-请将输出的Hardware ID，发邮件到 service@tooyum.com,
-我们会帮助申请license，并发回。 您收到 file.lic
-文件后将该文件复制到交换机的 /etc 目录下。或者创建一个新的文件并
-将file.lic 文件的内容复制到该文件中。 然后在交换机上执行
+请将输出的Hardware ID，发邮件到 service@tooyum.com,我们会帮助申
+请license，并发回。 您收到 file.lic文件后将该文件复制到交换机的
+/etc 目录下。或者创建一个新的文件并将file.lic 文件的内容复制到
+该文件中。 然后在交换机上执行
 &lt;/p&gt;
 
 &lt;pre class="example"&gt;
@@ -283,6 +286,9 @@ license -s
 &lt;p&gt;
 以确认 license 成功导入。
 &lt;/p&gt;
+&lt;/li&gt;
+
+&lt;li&gt;船舰虚拟交换机
 
 &lt;p&gt;
 在成功激活所有端口后，可以使用如下 open vSwitch
@@ -296,6 +302,8 @@ device ovs-pica8 entered promiscuous mode
 device br0 entered promiscuous mode
 admin@PicOS-OVS$
 &lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
 &lt;/li&gt;
 
 &lt;li&gt;验证虚拟交换机 [sec-4-0-0-7]
@@ -336,13 +344,59 @@ GE-1/1/1 ， GE-1/1/2 ，和GE-1/1/48,请注意，务必正确输入下面命令
 &lt;/p&gt;
 
 &lt;pre class="example"&gt;
-admin@PicOS-OVS$ovs-vsctl add-port br0 ge-1/1/1 vlan_mode=access tag=10 -- set Interface ge-1/1/1 type=pica8
-admin@PicOS-OVS$ovs-vsctl add-port br0 ge-1/1/2 vlan_mode=access tag=10 -- set Interface ge-1/1/2 type=pica8
-admin@PicOS-OVS$ovs-vsctl add-port br0 ge-1/1/48 -- set Interface ge-1/1/48 type=pica8
+admin@PicOS-OVS$ovs-vsctl add-port br0 ge-1/1/1 vlan_mode=trunk tag=1 -- set interface ge-1/1/1 type=pica8
+admin@PicOS-OVS$ovs-vsctl add-port br0 ge-1/1/2 vlan_mode=trunk tag=1 -- set interface ge-1/1/2 type=pica8
+admin@PicOS-OVS$ovs-vsctl add-port br0 ge-1/1/48 vlan_mode=trunk tag=1 -- set interface ge-1/1/48 type=pica8
 admin@PicOS-OVS$
 &lt;/pre&gt;
-&lt;/li&gt;
 
+&lt;p&gt;
+如果您需要连续的加入每个千兆端口则可以用一个 for 循环来简化输入,以24口千兆+4口万兆交换机为例：
+&lt;/p&gt;
+
+&lt;p&gt;
+添加千兆端口
+&lt;/p&gt;
+
+&lt;pre class="example"&gt;
+for i in $(seq 1 24);do ovs-vsctl add-port br0 ge-1/1/$i vlan_mode=trunk tag=1 -- set interface ge-1/1/$i type=pica8;done
+&lt;/pre&gt;
+
+&lt;p&gt;
+添加万兆端口，万兆端口的编号视不同平台不同，可能是 （25~28，49~52等请根据实际情况调整）。
+&lt;/p&gt;
+
+&lt;pre class="example"&gt;
+for i in $(seq 25 28);do ovs-vsctl add-port br0 te-1/1/$i vlan_mode=trunk tag=1 -- set interface te-1/1/$i type=pica8;done
+&lt;/pre&gt;
+
+&lt;p&gt;
+5101 添加所有端口可以采用如下命令：
+&lt;/p&gt;
+
+&lt;pre class="example"&gt;
+for i in $(seq 1 40);do ovs-vsctl add-port br0 te-1/1/$i vlan_mode=trunk tag=1 -- set interface te-1/1/$i type=pica8;done
+for i in $(seq 41 48);do ovs-vsctl add-port br0 qe-1/1/$i vlan_mode=trunk tag=1 -- set interface qe-1/1/$i type=pica8;done
+&lt;/pre&gt;
+
+&lt;p&gt;
+一般来说采用outband模式进行SDN网络管理无须额外设定，但是如果测试时
+ 为了方便将SDN交换机的数据端口和管理端口挂接在相同的二层网络里可能
+ 会导致交换机触发inband相关配置（因为在PicOS 2.4 以后默认的连接方式
+ 为 in-band），为了规避可能的问题，可以用如下命令禁用：
+&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;pre class="example"&gt;
+ovs-vsctl set bridge br0 other_config=disable-in-band=true
+&lt;/pre&gt;
+
+
+
+
+&lt;ol class="org-ol"&gt;
 &lt;li&gt;验证虚拟交换机连接 [sec-4-0-0-9]
 
 &lt;p&gt;
@@ -700,7 +754,97 @@ Pica8 交换机的配置文档主要有:
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</summary><category term="sdn"></category><category term="openflow"></category><category term="p4"></category><category term="tofino"></category><category term="barefoot"></category><category term="onie"></category><category term="capilano"></category></entry><entry><title>SDN 教学大纲</title><link href="https://bbill.github.io/lab/jiaxuedagang.html" rel="alternate"></link><published>2017-10-21T00:00:00+08:00</published><author><name>service@tooyum.com</name></author><id>tag:bbill.github.io,2017-10-21:lab/jiaxuedagang.html</id><summary type="html">&lt;div id="table-of-contents"&gt;
+</summary><category term="sdn"></category><category term="openflow"></category><category term="p4"></category><category term="tofino"></category><category term="barefoot"></category><category term="onie"></category><category term="capilano"></category></entry><entry><title>OpenMesh SDN 交换机的静态流表配置</title><link href="https://bbill.github.io/product/openmesh.html" rel="alternate"></link><published>2017-10-28T00:00:00+08:00</published><author><name>bill</name></author><id>tag:bbill.github.io,2017-10-28:product/openmesh.html</id><summary type="html">&lt;div id="table-of-contents"&gt;
+&lt;h2&gt;Table of Contents&lt;/h2&gt;
+&lt;div id="text-table-of-contents"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#sec-1"&gt;1. OpenMesh SDN交换机设置静态流表的"正确"方法&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#sec-1-1"&gt;1.1. 系统初始设置&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#sec-1-2"&gt;1.2. 添加静态流配置命令&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id="outline-container-sec-1" class="outline-2"&gt;
+&lt;h2 id="sec-1"&gt;&lt;span class="section-number-2"&gt;1&lt;/span&gt; OpenMesh SDN交换机设置静态流表的"正确"方法&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-1"&gt;
+&lt;/div&gt;&lt;div id="outline-container-sec-1-1" class="outline-3"&gt;
+&lt;h3 id="sec-1-1"&gt;&lt;span class="section-number-3"&gt;1.1&lt;/span&gt; 系统初始设置&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-1-1"&gt;
+&lt;p&gt;
+参见 &lt;a href="file:///home/bill/ghpages/content/lab/pica8_quick_start.html"&gt;快速上手&lt;/a&gt;
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id="outline-container-sec-1-2" class="outline-3"&gt;
+&lt;h3 id="sec-1-2"&gt;&lt;span class="section-number-3"&gt;1.2&lt;/span&gt; 添加静态流配置命令&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-1-2"&gt;
+&lt;pre class="example"&gt;
+admin@PICOS-OVS$sudo mkdir /cftmp/
+&lt;/pre&gt;
+
+&lt;p&gt;
+创建规则脚本
+&lt;/p&gt;
+
+&lt;pre class="example"&gt;
+admin@PICOS-OVS$sudo vi /cftmp/auto/post-ovs
+&lt;/pre&gt;
+
+&lt;p&gt;
+在规则脚本 /cftmp/auto/post-ovs 中写入如下内容
+&lt;/p&gt;
+
+&lt;pre class="example"&gt;
+#!/bin/bash                                                                                                                                                   
+export PATH=/ovs/bin:$PATH                                                                                                                                    
+while [ 1 ]; do                                                                                                                                               
+    ret=`/ovs/bin/ovs-ofctl show br0 | grep dpid | wc -l`                                                                                                     
+    if [ $ret -eq 1 ]; then                                                                                                                                   
+        break                                                                                                                                                 
+    else                                                                                                                                                      
+        sleep 5                                                                                                                                               
+    fi                                                                                                                                                        
+done                                                                                                                                                          
+
+ovs-ofctl add-flow br0 in_port=1,actions=5,9,13                                                                                                               
+ovs-ofctl add-flow br0 in_port=2,actions=6,10,14                                                                                                              
+ovs-ofctl add-flow br0 in_port=3,actions=7,11,15                                                                                                              
+ovs-ofctl add-flow br0 in_port=4,actions=8,12,16
+ovs-ofctl add-flow br0 tcp,in_port=13,tp_dst=53 actions=output:16                                                                                             
+ovs-ofctl add-flow br0 udp,in_port=13,tp_dst=53 actions=output:16 
+ovs-ofctl add-flow br0 ip,in_port=11,nw_src=10.1.0.0/16 actions=output:15                                                                                     
+ovs-ofctl add-flow br0 ip,in_port=11,nw_dst=10.1.0.0/16 actions=output:15
+&lt;/pre&gt;
+
+&lt;p&gt;
+ovs-ofctl 为流表设置命令，本文中的例子比较简单，不做过多解释。更多
+的选项（匹配规则），可以参考OVS手册。
+&lt;/p&gt;
+
+&lt;p&gt;
+在文件创建好后，别忘了赋予可执行权限。
+&lt;/p&gt;
+
+&lt;pre class="example"&gt;
+admin@PICOS-OVS$sudo chmod +x /cftmp/auto/post-ovs
+&lt;/pre&gt;
+
+&lt;p&gt;
+接下来重启验证一下，不出意外重启后脚本会正常执行。
+&lt;/p&gt;
+
+&lt;p&gt;
+为什么说这是“正确”的方法呢，因为将启动文件放在这里，即便系统升级依然可以保留。
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</summary><category term="sdn"></category><category term="openflow"></category><category term="ovs-vsctl"></category><category term="static"></category><category term="flow"></category></entry><entry><title>SDN 教学大纲</title><link href="https://bbill.github.io/lab/jiaxuedagang.html" rel="alternate"></link><published>2017-10-21T00:00:00+08:00</published><author><name>service@tooyum.com</name></author><id>tag:bbill.github.io,2017-10-21:lab/jiaxuedagang.html</id><summary type="html">&lt;div id="table-of-contents"&gt;
 &lt;h2&gt;Table of Contents&lt;/h2&gt;
 &lt;div id="text-table-of-contents"&gt;
 &lt;ul&gt;
