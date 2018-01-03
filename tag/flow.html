@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>SDN Hands ON! - flow</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">SDN Hands ON! </a></h1>
+                <nav><ul>
+                    <li><a href="/category/chan-pin.html">产品</a></li>
+                    <li><a href="/category/lab.html">lab</a></li>
+                    <li><a href="/category/shi-yan.html">实验</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="/product/openmesh.html">OpenMesh SDN 交换机的静态流表配置</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2017-10-28T00:00:00+08:00">
+                Published: Sat 28 October 2017
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/bill.html">bill</a>
+        </address>
+<p>In <a href="/category/chan-pin.html">产品</a>.</p>
+<p>tags: <a href="/tag/sdn.html">sdn</a> <a href="/tag/openflow.html">openflow</a> <a href="/tag/ovs-vsctl.html">ovs-vsctl</a> <a href="/tag/static.html">static</a> <a href="/tag/flow.html">flow</a> </p>
+</footer><!-- /.post-info --><div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. OpenMesh SDN交换机设置静态流表的"正确"方法</a>
+<ul>
+<li><a href="#sec-1-1">1.1. 系统初始设置</a></li>
+<li><a href="#sec-1-2">1.2. 添加静态流配置命令</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> OpenMesh SDN交换机设置静态流表的"正确"方法</h2>
+<div class="outline-text-2" id="text-1">
+</div><div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1"><span class="section-number-3">1.1</span> 系统初始设置</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+参见 <a href="../lab/pica8_quick_start.html">快速上手</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2"><span class="section-number-3">1.2</span> 添加静态流配置命令</h3>
+<div class="outline-text-3" id="text-1-2">
+<pre class="example">
+admin@PICOS-OVS$sudo mkdir /cftmp/
+</pre>
+
+<p>
+创建规则脚本
+</p>
+
+<pre class="example">
+admin@PICOS-OVS$sudo vi /cftmp/auto/post-ovs
+</pre>
+
+<p>
+在规则脚本 /cftmp/auto/post-ovs 中写入如下内容
+</p>
+
+<pre class="example">
+#!/bin/bash                                                                                                                                                   
+export PATH=/ovs/bin:$PATH                                                                                                                                    
+while [ 1 ]; do                                                                                                                                               
+    ret=`/ovs/bin/ovs-ofctl show br0 | grep dpid | wc -l`                                                                                                     
+    if [ $ret -eq 1 ]; then                                                                                                                                   
+        break                                                                                                                                                 
+    else                                                                                                                                                      
+        sleep 5                                                                                                                                               
+    fi                                                                                                                                                        
+done                                                                                                                                                          
+
+ovs-ofctl add-flow br0 in_port=1,actions=5,9,13                                                                                                               
+ovs-ofctl add-flow br0 in_port=2,actions=6,10,14                                                                                                              
+ovs-ofctl add-flow br0 in_port=3,actions=7,11,15                                                                                                              
+ovs-ofctl add-flow br0 in_port=4,actions=8,12,16
+ovs-ofctl add-flow br0 tcp,in_port=13,tp_dst=53 actions=output:16                                                                                             
+ovs-ofctl add-flow br0 udp,in_port=13,tp_dst=53 actions=output:16 
+ovs-ofctl add-flow br0 ip,in_port=11,nw_src=10.1.0.0/16 actions=output:15                                                                                     
+ovs-ofctl add-flow br0 ip,in_port=11,nw_dst=10.1.0.0/16 actions=output:15
+</pre>
+
+<p>
+ovs-ofctl 为流表设置命令，本文中的例子比较简单，不做过多解释。更多
+的选项（匹配规则），可以参考OVS手册。
+</p>
+
+<p>
+在文件创建好后，别忘了赋予可执行权限。
+</p>
+
+<pre class="example">
+admin@PICOS-OVS$sudo chmod +x /cftmp/auto/post-ovs
+</pre>
+
+<p>
+接下来重启验证一下，不出意外重启后脚本会正常执行。
+</p>
+
+<p>
+为什么说这是“正确”的方法呢，因为将启动文件放在这里，即便系统升级依然可以保留配置。
+</p>
+</div>
+</div>
+</div>
+                </article>
+            </aside><!-- /#featured -->
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://www.tooyum.com/">tooyum</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>
