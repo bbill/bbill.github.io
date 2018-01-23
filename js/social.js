@@ -1,6 +1,6 @@
 var links = [{
         target: '_qrcode',
-        url: 'http://harttle.com',
+        url: 'http://bbill.github.io',
         color: '#fff',
         background: '#b5b5b5',
         icon: 'fa-code-fork'
