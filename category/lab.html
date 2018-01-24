@@ -23,7 +23,152 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/lab/libvirt_dnsmasq_conflict.html">libvirtd 导致的dnsmasq 冲突问题</a></h1>
+                    <h1 class="entry-title"><a href="/lab/try_ryu_nat.html">试用 RYU NAT</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2018-01-24T00:00:00+08:00">
+                Published: Wed 24 January 2018
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/bill.html">bill</a>
+        </address>
+<p>In <a href="/category/lab.html">lab</a>.</p>
+<p>tags: <a href="/tag/ryu.html">ryu</a> <a href="/tag/nat.html">nat</a> <a href="/tag/dhcp.html">dhcp</a> <a href="/tag/agent.html">agent</a> </p>
+</footer><!-- /.post-info --><div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. 安装RYU</a></li>
+<li><a href="#sec-2">2. 安装</a></li>
+<li><a href="#sec-3">3. 运行</a></li>
+<li><a href="#sec-4">4. 验证</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> 安装RYU</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+略，不清楚可以参考 <a href="./ryu_lab1.html">这里</a>
+</p>
+</div>
+</div>
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> 安装</h2>
+<div class="outline-text-2" id="text-2">
+<pre class="example">
+cd 
+git clone https://github.com/bbill/nat.git ryu/ryu/app/nat
+</pre>
+</div>
+</div>
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> 运行</h2>
+<div class="outline-text-2" id="text-3">
+<pre class="example">
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> 验证</h2>
+<div class="outline-text-2" id="text-4">
+<ol class="org-ol">
+<li>如果没有实体SDN交换机，请安装 mininet
+<pre class="example">
+cd 
+git clone https://github.com/mininet/mininet.git
+./mininet/util/install.sh -fnv
+</pre>
+<p>
+因为我们使用RYU控制器，禁用mininet 自带控制器。
+</p>
+<pre class="example">
+sudo systemctl disable openvswitch-testcontroller
+sudo systemctl stop openvswitch-testcontroller
+</pre>
+</li>
+<li>启动一个简单SDN交换机连接三个主机并指向控制器
+<pre class="example">
+</pre>
+</li>
+<li>观察现有环境
+
+<p>
+依次查看主机1到3的(h1~h3)网络配置
+</p>
+<pre class="example">
+mininet&gt; h1 ifconfig
+h1-eth0   Link encap:Ethernet  HWaddr 00:00:00:00:00:01
+          inet addr:10.0.0.1  Bcast:10.255.255.255  Mask:255.0.0.0
+          inet6 addr: fe80::200:ff:fe00:1/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:57 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:35 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:6604 (6.6 KB)  TX bytes:1942 (1.9 KB)
+
+lo        Link encap:Local Loopback
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          inet6 addr: ::1/128 Scope:Host
+          UP LOOPBACK RUNNING  MTU:65536  Metric:1
+          RX packets:2 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:2 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1
+	  RX bytes:224 (224.0 B)  TX bytes:224 (224.0 B)
+</pre>
+
+<p>
+目前所有主机均为静态IP，地址分别为10.0.0.1~3
+</p>
+
+<p>
+现在保持1端口，（NAT 程序默认的WAN端口）所连接主机IP10.0.0.1不变，该地址为外网网关）
+其余两台主机（h2,h3), 通过RYU控制器，NAT应用程序了（提供了DHCP代答）来动态获得IP地址。
+</p>
+
+<p>
+SDN交换机
+在h2 主机上尝试动态获得IP，
+</p>
+<pre class="example">
+mininet&gt; h2 ifconfig h2-eth0 0.0.0.0
+mininet&gt; h2 dhclient h2-eth0
+</pre>
+<p>
+可以看到主机h2的网卡已经自动获得了一个IP地址,我这里是 192.168.8.254.
+</p>
+
+<p>
+可以看到DHCP的功能可以正常工作。
+</p>
+
+<p>
+SNAT还有带验证。
+</p>
+
+<p>
+另外可以参考  <a href="https://sites.google.com/site/sdnruantidingyiwanglu/xing-dong-kuan-pin-jian-duan-ji-shu-tui-guang-ji-hua/ryu-nat">here</a> 得到一些有用的信息。
+</p>
+</li>
+</ol>
+</div>
+</div>
+                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/lab/libvirt_dnsmasq_conflict.html" rel="bookmark"
+                           title="Permalink to libvirtd 导致的dnsmasq 冲突问题">libvirtd 导致的dnsmasq 冲突问题</a></h1>
+                </header>
+
+                <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2018-01-20T00:00:00+08:00">
                 Published: Sat 20 January 2018
@@ -34,7 +179,7 @@
         </address>
 <p>In <a href="/category/lab.html">lab</a>.</p>
 <p>tags: <a href="/tag/libvirtd.html">libvirtd</a> <a href="/tag/dasmasq.html">dasmasq</a> <a href="/tag/conflict.html">conflict</a> </p>
-</footer><!-- /.post-info --><p>
+</footer><!-- /.post-info -->                <p>
 在一台机器上用dnsmasq 做dhcp server，报错
 </p>
 
@@ -51,12 +196,10 @@ bind-interfaces
 interface=eth0
 listen-address=192.168.0.1
 </pre>
-                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
+
+                <a class="readmore" href="/lab/libvirt_dnsmasq_conflict.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>
