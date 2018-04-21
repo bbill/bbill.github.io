@@ -18,6 +18,7 @@
                     <li class="active"><a href="/category/lab.html">lab</a></li>
                     <li><a href="/category/product.html">product</a></li>
                     <li><a href="/category/shi-yan.html">实验</a></li>
+                    <li><a href="/category/troubleshooting.html">troubleshooting</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
 
@@ -203,6 +204,47 @@ listen-address=192.168.0.1
 
             <li><article class="hentry">
                 <header>
+                    <h1><a href="/lab/pica8_OVS_Command_Reference.html" rel="bookmark"
+                           title="Permalink to Pica8 OVS 模式常用命令">Pica8 OVS 模式常用命令</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2018-01-05T00:00:00+08:00">
+                Published: Fri 05 January 2018
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/bill.html">bill</a>
+        </address>
+<p>In <a href="/category/lab.html">lab</a>.</p>
+<p>tags: <a href="/tag/pica.html">pica</a> <a href="/tag/white-box.html">white box</a> <a href="/tag/openflow.html">openflow</a> <a href="/tag/sdn.html">sdn</a> </p>
+</footer><!-- /.post-info -->                <div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. 确认端口状态</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> 确认端口状态</h2>
+<div class="outline-text-2" id="text-1">
+<ol class="org-ol">
+<li>端口计数器
+<pre class="example">
+admin@PicOS-OVS$ovs-ofctl dump-ports  br0
+OFPST_PORT reply (OF1.3) (xid=0x2): 49 ports
+  port  1: rx pkts=0, bytes=979551, drop=0, errs=518513, frame=0, over=0, crc=0
+           tx pkts=457981, bytes=34858800, drop=0, errs=0, coll=0
+           duration …</pre></li></ol></div></div>
+                <a class="readmore" href="/lab/pica8_OVS_Command_Reference.html">read more</a>
+<p>There are <a href="/lab/pica8_OVS_Command_Reference.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
                     <h1><a href="/lab/pica8_quick_start.html" rel="bookmark"
                            title="Permalink to Pica8 白盒交换机快速上手">Pica8 白盒交换机快速上手</a></h1>
                 </header>
@@ -247,7 +289,7 @@ listen-address=192.168.0.1
 交换机开箱后的初始登录，可以通过 串口(RJ45)来进行。 找到交换机 的console
 口(一般会标有Con)。通过windows 主机上的超级终端工具，或者putty,
 securecrt 等 终端工具，配置串口参数为 115200,
-8/N/1,硬件流控设为没有（关闭）.后即可 ...</p></div></div></div>
+8/N/1,硬件流控设为没有（关闭）.后即可 …</p></div></div></div>
                 <a class="readmore" href="/lab/pica8_quick_start.html">read more</a>
 <p>There are <a href="/lab/pica8_quick_start.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
             </article></li>
@@ -309,7 +351,7 @@ press any key to stop autoboot 时，按回车
 
 <pre class="src src-bash">cd /cf_card
 rm –rf [a-y]* 
-tftp -gr picos-2.9.2.5-P3290-30f7332.tar.gz -l z.tgz 192.168 ...</pre></div></div></div>
+tftp -gr picos-2.9.2.5-P3290-30f7332.tar.gz -l z.tgz 192.168 …</pre></div></div></div>
                 <a class="readmore" href="/lab/upgrade_P-3290.html">read more</a>
 <p>There are <a href="/lab/upgrade_P-3290.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
             </article></li>
@@ -372,7 +414,7 @@ admin@PicOS-OVS$cd <i>cftmp</i>
 </p>
 
 <p>
-admin@PicOS-OVS$sudo scp ...</p></blockquote></li></ol>
+admin@PicOS-OVS$sudo scp …</p></blockquote></li></ol>
                 <a class="readmore" href="/lab/upgrade_picos.html">read more</a>
 <p>There are <a href="/lab/upgrade_picos.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
             </article></li>

@@ -18,6 +18,7 @@
                     <li class="active"><a href="/category/lab.html">lab</a></li>
                     <li><a href="/category/product.html">product</a></li>
                     <li><a href="/category/shi-yan.html">实验</a></li>
+                    <li><a href="/category/troubleshooting.html">troubleshooting</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -425,16 +426,12 @@ for i in $(seq 25 28);do ovs-vsctl add-port br0 te-1/1/$i vlan_mode=trunk tag=1 
 for i in $(seq 1 40);do ovs-vsctl add-port br0 te-1/1/$i vlan_mode=trunk tag=1 -- set interface te-1/1/$i type=pica8;done
 for i in $(seq 41 48);do ovs-vsctl add-port br0 qe-1/1/$i vlan_mode=trunk tag=1 -- set interface qe-1/1/$i type=pica8;done
 </pre>
-</li>
-</ol>
-
-
 
 <p>
 一般来说采用outband模式进行SDN网络管理无须额外设定，但是如果测试时
- 为了方便将SDN交换机的数据端口和管理端口挂接在相同的二层网络里可能
- 会导致交换机触发inband相关配置（因为在PicOS 2.4 以后默认的连接方式
- 为 in-band），为了规避可能的问题，可以用如下命令禁用：
+为了方便将SDN交换机的数据端口和管理端口挂接在相同的二层网络里可能
+会导致交换机触发inband相关配置（因为在PicOS 2.4 以后默认的连接方式
+为 in-band），为了规避可能的问题，可以用如下命令禁用：
 </p>
 
 <pre class="example">
@@ -463,6 +460,8 @@ for i in $(seq 1 8); do
 done
 </pre>
 </div>
+</li>
+</ol>
 </li>
 </ol>
 
