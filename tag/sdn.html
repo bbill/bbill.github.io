@@ -185,6 +185,7 @@ SNAT还有带验证。
 <div id="text-table-of-contents">
 <ul>
 <li><a href="#sec-1">1. 确认端口状态</a></li>
+<li><a href="#sec-2">2. 确认硬件流表支持的最大条目</a></li>
 </ul>
 </div>
 </div>
@@ -198,8 +199,7 @@ SNAT还有带验证。
 admin@PicOS-OVS$ovs-ofctl dump-ports  br0
 OFPST_PORT reply (OF1.3) (xid=0x2): 49 ports
   port  1: rx pkts=0, bytes=979551, drop=0, errs=518513, frame=0, over=0, crc=0
-           tx pkts=457981, bytes=34858800, drop=0, errs=0, coll=0
-           duration …</pre></li></ol></div></div>
+           tx pkts=457981, bytes=34858800, drop=0, errs=0, coll …</pre></li></ol></div></div>
                 <a class="readmore" href="/lab/pica8_OVS_Command_Reference.html">read more</a>
 <p>There are <a href="/lab/pica8_OVS_Command_Reference.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
             </article></li>
@@ -233,8 +233,9 @@ OFPST_PORT reply (OF1.3) (xid=0x2): 49 ports
 </ul>
 </li>
 <li><a href="#sec-2">2. TAP简单上手</a></li>
-<li><a href="#sec-3">3. 软件版本升级</a></li>
-<li><a href="#sec-4">4. 手册及参考</a></li>
+<li><a href="#sec-3">3. CrossFlow 配置</a></li>
+<li><a href="#sec-4">4. 软件版本升级</a></li>
+<li><a href="#sec-5">5. 手册及参考</a></li>
 </ul>
 </div>
 </div>
@@ -250,7 +251,7 @@ OFPST_PORT reply (OF1.3) (xid=0x2): 49 ports
 交换机开箱后的初始登录，可以通过 串口(RJ45)来进行。 找到交换机 的console
 口(一般会标有Con)。通过windows 主机上的超级终端工具，或者putty,
 securecrt 等 终端工具，配置串口参数为 115200,
-8/N/1,硬件流控设为没有（关闭）.后即可 …</p></div></div></div>
+8/N/1 …</p></div></div></div>
                 <a class="readmore" href="/lab/pica8_quick_start.html">read more</a>
 <p>There are <a href="/lab/pica8_quick_start.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
             </article></li>

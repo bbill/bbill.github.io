@@ -24,7 +24,68 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/lab/pica8_OVS_Command_Reference.html">Pica8 OVS 模式常用命令</a></h1>
+                    <h1 class="entry-title"><a href="/lab/barefoot_quick_start.html">barefoot硬件可编程交换机（OpenMesh）快速上手</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2018-01-05T00:00:00+08:00">
+                Published: Fri 05 January 2018
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/bill.html">bill</a>
+        </address>
+<p>In <a href="/category/lab.html">lab</a>.</p>
+<p>tags: <a href="/tag/pica.html">pica</a> <a href="/tag/white-box.html">white box</a> <a href="/tag/openflow.html">openflow</a> <a href="/tag/sdnbarefoottofino.html">sdn，barefoot，tofino</a> </p>
+</footer><!-- /.post-info --><div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. 初始设置和访问</a>
+<ul>
+<li><a href="#sec-1-1">1.1. 登陆交换机</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> 初始设置和访问</h2>
+<div class="outline-text-2" id="text-1">
+</div><div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1"><span class="section-number-3">1.1</span> 登陆交换机</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+交换机开箱后的初始登录，可以通过 串口(RJ45)来进行。 找到交换机 的console
+口(一般会标有Con)。通过windows 主机上的超级终端工具，或者putty,
+securecrt 等 终端工具，配置串口参数为 115200,
+8/N/1,硬件流控设为没有（关闭）.后即可 登录。默认用户名 root ，密码
+<b>onl</b> 。
+</p>
+
+
+<div class="figure">
+<p><img src="http://www.tooyum.com/images/rs232.png" alt="rs232.png" width="300px" />
+</p>
+</div>
+</div>
+</div>
+</div>
+<p>There are <a href="/lab/barefoot_quick_start.html#disqus_thread">comments</a>.</p>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/lab/pica8_OVS_Command_Reference.html" rel="bookmark"
+                           title="Permalink to Pica8 OVS 模式常用命令">Pica8 OVS 模式常用命令</a></h1>
+                </header>
+
+                <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2018-01-05T00:00:00+08:00">
                 Published: Fri 05 January 2018
@@ -35,11 +96,12 @@
         </address>
 <p>In <a href="/category/lab.html">lab</a>.</p>
 <p>tags: <a href="/tag/pica.html">pica</a> <a href="/tag/white-box.html">white box</a> <a href="/tag/openflow.html">openflow</a> <a href="/tag/sdn.html">sdn</a> </p>
-</footer><!-- /.post-info --><div id="table-of-contents">
+</footer><!-- /.post-info -->                <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
 <li><a href="#sec-1">1. 确认端口状态</a></li>
+<li><a href="#sec-2">2. 确认硬件流表支持的最大条目</a></li>
 </ul>
 </div>
 </div>
@@ -53,76 +115,10 @@
 admin@PicOS-OVS$ovs-ofctl dump-ports  br0
 OFPST_PORT reply (OF1.3) (xid=0x2): 49 ports
   port  1: rx pkts=0, bytes=979551, drop=0, errs=518513, frame=0, over=0, crc=0
-           tx pkts=457981, bytes=34858800, drop=0, errs=0, coll=0
-           duration=232370.287s
-  port  2: rx pkts=2465, bytes=635018, drop=4, errs=0, frame=0, over=0, crc=0
-           tx pkts=455681, bytes=34236034, drop=0, errs=0, coll=0
-           duration=232372.854s
-  port  3: rx pkts=0, bytes=979534, drop=0, errs=517694, frame=0, over=0, crc=0
-           tx pkts=457981, bytes=34858800, drop=0, errs=0, coll=0
-           duration=232371.098s
-   	....................................
-
-  port 48: rx pkts=905539, bytes=67054286, drop=449858, errs=0, frame=0, over=0, crc=0
-           tx pkts=502, bytes=36333, drop=0, errs=0, coll=0
-           duration=232374.984s
-  port LOCAL: rx pkts=7, bytes=738, drop=0, errs=0, frame=0, over=0, crc=0
-           tx pkts=1339, bytes=80340, drop=0, errs=0, coll=0
-           duration=232369.846s
-admin@PicOS-OVS$
-</pre>
-</li>
-
-<li>端口链路状态
-<pre class="example">
-admin@PicOS-OVS$ovs-ofctl dump-ports-desc  br0 
-OFPST_PORT_DESC reply (OF1.3) (xid=0x2):
- 1(te-1/1/1): addr:cc:37:ab:f5:3b:37
-     config:     0
-     state:      LINK_UP
-     current:    10GB-FD COPPER
-     advertised: 1GB-FD 10GB-FD FIBER
-     supported:  10MB-FD 100MB-FD 1GB-FD 10GB-FD FIBER AUTO_NEG
-     speed: 10000 Mbps now, 10000 Mbps max
- 2(te-1/1/2): addr:cc:37:ab:f5:3b:37
-     config:     0
-     state:      LINK_UP
-     current:    10GB-FD COPPER
-     advertised: 1GB-FD 10GB-FD FIBER
-     supported:  10MB-FD 100MB-FD 1GB-FD 10GB-FD FIBER AUTO_NEG
-     speed: 10000 Mbps now, 10000 Mbps max
- 3(te-1/1/3): addr:cc:37:ab:f5:3b:37
-     config:     0
-     state:      LINK_UP
-     current:    10GB-FD COPPER
-     advertised: 1GB-FD 10GB-FD FIBER
-     supported:  10MB-FD 100MB-FD 1GB-FD 10GB-FD FIBER AUTO_NEG
-     speed: 10000 Mbps now, 10000 Mbps max
-     ..............................
- 48(te-1/1/48): addr:cc:37:ab:f5:3b:37
-     config:     0
-     state:      LINK_UP
-     current:    1GB-FD COPPER
-     advertised: 1GB-FD 10GB-FD FIBER
-     supported:  10MB-FD 100MB-FD 1GB-FD 10GB-FD FIBER AUTO_NEG
-     speed: 1000 Mbps now, 10000 Mbps max
- LOCAL(br0): addr:cc:37:ab:f5:3b:37
-     config:     0
-     state:      LINK_UP
-     current:    10MB-FD COPPER
-     supported:  10MB-FD COPPER
-     speed: 10 Mbps now, 10 Mbps max
-</pre>
-</li>
-</ol>
-</div>
-</div>
-<p>There are <a href="/lab/pica8_OVS_Command_Reference.html#disqus_thread">comments</a>.</p>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
+           tx pkts=457981, bytes=34858800, drop=0, errs=0, coll …</pre></li></ol></div></div>
+                <a class="readmore" href="/lab/pica8_OVS_Command_Reference.html">read more</a>
+<p>There are <a href="/lab/pica8_OVS_Command_Reference.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>
@@ -153,8 +149,9 @@ OFPST_PORT_DESC reply (OF1.3) (xid=0x2):
 </ul>
 </li>
 <li><a href="#sec-2">2. TAP简单上手</a></li>
-<li><a href="#sec-3">3. 软件版本升级</a></li>
-<li><a href="#sec-4">4. 手册及参考</a></li>
+<li><a href="#sec-3">3. CrossFlow 配置</a></li>
+<li><a href="#sec-4">4. 软件版本升级</a></li>
+<li><a href="#sec-5">5. 手册及参考</a></li>
 </ul>
 </div>
 </div>
@@ -170,7 +167,7 @@ OFPST_PORT_DESC reply (OF1.3) (xid=0x2):
 交换机开箱后的初始登录，可以通过 串口(RJ45)来进行。 找到交换机 的console
 口(一般会标有Con)。通过windows 主机上的超级终端工具，或者putty,
 securecrt 等 终端工具，配置串口参数为 115200,
-8/N/1,硬件流控设为没有（关闭）.后即可 …</p></div></div></div>
+8/N/1 …</p></div></div></div>
                 <a class="readmore" href="/lab/pica8_quick_start.html">read more</a>
 <p>There are <a href="/lab/pica8_quick_start.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
             </article></li>

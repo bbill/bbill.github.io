@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
         <meta charset="utf-8" />
-        <title>SDN Hands ON! - troubleshooting</title>
+        <title>SDN Hands ON! - access</title>
         <link rel="stylesheet" href="/theme/css/main.css" />
 
         <!--[if IE]>
@@ -18,7 +18,7 @@
                     <li><a href="/category/lab.html">lab</a></li>
                     <li><a href="/category/product.html">product</a></li>
                     <li><a href="/category/shi-yan.html">实验</a></li>
-                    <li class="active"><a href="/category/troubleshooting.html">troubleshooting</a></li>
+                    <li><a href="/category/troubleshooting.html">troubleshooting</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
 
@@ -121,64 +121,6 @@ ovs-vsctl set port te-1/1/49 trunks=10
 </div>
 <p>There are <a href="/troubleshooting/no_rx_while_correct_rule.html#disqus_thread">comments</a>.</p>                </article>
             </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/troubleshooting/xfs_on_crash_ssd.html" rel="bookmark"
-                           title="Permalink to XFS repair on failed SSD">XFS repair on failed SSD</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2018-03-18T00:00:00+08:00">
-                Published: Sun 18 March 2018
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/bill.html">bill</a>
-        </address>
-<p>In <a href="/category/troubleshooting.html">troubleshooting</a>.</p>
-<p>tags: <a href="/tag/xfs.html">xfs</a> <a href="/tag/ssd.html">ssd</a> <a href="/tag/unreadable.html">unreadable</a> </p>
-</footer><!-- /.post-info -->                <div id="table-of-contents">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents">
-<ul>
-<li><a href="#sec-1">1. 先备份</a></li>
-<li><a href="#sec-2">2. 恢复</a></li>
-<li><a href="#sec-3">3. 重新启用该SSD</a></li>
-</ul>
-</div>
-</div>
-<p>
-突然VPN无法登录了，本地登录服务器，悲摧了，一块盘不见了，尝试重新挂载
-失败.
-</p>
-
-<p>
-尝试重启，再挂载,当然还是不行，因为是一块PCI-E SSD 卡，非常担心数据搞不出来。
-</p>
-
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1"><span class="section-number-2">1</span> 先备份</h2>
-<div class="outline-text-2" id="text-1">
-<p>
-保险起见，先dd出来，因为本地没有足够大的空间，尝试将现有信息保存到另外一台主机，
-</p>
-
-<p>
-在有空间的主机（192.168.1.2)运行：
-</p>
-<pre class="example">
-ssh root@192.168.1.1 "dd iflag=fullblock  conv=sync,noerror if=/dev/nvme0n1 |gzip …</pre></div></div>
-                <a class="readmore" href="/troubleshooting/xfs_on_crash_ssd.html">read more</a>
-<p>There are <a href="/troubleshooting/xfs_on_crash_ssd.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
-            </article></li>
-                </ol><!-- /#posts-list -->
-                </section><!-- /#content -->
         <section id="extras" class="body">
                 <div class="blogroll">
                         <h2>blogroll</h2>
