@@ -39,13 +39,13 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org443c828">1. 流表配置如下</a></li>
+<li><a href="#org041aae7">1. 流表配置如下</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org443c828" class="outline-2">
-<h2 id="org443c828"><span class="section-number-2">1</span> 流表配置如下</h2>
+<div id="outline-container-org041aae7" class="outline-2">
+<h2 id="org041aae7"><span class="section-number-2">1</span> 流表配置如下</h2>
 <div class="outline-text-2" id="text-1">
 <pre class="example">
 ovs-ofctl -O OpenFlow13 add-flow br0 table=0,in_port=50,actions=mod_vlan_vid:10,mod_dl_src:6c:59:79:33:44:55,mod_dl_dst:f8:bc:12:4d:e9:d8,goto_table:8
@@ -149,12 +149,12 @@ ovs-vsctl set port te-1/1/49 trunks=10
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgcd754d8">1. 重启交换机</a></li>
+<li><a href="#orgd7cf4e3">1. 重启交换机</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgcd754d8" class="outline-2">
-<h2 id="orgcd754d8"><span class="section-number-2">1</span> 重启交换机</h2>
+<div id="outline-container-orgd7cf4e3" class="outline-2">
+<h2 id="orgd7cf4e3"><span class="section-number-2">1</span> 重启交换机</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 以3290 为例，不同交换机进入 底层 shell的方法不同

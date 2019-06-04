@@ -39,13 +39,13 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org443c828">1. 流表配置如下</a></li>
+<li><a href="#org041aae7">1. 流表配置如下</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org443c828" class="outline-2">
-<h2 id="org443c828"><span class="section-number-2">1</span> 流表配置如下</h2>
+<div id="outline-container-org041aae7" class="outline-2">
+<h2 id="org041aae7"><span class="section-number-2">1</span> 流表配置如下</h2>
 <div class="outline-text-2" id="text-1">
 <pre class="example">
 ovs-ofctl -O OpenFlow13 add-flow br0 table=0,in_port=50,actions=mod_vlan_vid:10,mod_dl_src:6c:59:79:33:44:55,mod_dl_dst:f8:bc:12:4d:e9:d8,goto_table:8
@@ -149,9 +149,9 @@ ovs-vsctl set port te-1/1/49 trunks=10
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org5ccab82">1. 先备份</a></li>
-<li><a href="#org939a18b">2. 恢复</a></li>
-<li><a href="#orgdc10a35">3. 重新启用该SSD</a></li>
+<li><a href="#org3f95277">1. 先备份</a></li>
+<li><a href="#orgf18f5be">2. 恢复</a></li>
+<li><a href="#org1df6c75">3. 重新启用该SSD</a></li>
 </ul>
 </div>
 </div>
@@ -164,8 +164,8 @@ ovs-vsctl set port te-1/1/49 trunks=10
 尝试重启，再挂载,当然还是不行，因为是一块PCI-E SSD 卡，非常担心数据搞不出来。
 </p>
 
-<div id="outline-container-org5ccab82" class="outline-2">
-<h2 id="org5ccab82"><span class="section-number-2">1</span> 先备份</h2>
+<div id="outline-container-org3f95277" class="outline-2">
+<h2 id="org3f95277"><span class="section-number-2">1</span> 先备份</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 保险起见，先dd出来，因为本地没有足够大的空间，尝试将现有信息保存到另外一台主机，
