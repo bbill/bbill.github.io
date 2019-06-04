@@ -39,7 +39,7 @@
     <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2017-09-24T00:00:00+08:00">
-                Published: Sun 24 September 2017
+                Published: 日 24 九月 2017
         </abbr>
 
         <address class="vcard author">
@@ -51,19 +51,19 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#sec-1">1. 实验环境</a></li>
-<li><a href="#sec-2">2. 实验目的</a></li>
-<li><a href="#sec-3">3. 操作步骤</a>
+<li><a href="#org4125941">1. 实验环境</a></li>
+<li><a href="#orge7a31c3">2. 实验目的</a></li>
+<li><a href="#org2f040ef">3. 操作步骤</a>
 <ul>
-<li><a href="#sec-3-1">3.1. 安装一些后续需要使用的软件</a></li>
-<li><a href="#sec-3-2">3.2. 安装 ryu</a></li>
-<li><a href="#sec-3-3">3.3. 安装 mininet</a></li>
-<li><a href="#sec-3-4">3.4. ryu 控制和mininet连接</a></li>
+<li><a href="#org57289d4">3.1. 安装一些后续需要使用的软件</a></li>
+<li><a href="#orgf09eb07">3.2. 安装 ryu</a></li>
+<li><a href="#org672d10f">3.3. 安装 mininet</a></li>
+<li><a href="#org88791e3">3.4. ryu 控制和mininet连接</a></li>
 </ul>
 </li>
-<li><a href="#sec-4">4. 附录</a>
+<li><a href="#org2d692fc">4. 附录</a>
 <ul>
-<li><a href="#sec-4-1">4.1. 用到的命令</a></li>
+<li><a href="#org700b081">4.1. 用到的命令</a></li>
 </ul>
 </li>
 </ul>
@@ -72,51 +72,45 @@
 
 
 
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1"><span class="section-number-2">1</span> 实验环境</h2>
+<div id="outline-container-org4125941" class="outline-2">
+<h2 id="org4125941"><span class="section-number-2">1</span> 实验环境</h2>
 <div class="outline-text-2" id="text-1">
 <ol class="org-ol">
-<li>一台可以上网的主机station X (IP 地址 192.168.10.X）
-</li>
-<li>ubuntu 14.04 操作系统,用户名 user 密码 linux123
-</li>
+<li>一台可以上网的主机station X (IP 地址 192.168.10.X）</li>
+<li>ubuntu 14.04 操作系统,用户名 user 密码 linux123</li>
 </ol>
 </div>
 </div>
 
-<div id="outline-container-sec-2" class="outline-2">
-<h2 id="sec-2"><span class="section-number-2">2</span> 实验目的</h2>
+<div id="outline-container-orge7a31c3" class="outline-2">
+<h2 id="orge7a31c3"><span class="section-number-2">2</span> 实验目的</h2>
 <div class="outline-text-2" id="text-2">
 <ol class="org-ol">
-<li>掌握Linux 命令行基础使用方法
-</li>
-<li>掌握Ubuntu 软件安装方法
-</li>
-<li>掌握 mininet 基础使用方法
-</li>
-<li>掌握 ryu 控制器的基本用法
-</li>
-<li>了解 screen 的用法
-</li>
+<li>掌握Linux 命令行基础使用方法</li>
+<li>掌握Ubuntu 软件安装方法</li>
+<li>掌握 mininet 基础使用方法</li>
+<li>掌握 ryu 控制器的基本用法</li>
+<li>了解 screen 的用法</li>
 </ol>
 </div>
 </div>
 
-<div id="outline-container-sec-3" class="outline-2">
-<h2 id="sec-3"><span class="section-number-2">3</span> 操作步骤</h2>
+<div id="outline-container-org2f040ef" class="outline-2">
+<h2 id="org2f040ef"><span class="section-number-2">3</span> 操作步骤</h2>
 <div class="outline-text-2" id="text-3">
-</div><div id="outline-container-sec-3-1" class="outline-3">
-<h3 id="sec-3-1"><span class="section-number-3">3.1</span> 安装一些后续需要使用的软件</h3>
+</div>
+<div id="outline-container-org57289d4" class="outline-3">
+<h3 id="org57289d4"><span class="section-number-3">3.1</span> 安装一些后续需要使用的软件</h3>
 <div class="outline-text-3" id="text-3-1">
 <ul class="org-ul">
-<li>git 版本管理工具
-</li>
-<li>screen 终端增强工具
+<li>git 版本管理工具</li>
+<li><p>
+screen 终端增强工具
 ubuntu 是基于debian的linux 发行版，采用 apt-get/aptitude 来进行软件的安装，升级，解决依赖关系等.
 可以在终端执行
+</p>
 
 <div class="org-src-container">
-
 <pre class="src src-bash">apt-get install git screen
 </pre>
 </div>
@@ -132,44 +126,42 @@ root权限，不进入交互模式。将以上命令修改为：
 </p>
 
 <div class="org-src-container">
-
 <pre class="src src-bash">sudo apt-get install git screen
 </pre>
 </div>
 
 <p>
 提示输入密码（输入 user 用户密码 linux123), 你可以看到命令成功执行了。
-</p>
-</li>
+</p></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-sec-3-2" class="outline-3">
-<h3 id="sec-3-2"><span class="section-number-3">3.2</span> 安装 ryu</h3>
+<div id="outline-container-orgf09eb07" class="outline-3">
+<h3 id="orgf09eb07"><span class="section-number-3">3.2</span> 安装 ryu</h3>
 <div class="outline-text-3" id="text-3-2">
 <ol class="org-ol">
-<li>下载安装脚本
+<li><p>
+下载安装脚本
+</p>
 <div class="org-src-container">
-
 <pre class="src src-shell">wget https://raw.githubusercontent.com/sdnds-tw/ryuInstallHelper/master/ryuInstallHelper.sh
 </pre>
-</div>
-</li>
-<li>查看安装脚本内容
+</div></li>
+<li><p>
+查看安装脚本内容
+</p>
 <div class="org-src-container">
-
-<pre class="src src-bash">user@station21:~$ cat ryuInstallHelper.sh
+<pre class="src src-bash">user@station21:~$ cat ryuInstallHelper.sh 
 </pre>
-</div>
-</li>
+</div></li>
 
-<li>执行安装脚本
+<li><p>
+执行安装脚本
+</p>
 <div class="org-src-container">
-
 <pre class="src src-bash">sudo bash ryuInstallHelper.sh
 </pre>
-</div>
-</li>
+</div></li>
 </ol>
 
 <p>
@@ -187,29 +179,30 @@ sudo apt-key adv &#x2013;keyserver keyserver.ubuntu.com &#x2013;recv-keys
 </div>
 
 
-<div id="outline-container-sec-3-3" class="outline-3">
-<h3 id="sec-3-3"><span class="section-number-3">3.3</span> 安装 mininet</h3>
+<div id="outline-container-org672d10f" class="outline-3">
+<h3 id="org672d10f"><span class="section-number-3">3.3</span> 安装 mininet</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 mininet 是一个网络拓扑仿真程序，可以非常方便的实现拓扑/交换机的模拟，
 支持openflow协议。方便用户定制自己的SDN 网络拓扑。
 </p>
 <ol class="org-ol">
-<li>安装mininet
+<li><p>
+安装mininet
 执行
+</p>
 <div class="org-src-container">
-
 <pre class="src src-bash">sudo apt-get install mininet
-pip install networkx
+pip install networkx 
 </pre>
-</div>
-</li>
+</div></li>
 
-<li>停止并禁用 openvswitch-controller 服务
+<li><p>
+停止并禁用 openvswitch-controller 服务
 mininet 默认会安装一个openvswitch-controller 控制器，此服务启动后会占用控制器的默认端口，所以先暂时停止
+</p>
 
 <div class="org-src-container">
-
 <pre class="src src-bash">sudo /etc/init.d/openvswitch-controller  stop
 </pre>
 </div>
@@ -217,120 +210,112 @@ mininet 默认会安装一个openvswitch-controller 控制器，此服务启动�
 并禁用该服务
 </p>
 <div class="org-src-container">
-
 <pre class="src src-bash">sudo update-rc.d -f openvswitch-controller remove
 </pre>
-</div>
-</li>
+</div></li>
 </ol>
 </div>
 </div>
 
 
-<div id="outline-container-sec-3-4" class="outline-3">
-<h3 id="sec-3-4"><span class="section-number-3">3.4</span> ryu 控制和mininet连接</h3>
+<div id="outline-container-org88791e3" class="outline-3">
+<h3 id="org88791e3"><span class="section-number-3">3.4</span> ryu 控制和mininet连接</h3>
 <div class="outline-text-3" id="text-3-4">
 <ol class="org-ol">
 <li>启动 screen 终端管理工具
 screen -DR
 <ul class="org-ul">
-<li>通过Ctrl-a S 快捷键将屏幕切分为三份 #注意大小写
-</li>
-<li>Ctrl-a [Tab] 切换到下方区域执行　Ctrl-a c 
-</li>
-<li>Ctrl-a [Tab] 切换到下方区域执行　Ctrl-a c 
-</li>
-<li>Ctrl-a [Tab] 切换到第一个窗口
-</li>
-</ul>
-</li>
+<li>通过Ctrl-a S 快捷键将屏幕切分为三份 #注意大小写</li>
+<li>Ctrl-a [Tab] 切换到下方区域执行　Ctrl-a c</li>
+<li>Ctrl-a [Tab] 切换到下方区域执行　Ctrl-a c</li>
+<li>Ctrl-a [Tab] 切换到第一个窗口</li>
+</ul></li>
 <li>启动一个简单网络拓扑
 <ul class="org-ul">
-<li>启动ovs服务
+<li><p>
+启动ovs服务
+</p>
 <div class="org-src-container">
-
 <pre class="src src-bash">sudo /etc/init.d/openvswitch-switch start
 </pre>
-</div>
-</li>
-<li>启动mininet拓扑
+</div></li>
+<li><p>
+启动mininet拓扑
+</p>
 
 <p>
 在该窗口启动一个简单mininet 拓扑,并指定SDN 控制器为本地地址（192.168.10.21）
 </p>
 <div class="org-src-container">
-
-<pre class="src src-bash">sudo mn --topo single,3 --mac --switch ovsk --controller remote,ip=192.168.10.21,port=6633
+<pre class="src src-bash">sudo mn --topo single,3 --mac --switch ovsk --controller remote,<span style="font-weight: bold; font-style: italic;">ip</span>=192.168.10.21,<span style="font-weight: bold; font-style: italic;">port</span>=6633
 </pre>
-</div>
-</li>
+</div></li>
 
-<li>检查交换机状态
+<li><p>
+检查交换机状态
+</p>
 <div class="org-src-container">
-
 <pre class="src src-bash">sudo ovs-vsctl show
 bee7cda2-0792-4de4-9381-fc7f298f3baa
-    Bridge "s1"   
-	Controller "ptcp:6634"
-	Controller "tcp:192.168.10.21:6633"
-	fail_mode: secure
-	Port "s1-eth3"
-	    Interface "s1-eth3"
-	Port "s1-eth1"
-	    Interface "s1-eth1"
-	Port "s1"
-	    Interface "s1"
-		type: internal
-	Port "s1-eth2"
-	    Interface "s1-eth2"
-    ovs_version: "2.0.2"
+    Bridge <span style="font-style: italic;">"s1"</span>   
+        Controller <span style="font-style: italic;">"ptcp:6634"</span>
+        Controller <span style="font-style: italic;">"tcp:192.168.10.21:6633"</span>
+        fail_mode: secure
+        Port <span style="font-style: italic;">"s1-eth3"</span>
+            Interface <span style="font-style: italic;">"s1-eth3"</span>
+        Port <span style="font-style: italic;">"s1-eth1"</span>
+            Interface <span style="font-style: italic;">"s1-eth1"</span>
+        Port <span style="font-style: italic;">"s1"</span>
+            Interface <span style="font-style: italic;">"s1"</span>
+                <span style="font-weight: bold;">type</span>: internal
+        Port <span style="font-style: italic;">"s1-eth2"</span>
+            Interface <span style="font-style: italic;">"s1-eth2"</span>
+    ovs_version: <span style="font-style: italic;">"2.0.2"</span>
 </pre>
-</div>
-</li>
-</ul>
-</li>
+</div></li>
+</ul></li>
 <li>启动ryu 控制器
 <ul class="org-ul">
-<li>Ctrl-a [Tab] 切换到第二个窗口
-</li>
-<li>启动 ryu 控制器，以及一个简单的应用
+<li>Ctrl-a [Tab] 切换到第二个窗口</li>
+<li><p>
+启动 ryu 控制器，以及一个简单的应用
+</p>
 <div class="org-src-container">
-
 <pre class="src src-bash">./ryu/bin/ryu-manager ./ryu/ryu/app/simple_switch_13.py
 </pre>
 </div>
 
 <p>
 启动一个符合 openflow 1.3 标准的交换机应用
+</p></li>
+</ul></li>
+<li><p>
+确认交换机和控制器的连接是否成功
 </p>
-</li>
-</ul>
-</li>
-<li>确认交换机和控制器的连接是否成功
 <div class="org-src-container">
-
 <pre class="src src-bash">sudo ovs-vsctl show
 bee7cda2-0792-4de4-9381-fc7f298f3baa
-    Bridge "s1"   
-	Controller "ptcp:6634"
-	Controller "tcp:192.168.10.21:6633"
-	     is_connected: true
-	fail_mode: secure
-	Port "s1-eth3"
-	    Interface "s1-eth3"
-	Port "s1-eth1"
-	    Interface "s1-eth1"
-	Port "s1"
-	    Interface "s1"
-		type: internal
-	Port "s1-eth2"
-	    Interface "s1-eth2"
-    ovs_version: "2.0.2"
+    Bridge <span style="font-style: italic;">"s1"</span>   
+        Controller <span style="font-style: italic;">"ptcp:6634"</span>
+        Controller <span style="font-style: italic;">"tcp:192.168.10.21:6633"</span>
+             is_connected: true
+        fail_mode: secure
+        Port <span style="font-style: italic;">"s1-eth3"</span>
+            Interface <span style="font-style: italic;">"s1-eth3"</span>
+        Port <span style="font-style: italic;">"s1-eth1"</span>
+            Interface <span style="font-style: italic;">"s1-eth1"</span>
+        Port <span style="font-style: italic;">"s1"</span>
+            Interface <span style="font-style: italic;">"s1"</span>
+                <span style="font-weight: bold;">type</span>: internal
+        Port <span style="font-style: italic;">"s1-eth2"</span>
+            Interface <span style="font-style: italic;">"s1-eth2"</span>
+    ovs_version: <span style="font-style: italic;">"2.0.2"</span>
 </pre>
-</div>
-</li>
+</div></li>
 
-<li>网络通吗？
+<li><p>
+网络通吗？
+</p>
 
 <p>
 在mininet 终端下主机之间互ping ，可以看到是无法ping 通的。
@@ -340,7 +325,6 @@ bee7cda2-0792-4de4-9381-fc7f298f3baa
 检查控制器的输出你可以注意到如下内容：
 </p>
 <div class="org-src-container">
-
 <pre class="src src-bash">./ryu/bin/ryu-manager ./ryu/ryu/app/simple_switch_13.py
 unsupported version 0x1. If possible, set the switch to use one of the versions [4]
 </pre>
@@ -351,8 +335,7 @@ unsupported version 0x1. If possible, set the switch to use one of the versions 
 </p>
 
 <div class="org-src-container">
-
-<pre class="src src-bash">ovs-vsctl set bridge s1 protocols=OpenFlow10,OpenFlow13
+<pre class="src src-bash">ovs-vsctl set bridge s1 <span style="font-weight: bold; font-style: italic;">protocols</span>=OpenFlow10,OpenFlow13
 </pre>
 </div>
 
@@ -362,8 +345,7 @@ unsupported version 0x1. If possible, set the switch to use one of the versions 
 
 <p>
 观察ryu-manager 的输出是不是有一些不同，尝试在mininet中ping，现在网络应该通了。
-</p>
-</li>
+</p></li>
 </ol>
 </div>
 </div>
@@ -374,14 +356,14 @@ unsupported version 0x1. If possible, set the switch to use one of the versions 
 
 
 
-<div id="outline-container-sec-4" class="outline-2">
-<h2 id="sec-4"><span class="section-number-2">4</span> 附录</h2>
+<div id="outline-container-org2d692fc" class="outline-2">
+<h2 id="org2d692fc"><span class="section-number-2">4</span> 附录</h2>
 <div class="outline-text-2" id="text-4">
-</div><div id="outline-container-sec-4-1" class="outline-3">
-<h3 id="sec-4-1"><span class="section-number-3">4.1</span> 用到的命令</h3>
+</div>
+<div id="outline-container-org700b081" class="outline-3">
+<h3 id="org700b081"><span class="section-number-3">4.1</span> 用到的命令</h3>
 <div class="outline-text-3" id="text-4-1">
 <div class="org-src-container">
-
 <pre class="src src-bash">apt-get install git screen
 sudo apt-get install git screen -y
 wget https://raw.githubusercontent.com/sdnds-tw/ryuInstallHelper/master/ryuInstallHelper.sh
@@ -392,14 +374,14 @@ sudo /etc/init.d/openvswitch-switch status
 sudo /etc/init.d/openvswitch-switch start
 sudo /etc/init.d/openvswitch-controller stop
 sudo update-rc.d -f openvswitch-controller remove
-sudo mn --topo single,3 --mac --switch ovsk --controller remote,ip=192.168.10.21,port=6633
+sudo mn --topo single,3 --mac --switch ovsk --controller remote,<span style="font-weight: bold; font-style: italic;">ip</span>=192.168.10.21,<span style="font-weight: bold; font-style: italic;">port</span>=6633
 sudo ovs-vsctl show
 /etc/init.d/openvswitch-switch status
 screen -DR
-sudo mn --topo single,3 --mac --switch ovsk --controller remote,ip=192.168.10.21,port=6633
+sudo mn --topo single,3 --mac --switch ovsk --controller remote,<span style="font-weight: bold; font-style: italic;">ip</span>=192.168.10.21,<span style="font-weight: bold; font-style: italic;">port</span>=6633
 ./ryu/bin/ryu-manager ./ryu/ryu/app/simple_switch_13.py 
-sudo ovs-vsctl set bridge s1 protocols=OpenFlow10,OpenFlow13 
-sudo kill -9 `pgrep -f 'ryu-manager'`
+sudo ovs-vsctl set bridge s1 <span style="font-weight: bold; font-style: italic;">protocols</span>=OpenFlow10,OpenFlow13 
+sudo kill -9 <span style="font-weight: bold;">`pgrep -f 'ryu-manager'`</span>
 </pre>
 </div>
 
@@ -409,7 +391,6 @@ sudo kill -9 `pgrep -f 'ryu-manager'`
 如果ubuntu没有安装图形界面，可以通过 
 </p>
 <div class="org-src-container">
-
 <pre class="src src-bash">apt-get install gnome-shell ubuntu-gnome-desktop
 </pre>
 </div>
@@ -418,7 +399,6 @@ sudo kill -9 `pgrep -f 'ryu-manager'`
 在虚拟化环境中加以禁用3D效果以改善体验：
 </p>
 <div class="org-src-container">
-
 <pre class="src src-bash">apt-get  install gnome-session-fallback
 </pre>
 </div>

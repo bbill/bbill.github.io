@@ -24,10 +24,438 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/product/Network_Simulator.html">EstiNet 网络仿真</a></h1>
+                    <h1 class="entry-title"><a href="/lab/install_picos_on_dell.html">在Dell N3048/24 上安装 PicOS</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2019-06-04T00:00:00+08:00">
+                Published: 二 04 六月 2019
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/bill.html">bill</a>
+        </address>
+<p>In <a href="/category/lab.html">lab</a>.</p>
+<p>tags: <a href="/tag/lab.html">lab</a> <a href="/tag/install.html">install</a> <a href="/tag/onie.html">onie</a> <a href="/tag/picos.html">picos</a> <a href="/tag/dell.html">dell</a> <a href="/tag/n3048.html">n3048</a> <a href="/tag/n3024.html">n3024</a> <a href="/tag/uboot.html">uboot</a> </p>
+</footer><!-- /.post-info --><div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org906022c">1. <b>首次安装PICOS</b></a>
+<ul>
+<li><a href="#orgf93d8fb">1.1. 确保已经下载了正确的安装文件</a></li>
+<li><a href="#org13f35d1">1.2. 进入Boot Main Menu。</a></li>
+<li><a href="#org8f9265e">1.3. 进入ONIE救援模式</a></li>
+<li><a href="#org5cd13c5">1.4. 安装PicOS</a></li>
+</ul>
+</li>
+<li><a href="#org6f19b5e">2. <b>传统安装流程</b></a>
+<ul>
+<li><a href="#org60d5579">2.1. 文件准备</a></li>
+<li><a href="#org88e6605">2.2. 进入救援模式</a>
+<ul>
+<li><a href="#orgea042cc">2.2.1. 在ONIE提示符下，运行 <b>onie-nos-install</b> 命令安装PICOS。</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<p>
+使用google translate 翻译自 <a href="https://docs.pica8.com/display/PicOS21118sp/Installing+PICOS+on+Bare+Metal+Switches+for+N3048EP-ON">here</a>.
+</p>
+
+<div id="outline-container-org906022c" class="outline-2">
+<h2 id="org906022c"><span class="section-number-2">1</span> <b>首次安装PICOS</b></h2>
+<div class="outline-text-2" id="text-1">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left"><b>注意：</b></td>
+</tr>
+
+<tr>
+<td class="org-left">您需要通过交换机的控制台端口登录并执行本节中描述的ONIE安装。系统的波特率为115200</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+<div id="outline-container-orgf93d8fb" class="outline-3">
+<h3 id="orgf93d8fb"><span class="section-number-3">1.1</span> 确保已经下载了正确的安装文件</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+设定服务器将将该.bin 文件的安装包通过（HTTP，TFTP，FTP或交换机本
+地目录可访问，根据实际情况而定）。
+</p>
+</div>
+</div>
+
+<div id="outline-container-org13f35d1" class="outline-3">
+<h3 id="org13f35d1"><span class="section-number-3">1.2</span> 进入Boot Main Menu。</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+当开关打开电源时   <b>出现Dell EMC Networking Boot Options</b> 菜单，选择选项“2”
+进入Boot Main Menu。
+</p>
+
+<pre class="example">
+戴尔EMC网络引导选项
+================================
+
+在3秒内选择一个菜单选项，否则将启动操作代码
+
+自动...
+
+1  - 启动操作代码
+2  - 显示启动菜单
+
+选择（1,2）＃2
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org8f9265e" class="outline-3">
+<h3 id="org8f9265e"><span class="section-number-3">1.3</span> 进入ONIE救援模式</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+出现 *Boot Main Menu *时，选择选项“13”进入ONIE救援模式。
+</p>
+
+<pre class="example">
+启动主菜单
+==============
+
+1  - 启动操作代码
+2  - 选择波特率
+3  - 检索日志
+4  - 加载新的操作代码
+5  - 显示操作代码详细信息
+9  - 重新启动
+10  - 将配置恢复为出厂默认值
+11  - 激活备份映像
+12  - 启动密码恢复
+13  -  Boot ONIE（救援模式）
+14  - 引导诊断
+
+输入选择＃13
+</pre>
+
+
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left"><b>注意：</b></td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">如果未执行任何操作，系统将在5秒后启动到PICOS。</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org5cd13c5" class="outline-3">
+<h3 id="org5cd13c5"><span class="section-number-3">1.4</span> 安装PicOS</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+在ONIE提示符下，运行 <b>onie-nos-install</b> 命令安装PICOS。
+</p>
+
+
+
+<ul class="org-ul">
+<li><p>
+<b>通过TFTP安装</b>
+</p>
+
+<pre class="example">
+ONIE＃onie-nos-install tftp：// &lt;图像路径&gt; /PicOS.bin
+</pre></li>
+
+<li><p>
+<b>通过FTP安装</b>
+</p>
+
+<p>
+通过FTP安装时，您需要输入 像文件所在的FTP服务器的 <b>username</b> 和 <b>password</b>
+</p>
+
+<pre class="example">
+ONIE＃onie-nos-install ftp：//用户名：密码@ &lt;图像路径&gt; /PicOS.bin
+</pre></li>
+
+<li><p>
+<b>通过HTTP</b> 安装
+</p>
+<pre class="example">
+ONIE＃onie-nos-install http：// &lt;图像路径&gt; /PicOS.bin
+</pre></li>
+
+<li><b>通过本地目录安装</b>
+
+<ul class="org-ul">
+<li><p>
+在* ONIE rescue *模式下，将图像文件复制到当前  目录。
+</p>
+
+<pre class="example">
+ONIE #scp username @ &lt;图像路径&gt; /PicOS.bin。
+</pre></li>
+
+<li><p>
+运行* onie-nos-install *命令开始安装。
+</p>
+
+<pre class="example">
+ONIE＃onie-nos-install PicOS.bin
+</pre></li>
+</ul></li>
+</ul>
+
+<p>
+安装程序运行并在完成安装后运行
+自动重启，系统将运行新网络
+操作系统。
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left"><b>注意：</b></td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">- 系统重启后，需要输入用户名和密码，初始登录用户名为* admin <b>，密码为</b> pica8 *。</td>
+</tr>
+
+<tr>
+<td class="org-left">- 输入用户名和密码后，系统会要求用户为admin选择新密码。这是安装后的唯一步骤，之后可以使用PicOS操作系统。</td>
+</tr>
+</tbody>
+</table>
+
+
+<p>
+如果已经安装好，底下不用看了。
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6f19b5e" class="outline-2">
+<h2 id="org6f19b5e"><span class="section-number-2">2</span> <b>传统安装流程</b></h2>
+<div class="outline-text-2" id="text-2">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left"><b>注意：</b></td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">您需要通过交换机的控制台端口登录并执行本节中描述的ONIE安装。</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+
+
+<div id="outline-container-org60d5579" class="outline-3">
+<h3 id="org60d5579"><span class="section-number-3">2.1</span> 文件准备</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+<b>确保</b> .bin *文件的安装包已加载到服务器（服务器可能是HTTP，TFTP或
+FTP服务器或交换机本地目录根据实际情况而定安装环境）。
+</p>
+</div>
+</div>
+
+<div id="outline-container-org88e6605" class="outline-3">
+<h3 id="org88e6605"><span class="section-number-3">2.2</span> 进入救援模式</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+进入ONIE安装环境。
+</p>
+
+<p>
+打开电源，当出现* Boot Main Menu <b>时，选择选项“</b> 2 *”进入ONIE救援模式。
+</p>
+
+<pre class="example">
+启动主菜单
+====================
+1  - 引导PICOS（默认）
+2  - 启动ONIE（救援模式）
+3  - 引导诊断
+4  - 引导Dell EMC网络系统
+输入您的选择（1,2,3,4）：2
+</pre>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left"><b>注意：</b></td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">如果未执行任何操作，系统将在5秒后启动到PICOS。</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div id="outline-container-orgea042cc" class="outline-4">
+<h4 id="orgea042cc"><span class="section-number-4">2.2.1</span> 在ONIE提示符下，运行 <b>onie-nos-install</b> 命令安装PICOS。</h4>
+<div class="outline-text-4" id="text-2-2-1">
+<ul class="org-ul">
+<li><p>
+<b>通过TFTP安装</b>
+</p>
+
+<pre class="example">
+ONIE＃onie-nos-install tftp：// &lt;图像路径&gt; /PicOS.bin
+</pre></li>
+
+<li><p>
+<b>通过FTP安装</b>
+</p>
+
+<p>
+通过FTP安装时，您需要
+输入图像文件所在的FTP服务器的* username <b>和</b> password *
+已加载。
+</p>
+
+<pre class="example">
+ONIE＃onie-nos-install ftp：//用户名：密码@ &lt;图像路径&gt; /PicOS.bin
+</pre></li>
+
+<li><p>
+*通过HTTP *安装
+</p>
+
+<pre class="example">
+ONIE＃onie-nos-install http：// &lt;图像路径&gt; /PicOS.bin
+</pre></li>
+
+<li><p>
+<b>通过本地目录安装</b>
+</p>
+
+<p>
+a）在* ONIE rescue *模式下，将图像文件复制到当前
+目录。
+</p>
+
+<pre class="example">
+ONIE #scp username @ &lt;图像路径&gt; /PicOS.bin。
+</pre>
+
+<p>
+b）运行* onie-nos-install *命令开始安装。
+</p>
+
+<pre class="example">
+ONIE＃onie-nos-install PicOS.bin
+</pre></li>
+</ul>
+
+<p>
+安装程序运行并在完成安装后运行
+自动重启，系统将运行新网络
+操作系统。
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left"><b>注意：</b></td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">- 系统重启后，需要输入用户名和密码，初始登录用户名为* admin <b>，密码为</b> pica8 *。</td>
+</tr>
+
+<tr>
+<td class="org-left">- 输入用户名和密码后，系统会要求用户为admin选择新密码。这是安装后的唯一步骤，之后可以使用PicOS操作系统。</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<p>There are <a href="/lab/install_picos_on_dell.html#disqus_thread">comments</a>.</p>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/product/Network_Simulator.html" rel="bookmark"
+                           title="Permalink to EstiNet 网络仿真">EstiNet 网络仿真</a></h1>
+                </header>
+
+                <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2018-11-18T00:00:00+08:00">
-                Published: Sun 18 November 2018
+                Published: 日 18 十一月 2018
         </abbr>
 
         <address class="vcard author">
@@ -35,7 +463,7 @@
         </address>
 <p>In <a href="/category/product.html">product</a>.</p>
 <p>tags: <a href="/tag/simulator.html">simulator</a> <a href="/tag/network.html">network</a> <a href="/tag/sdn.html">sdn</a> <a href="/tag/wifi.html">wifi</a> <a href="/tag/iot.html">IOT</a> </p>
-</footer><!-- /.post-info --><p>
+</footer><!-- /.post-info -->                <p>
 EstiNet 网络仿真器是一套可以仿真整个网络的软件,它可仿真多种网络设备之
 间的通讯协议机制,也可仿真每个网络设备收送与处理数据包的行为。
 </p>
@@ -47,12 +475,10 @@ Linux 操作系统环境作为其仿真环境,因此,它的主要特色就是整
 境里所有与网络相关的核心模块与应用软件,使它的仿真环境接近真实网络环境,
 可让网络教学更有实用成效,也可让科研结果更贴近真实网络的情况。
 </p>
-<p>There are <a href="/product/Network_Simulator.html#disqus_thread">comments</a>.</p>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
+
+                <a class="readmore" href="/product/Network_Simulator.html">read more</a>
+<p>There are <a href="/product/Network_Simulator.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>
@@ -63,7 +489,7 @@ Linux 操作系统环境作为其仿真环境,因此,它的主要特色就是整
                 <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2018-11-10T00:00:00+08:00">
-                Published: Sat 10 November 2018
+                Published: 六 10 十一月 2018
         </abbr>
 
         <address class="vcard author">
@@ -75,13 +501,13 @@ Linux 操作系统环境作为其仿真环境,因此,它的主要特色就是整
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#sec-1">1. 流表配置如下</a></li>
+<li><a href="#org443c828">1. 流表配置如下</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1"><span class="section-number-2">1</span> 流表配置如下</h2>
+<div id="outline-container-org443c828" class="outline-2">
+<h2 id="org443c828"><span class="section-number-2">1</span> 流表配置如下</h2>
 <div class="outline-text-2" id="text-1">
 <pre class="example">
 ovs-ofctl -O OpenFlow13 add-flow br0 table=0,in_port=50,actions=mod_vlan_vid:10,mod_dl_src:6c:59:79:33:44:55,mod_dl_dst:f8:bc:12:4d:e9:d8,goto_table:8
@@ -112,7 +538,7 @@ admin@PICOS-OVS …</pre></div></div>
                 <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2018-11-08T00:00:00+08:00">
-                Published: Thu 08 November 2018
+                Published: 四 08 十一月 2018
         </abbr>
 
         <address class="vcard author">
@@ -124,9 +550,9 @@ admin@PICOS-OVS …</pre></div></div>
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#sec-1">1. 初始设置和访问</a>
+<li><a href="#org59bd279">1. 初始设置和访问</a>
 <ul>
-<li><a href="#sec-1-1">1.1. 登陆交换机</a></li>
+<li><a href="#org3a08ff4">1.1. 登陆交换机</a></li>
 </ul>
 </li>
 </ul>
@@ -135,11 +561,12 @@ admin@PICOS-OVS …</pre></div></div>
 
 
 
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1"><span class="section-number-2">1</span> 初始设置和访问</h2>
+<div id="outline-container-org59bd279" class="outline-2">
+<h2 id="org59bd279"><span class="section-number-2">1</span> 初始设置和访问</h2>
 <div class="outline-text-2" id="text-1">
-</div><div id="outline-container-sec-1-1" class="outline-3">
-<h3 id="sec-1-1"><span class="section-number-3">1.1</span> 登陆交换机</h3>
+</div>
+<div id="outline-container-org3a08ff4" class="outline-3">
+<h3 id="org3a08ff4"><span class="section-number-3">1.1</span> 登陆交换机</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 交换机开箱后的初始登录，可以通过 串口(RJ45)来进行。 找到交换机 的console
@@ -171,7 +598,7 @@ securecrt 等 终端工具，配置串口参数为 115200,
                 <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2018-04-22T00:00:00+08:00">
-                Published: Sun 22 April 2018
+                Published: 日 22 四月 2018
         </abbr>
 
         <address class="vcard author">
@@ -183,26 +610,25 @@ securecrt 等 终端工具，配置串口参数为 115200,
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#sec-1">1. 准备工作</a></li>
-<li><a href="#sec-2">2. 更新内核</a></li>
-<li><a href="#sec-3">3. 安装AOVS</a></li>
+<li><a href="#orga0fe228">1. 准备工作</a></li>
+<li><a href="#org1ff09f2">2. 更新内核</a></li>
+<li><a href="#orgdbf31d2">3. 安装AOVS</a></li>
 </ul>
 </div>
 </div>
 
 
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1"><span class="section-number-2">1</span> 准备工作</h2>
+<div id="outline-container-orga0fe228" class="outline-2">
+<h2 id="orga0fe228"><span class="section-number-2">1</span> 准备工作</h2>
 <div class="outline-text-2" id="text-1">
 <ol class="org-ol">
-<li>确保服务器打开SR-IOV，（BIOS 设置）
-</li>
+<li>确保服务器打开SR-IOV，（BIOS 设置）</li>
 </ol>
 </div>
 </div>
 
-<div id="outline-container-sec-2" class="outline-2">
-<h2 id="sec-2"><span class="section-number-2">2</span> 更新内核</h2>
+<div id="outline-container-org1ff09f2" class="outline-2">
+<h2 id="org1ff09f2"><span class="section-number-2">2</span> 更新内核</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Centos/RHEL 操作系统可以从我们提供的网盘下载
@@ -219,8 +645,8 @@ yum localinstall *.rpm
 </div>
 </div>
 
-<div id="outline-container-sec-3" class="outline-2">
-<h2 id="sec-3"><span class="section-number-2">3</span> 安装AOVS</h2>
+<div id="outline-container-orgdbf31d2" class="outline-2">
+<h2 id="orgdbf31d2"><span class="section-number-2">3</span> 安装AOVS</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 下载 
@@ -245,7 +671,7 @@ yum -y …</pre></div></div>
                 <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2018-03-18T00:00:00+08:00">
-                Published: Sun 18 March 2018
+                Published: 日 18 三月 2018
         </abbr>
 
         <address class="vcard author">
@@ -257,9 +683,9 @@ yum -y …</pre></div></div>
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#sec-1">1. 先备份</a></li>
-<li><a href="#sec-2">2. 恢复</a></li>
-<li><a href="#sec-3">3. 重新启用该SSD</a></li>
+<li><a href="#org5ccab82">1. 先备份</a></li>
+<li><a href="#org939a18b">2. 恢复</a></li>
+<li><a href="#orgdc10a35">3. 重新启用该SSD</a></li>
 </ul>
 </div>
 </div>
@@ -272,8 +698,8 @@ yum -y …</pre></div></div>
 尝试重启，再挂载,当然还是不行，因为是一块PCI-E SSD 卡，非常担心数据搞不出来。
 </p>
 
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1"><span class="section-number-2">1</span> 先备份</h2>
+<div id="outline-container-org5ccab82" class="outline-2">
+<h2 id="org5ccab82"><span class="section-number-2">1</span> 先备份</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 保险起见，先dd出来，因为本地没有足够大的空间，尝试将现有信息保存到另外一台主机，
@@ -297,7 +723,7 @@ ssh root@192.168.1.1 "dd iflag=fullblock  conv=sync,noerror if=/dev/nvme0n1 |gzi
                 <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2018-01-24T00:00:00+08:00">
-                Published: Wed 24 January 2018
+                Published: 三 24 一月 2018
         </abbr>
 
         <address class="vcard author">
@@ -309,24 +735,24 @@ ssh root@192.168.1.1 "dd iflag=fullblock  conv=sync,noerror if=/dev/nvme0n1 |gzi
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#sec-1">1. 安装RYU</a></li>
-<li><a href="#sec-2">2. 安装</a></li>
-<li><a href="#sec-3">3. 运行</a></li>
-<li><a href="#sec-4">4. 验证</a></li>
+<li><a href="#org56d40cf">1. 安装RYU</a></li>
+<li><a href="#org6f21aad">2. 安装</a></li>
+<li><a href="#org055f9ef">3. 运行</a></li>
+<li><a href="#orgfccd18e">4. 验证</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1"><span class="section-number-2">1</span> 安装RYU</h2>
+<div id="outline-container-org56d40cf" class="outline-2">
+<h2 id="org56d40cf"><span class="section-number-2">1</span> 安装RYU</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 略，不清楚可以参考 <a href="https://bbill.github.io/lab/ryu_lab1.org">这里</a>
 </p>
 </div>
 </div>
-<div id="outline-container-sec-2" class="outline-2">
-<h2 id="sec-2"><span class="section-number-2">2</span> 安装</h2>
+<div id="outline-container-org6f21aad" class="outline-2">
+<h2 id="org6f21aad"><span class="section-number-2">2</span> 安装</h2>
 <div class="outline-text-2" id="text-2">
 <pre class="example">
 cd 
@@ -334,19 +760,22 @@ git clone https://github.com/bbill/nat.git ryu/ryu/app/nat
 </pre>
 </div>
 </div>
-<div id="outline-container-sec-3" class="outline-2">
-<h2 id="sec-3"><span class="section-number-2">3</span> 运行</h2>
+<div id="outline-container-org055f9ef" class="outline-2">
+<h2 id="org055f9ef"><span class="section-number-2">3</span> 运行</h2>
 <div class="outline-text-2" id="text-3">
 <pre class="example">
+
 </pre>
 </div>
 </div>
 
-<div id="outline-container-sec-4" class="outline-2">
-<h2 id="sec-4"><span class="section-number-2">4</span> 验证</h2>
+<div id="outline-container-orgfccd18e" class="outline-2">
+<h2 id="orgfccd18e"><span class="section-number-2">4</span> 验证</h2>
 <div class="outline-text-2" id="text-4">
 <ol class="org-ol">
-<li>如果没有实体SDN交换机，请安装 mininet
+<li><p>
+如果没有实体SDN交换机，请安装 mininet
+</p>
 <pre class="example">
 cd 
 git clone https://github.com/mininet/mininet.git
@@ -364,7 +793,7 @@ git clone https://github.com/mininet/mininet.git
                 <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2018-01-23T00:00:00+08:00">
-                Published: Tue 23 January 2018
+                Published: 二 23 一月 2018
         </abbr>
 
         <address class="vcard author">
@@ -376,14 +805,14 @@ git clone https://github.com/mininet/mininet.git
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#sec-1">1. Problem</a></li>
-<li><a href="#sec-2">2. Solution</a></li>
+<li><a href="#org755e73e">1. Problem</a></li>
+<li><a href="#org5cb378e">2. Solution</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1"><span class="section-number-2">1</span> Problem</h2>
+<div id="outline-container-org755e73e" class="outline-2">
+<h2 id="org755e73e"><span class="section-number-2">1</span> Problem</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 The OS can't detect the qxl video driver. The display resolution
@@ -423,7 +852,7 @@ X.Org X …</pre></div></div>
                 <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2018-01-20T00:00:00+08:00">
-                Published: Sat 20 January 2018
+                Published: 六 20 一月 2018
         </abbr>
 
         <address class="vcard author">
@@ -462,7 +891,7 @@ listen-address=192.168.0.1
                 <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2018-01-13T00:00:00+08:00">
-                Published: Sat 13 January 2018
+                Published: 六 13 一月 2018
         </abbr>
 
         <address class="vcard author">
@@ -476,47 +905,6 @@ wget -O -  <a href="https://raw.githubusercontent.com/bbill/scripts/master/Ybox/
 
                 <a class="readmore" href="/product/add_guest_agent.html">read more</a>
 <p>There are <a href="/product/add_guest_agent.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/lab/pica8_OVS_Command_Reference.html" rel="bookmark"
-                           title="Permalink to Pica8 OVS 模式常用命令">Pica8 OVS 模式常用命令</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2018-01-05T00:00:00+08:00">
-                Published: Fri 05 January 2018
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/bill.html">bill</a>
-        </address>
-<p>In <a href="/category/lab.html">lab</a>.</p>
-<p>tags: <a href="/tag/pica.html">pica</a> <a href="/tag/white-box.html">white box</a> <a href="/tag/openflow.html">openflow</a> <a href="/tag/sdn.html">sdn</a> </p>
-</footer><!-- /.post-info -->                <div id="table-of-contents">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents">
-<ul>
-<li><a href="#sec-1">1. 确认端口状态</a></li>
-<li><a href="#sec-2">2. 确认硬件流表支持的最大条目</a></li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1"><span class="section-number-2">1</span> 确认端口状态</h2>
-<div class="outline-text-2" id="text-1">
-<ol class="org-ol">
-<li>端口计数器
-<pre class="example">
-admin@PicOS-OVS$ovs-ofctl dump-ports  br0
-OFPST_PORT reply (OF1.3) (xid=0x2): 49 ports
-  port  1: rx pkts=0, bytes=979551, drop=0, errs=518513, frame=0, over=0, crc=0
-           tx pkts=457981, bytes=34858800, drop=0, errs=0, coll …</pre></li></ol></div></div>
-                <a class="readmore" href="/lab/pica8_OVS_Command_Reference.html">read more</a>
-<p>There are <a href="/lab/pica8_OVS_Command_Reference.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
             </article></li>
                 </ol><!-- /#posts-list -->
 <p class="paginator">

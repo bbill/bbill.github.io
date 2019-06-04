@@ -27,7 +27,7 @@
                     <h1 class="entry-title"><a href="/troubleshooting/xfs_on_crash_ssd.html">XFS repair on failed SSD</a></h1>
 <footer class="post-info">
         <abbr class="published" title="2018-03-18T00:00:00+08:00">
-                Published: Sun 18 March 2018
+                Published: 日 18 三月 2018
         </abbr>
 
         <address class="vcard author">
@@ -39,9 +39,9 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#sec-1">1. 先备份</a></li>
-<li><a href="#sec-2">2. 恢复</a></li>
-<li><a href="#sec-3">3. 重新启用该SSD</a></li>
+<li><a href="#org5ccab82">1. 先备份</a></li>
+<li><a href="#org939a18b">2. 恢复</a></li>
+<li><a href="#orgdc10a35">3. 重新启用该SSD</a></li>
 </ul>
 </div>
 </div>
@@ -54,8 +54,8 @@
 尝试重启，再挂载,当然还是不行，因为是一块PCI-E SSD 卡，非常担心数据搞不出来。
 </p>
 
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1"><span class="section-number-2">1</span> 先备份</h2>
+<div id="outline-container-org5ccab82" class="outline-2">
+<h2 id="org5ccab82"><span class="section-number-2">1</span> 先备份</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 保险起见，先dd出来，因为本地没有足够大的空间，尝试将现有信息保存到另外一台主机，
@@ -76,7 +76,7 @@ dd出来只有267G，看了下warning,似乎是因为中间有坏块读不出来
 
 <p>
 按理dd应该有选项避免这种情况，但是没查到，感觉过于复杂，不友善放弃。换
-ddrescue，没看到可以支持管道到远端，放弃。换dd<sub>rescue。是的</sub> dd<sub>rescue</sub>
+ddrescue，没看到可以支持管道到远端，放弃。换dd<sub>rescue</sub>。是的 dd<sub>rescue</sub>
 和ddrescue 是两个不同的软件。
 命令够简单：
 在故障磁盘(/dev/nvme0n1)所在主机执行
@@ -92,8 +92,8 @@ dd_rescue /dev/nvme0n1 - | ssh root@192.168.1.2 "cat - &gt; /mnt/filename.img"
 </div>
 </div>
 
-<div id="outline-container-sec-2" class="outline-2">
-<h2 id="sec-2"><span class="section-number-2">2</span> 恢复</h2>
+<div id="outline-container-org939a18b" class="outline-2">
+<h2 id="org939a18b"><span class="section-number-2">2</span> 恢复</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 备份完成后在原始磁盘上尝试修复。
@@ -124,7 +124,7 @@ xfs_repair: libxfs_device_zero write failed: Input/output error
 尝试从备份出来的文件进行恢复。
 </p>
 <pre class="example">
-xfs_repair -Lf /mnt/filename.img
+xfs_repair -Lf /mnt/filename.img 
 </pre>
 
 <p>
@@ -141,8 +141,8 @@ ls /media
 </div>
 </div>
 
-<div id="outline-container-sec-3" class="outline-2">
-<h2 id="sec-3"><span class="section-number-2">3</span> 重新启用该SSD</h2>
+<div id="outline-container-orgdc10a35" class="outline-2">
+<h2 id="orgdc10a35"><span class="section-number-2">3</span> 重新启用该SSD</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 SSD还没有完全故障，还是要利用起来。看了下xfs似乎没有排除坏块的选项，用ext4重新格式化，再挂载。（当然，这次要定期做好备份）

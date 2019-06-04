@@ -27,7 +27,7 @@
                     <h1 class="entry-title"><a href="/lab/upgrade_picos.html">升级Pica8操作系统</a></h1>
 <footer class="post-info">
         <abbr class="published" title="2017-10-16T00:00:00+08:00">
-                Published: Mon 16 October 2017
+                Published: 一 16 十月 2017
         </abbr>
 
         <address class="vcard author">
@@ -41,7 +41,17 @@
 
 
 <ol class="org-ol">
-<li>确定备份分区状态（它必须是ok或者up-to-date）
+<li>查看当前状态，备份基础配置
+ifconfig 
+ovs-vsctl show
+cd /home/admin 
+tar czvf ovs.tgz  /ovs/ovs-vswitchd.conf.db /etc/picos/picos<sub>start.conf</sub>
+tar cavf lic.tgz  /etc/picos/switch-public.key /etc/picos/pica.lic
+用scp 将 ovs.tgz lic.tgz 复制出来</li>
+
+<li><p>
+确定备份分区状态（它必须是ok或者up-to-date）
+</p>
 
 <blockquote>
 <p>
@@ -59,10 +69,11 @@ secondary: up-to-date
 <p>
 admin@PicOS-OVS$
 </p>
-</blockquote>
-</li>
+</blockquote></li>
 
-<li>上传更新image文件到交换机的/cftmp 目录
+<li><p>
+上传更新image文件到交换机的/cftmp 目录
+</p>
 
 <p>
 假设您用来下载的主机系统为linux，IP地址为 10.10.10.16，下载的文
@@ -86,10 +97,11 @@ admin@PicOS-OVS$sudo scp user@10.10.50.16:/home/user/picos-2.8.0-P5401-45ec985.t
 
 <p>
 此步骤的目的是将升级映像复制到交换机的/cftmp 目录下。
-</p>
-</li>
+</p></li>
 
-<li>在/cftmp下执行upgrade命令升级交换机版本
+<li><p>
+在/cftmp下执行upgrade命令升级交换机版本
+</p>
 
 <blockquote>
 <p>
@@ -128,7 +140,7 @@ Back up PicOS configuration files
 </p>
 
 <p>
-/ovs/ovs-vswitchd.conf.db /etc/picos/picos<sub>start</sub>.conf
+/ovs/ovs-vswitchd.conf.db /etc/picos/picos<sub>start.conf</sub>
 </p>
 
 <p>
@@ -162,8 +174,19 @@ Rebooting in 10 seconds!
 <p>
 admin@PicOS-OVS$
 </p>
-</blockquote>
-</li>
+</blockquote></li>
+
+<li><p>
+回滚
+</p>
+
+<p>
+如果新操作系统无法及时上线工作，则以携带的备份机器顶上。
+恢复之前备份之配置，
+</p>
+<pre class="example">
+tar xzvf ovs.tgz    
+</pre></li>
 </ol>
 <p>There are <a href="/lab/upgrade_picos.html#disqus_thread">comments</a>.</p>                </article>
             </aside><!-- /#featured -->

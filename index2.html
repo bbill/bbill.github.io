@@ -26,14 +26,14 @@
                     <ol id="posts-list" class="hfeed" start="9">
             <li><article class="hentry">
                 <header>
-                    <h1><a href="/lab/pica8_quick_start.html" rel="bookmark"
-                           title="Permalink to Pica8 白盒交换机快速上手">Pica8 白盒交换机快速上手</a></h1>
+                    <h1><a href="/lab/pica8_OVS_Command_Reference.html" rel="bookmark"
+                           title="Permalink to Pica8 OVS 模式常用命令">Pica8 OVS 模式常用命令</a></h1>
                 </header>
 
                 <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2018-01-05T00:00:00+08:00">
-                Published: Fri 05 January 2018
+                Published: 五 05 一月 2018
         </abbr>
 
         <address class="vcard author">
@@ -45,27 +45,71 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#sec-1">1. 初始设置和访问</a>
+<li><a href="#org081a86d">1. 确认端口状态</a></li>
+<li><a href="#org2a4caa7">2. 确认硬件流表支持的最大条目</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org081a86d" class="outline-2">
+<h2 id="org081a86d"><span class="section-number-2">1</span> 确认端口状态</h2>
+<div class="outline-text-2" id="text-1">
+<ol class="org-ol">
+<li><p>
+端口计数器
+</p>
+<pre class="example">
+admin@PicOS-OVS$ovs-ofctl dump-ports  br0
+OFPST_PORT reply (OF1.3) (xid=0x2): 49 ports
+  port  1: rx pkts=0, bytes=979551, drop=0, errs=518513, frame=0, over=0, crc=0
+           tx pkts=457981, bytes=34858800, drop=0, errs=0, coll …</pre></li></ol></div></div>
+                <a class="readmore" href="/lab/pica8_OVS_Command_Reference.html">read more</a>
+<p>There are <a href="/lab/pica8_OVS_Command_Reference.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/lab/pica8_quick_start.html" rel="bookmark"
+                           title="Permalink to Pica8 白盒交换机快速上手">Pica8 白盒交换机快速上手</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2018-01-05T00:00:00+08:00">
+                Published: 五 05 一月 2018
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/bill.html">bill</a>
+        </address>
+<p>In <a href="/category/lab.html">lab</a>.</p>
+<p>tags: <a href="/tag/pica.html">pica</a> <a href="/tag/white-box.html">white box</a> <a href="/tag/openflow.html">openflow</a> <a href="/tag/sdn.html">sdn</a> </p>
+</footer><!-- /.post-info -->                <div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
 <ul>
-<li><a href="#sec-1-1">1.1. 登陆交换机</a></li>
-<li><a href="#sec-1-2">1.2. 设定默认启动模式</a></li>
-<li><a href="#sec-1-3">1.3. 设置 Openflow SDN网络</a></li>
+<li><a href="#org06975f4">1. 初始设置和访问</a>
+<ul>
+<li><a href="#org3a8d60a">1.1. 登陆交换机</a></li>
+<li><a href="#orge2ea6c7">1.2. 设定默认启动模式</a></li>
+<li><a href="#org76bfcb5">1.3. 设置 Openflow SDN网络</a></li>
 </ul>
 </li>
-<li><a href="#sec-2">2. TAP简单上手</a></li>
-<li><a href="#sec-3">3. CrossFlow 配置</a></li>
-<li><a href="#sec-4">4. 软件版本升级</a></li>
-<li><a href="#sec-5">5. 手册及参考</a></li>
+<li><a href="#orgbd65288">2. TAP简单上手</a></li>
+<li><a href="#orgea773d9">3. CrossFlow 配置</a></li>
+<li><a href="#org96f39c2">4. 软件版本升级</a></li>
+<li><a href="#org17908ad">5. 手册及参考</a></li>
 </ul>
 </div>
 </div>
 
 
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1"><span class="section-number-2">1</span> 初始设置和访问</h2>
+<div id="outline-container-org06975f4" class="outline-2">
+<h2 id="org06975f4"><span class="section-number-2">1</span> 初始设置和访问</h2>
 <div class="outline-text-2" id="text-1">
-</div><div id="outline-container-sec-1-1" class="outline-3">
-<h3 id="sec-1-1"><span class="section-number-3">1.1</span> 登陆交换机</h3>
+</div>
+<div id="outline-container-org3a8d60a" class="outline-3">
+<h3 id="org3a8d60a"><span class="section-number-3">1.1</span> 登陆交换机</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 交换机开箱后的初始登录，可以通过 串口(RJ45)来进行。 找到交换机 的console
@@ -85,7 +129,7 @@ securecrt 等 终端工具，配置串口参数为 115200,
                 <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2018-01-03T00:00:00+08:00">
-                Published: Wed 03 January 2018
+                Published: 三 03 一月 2018
         </abbr>
 
         <address class="vcard author">
@@ -97,21 +141,22 @@ securecrt 等 终端工具，配置串口参数为 115200,
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#sec-1">1. OpenMesh SDN交换机设置静态流表的"正确"方法</a>
+<li><a href="#org1cdbbce">1. OpenMesh SDN交换机设置静态流表的"正确"方法</a>
 <ul>
-<li><a href="#sec-1-1">1.1. 系统初始设置</a></li>
-<li><a href="#sec-1-2">1.2. 添加静态流配置命令</a></li>
+<li><a href="#org7495d1d">1.1. 系统初始设置</a></li>
+<li><a href="#org2c4d0fc">1.2. 添加静态流配置命令</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1"><span class="section-number-2">1</span> OpenMesh SDN交换机设置静态流表的"正确"方法</h2>
+<div id="outline-container-org1cdbbce" class="outline-2">
+<h2 id="org1cdbbce"><span class="section-number-2">1</span> OpenMesh SDN交换机设置静态流表的"正确"方法</h2>
 <div class="outline-text-2" id="text-1">
-</div><div id="outline-container-sec-1-1" class="outline-3">
-<h3 id="sec-1-1"><span class="section-number-3">1.1</span> 系统初始设置</h3>
+</div>
+<div id="outline-container-org7495d1d" class="outline-3">
+<h3 id="org7495d1d"><span class="section-number-3">1.1</span> 系统初始设置</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 参见 <a href="../lab/pica8_quick_start.html">快速上手</a>
@@ -119,8 +164,8 @@ securecrt 等 终端工具，配置串口参数为 115200,
 </div>
 </div>
 
-<div id="outline-container-sec-1-2" class="outline-3">
-<h3 id="sec-1-2"><span class="section-number-3">1.2</span> 添加静态流配置命令</h3>
+<div id="outline-container-org2c4d0fc" class="outline-3">
+<h3 id="org2c4d0fc"><span class="section-number-3">1.2</span> 添加静态流配置命令</h3>
 <div class="outline-text-3" id="text-1-2">
 <pre class="example">
 admin@PICOS-OVS$sudo mkdir /cftmp/
@@ -132,6 +177,7 @@ admin@PICOS-OVS$sudo mkdir /cftmp/
 
 <pre class="example">
 admin@PICOS-OVS$sudo vi /cftmp/auto/post-ovs
+
 </pre>
 
 <p>
@@ -154,7 +200,7 @@ export PATH=/ovs …</pre></div></div></div>
                 <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2017-10-28T00:00:00+08:00">
-                Published: Sat 28 October 2017
+                Published: 六 28 十月 2017
         </abbr>
 
         <address class="vcard author">
@@ -176,7 +222,7 @@ export PATH=/ovs …</pre></div></div></div>
                 <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2017-10-21T00:00:00+08:00">
-                Published: Sat 21 October 2017
+                Published: 六 21 十月 2017
         </abbr>
 
         <address class="vcard author">
@@ -198,7 +244,7 @@ export PATH=/ovs …</pre></div></div></div>
                 <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2017-10-16T00:00:00+08:00">
-                Published: Mon 16 October 2017
+                Published: 一 16 十月 2017
         </abbr>
 
         <address class="vcard author">
@@ -210,12 +256,12 @@ export PATH=/ovs …</pre></div></div></div>
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#sec-1">1. 重启交换机</a></li>
+<li><a href="#orgcd754d8">1. 重启交换机</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1"><span class="section-number-2">1</span> 重启交换机</h2>
+<div id="outline-container-orgcd754d8" class="outline-2">
+<h2 id="orgcd754d8"><span class="section-number-2">1</span> 重启交换机</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 以3290 为例，不同交换机进入 底层 shell的方法不同
@@ -243,9 +289,8 @@ press any key to stop autoboot 时，按回车
 
 
 <div class="org-src-container">
-
-<pre class="src src-bash">cd /cf_card
-rm –rf [a-y]* 
+<pre class="src src-bash"><span style="font-weight: bold;">cd</span> /cf_card
+rm &#8211;rf [a-y]* 
 tftp -gr picos-2.9.2.5-P3290-30f7332.tar.gz -l z.tgz 192.168 …</pre></div></div></div>
                 <a class="readmore" href="/lab/upgrade_P-3290.html">read more</a>
 <p>There are <a href="/lab/upgrade_P-3290.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
@@ -260,7 +305,7 @@ tftp -gr picos-2.9.2.5-P3290-30f7332.tar.gz -l z.tgz 192.168 …</pre></div></di
                 <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2017-10-16T00:00:00+08:00">
-                Published: Mon 16 October 2017
+                Published: 一 16 十月 2017
         </abbr>
 
         <address class="vcard author">
@@ -274,42 +319,21 @@ tftp -gr picos-2.9.2.5-P3290-30f7332.tar.gz -l z.tgz 192.168 …</pre></div></di
 
 
 <ol class="org-ol">
-<li>确定备份分区状态（它必须是ok或者up-to-date）
+<li>查看当前状态，备份基础配置
+ifconfig 
+ovs-vsctl show
+cd /home/admin 
+tar czvf ovs.tgz  /ovs/ovs-vswitchd.conf.db /etc/picos/picos<sub>start.conf</sub>
+tar cavf lic.tgz  /etc/picos/switch-public.key /etc/picos/pica.lic
+用scp 将 ovs.tgz lic.tgz 复制出来</li>
 
-<blockquote>
-<p>
-admin@PicOS-OVS$cat /etc/picos/fs<sub>status</sub>
-</p>
-
-<p>
-primary: ok
-</p>
-
-<p>
-secondary: up-to-date
-</p>
-
-<p>
-admin@PicOS-OVS$
-</p>
-</blockquote>
-</li>
-
-<li>上传更新image文件到交换机的/cftmp 目录
-
-<p>
-假设您用来下载的主机系统为linux，IP地址为 10.10.10.16，下载的文
-件名为 picos-2.8.0-P5401-45ec985.tar.gz 在确保交换机可以ping 通
-10.10.50.16后，可以在 <b>交换机</b> 上执行
+<li><p>
+确定备份分区状态（它必须是ok或者up-to-date）
 </p>
 
 <blockquote>
 <p>
-admin@PicOS-OVS$cd <i>cftmp</i>
-</p>
-
-<p>
-admin@PicOS-OVS$sudo scp …</p></blockquote></li></ol>
+admin@PicOS-OVS$cat /etc/picos/fs …</p></blockquote></li></ol>
                 <a class="readmore" href="/lab/upgrade_picos.html">read more</a>
 <p>There are <a href="/lab/upgrade_picos.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
             </article></li>
@@ -323,7 +347,7 @@ admin@PicOS-OVS$sudo scp …</p></blockquote></li></ol>
                 <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2017-09-24T00:00:00+08:00">
-                Published: Sun 24 September 2017
+                Published: 日 24 九月 2017
         </abbr>
 
         <address class="vcard author">

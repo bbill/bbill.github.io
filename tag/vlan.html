@@ -27,7 +27,7 @@
                     <h1 class="entry-title"><a href="/troubleshooting/no_rx_while_correct_rule.html">正确的流表收不到包</a></h1>
 <footer class="post-info">
         <abbr class="published" title="2018-11-10T00:00:00+08:00">
-                Published: Sat 10 November 2018
+                Published: 六 10 十一月 2018
         </abbr>
 
         <address class="vcard author">
@@ -39,13 +39,13 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#sec-1">1. 流表配置如下</a></li>
+<li><a href="#org443c828">1. 流表配置如下</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1"><span class="section-number-2">1</span> 流表配置如下</h2>
+<div id="outline-container-org443c828" class="outline-2">
+<h2 id="org443c828"><span class="section-number-2">1</span> 流表配置如下</h2>
 <div class="outline-text-2" id="text-1">
 <pre class="example">
 ovs-ofctl -O OpenFlow13 add-flow br0 table=0,in_port=50,actions=mod_vlan_vid:10,mod_dl_src:6c:59:79:33:44:55,mod_dl_dst:f8:bc:12:4d:e9:d8,goto_table:8
@@ -65,8 +65,8 @@ ovs-ofctl -O OpenFlow13 add-flow br0 table=8,actions=output:49
 admin@PICOS-OVS:~$ ovs-ofctl dump-ports br0 49                                                                                                          
 OFPST_PORT reply (OF1.4) (xid=0x2): 1 ports
   port 49: rx pkts=1008, bytes=67912, drop=1008, errs=0, frame=0, over=0, crc=0
-           tx pkts=1199, bytes=122946, drop=67348, errs=0, coll=0
-           duration=74363.674s
+	   tx pkts=1199, bytes=122946, drop=67348, errs=0, coll=0
+	   duration=74363.674s
 </pre>
 
 
@@ -94,6 +94,8 @@ status              : {}
 tag                 : {}
 trunks              : []
 vlan_mode           : {}
+
+
 </pre>
 
 <p>
@@ -115,7 +117,7 @@ ovs-vsctl set port te-1/1/49 tag=10
 
 <pre class="example">
 ovs-vsctl set port te-1/1/49 vlan_mode=access 
-ovs-vsctl set port te-1/1/49 trunks=10
+ovs-vsctl set port te-1/1/49 trunks=10  
 </pre>
 </div>
 </div>
