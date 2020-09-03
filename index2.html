@@ -26,76 +26,6 @@
                     <ol id="posts-list" class="hfeed" start="9">
             <li><article class="hentry">
                 <header>
-                    <h1><a href="/lab/try_ryu_nat.html" rel="bookmark"
-                           title="Permalink to 试用 RYU NAT">试用 RYU NAT</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2018-01-24T00:00:00+08:00">
-                Published: 三 24 一月 2018
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/bill.html">bill</a>
-        </address>
-<p>In <a href="/category/lab.html">lab</a>.</p>
-<p>tags: <a href="/tag/ryu.html">ryu</a> <a href="/tag/nat.html">nat</a> <a href="/tag/dhcp.html">dhcp</a> <a href="/tag/agent.html">agent</a> <a href="/tag/sdn.html">sdn</a> <a href="/tag/openflow.html">OpenFlow</a> </p>
-</footer><!-- /.post-info -->                <div id="table-of-contents">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents">
-<ul>
-<li><a href="#org4425e5f">1. 安装RYU</a></li>
-<li><a href="#org284d1e7">2. 安装</a></li>
-<li><a href="#org8ad0584">3. 运行</a></li>
-<li><a href="#orgfe2aabc">4. 验证</a></li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-org4425e5f" class="outline-2">
-<h2 id="org4425e5f"><span class="section-number-2">1</span> 安装RYU</h2>
-<div class="outline-text-2" id="text-1">
-<p>
-略，不清楚可以参考 <a href="https://bbill.github.io/lab/ryu_lab1.org">这里</a>
-</p>
-</div>
-</div>
-<div id="outline-container-org284d1e7" class="outline-2">
-<h2 id="org284d1e7"><span class="section-number-2">2</span> 安装</h2>
-<div class="outline-text-2" id="text-2">
-<pre class="example">
-cd 
-git clone https://github.com/bbill/nat.git ryu/ryu/app/nat
-</pre>
-</div>
-</div>
-<div id="outline-container-org8ad0584" class="outline-2">
-<h2 id="org8ad0584"><span class="section-number-2">3</span> 运行</h2>
-<div class="outline-text-2" id="text-3">
-<pre class="example">
-
-</pre>
-</div>
-</div>
-
-<div id="outline-container-orgfe2aabc" class="outline-2">
-<h2 id="orgfe2aabc"><span class="section-number-2">4</span> 验证</h2>
-<div class="outline-text-2" id="text-4">
-<ol class="org-ol">
-<li><p>
-如果没有实体SDN交换机，请安装 mininet
-</p>
-<pre class="example">
-cd 
-git clone https://github.com/mininet/mininet.git
-./mininet/util/install …</pre></li></ol></div></div>
-                <a class="readmore" href="/lab/try_ryu_nat.html">read more</a>
-<p>There are <a href="/lab/try_ryu_nat.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
                     <h1><a href="/product/Spice_over_Ubuntu_16.04.html" rel="bookmark"
                            title="Permalink to The SPICE support in KVM Ubunt 16.04 guest">The SPICE support in KVM Ubunt 16.04 guest</a></h1>
                 </header>
@@ -115,14 +45,14 @@ git clone https://github.com/mininet/mininet.git
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orga14401f">1. Problem</a></li>
-<li><a href="#org855ebd0">2. Solution</a></li>
+<li><a href="#org12e3bc9">1. Problem</a></li>
+<li><a href="#org5d6d6ea">2. Solution</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orga14401f" class="outline-2">
-<h2 id="orga14401f"><span class="section-number-2">1</span> Problem</h2>
+<div id="outline-container-org12e3bc9" class="outline-2">
+<h2 id="org12e3bc9"><span class="section-number-2">1</span> Problem</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 The OS can't detect the qxl video driver. The display resolution
@@ -238,14 +168,14 @@ wget -O -  <a href="https://raw.githubusercontent.com/bbill/scripts/master/Ybox/
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orge64d4f0">1. 确认端口状态</a></li>
-<li><a href="#org27e15c3">2. 确认硬件流表支持的最大条目</a></li>
+<li><a href="#org26372ca">1. 确认端口状态</a></li>
+<li><a href="#orgbe8ca9f">2. 确认硬件流表支持的最大条目</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orge64d4f0" class="outline-2">
-<h2 id="orge64d4f0"><span class="section-number-2">1</span> 确认端口状态</h2>
+<div id="outline-container-org26372ca" class="outline-2">
+<h2 id="org26372ca"><span class="section-number-2">1</span> 确认端口状态</h2>
 <div class="outline-text-2" id="text-1">
 <ol class="org-ol">
 <li><p>
@@ -281,22 +211,22 @@ OFPST_PORT reply (OF1.3) (xid=0x2): 49 ports
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org34b4424">1. OpenMesh SDN交换机设置静态流表的"正确"方法</a>
+<li><a href="#org213f574">1. OpenMesh SDN交换机设置静态流表的"正确"方法</a>
 <ul>
-<li><a href="#org57af654">1.1. 系统初始设置</a></li>
-<li><a href="#orgd42c76f">1.2. 添加静态流配置命令</a></li>
+<li><a href="#org719058b">1.1. 系统初始设置</a></li>
+<li><a href="#org2d299da">1.2. 添加静态流配置命令</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org34b4424" class="outline-2">
-<h2 id="org34b4424"><span class="section-number-2">1</span> OpenMesh SDN交换机设置静态流表的"正确"方法</h2>
+<div id="outline-container-org213f574" class="outline-2">
+<h2 id="org213f574"><span class="section-number-2">1</span> OpenMesh SDN交换机设置静态流表的"正确"方法</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org57af654" class="outline-3">
-<h3 id="org57af654"><span class="section-number-3">1.1</span> 系统初始设置</h3>
+<div id="outline-container-org719058b" class="outline-3">
+<h3 id="org719058b"><span class="section-number-3">1.1</span> 系统初始设置</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 参见 <a href="../lab/pica8_quick_start.html">快速上手</a>
@@ -304,8 +234,8 @@ OFPST_PORT reply (OF1.3) (xid=0x2): 49 ports
 </div>
 </div>
 
-<div id="outline-container-orgd42c76f" class="outline-3">
-<h3 id="orgd42c76f"><span class="section-number-3">1.2</span> 添加静态流配置命令</h3>
+<div id="outline-container-org2d299da" class="outline-3">
+<h3 id="org2d299da"><span class="section-number-3">1.2</span> 添加静态流配置命令</h3>
 <div class="outline-text-3" id="text-1-2">
 <pre class="example">
 admin@PICOS-OVS$sudo mkdir /cftmp/
@@ -396,12 +326,12 @@ export PATH=/ovs …</pre></div></div></div>
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgc817490">1. 重启交换机</a></li>
+<li><a href="#orgfd9d2bf">1. 重启交换机</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgc817490" class="outline-2">
-<h2 id="orgc817490"><span class="section-number-2">1</span> 重启交换机</h2>
+<div id="outline-container-orgfd9d2bf" class="outline-2">
+<h2 id="orgfd9d2bf"><span class="section-number-2">1</span> 重启交换机</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 以3290 为例，不同交换机进入 底层 shell的方法不同
@@ -477,11 +407,32 @@ admin@PicOS-OVS$cat /etc/picos/fs …</p></blockquote></li></ol>
                 <a class="readmore" href="/lab/upgrade_picos.html">read more</a>
 <p>There are <a href="/lab/upgrade_picos.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
             </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/lab/ryu_lab1.html" rel="bookmark"
+                           title="Permalink to Ryu 控制器的安装及基本操作">Ryu 控制器的安装及基本操作</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2017-09-24T00:00:00+08:00">
+                Published: 日 24 九月 2017
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/bill.html">bill</a>
+        </address>
+<p>In <a href="/category/lab.html">lab</a>.</p>
+<p>tags: <a href="/tag/ryu.html">ryu</a> <a href="/tag/openflow.html">openflow</a> <a href="/tag/mininet.html">mininet</a> </p>
+</footer><!-- /.post-info -->                RYU 安装操作
+                <a class="readmore" href="/lab/ryu_lab1.html">read more</a>
+<p>There are <a href="/lab/ryu_lab1.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
+            </article></li>
                 </ol><!-- /#posts-list -->
 <p class="paginator">
         <a href="/index.html">&laquo;</a>
-    Page 2 / 3
-        <a href="/index3.html">&raquo;</a>
+    Page 2 / 2
 </p>
                 </section><!-- /#content -->
         <section id="extras" class="body">

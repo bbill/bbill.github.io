@@ -24,100 +24,7 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/product/OpenFlow_over_p4.html">用P4实现的OpenFlow（OVS）交换机</a></h1>
-<footer class="post-info">
-        <abbr class="published" title="2020-01-01T00:00:00+08:00">
-                Published: 三 01 一月 2020
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/bill.html">bill</a>
-        </address>
-<p>In <a href="/category/product.html">product</a>.</p>
-<p>tags: <a href="/tag/tofino.html">tofino</a> <a href="/tag/ubuntu.html">ubuntu</a> <a href="/tag/ovs.html">ovs</a> </p>
-</footer><!-- /.post-info --><div id="table-of-contents">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents">
-<ul>
-<li><a href="#org2228906">1. 安装 SDE</a></li>
-<li><a href="#org4a2b1ba">2. 更新内核</a></li>
-<li><a href="#org94d392f">3. 安装AOVS</a></li>
-</ul>
-</div>
-</div>
-
-
-<div id="outline-container-org2228906" class="outline-2">
-<h2 id="org2228906"><span class="section-number-2">1</span> 安装 SDE</h2>
-<div class="outline-text-2" id="text-1">
-<p>
-由于ONL系统的源国内访问较慢
-准备工作
-</p>
-<ol class="org-ol">
-<li>确保服务器打开SR-IOV，（BIOS 设置）</li>
-</ol>
-</div>
-</div>
-
-<div id="outline-container-org4a2b1ba" class="outline-2">
-<h2 id="org4a2b1ba"><span class="section-number-2">2</span> 更新内核</h2>
-<div class="outline-text-2" id="text-2">
-<p>
-Centos/RHEL 操作系统可以从我们提供的网盘下载
-链接:<a href="https://pan.baidu.com/s/1geZ2kev">https://pan.baidu.com/s/1geZ2kev</a> 密码:76hp
-</p>
-
-<p>
-rhel-3.10.0-493.el7.tar.gz 解压后安装所有包
-</p>
-<pre class="example">
-cd "extract path"
-yum localinstall *.rpm
-</pre>
-</div>
-</div>
-
-<div id="outline-container-org94d392f" class="outline-2">
-<h2 id="org94d392f"><span class="section-number-2">3</span> 安装AOVS</h2>
-<div class="outline-text-2" id="text-3">
-<p>
-下载 
-</p>
-
-
-
-
-<pre class="example">
-rpm -i kernel*.rpm
-yum -y install epel-release
-yum -y install make autoconf automake libtool gcc gcc-c++ libpcap-devel \
-readline-devel jansson-devel libevent libevent-devel libtool openssl-devel \
-bison flex gawk hwloc gettext texinfo rpm-build \
-redhat-rpm-config graphviz python-devel python python-devel tcl-devel \
-tk-devel texinfo dkms zip unzip pkgconfig wget patch minicom libusb \
-libusb-devel psmisc libnl3-devel libftdi pciutils \
-zeromq3 zeromq3-devel protobuf-c-compiler protobuf-compiler protobuf-python \
-protobuf-c-devel python-six numactl-libs python-ethtool kvm qemu-kvm \
-virt-install libvirt libvirt-python virt-manager libguestfs-tools \
-cloud-utils virt-install lvm2 wget git net-tools libguestfs-tools
-</pre>
-</div>
-</div>
-<p>There are <a href="/product/OpenFlow_over_p4.html#disqus_thread">comments</a>.</p>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/product/OpenFlow_on_Tofino.html" rel="bookmark"
-                           title="Permalink to OpenFlow on OpenMesh P4 交换机">OpenFlow on OpenMesh P4 交换机</a></h1>
-                </header>
-
-                <div class="entry-content">
+                    <h1 class="entry-title"><a href="/product/OpenFlow_on_Tofino.html">OpenFlow on OpenMesh P4 交换机</a></h1>
 <footer class="post-info">
         <abbr class="published" title="2019-12-14T00:00:00+08:00">
                 Published: 六 14 十二月 2019
@@ -128,11 +35,30 @@ cloud-utils virt-install lvm2 wget git net-tools libguestfs-tools
         </address>
 <p>In <a href="/category/product.html">product</a>.</p>
 <p>tags: <a href="/tag/openflowp4sdntofinoopenmesh.html">OpenFlow，P4，SDN，Tofino，OpenMesh</a> </p>
-</footer><!-- /.post-info -->                
+</footer><!-- /.post-info --><div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org3022ed5">1. 基本可以工作</a></li>
+</ul>
+</div>
+</div>
 
-                <a class="readmore" href="/product/OpenFlow_on_Tofino.html">read more</a>
-<p>There are <a href="/product/OpenFlow_on_Tofino.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
-            </article></li>
+
+<div id="outline-container-org3022ed5" class="outline-2">
+<h2 id="org3022ed5"><span class="section-number-2">1</span> 基本可以工作</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+后续补充
+</p>
+</div>
+</div>
+<p>There are <a href="/product/OpenFlow_on_Tofino.html#disqus_thread">comments</a>.</p>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
 
             <li><article class="hentry">
                 <header>
@@ -189,14 +115,14 @@ Linux 操作系统环境作为其仿真环境,因此,它的主要特色就是整
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orga14401f">1. Problem</a></li>
-<li><a href="#org855ebd0">2. Solution</a></li>
+<li><a href="#org12e3bc9">1. Problem</a></li>
+<li><a href="#org5d6d6ea">2. Solution</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orga14401f" class="outline-2">
-<h2 id="orga14401f"><span class="section-number-2">1</span> Problem</h2>
+<div id="outline-container-org12e3bc9" class="outline-2">
+<h2 id="org12e3bc9"><span class="section-number-2">1</span> Problem</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 The OS can't detect the qxl video driver. The display resolution

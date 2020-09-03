@@ -39,9 +39,9 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org672d4ca">1. 先备份</a></li>
-<li><a href="#orga1233f2">2. 恢复</a></li>
-<li><a href="#orgf24d4de">3. 重新启用该SSD</a></li>
+<li><a href="#org85942f2">1. 先备份</a></li>
+<li><a href="#org71b9dc7">2. 恢复</a></li>
+<li><a href="#org5dcc89e">3. 重新启用该SSD</a></li>
 </ul>
 </div>
 </div>
@@ -54,8 +54,8 @@
 尝试重启，再挂载,当然还是不行，因为是一块PCI-E SSD 卡，非常担心数据搞不出来。
 </p>
 
-<div id="outline-container-org672d4ca" class="outline-2">
-<h2 id="org672d4ca"><span class="section-number-2">1</span> 先备份</h2>
+<div id="outline-container-org85942f2" class="outline-2">
+<h2 id="org85942f2"><span class="section-number-2">1</span> 先备份</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 保险起见，先dd出来，因为本地没有足够大的空间，尝试将现有信息保存到另外一台主机，
@@ -92,8 +92,8 @@ dd_rescue /dev/nvme0n1 - | ssh root@192.168.1.2 "cat - &gt; /mnt/filename.img"
 </div>
 </div>
 
-<div id="outline-container-orga1233f2" class="outline-2">
-<h2 id="orga1233f2"><span class="section-number-2">2</span> 恢复</h2>
+<div id="outline-container-org71b9dc7" class="outline-2">
+<h2 id="org71b9dc7"><span class="section-number-2">2</span> 恢复</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 备份完成后在原始磁盘上尝试修复。
@@ -141,8 +141,8 @@ ls /media
 </div>
 </div>
 
-<div id="outline-container-orgf24d4de" class="outline-2">
-<h2 id="orgf24d4de"><span class="section-number-2">3</span> 重新启用该SSD</h2>
+<div id="outline-container-org5dcc89e" class="outline-2">
+<h2 id="org5dcc89e"><span class="section-number-2">3</span> 重新启用该SSD</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 SSD还没有完全故障，还是要利用起来。看了下xfs似乎没有排除坏块的选项，用ext4重新格式化，再挂载。（当然，这次要定期做好备份）

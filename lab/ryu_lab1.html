@@ -51,19 +51,19 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org27dec25">1. 实验环境</a></li>
-<li><a href="#orge83e4bb">2. 实验目的</a></li>
-<li><a href="#org6dec853">3. 操作步骤</a>
+<li><a href="#orgcd8e630">1. 实验环境</a></li>
+<li><a href="#org74970df">2. 实验目的</a></li>
+<li><a href="#org11786c2">3. 操作步骤</a>
 <ul>
-<li><a href="#org8715f17">3.1. 安装一些后续需要使用的软件</a></li>
-<li><a href="#org2d9c303">3.2. 安装 ryu</a></li>
-<li><a href="#org6e3d103">3.3. 安装 mininet</a></li>
-<li><a href="#org8c9ce95">3.4. ryu 控制和mininet连接</a></li>
+<li><a href="#orgceb77d7">3.1. 安装一些后续需要使用的软件</a></li>
+<li><a href="#org193a392">3.2. 安装 ryu</a></li>
+<li><a href="#org4ba26e9">3.3. 安装 mininet</a></li>
+<li><a href="#orgecd994e">3.4. ryu 控制和mininet连接</a></li>
 </ul>
 </li>
-<li><a href="#org7800ef0">4. 附录</a>
+<li><a href="#org89ffc75">4. 附录</a>
 <ul>
-<li><a href="#org5d82d88">4.1. 用到的命令</a></li>
+<li><a href="#orgb6701ee">4.1. 用到的命令</a></li>
 </ul>
 </li>
 </ul>
@@ -72,8 +72,8 @@
 
 
 
-<div id="outline-container-org27dec25" class="outline-2">
-<h2 id="org27dec25"><span class="section-number-2">1</span> 实验环境</h2>
+<div id="outline-container-orgcd8e630" class="outline-2">
+<h2 id="orgcd8e630"><span class="section-number-2">1</span> 实验环境</h2>
 <div class="outline-text-2" id="text-1">
 <ol class="org-ol">
 <li>一台可以上网的主机station X (IP 地址 192.168.10.X）</li>
@@ -82,8 +82,8 @@
 </div>
 </div>
 
-<div id="outline-container-orge83e4bb" class="outline-2">
-<h2 id="orge83e4bb"><span class="section-number-2">2</span> 实验目的</h2>
+<div id="outline-container-org74970df" class="outline-2">
+<h2 id="org74970df"><span class="section-number-2">2</span> 实验目的</h2>
 <div class="outline-text-2" id="text-2">
 <ol class="org-ol">
 <li>掌握Linux 命令行基础使用方法</li>
@@ -95,12 +95,12 @@
 </div>
 </div>
 
-<div id="outline-container-org6dec853" class="outline-2">
-<h2 id="org6dec853"><span class="section-number-2">3</span> 操作步骤</h2>
+<div id="outline-container-org11786c2" class="outline-2">
+<h2 id="org11786c2"><span class="section-number-2">3</span> 操作步骤</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org8715f17" class="outline-3">
-<h3 id="org8715f17"><span class="section-number-3">3.1</span> 安装一些后续需要使用的软件</h3>
+<div id="outline-container-orgceb77d7" class="outline-3">
+<h3 id="orgceb77d7"><span class="section-number-3">3.1</span> 安装一些后续需要使用的软件</h3>
 <div class="outline-text-3" id="text-3-1">
 <ul class="org-ul">
 <li>git 版本管理工具</li>
@@ -136,8 +136,8 @@ root权限，不进入交互模式。将以上命令修改为：
 </ul>
 </div>
 </div>
-<div id="outline-container-org2d9c303" class="outline-3">
-<h3 id="org2d9c303"><span class="section-number-3">3.2</span> 安装 ryu</h3>
+<div id="outline-container-org193a392" class="outline-3">
+<h3 id="org193a392"><span class="section-number-3">3.2</span> 安装 ryu</h3>
 <div class="outline-text-3" id="text-3-2">
 <ol class="org-ol">
 <li><p>
@@ -179,8 +179,8 @@ sudo apt-key adv &#x2013;keyserver keyserver.ubuntu.com &#x2013;recv-keys
 </div>
 
 
-<div id="outline-container-org6e3d103" class="outline-3">
-<h3 id="org6e3d103"><span class="section-number-3">3.3</span> 安装 mininet</h3>
+<div id="outline-container-org4ba26e9" class="outline-3">
+<h3 id="org4ba26e9"><span class="section-number-3">3.3</span> 安装 mininet</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 mininet 是一个网络拓扑仿真程序，可以非常方便的实现拓扑/交换机的模拟，
@@ -218,8 +218,8 @@ mininet 默认会安装一个openvswitch-controller 控制器，此服务启动�
 </div>
 
 
-<div id="outline-container-org8c9ce95" class="outline-3">
-<h3 id="org8c9ce95"><span class="section-number-3">3.4</span> ryu 控制和mininet连接</h3>
+<div id="outline-container-orgecd994e" class="outline-3">
+<h3 id="orgecd994e"><span class="section-number-3">3.4</span> ryu 控制和mininet连接</h3>
 <div class="outline-text-3" id="text-3-4">
 <ol class="org-ol">
 <li>启动 screen 终端管理工具
@@ -356,12 +356,12 @@ unsupported version 0x1. If possible, set the switch to use one of the versions 
 
 
 
-<div id="outline-container-org7800ef0" class="outline-2">
-<h2 id="org7800ef0"><span class="section-number-2">4</span> 附录</h2>
+<div id="outline-container-org89ffc75" class="outline-2">
+<h2 id="org89ffc75"><span class="section-number-2">4</span> 附录</h2>
 <div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-org5d82d88" class="outline-3">
-<h3 id="org5d82d88"><span class="section-number-3">4.1</span> 用到的命令</h3>
+<div id="outline-container-orgb6701ee" class="outline-3">
+<h3 id="orgb6701ee"><span class="section-number-3">4.1</span> 用到的命令</h3>
 <div class="outline-text-3" id="text-4-1">
 <div class="org-src-container">
 <pre class="src src-bash">apt-get install git screen

@@ -39,28 +39,28 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org32d6b0c">1. 初始设置和访问</a>
+<li><a href="#org9d848f1">1. 初始设置和访问</a>
 <ul>
-<li><a href="#orgdfda16a">1.1. 登陆交换机</a></li>
-<li><a href="#org51f6646">1.2. 设定默认启动模式</a></li>
-<li><a href="#orged15c37">1.3. 设置 Openflow SDN网络</a></li>
+<li><a href="#org850c379">1.1. 登陆交换机</a></li>
+<li><a href="#orgf7fc3ea">1.2. 设定默认启动模式</a></li>
+<li><a href="#orgb04d15c">1.3. 设置 Openflow SDN网络</a></li>
 </ul>
 </li>
-<li><a href="#org6ee098e">2. TAP简单上手</a></li>
-<li><a href="#org703f210">3. CrossFlow 配置</a></li>
-<li><a href="#orgefcbb13">4. 软件版本升级</a></li>
-<li><a href="#org8c701cf">5. 手册及参考</a></li>
+<li><a href="#org6d70272">2. TAP简单上手</a></li>
+<li><a href="#org6ba5cab">3. CrossFlow 配置</a></li>
+<li><a href="#org912572d">4. 软件版本升级</a></li>
+<li><a href="#orgb12cf38">5. 手册及参考</a></li>
 </ul>
 </div>
 </div>
 
 
-<div id="outline-container-org32d6b0c" class="outline-2">
-<h2 id="org32d6b0c"><span class="section-number-2">1</span> 初始设置和访问</h2>
+<div id="outline-container-org9d848f1" class="outline-2">
+<h2 id="org9d848f1"><span class="section-number-2">1</span> 初始设置和访问</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-orgdfda16a" class="outline-3">
-<h3 id="orgdfda16a"><span class="section-number-3">1.1</span> 登陆交换机</h3>
+<div id="outline-container-org850c379" class="outline-3">
+<h3 id="org850c379"><span class="section-number-3">1.1</span> 登陆交换机</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 交换机开箱后的初始登录，可以通过 串口(RJ45)来进行。 找到交换机 的console
@@ -85,8 +85,8 @@ admin@XorPlus$
 </div>
 </div>
 
-<div id="outline-container-org51f6646" class="outline-3">
-<h3 id="org51f6646"><span class="section-number-3">1.2</span> 设定默认启动模式</h3>
+<div id="outline-container-orgf7fc3ea" class="outline-3">
+<h3 id="orgf7fc3ea"><span class="section-number-3">1.2</span> 设定默认启动模式</h3>
 <div class="outline-text-3" id="text-1-2">
 <ol class="org-ol">
 <li><p>
@@ -275,8 +275,8 @@ rtt min/avg/max/mdev = 0.939/11.900/32.754/14.752 ms
 </div>
 </div>
 
-<div id="outline-container-orged15c37" class="outline-3">
-<h3 id="orged15c37"><span class="section-number-3">1.3</span> 设置 Openflow SDN网络</h3>
+<div id="outline-container-orgb04d15c" class="outline-3">
+<h3 id="orgb04d15c"><span class="section-number-3">1.3</span> 设置 Openflow SDN网络</h3>
 <div class="outline-text-3" id="text-1-3">
 <ol class="org-ol">
 <li><p>
@@ -653,8 +653,8 @@ admin@PicOS-OVS$
 </div>
 </div>
 
-<div id="outline-container-org6ee098e" class="outline-2">
-<h2 id="org6ee098e"><span class="section-number-2">2</span> TAP简单上手</h2>
+<div id="outline-container-org6d70272" class="outline-2">
+<h2 id="org6d70272"><span class="section-number-2">2</span> TAP简单上手</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 系统启动后，将需要设定的流表命令追加到/etc/rc3.d/S06tap，如果要确认效果，可以执行
@@ -676,16 +676,16 @@ ovs-ofctl dump-flows br0
 </div>
 </div>
 
-<div id="outline-container-org703f210" class="outline-2">
-<h2 id="org703f210"><span class="section-number-2">3</span> CrossFlow 配置</h2>
+<div id="outline-container-org6ba5cab" class="outline-2">
+<h2 id="org6ba5cab"><span class="section-number-2">3</span> CrossFlow 配置</h2>
 </div>
 
-<div id="outline-container-orgefcbb13" class="outline-2">
-<h2 id="orgefcbb13"><span class="section-number-2">4</span> 软件版本升级</h2>
+<div id="outline-container-org912572d" class="outline-2">
+<h2 id="org912572d"><span class="section-number-2">4</span> 软件版本升级</h2>
 </div>
 
-<div id="outline-container-org8c701cf" class="outline-2">
-<h2 id="org8c701cf"><span class="section-number-2">5</span> 手册及参考</h2>
+<div id="outline-container-orgb12cf38" class="outline-2">
+<h2 id="orgb12cf38"><span class="section-number-2">5</span> 手册及参考</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 由于产品版本更新较快，随机并没有附操作手册。
@@ -725,82 +725,6 @@ Pica8 交换机的配置文档主要有:
 
             <li><article class="hentry">
                 <header>
-                    <h1><a href="/product/OpenFlow_over_p4.html" rel="bookmark"
-                           title="Permalink to 用P4实现的OpenFlow（OVS）交换机">用P4实现的OpenFlow（OVS）交换机</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2020-01-01T00:00:00+08:00">
-                Published: 三 01 一月 2020
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/bill.html">bill</a>
-        </address>
-<p>In <a href="/category/product.html">product</a>.</p>
-<p>tags: <a href="/tag/tofino.html">tofino</a> <a href="/tag/ubuntu.html">ubuntu</a> <a href="/tag/ovs.html">ovs</a> </p>
-</footer><!-- /.post-info -->                <div id="table-of-contents">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents">
-<ul>
-<li><a href="#org2228906">1. 安装 SDE</a></li>
-<li><a href="#org4a2b1ba">2. 更新内核</a></li>
-<li><a href="#org94d392f">3. 安装AOVS</a></li>
-</ul>
-</div>
-</div>
-
-
-<div id="outline-container-org2228906" class="outline-2">
-<h2 id="org2228906"><span class="section-number-2">1</span> 安装 SDE</h2>
-<div class="outline-text-2" id="text-1">
-<p>
-由于ONL系统的源国内访问较慢
-准备工作
-</p>
-<ol class="org-ol">
-<li>确保服务器打开SR-IOV，（BIOS 设置）</li>
-</ol>
-</div>
-</div>
-
-<div id="outline-container-org4a2b1ba" class="outline-2">
-<h2 id="org4a2b1ba"><span class="section-number-2">2</span> 更新内核</h2>
-<div class="outline-text-2" id="text-2">
-<p>
-Centos/RHEL 操作系统可以从我们提供的网盘下载
-链接:<a href="https://pan.baidu.com/s/1geZ2kev">https://pan.baidu.com/s/1geZ2kev</a> 密码:76hp
-</p>
-
-<p>
-rhel-3.10.0-493.el7.tar.gz 解压后安装所有包
-</p>
-<pre class="example">
-cd "extract path"
-yum localinstall *.rpm
-</pre>
-</div>
-</div>
-
-<div id="outline-container-org94d392f" class="outline-2">
-<h2 id="org94d392f"><span class="section-number-2">3</span> 安装AOVS</h2>
-<div class="outline-text-2" id="text-3">
-<p>
-下载 
-</p>
-
-
-
-
-<pre class="example">
-rpm -i …</pre></div></div>
-                <a class="readmore" href="/product/OpenFlow_over_p4.html">read more</a>
-<p>There are <a href="/product/OpenFlow_over_p4.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
                     <h1><a href="/product/OpenFlow_on_Tofino.html" rel="bookmark"
                            title="Permalink to OpenFlow on OpenMesh P4 交换机">OpenFlow on OpenMesh P4 交换机</a></h1>
                 </header>
@@ -816,7 +740,24 @@ rpm -i …</pre></div></div>
         </address>
 <p>In <a href="/category/product.html">product</a>.</p>
 <p>tags: <a href="/tag/openflowp4sdntofinoopenmesh.html">OpenFlow，P4，SDN，Tofino，OpenMesh</a> </p>
-</footer><!-- /.post-info -->                
+</footer><!-- /.post-info -->                <div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org3022ed5">1. 基本可以工作</a></li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org3022ed5" class="outline-2">
+<h2 id="org3022ed5"><span class="section-number-2">1</span> 基本可以工作</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+后续补充
+</p>
+</div>
+</div>
 
                 <a class="readmore" href="/product/OpenFlow_on_Tofino.html">read more</a>
 <p>There are <a href="/product/OpenFlow_on_Tofino.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
@@ -843,13 +784,13 @@ rpm -i …</pre></div></div>
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgefad45e">1. 在OpenMesh OpenFlow 交换机上安装 ryu</a></li>
+<li><a href="#org2a8be0d">1. 在OpenMesh OpenFlow 交换机上安装 ryu</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgefad45e" class="outline-2">
-<h2 id="orgefad45e"><span class="section-number-2">1</span> 在OpenMesh OpenFlow 交换机上安装 ryu</h2>
+<div id="outline-container-org2a8be0d" class="outline-2">
+<h2 id="org2a8be0d"><span class="section-number-2">1</span> 在OpenMesh OpenFlow 交换机上安装 ryu</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 执行如下命令
@@ -888,14 +829,14 @@ pip install  rfc3986 …</pre></div></div>
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org464f3e8">1. 问题</a></li>
-<li><a href="#orgacbffef">2. 工具选择</a></li>
+<li><a href="#orgd1f3082">1. 问题</a></li>
+<li><a href="#orgfda0065">2. 工具选择</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org464f3e8" class="outline-2">
-<h2 id="org464f3e8"><span class="section-number-2">1</span> 问题</h2>
+<div id="outline-container-orgd1f3082" class="outline-2">
+<h2 id="orgd1f3082"><span class="section-number-2">1</span> 问题</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 变态的网页应用，只支持IE 7，要重复做点击，输入文件名，保存。关键是
@@ -904,8 +845,8 @@ pip install  rfc3986 …</pre></div></div>
 </div>
 </div>
 
-<div id="outline-container-orgacbffef" class="outline-2">
-<h2 id="orgacbffef"><span class="section-number-2">2</span> 工具选择</h2>
+<div id="outline-container-orgfda0065" class="outline-2">
+<h2 id="orgfda0065"><span class="section-number-2">2</span> 工具选择</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 本来打算用sikuli,之前用的很爽，可以做类似录制宏的操作，可是最新的版
@@ -950,20 +891,20 @@ autohotkey ，发现正是自己要的。
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org16181eb">1. <b>首次安装PICOS</b></a>
+<li><a href="#orgfc85fd6">1. <b>首次安装PICOS</b></a>
 <ul>
-<li><a href="#orga928f32">1.1. 确保已经下载了正确的安装文件</a></li>
-<li><a href="#orga128a06">1.2. 进入Boot Main Menu。</a></li>
-<li><a href="#org8f77b6a">1.3. 进入ONIE救援模式</a></li>
-<li><a href="#org3b8cbb9">1.4. 安装PicOS</a></li>
+<li><a href="#org01ab76a">1.1. 确保已经下载了正确的安装文件</a></li>
+<li><a href="#org515a396">1.2. 进入Boot Main Menu。</a></li>
+<li><a href="#orgd725049">1.3. 进入ONIE救援模式</a></li>
+<li><a href="#org7ed8436">1.4. 安装PicOS</a></li>
 </ul>
 </li>
-<li><a href="#orgd4c8b32">2. <b>传统安装流程</b></a>
+<li><a href="#orgef97a78">2. <b>传统安装流程</b></a>
 <ul>
-<li><a href="#orgc568355">2.1. 文件准备</a></li>
-<li><a href="#orgfa181a8">2.2. 进入救援模式</a>
+<li><a href="#orgf58dc3d">2.1. 文件准备</a></li>
+<li><a href="#orgd79996b">2.2. 进入救援模式</a>
 <ul>
-<li><a href="#org38cae25">2.2.1. 在ONIE提示符下，运行 <b>onie-nos-install</b> 命令安装PICOS。</a></li>
+<li><a href="#org57ed218">2.2.1. 在ONIE提示符下，运行 <b>onie-nos-install</b> 命令安装PICOS。</a></li>
 </ul>
 </li>
 </ul>
@@ -975,8 +916,8 @@ autohotkey ，发现正是自己要的。
 使用google translate 翻译自 <a href="https://docs.pica8.com/display/PicOS21118sp/Installing+PICOS+on+Bare+Metal+Switches+for+N3048EP-ON">here</a>.
 </p>
 
-<div id="outline-container-org16181eb" class="outline-2">
-<h2 id="org16181eb"><span class="section-number-2">1</span> <b>首次安装PICOS</b></h2>
+<div id="outline-container-orgfc85fd6" class="outline-2">
+<h2 id="orgfc85fd6"><span class="section-number-2">1</span> <b>首次安装PICOS</b></h2>
 <div class="outline-text-2" id="text-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -997,8 +938,8 @@ autohotkey ，发现正是自己要的。
 </div>
 
 
-<div id="outline-container-orga928f32" class="outline-3">
-<h3 id="orga928f32"><span class="section-number-3">1.1</span> 确保已经下载了正确的安装文件</h3>
+<div id="outline-container-org01ab76a" class="outline-3">
+<h3 id="org01ab76a"><span class="section-number-3">1.1</span> 确保已经下载了正确的安装文件</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 设定服务器将将该.bin 文件的安装包通过（HTTP …</p></div></div></div>
@@ -1061,13 +1002,13 @@ Linux 操作系统环境作为其仿真环境,因此,它的主要特色就是整
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgde5e25c">1. 流表配置如下</a></li>
+<li><a href="#org79e240e">1. 流表配置如下</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgde5e25c" class="outline-2">
-<h2 id="orgde5e25c"><span class="section-number-2">1</span> 流表配置如下</h2>
+<div id="outline-container-org79e240e" class="outline-2">
+<h2 id="org79e240e"><span class="section-number-2">1</span> 流表配置如下</h2>
 <div class="outline-text-2" id="text-1">
 <pre class="example">
 ovs-ofctl -O OpenFlow13 add-flow br0 table=0,in_port=50,actions=mod_vlan_vid:10,mod_dl_src:6c:59:79:33:44:55,mod_dl_dst:f8:bc:12:4d:e9:d8,goto_table:8
@@ -1110,9 +1051,9 @@ admin@PICOS-OVS …</pre></div></div>
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orge260083">1. 初始设置和访问</a>
+<li><a href="#orgac7f8d6">1. 初始设置和访问</a>
 <ul>
-<li><a href="#org192db27">1.1. 登陆交换机</a></li>
+<li><a href="#orgafde22b">1.1. 登陆交换机</a></li>
 </ul>
 </li>
 </ul>
@@ -1121,12 +1062,12 @@ admin@PICOS-OVS …</pre></div></div>
 
 
 
-<div id="outline-container-orge260083" class="outline-2">
-<h2 id="orge260083"><span class="section-number-2">1</span> 初始设置和访问</h2>
+<div id="outline-container-orgac7f8d6" class="outline-2">
+<h2 id="orgac7f8d6"><span class="section-number-2">1</span> 初始设置和访问</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org192db27" class="outline-3">
-<h3 id="org192db27"><span class="section-number-3">1.1</span> 登陆交换机</h3>
+<div id="outline-container-orgafde22b" class="outline-3">
+<h3 id="orgafde22b"><span class="section-number-3">1.1</span> 登陆交换机</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 交换机开箱后的初始登录，可以通过 串口(RJ45)来进行。 找到交换机 的console
@@ -1170,9 +1111,9 @@ securecrt 等 终端工具，配置串口参数为 115200,
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org672d4ca">1. 先备份</a></li>
-<li><a href="#orga1233f2">2. 恢复</a></li>
-<li><a href="#orgf24d4de">3. 重新启用该SSD</a></li>
+<li><a href="#org85942f2">1. 先备份</a></li>
+<li><a href="#org71b9dc7">2. 恢复</a></li>
+<li><a href="#org5dcc89e">3. 重新启用该SSD</a></li>
 </ul>
 </div>
 </div>
@@ -1185,8 +1126,8 @@ securecrt 等 终端工具，配置串口参数为 115200,
 尝试重启，再挂载,当然还是不行，因为是一块PCI-E SSD 卡，非常担心数据搞不出来。
 </p>
 
-<div id="outline-container-org672d4ca" class="outline-2">
-<h2 id="org672d4ca"><span class="section-number-2">1</span> 先备份</h2>
+<div id="outline-container-org85942f2" class="outline-2">
+<h2 id="org85942f2"><span class="section-number-2">1</span> 先备份</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 保险起见，先dd出来，因为本地没有足够大的空间，尝试将现有信息保存到另外一台主机，
@@ -1199,6 +1140,76 @@ securecrt 等 终端工具，配置串口参数为 115200,
 ssh root@192.168.1.1 "dd iflag=fullblock  conv=sync,noerror if=/dev/nvme0n1 |gzip …</pre></div></div>
                 <a class="readmore" href="/troubleshooting/xfs_on_crash_ssd.html">read more</a>
 <p>There are <a href="/troubleshooting/xfs_on_crash_ssd.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/lab/try_ryu_nat.html" rel="bookmark"
+                           title="Permalink to 试用 RYU NAT">试用 RYU NAT</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2018-01-24T00:00:00+08:00">
+                Published: 三 24 一月 2018
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/bill.html">bill</a>
+        </address>
+<p>In <a href="/category/lab.html">lab</a>.</p>
+<p>tags: <a href="/tag/ryu.html">ryu</a> <a href="/tag/nat.html">nat</a> <a href="/tag/dhcp.html">dhcp</a> <a href="/tag/agent.html">agent</a> <a href="/tag/sdn.html">sdn</a> <a href="/tag/openflow.html">OpenFlow</a> </p>
+</footer><!-- /.post-info -->                <div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgca65bda">1. 安装RYU</a></li>
+<li><a href="#org22e24d4">2. 安装</a></li>
+<li><a href="#org007b7da">3. 运行</a></li>
+<li><a href="#orgef1c127">4. 验证</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgca65bda" class="outline-2">
+<h2 id="orgca65bda"><span class="section-number-2">1</span> 安装RYU</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+略，不清楚可以参考 <a href="https://bbill.github.io/lab/ryu_lab1.org">这里</a>
+</p>
+</div>
+</div>
+<div id="outline-container-org22e24d4" class="outline-2">
+<h2 id="org22e24d4"><span class="section-number-2">2</span> 安装</h2>
+<div class="outline-text-2" id="text-2">
+<pre class="example">
+cd 
+git clone https://github.com/bbill/nat.git ryu/ryu/app/nat
+</pre>
+</div>
+</div>
+<div id="outline-container-org007b7da" class="outline-2">
+<h2 id="org007b7da"><span class="section-number-2">3</span> 运行</h2>
+<div class="outline-text-2" id="text-3">
+<pre class="example">
+
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgef1c127" class="outline-2">
+<h2 id="orgef1c127"><span class="section-number-2">4</span> 验证</h2>
+<div class="outline-text-2" id="text-4">
+<ol class="org-ol">
+<li><p>
+如果没有实体SDN交换机，请安装 mininet
+</p>
+<pre class="example">
+cd 
+git clone https://github.com/mininet/mininet.git
+./mininet/util/install …</pre></li></ol></div></div>
+                <a class="readmore" href="/lab/try_ryu_nat.html">read more</a>
+<p>There are <a href="/lab/try_ryu_nat.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
             </article></li>
                 </ol><!-- /#posts-list -->
 <p class="paginator">
