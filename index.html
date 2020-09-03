@@ -24,7 +24,918 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/lab/install_picos_on_dell.html">在Dell N3048/24 上安装 PicOS</a></h1>
+                    <h1 class="entry-title"><a href="/lab/pica8_quick_start.html">Pica8 白盒交换机快速上手</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2020-09-03T00:00:00+08:00">
+                Published: 四 03 九月 2020
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/bill.html">bill</a>
+        </address>
+<p>In <a href="/category/lab.html">lab</a>.</p>
+<p>tags: <a href="/tag/pica.html">pica</a> <a href="/tag/white-box.html">white box</a> <a href="/tag/openflow.html">openflow</a> <a href="/tag/sdn.html">sdn</a> </p>
+</footer><!-- /.post-info --><div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org32d6b0c">1. 初始设置和访问</a>
+<ul>
+<li><a href="#orgdfda16a">1.1. 登陆交换机</a></li>
+<li><a href="#org51f6646">1.2. 设定默认启动模式</a></li>
+<li><a href="#orged15c37">1.3. 设置 Openflow SDN网络</a></li>
+</ul>
+</li>
+<li><a href="#org6ee098e">2. TAP简单上手</a></li>
+<li><a href="#org703f210">3. CrossFlow 配置</a></li>
+<li><a href="#orgefcbb13">4. 软件版本升级</a></li>
+<li><a href="#org8c701cf">5. 手册及参考</a></li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org32d6b0c" class="outline-2">
+<h2 id="org32d6b0c"><span class="section-number-2">1</span> 初始设置和访问</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-orgdfda16a" class="outline-3">
+<h3 id="orgdfda16a"><span class="section-number-3">1.1</span> 登陆交换机</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+交换机开箱后的初始登录，可以通过 串口(RJ45)来进行。 找到交换机 的console
+口(一般会标有Con)。通过windows 主机上的超级终端工具，或者putty,
+securecrt 等 终端工具，配置串口参数为 115200,
+8/N/1,硬件流控设为没有（关闭）.后即可 登录。默认用户名 admin ，密码
+<b>pica8</b> 。
+</p>
+
+
+<div class="figure">
+<p><img src="http://www.tooyum.com/images/rs232.png" alt="rs232.png" width="300px" />
+</p>
+</div>
+
+<pre class="example">
+PicOS-OVS login: admin
+Password:
+
+admin@XorPlus$
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org51f6646" class="outline-3">
+<h3 id="org51f6646"><span class="section-number-3">1.2</span> 设定默认启动模式</h3>
+<div class="outline-text-3" id="text-1-2">
+<ol class="org-ol">
+<li><p>
+验证当前Pica8模式 
+</p>
+
+<p>
+通过发出下面的命令检查PICOS交换机 的当前模式。
+</p>
+
+<pre class="example">
+admin@XorPlus$ps -ef | grep xorp | grep -v grep
+admin@XorPlus$ps -ef | grep ovs | grep -v grep
+admin@XorPlus$
+admin@XorPlus$
+</pre>
+
+<p>
+如果有xorp 进程输出表明目前处于传统模式（可通过crossflow
+支持混杂），如 果有ovs 输出则为纯 SDN模式。
+</p>
+
+<p>
+默认启动模式可以通过如下命令向导进行切换，以切换到 SDN模式为例：
+</p></li>
+
+<li><p>
+运行Pica8模式切换程序
+</p>
+
+<p>
+由于我们建立Pica8交换机的SDN应用程序，我们将把交换机设为
+OVS模式以支持 OpenFlow。要做到这一点，我们将运行Pica8模式切换程序。
+</p>
+
+<p>
+在命令行中输入'sudo picos_boot' ，当系统提示时输入' 2 '
+选择OVS模式。
+</p>
+
+<pre class="example">
+admin@XorPlus$sudo picos_boot
+Please configure the default system start-up options:
+ (Press other key if no change)
+    [1]  PicOS L2/L3
+    [2]  PicOS Open vSwitch/OpenFlow
+    [3]  No start-up options   * default
+Enter your choice (1,2,3):2
+</pre>
+
+<p>
+接下来的一系列提示将设置 eth0接口 IP地址
+。OpenFlow的包和SSH通信将使用
+这个IP地址。输入IP地址，子网掩码和默认网关。
+</p>
+
+<pre class="example">
+
+PicOS Open vSwitch/OpenFlow is selected.
+
+Note: Defaultly, the OVS server is runned with static local management IP and port 6640.
+The default way of vswitch connecting to server is PTCP.
+
+Please set a static IP and netmask for the switch (e.g. 128.0.0.10/24) : 192.168.16.101/24
+
+Please set the gateway IP (e.g 172.168.1.2):192.168.16.1
+
+admin@XorPlus$
+</pre></li>
+
+<li><p>
+启动PicOS 服务
+</p>
+
+<p>
+验证PICOS模式的改变。启动PICOS服务 'sudo service picos start'
+来应用这 个改变
+</p>
+
+<pre class="example">
+admin@XorPlus$sudo service picos start
+[....] Stopping enhanced syslogd: rsyslogd.
+[....] Starting enhanced syslogd: rsyslogd.
+[....] Stopping internet superserver: xinetd.
+[....] Restarting OpenBSD Secure Shell server: sshd.
+[....] Create OVS database file.
+RTNETLINK answers: No such process
+[....] Starting: PicOS Open vSwitch/OpenFlow.
+[....] Starting web server: lighttpd.
+</pre></li>
+
+<li><p>
+验证 PicOS 模式
+</p>
+
+<p>
+验证对 'picos_start.conf' 文件的改变。
+</p>
+
+<pre class="example">
+admin@XorPlus$more /etc/picos/picos_start.conf
+# configuration file for PicOS
+
+[PICOS]
+picos_start=ovs
+
+[XORPPLUS]
+xorpplus_rtrmgr_verbose=
+xorpplus_log_facility=local0
+xorpplus_finder_client_address=127.0.0.1
+xorpplis_finder_server_address=127.0.0.1
+
+[OVS]
+ovs_database_file=/ovs/ovs-vswitchd.conf.db
+ovs_db_sock_file=/ovs/var/run/openvswitch/db.sock
+ovs_switch_ip_address=192.168.16.101
+ovs_switch_ip_netmask=255.255.255.0
+ovs_switch_gateway_ip=192.168.16.1
+ovs_switch_tcp_port=6633
+ovs_host_name=PicOS-OVS
+
+[ZTP]
+ztp_disable=false
+</pre>
+
+<p>
+验证OVS进程正在运行:
+</p>
+
+<p>
+如果进程输出如下，则Pica8 交换机运行在 OVS/Openflow 模式下。
+</p>
+
+<pre class="example">
+admin@XorPlus$ps -ef | grep ovs | grep -v grep
+root      3182     1  0 05:26 ttyS0    00:00:00 ovsdb-server /ovs/ovs-vswitchd.conf.db --remote=ptcp:6633:192.168.16.101 --remote=punix:/ovs/var/run/openvswitch/db.sock
+root      3184     1  0 05:26 ttyS0    00:00:00 ovs-vswitchd --pidfile=ovs-vswitchd.pid --overwrite-pidfile
+</pre>
+
+<p>
+现在重新启动交换机，以确保配置是持久的。这可能需要几分钟的时间才能完成。(如果确认 /etc/picos/picos_start.conf 已经成功修改，则此步骤可以省略）
+</p>
+
+<pre class="example">
+admin@XorPlus$sudo reboot
+
+Broadcast message from root@PicOS-OVS (ttyS0) (Tue Oct 21 05:47:19 2014):
+
+The system is going down for reboot NOW!
+</pre></li>
+
+<li><p>
+验证 Pica8 网络连通性 
+</p>
+
+<p>
+一旦重启完成后，作为管理员重新登录，检查和验证eth0接口到默认
+网关的网络连接。需要注意的是主机名已经按照‘ picos_start.conf
+“文件更改。
+</p>
+
+<pre class="example">
+admin@PicOS-OVS$ifconfig eth0
+eth0      Link encap:Ethernet  HWaddr 48:6e:73:02:00:22
+          inet addr:192.168.16.101  Bcast:192.168.16.255  Mask:255.255.255.0
+          inet6 addr: fe80::4a6e:73ff:fe02:22/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:8 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:15 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:608 (608.0 B)  TX bytes:3082 (3.0 KiB)
+          Base address:0x2000
+
+admin@PicOS-OVS$
+admin@PicOS-OVS$ping 192.168.16.1
+PING 192.168.16.1 (192.168.16.1) 56(84) bytes of data.
+64 bytes from 192.168.16.1: icmp_req=1 ttl=64 time=32.7 ms
+64 bytes from 192.168.16.1: icmp_req=2 ttl=64 time=2.00 ms
+64 bytes from 192.168.16.1: icmp_req=3 ttl=64 time=0.939 ms
+^C
+--- 192.168.16.1 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2002ms
+rtt min/avg/max/mdev = 0.939/11.900/32.754/14.752 ms
+</pre></li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orged15c37" class="outline-3">
+<h3 id="orged15c37"><span class="section-number-3">1.3</span> 设置 Openflow SDN网络</h3>
+<div class="outline-text-3" id="text-1-3">
+<ol class="org-ol">
+<li><p>
+创建虚拟交换机 
+</p>
+
+<p>
+接下来的步骤将指导如何创建使用OpenFlow的一个基本的桥(虚拟交换机)。
+</p>
+<ol class="org-ol">
+<li><p>
+license 检查
+</p>
+
+<p>
+在开始设定之前需要确认交换机的license
+是否激活，在交换机的命令行界面里执行
+</p>
+
+<pre class="example">
+license -s
+</pre>
+
+<p>
+如果显示：
+</p>
+
+<pre class="example">
+No license installed.Use below information to create a license
+</pre>
+
+<p>
+&#x2026;
+</p>
+
+<p>
+请将输出的Hardware ID，发邮件到 service@tooyum.com,我们会帮助申
+请license，并发回。 您收到 file.lic文件后将该文件复制到交换机的
+/etc 目录下。或者创建一个新的文件并将file.lic 文件的内容复制到
+该文件中。 然后在交换机上执行
+</p>
+
+<pre class="example">
+sudo license -i /etc/file.lic
+</pre>
+
+<p>
+并再次执行
+</p>
+
+<pre class="example">
+license -s
+</pre>
+
+<p>
+以确认 license 成功导入。
+</p></li>
+
+<li><p>
+创建虚拟交换机
+</p>
+
+<p>
+在成功激活所有端口后，可以使用如下 open vSwitch
+命令,创建一个虚拟交换机br0。以命令行为例：
+</p>
+
+<pre class="example">
+admin@PicOS-OVS$ovs-vsctl add-br br0 -- set bridge br0 datapath_type=pica8
+
+device ovs-pica8 entered promiscuous mode
+device br0 entered promiscuous mode
+admin@PicOS-OVS$
+</pre></li>
+</ol></li>
+
+<li><p>
+验证虚拟交换机
+</p>
+
+<p>
+下一步验证桥已成功创建。
+</p>
+
+<pre class="example">
+
+admin@PicOS-OVS$ovs-ofctl show br0
+OFPT_FEATURES_REPLY (OF1.4) (xid=0x2): dpid:5e3ea67edf6c5f60
+n_tables:254, n_buffers:256
+capabilities: FLOW_STATS TABLE_STATS PORT_STATS GROUP_STATS
+OFPST_PORT_DESC reply (OF1.4) (xid=0x4):
+ LOCAL(br0): addr:a6:7e:df:6c:5f:60
+     config:     0
+     state:      LINK_UP
+     current:    10MB-FD COPPER
+     supported:  10MB-FD COPPER
+     speed: 10 Mbps now, 10 Mbps max
+OFPT_GET_CONFIG_REPLY (OF1.4) (xid=0x6): frags=normal miss_send_len=0
+</pre>
+
+<p>
+问：br0 包含物理接口吗？
+</p>
+
+<p>
+回答：不包含。虽然虚拟交换机已经创建，物理接口需要被添加到虚拟交换机。
+</p></li>
+
+<li><p>
+给虚拟交换机加入接口
+</p>
+
+<p>
+接下来，我们将添加物理接口给虚拟交换机br0。实验拓扑结构，我们将加入
+GE-1/1/1 ， GE-1/1/2 ，和GE-1/1/48,请注意，务必正确输入下面命令。
+</p>
+
+<pre class="example">
+admin@PicOS-OVS$ovs-vsctl add-port br0 ge-1/1/1 vlan_mode=trunk tag=1 -- set interface ge-1/1/1 type=pica8
+admin@PicOS-OVS$ovs-vsctl add-port br0 ge-1/1/2 vlan_mode=trunk tag=1 -- set interface ge-1/1/2 type=pica8
+admin@PicOS-OVS$ovs-vsctl add-port br0 ge-1/1/48 vlan_mode=trunk tag=1 -- set interface ge-1/1/48 type=pica8
+admin@PicOS-OVS$
+</pre>
+
+<p>
+如果您需要连续的加入每个千兆端口则可以用一个 for 循环来简化输入,以24口千兆+4口万兆交换机为例：
+</p>
+
+<p>
+添加千兆端口<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup>
+</p>
+
+<pre class="example">
+for i in $(seq 1 24);do ovs-vsctl add-port br0 ge-1/1/$i vlan_mode=trunk tag=1 -- set interface ge-1/1/$i type=pica8;done
+</pre>
+
+<p>
+添加万兆端口，万兆端口的编号视不同平台不同，可能是 （25~28，49~52等请根据实际情况调整）。
+</p>
+
+<pre class="example">
+for i in $(seq 25 28);do ovs-vsctl add-port br0 te-1/1/$i vlan_mode=trunk tag=1 -- set interface te-1/1/$i type=pica8;done
+</pre>
+
+<p>
+5101 添加所有端口可以采用如下命令：
+</p>
+
+<pre class="example">
+for i in $(seq 1 40);do ovs-vsctl add-port br0 te-1/1/$i vlan_mode=trunk tag=1 -- set interface te-1/1/$i type=pica8;done
+for i in $(seq 41 48);do ovs-vsctl add-port br0 qe-1/1/$i vlan_mode=trunk tag=1 -- set interface qe-1/1/$i type=pica8;done
+</pre>
+
+<p>
+一般来说采用outband模式进行SDN网络管理无须额外设定，但是如果测试时
+为了方便将SDN交换机的数据端口和管理端口挂接在相同的二层网络里可能
+会导致交换机触发inband相关配置（因为在PicOS 2.4 以后默认的连接方式
+为 in-band），为了规避可能的问题，可以用如下命令禁用：
+</p>
+
+<pre class="example">
+ovs-vsctl set bridge br0 other_config=disable-in-band=true
+</pre>
+
+<ol class="org-ol">
+<li><p>
+快速创建多个br的脚本
+</p>
+
+<p>
+以48口千兆交换机建8个br，每个br依次分配6个端口为例。
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash"><span style="font-weight: bold; font-style: italic;">#</span><span style="font-weight: bold; font-style: italic;">!/bin/</span><span style="font-weight: bold;">bash</span>
+<span style="font-weight: bold;">for</span> i<span style="font-weight: bold;"> in</span> $(<span style="font-weight: bold;">seq</span> 1 8); <span style="font-weight: bold;">do</span>
+
+     ovs-vsctl add-br br$<span style="font-weight: bold; font-style: italic;">i</span>
+
+    <span style="font-weight: bold;">for</span> j<span style="font-weight: bold;"> in</span> $(<span style="font-weight: bold;">seq</span> 0 5)
+
+    <span style="font-weight: bold;">do</span>  ovs-vsctl add-port br$<span style="font-weight: bold; font-style: italic;">i</span> ge-1/1/$(($<span style="font-weight: bold; font-style: italic;">i</span>*6+$<span style="font-weight: bold; font-style: italic;">j</span>)) <span style="font-weight: bold; font-style: italic;">vlan_mode</span>=trunk <span style="font-weight: bold; font-style: italic;">tag</span>=1 -- set interface ge-1/1/$(($<span style="font-weight: bold; font-style: italic;">i</span>*6+$<span style="font-weight: bold; font-style: italic;">j</span>)) <span style="font-weight: bold; font-style: italic;">type</span>=pica8&#8221;
+
+    <span style="font-weight: bold;">done</span>
+<span style="font-weight: bold;">done</span>
+</pre>
+</div></li>
+</ol></li>
+</ol>
+
+
+
+<ol class="org-ol">
+<li><p>
+验证虚拟交换机连接
+</p>
+
+<p>
+我们可以使用相同的命令验证对br0的修改。
+</p>
+
+<pre class="example">
+admin@PicOS-OVS$ovs-ofctl show br0
+OFPT_FEATURES_REPLY (OF1.4) (xid=0x2): dpid:5e3e486e73020023
+n_tables:254, n_buffers:256
+capabilities: FLOW_STATS TABLE_STATS PORT_STATS GROUP_STATS
+OFPST_PORT_DESC reply (OF1.4) (xid=0x4):
+ 1(ge-1/1/1): addr:48:6e:73:02:00:23
+     config:     0
+     state:      LINK_UP
+     current:    1GB-FD COPPER AUTO_NEG
+     advertised: 10MB-HD 10MB-FD 100MB-HD 100MB-FD 1GB-FD COPPER AUTO_NEG
+     supported:  10MB-HD 10MB-FD 100MB-HD 100MB-FD 1GB-FD COPPER AUTO_NEG
+     peer:       10MB-HD 10MB-FD 100MB-HD 100MB-FD 1GB-FD COPPER
+     speed: 1000 Mbps now, 1000 Mbps max
+ 2(ge-1/1/2): addr:48:6e:73:02:00:23
+     config:     0
+     state:      LINK_UP
+     current:    1GB-FD COPPER AUTO_NEG
+     advertised: 10MB-HD 10MB-FD 100MB-HD 100MB-FD 1GB-FD COPPER AUTO_NEG
+     supported:  10MB-HD 10MB-FD 100MB-HD 100MB-FD 1GB-FD COPPER AUTO_NEG
+     peer:       10MB-HD 10MB-FD 100MB-HD 100MB-FD 1GB-FD COPPER
+     speed: 1000 Mbps now, 1000 Mbps max
+ 48(ge-1/1/48): addr:48:6e:73:02:00:23
+     config:     0
+     state:      LINK_UP
+     current:    1GB-FD COPPER AUTO_NEG
+     advertised: 10MB-HD 10MB-FD 100MB-HD 100MB-FD 1GB-FD COPPER AUTO_NEG
+     supported:  10MB-HD 10MB-FD 100MB-HD 100MB-FD 1GB-FD COPPER AUTO_NEG
+     peer:       10MB-HD 10MB-FD 100MB-HD 100MB-FD 1GB-FD COPPER
+     speed: 1000 Mbps now, 1000 Mbps max
+ LOCAL(br0): addr:48:6e:73:02:00:23
+     config:     0
+     state:      LINK_UP
+     current:    10MB-FD COPPER
+     supported:  10MB-FD COPPER
+     speed: 10 Mbps now, 10 Mbps max
+OFPT_GET_CONFIG_REPLY (OF1.4) (xid=0x6): frags=normal miss_send_len=0
+admin@PicOS-OVS$
+</pre>
+
+<p>
+问：在交换机上运行什么版本的OpenFlow？
+</p>
+
+<p>
+答：如OFPT_GET_CONFIG_REPLY 所示，PicOS
+2.4.1交换机默认运行OF1.4。
+</p></li>
+</ol>
+
+
+<ol class="org-ol">
+<li><p>
+测试主机连接
+</p>
+
+<p>
+vBridge添加物理端口后，我们将试图通过Pica8交换机转发一些数据包。从连接在1口上的主机ping
+2口上连接的主机。
+</p>
+
+<pre class="example">
+pica8@of-dev01-traff01:~$ ping 10.10.11.3
+PING 10.10.11.3 (10.10.11.3) 56(84) bytes of data.
+^C
+--- 10.10.11.3 ping statistics ---
+3 packets transmitted, 0 received, +1 errors, 100% packet loss, time 2000ms
+</pre>
+
+<p>
+ping失败，是因为Pica8交换机尚未连接到OpenFlow控制器。由
+于Pica8遵循OpenFlow的标准，不匹配任何流规则的流量包，应首先通 过
+OFPT_PACKET_OUT 消息重定向到控制器。
+</p></li>
+
+<li><p>
+验证控制器可达
+</p>
+
+<p>
+我们必须配置交换机连接到通过OpenFlow的控制器。
+</p>
+
+<pre class="example">
+admin@PicOS-OVS$ping 192.168.16.82 -c 3
+PING 192.168.16.82 (192.168.16.82) 56(84) bytes of data.
+64 bytes from 192.168.16.82: icmp_req=1 ttl=64 time=3.28 ms
+64 bytes from 192.168.16.82: icmp_req=2 ttl=64 time=0.393 ms
+64 bytes from 192.168.16.82: icmp_req=3 ttl=64 time=0.458 ms
+
+--- 192.168.16.82 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2001ms
+rtt min/avg/max/mdev = 0.393/1.378/3.284/1.348 ms
+</pre></li>
+
+<li><p>
+配置Pica8交换机连接到Ryu Openflow 控制器。
+</p>
+
+<p>
+配置Pica8交换机连接到通过对应的 Ryu 控制器。
+</p>
+
+<pre class="example">
+admin@PicOS-OVS$
+admin@PicOS-OVS$ovs-vsctl set-controller br0 tcp:192.168.16.82:6633
+admin@PicOS-OVS$
+</pre></li>
+
+<li><p>
+验证OpenFlow的连接
+</p>
+
+<p>
+验证Pica8 交换机 有一个到端口6633的连接 。
+</p>
+
+<pre class="example">
+admin@PicOS-OVS$
+admin@PicOS-OVS$netstat -n | grep 6633
+admin@PicOS-OVS$
+</pre>
+
+<p>
+问：交换机和控制器是否打开了一个会话？
+</p>
+
+<p>
+答：不可以，要搞清楚OpenFlow的各种设备支持哪些版本。回想一下我们以前的步骤，
+所述交换机默认为OF1.4
+。也许我们的应用程序不支持默认版本。请注意，您还
+可以看到会话状态处于TIME_WAIT或FIN_WAIT2 状态。
+</p></li>
+
+<li><p>
+设置 OpenFlow 版本 
+</p>
+
+<p>
+我们将试图通过设置交换机的OpenFlow的版本为1.3来解决交换机和控制器之间的问题：
+。在交换机上使用下面的命令进行此更改。
+</p>
+
+<pre class="example">
+admin@PicOS-OVS$
+admin@PicOS-OVS$ovs-vsctl set Bridge br0 protocols=OpenFlow13
+admin@PicOS-OVS$
+</pre></li>
+
+<li><p>
+验证OpenFlow的连接
+</p>
+
+<p>
+运行'netstat -n | grep 6633'命令，看看是否已经解决了问题。
+</p>
+
+<pre class="example">
+admin@PicOS-OVS$netstat -n | grep 6633
+tcp        0      0 192.168.16.101:56974    192.168.16.82:6633      ESTABLISHED
+admin@PicOS-OVS$
+</pre>
+
+<p>
+问：交换机打开了和控制器的会话吗？
+</p>
+
+<p>
+答：是的！成功，我们已经通过OpenFlow的控制器连接到Pica8交换机。
+</p></li>
+</ol>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6ee098e" class="outline-2">
+<h2 id="org6ee098e"><span class="section-number-2">2</span> TAP简单上手</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+系统启动后，将需要设定的流表命令追加到/etc/rc3.d/S06tap，如果要确认效果，可以执行
+</p>
+
+<pre class="example">
+source /etc/rc3.d/S06tap
+</pre>
+
+<p>
+用类似如下命令查看生效的流表：
+</p>
+
+<pre class="example">
+
+ovs-ofctl dump-flows br0
+
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org703f210" class="outline-2">
+<h2 id="org703f210"><span class="section-number-2">3</span> CrossFlow 配置</h2>
+</div>
+
+<div id="outline-container-orgefcbb13" class="outline-2">
+<h2 id="orgefcbb13"><span class="section-number-2">4</span> 软件版本升级</h2>
+</div>
+
+<div id="outline-container-org8c701cf" class="outline-2">
+<h2 id="org8c701cf"><span class="section-number-2">5</span> 手册及参考</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+由于产品版本更新较快，随机并没有附操作手册。
+</p>
+
+<p>
+Pica8 交换机的配置文档主要有:
+</p>
+
+<p>
+在OVS模式下的纯OpenFlow配置手册及传统交换机（二、三层）配置手册请访问
+<a href="https://pan.baidu.com/s/1c2zpZeK">https://pan.baidu.com/s/1c2zpZeK</a>
+</p>
+
+<p>
+如果要查找最新的文档请参考
+<a href="http://www.pica8.com/support/documentation/">Pica8 文档</a>.
+</p>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara"><p class="footpara">
+可以使用命令 ovs-appctl pica/show 列出当前交换机所有端口，及对应的端口名。 
+</p></div></div>
+
+
+</div>
+</div><p>There are <a href="/lab/pica8_quick_start.html#disqus_thread">comments</a>.</p>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/product/OpenFlow_over_p4.html" rel="bookmark"
+                           title="Permalink to 用P4实现的OpenFlow（OVS）交换机">用P4实现的OpenFlow（OVS）交换机</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2020-01-01T00:00:00+08:00">
+                Published: 三 01 一月 2020
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/bill.html">bill</a>
+        </address>
+<p>In <a href="/category/product.html">product</a>.</p>
+<p>tags: <a href="/tag/tofino.html">tofino</a> <a href="/tag/ubuntu.html">ubuntu</a> <a href="/tag/ovs.html">ovs</a> </p>
+</footer><!-- /.post-info -->                <div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org2228906">1. 安装 SDE</a></li>
+<li><a href="#org4a2b1ba">2. 更新内核</a></li>
+<li><a href="#org94d392f">3. 安装AOVS</a></li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org2228906" class="outline-2">
+<h2 id="org2228906"><span class="section-number-2">1</span> 安装 SDE</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+由于ONL系统的源国内访问较慢
+准备工作
+</p>
+<ol class="org-ol">
+<li>确保服务器打开SR-IOV，（BIOS 设置）</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org4a2b1ba" class="outline-2">
+<h2 id="org4a2b1ba"><span class="section-number-2">2</span> 更新内核</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Centos/RHEL 操作系统可以从我们提供的网盘下载
+链接:<a href="https://pan.baidu.com/s/1geZ2kev">https://pan.baidu.com/s/1geZ2kev</a> 密码:76hp
+</p>
+
+<p>
+rhel-3.10.0-493.el7.tar.gz 解压后安装所有包
+</p>
+<pre class="example">
+cd "extract path"
+yum localinstall *.rpm
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org94d392f" class="outline-2">
+<h2 id="org94d392f"><span class="section-number-2">3</span> 安装AOVS</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+下载 
+</p>
+
+
+
+
+<pre class="example">
+rpm -i …</pre></div></div>
+                <a class="readmore" href="/product/OpenFlow_over_p4.html">read more</a>
+<p>There are <a href="/product/OpenFlow_over_p4.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/product/OpenFlow_on_Tofino.html" rel="bookmark"
+                           title="Permalink to OpenFlow on OpenMesh P4 交换机">OpenFlow on OpenMesh P4 交换机</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2019-12-14T00:00:00+08:00">
+                Published: 六 14 十二月 2019
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/bill.html">bill</a>
+        </address>
+<p>In <a href="/category/product.html">product</a>.</p>
+<p>tags: <a href="/tag/openflowp4sdntofinoopenmesh.html">OpenFlow，P4，SDN，Tofino，OpenMesh</a> </p>
+</footer><!-- /.post-info -->                
+
+                <a class="readmore" href="/product/OpenFlow_on_Tofino.html">read more</a>
+<p>There are <a href="/product/OpenFlow_on_Tofino.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/lab/install_ryu_on_switch.html" rel="bookmark"
+                           title="Permalink to 在交换机上安装运行ryu">在交换机上安装运行ryu</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2019-07-14T00:00:00+08:00">
+                Published: 日 14 七月 2019
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/bill.html">bill</a>
+        </address>
+<p>In <a href="/category/lab.html">lab</a>.</p>
+<p>tags: <a href="/tag/openmesh.html">OpenMesh</a> <a href="/tag/openflow.html">OpenFlow</a> <a href="/tag/ryu.html">ryu</a> <a href="/tag/arm.html">arm</a> <a href="/tag/ovs.html">ovs</a> </p>
+</footer><!-- /.post-info -->                <div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgefad45e">1. 在OpenMesh OpenFlow 交换机上安装 ryu</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgefad45e" class="outline-2">
+<h2 id="orgefad45e"><span class="section-number-2">1</span> 在OpenMesh OpenFlow 交换机上安装 ryu</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+执行如下命令
+</p>
+
+<pre class="example">
+pip install ryu==4.32
+pip install PyYAML==3.12
+pip install six==3.5
+pip install six==1.12.0
+pip install requests==2.18.0
+pip install  debtcollector==1.2.0
+pip install  rfc3986 …</pre></div></div>
+                <a class="readmore" href="/lab/install_ryu_on_switch.html">read more</a>
+<p>There are <a href="/lab/install_ryu_on_switch.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/lab/automatic_boring_web_staff.html" rel="bookmark"
+                           title="Permalink to 用autohotkey减少烦人的网页重复操作">用autohotkey减少烦人的网页重复操作</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2019-06-14T00:00:00+08:00">
+                Published: 五 14 六月 2019
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/bill.html">bill</a>
+        </address>
+<p>In <a href="/category/lab.html">lab</a>.</p>
+<p>tags: <a href="/tag/automatic.html">automatic</a> <a href="/tag/autohotkey.html">autohotkey</a> <a href="/tag/ahk.html">ahk</a> <a href="/tag/web.html">web</a> <a href="/tag/gui.html">gui</a> <a href="/tag/in-turn.html">in turn</a> <a href="/tag/zhong-fu.html">重复</a> </p>
+</footer><!-- /.post-info -->                <div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org464f3e8">1. 问题</a></li>
+<li><a href="#orgacbffef">2. 工具选择</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org464f3e8" class="outline-2">
+<h2 id="org464f3e8"><span class="section-number-2">1</span> 问题</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+变态的网页应用，只支持IE 7，要重复做点击，输入文件名，保存。关键是
+要做很多次,忍无可忍。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgacbffef" class="outline-2">
+<h2 id="orgacbffef"><span class="section-number-2">2</span> 工具选择</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+本来打算用sikuli,之前用的很爽，可以做类似录制宏的操作，可是最新的版
+本要 win7, windows 虚机里面一跑就死。放弃。
+</p>
+
+<p>
+然后看了web 自动化测试工具，太重，只有试用版，放弃。直到找到
+autohotkey ，发现正是自己要的。
+</p>
+
+<p>
+可以简单的解决我的问题，无需编程知识。可以把鼠标及键盘操作，存入一
+个脚本，然后执行。鼠标的操作可以通过，相对位置来定，程序可以提示光标位置。
+</p>
+
+<p>
+因为要依次点击，在弹出的会话框改文件名，理论上应该有个循环什么的。
+那个已经超出我的能力范围了 …</p></div></div>
+                <a class="readmore" href="/lab/automatic_boring_web_staff.html">read more</a>
+<p>There are <a href="/lab/automatic_boring_web_staff.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/lab/install_picos_on_dell.html" rel="bookmark"
+                           title="Permalink to 在Dell N3048/24 上安装 PicOS">在Dell N3048/24 上安装 PicOS</a></h1>
+                </header>
+
+                <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2019-06-04T00:00:00+08:00">
                 Published: 二 04 六月 2019
@@ -35,24 +946,24 @@
         </address>
 <p>In <a href="/category/lab.html">lab</a>.</p>
 <p>tags: <a href="/tag/lab.html">lab</a> <a href="/tag/install.html">install</a> <a href="/tag/onie.html">onie</a> <a href="/tag/picos.html">picos</a> <a href="/tag/dell.html">dell</a> <a href="/tag/n3048.html">n3048</a> <a href="/tag/n3024.html">n3024</a> <a href="/tag/uboot.html">uboot</a> </p>
-</footer><!-- /.post-info --><div id="table-of-contents">
+</footer><!-- /.post-info -->                <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org45d69dc">1. <b>首次安装PICOS</b></a>
+<li><a href="#org16181eb">1. <b>首次安装PICOS</b></a>
 <ul>
-<li><a href="#orgb395f3f">1.1. 确保已经下载了正确的安装文件</a></li>
-<li><a href="#org3447adc">1.2. 进入Boot Main Menu。</a></li>
-<li><a href="#org1ffe995">1.3. 进入ONIE救援模式</a></li>
-<li><a href="#org67b9e81">1.4. 安装PicOS</a></li>
+<li><a href="#orga928f32">1.1. 确保已经下载了正确的安装文件</a></li>
+<li><a href="#orga128a06">1.2. 进入Boot Main Menu。</a></li>
+<li><a href="#org8f77b6a">1.3. 进入ONIE救援模式</a></li>
+<li><a href="#org3b8cbb9">1.4. 安装PicOS</a></li>
 </ul>
 </li>
-<li><a href="#org917cd7c">2. <b>传统安装流程</b></a>
+<li><a href="#orgd4c8b32">2. <b>传统安装流程</b></a>
 <ul>
-<li><a href="#org1f7720e">2.1. 文件准备</a></li>
-<li><a href="#org754c087">2.2. 进入救援模式</a>
+<li><a href="#orgc568355">2.1. 文件准备</a></li>
+<li><a href="#orgfa181a8">2.2. 进入救援模式</a>
 <ul>
-<li><a href="#orgb8816ae">2.2.1. 在ONIE提示符下，运行 <b>onie-nos-install</b> 命令安装PICOS。</a></li>
+<li><a href="#org38cae25">2.2.1. 在ONIE提示符下，运行 <b>onie-nos-install</b> 命令安装PICOS。</a></li>
 </ul>
 </li>
 </ul>
@@ -64,8 +975,8 @@
 使用google translate 翻译自 <a href="https://docs.pica8.com/display/PicOS21118sp/Installing+PICOS+on+Bare+Metal+Switches+for+N3048EP-ON">here</a>.
 </p>
 
-<div id="outline-container-org45d69dc" class="outline-2">
-<h2 id="org45d69dc"><span class="section-number-2">1</span> <b>首次安装PICOS</b></h2>
+<div id="outline-container-org16181eb" class="outline-2">
+<h2 id="org16181eb"><span class="section-number-2">1</span> <b>首次安装PICOS</b></h2>
 <div class="outline-text-2" id="text-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -86,365 +997,14 @@
 </div>
 
 
-<div id="outline-container-orgb395f3f" class="outline-3">
-<h3 id="orgb395f3f"><span class="section-number-3">1.1</span> 确保已经下载了正确的安装文件</h3>
+<div id="outline-container-orga928f32" class="outline-3">
+<h3 id="orga928f32"><span class="section-number-3">1.1</span> 确保已经下载了正确的安装文件</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
-设定服务器将将该.bin 文件的安装包通过（HTTP，TFTP，FTP或交换机本
-地目录可访问，根据实际情况而定）。
-</p>
-</div>
-</div>
-
-<div id="outline-container-org3447adc" class="outline-3">
-<h3 id="org3447adc"><span class="section-number-3">1.2</span> 进入Boot Main Menu。</h3>
-<div class="outline-text-3" id="text-1-2">
-<p>
-当开关打开电源时   <b>出现Dell EMC Networking Boot Options</b> 菜单，选择选项“2”
-进入Boot Main Menu。
-</p>
-
-<pre class="example">
-戴尔EMC网络引导选项
-================================
-
-在3秒内选择一个菜单选项，否则将启动操作代码
-
-自动...
-
-1  - 启动操作代码
-2  - 显示启动菜单
-
-选择（1,2）＃2
-</pre>
-</div>
-</div>
-
-<div id="outline-container-org1ffe995" class="outline-3">
-<h3 id="org1ffe995"><span class="section-number-3">1.3</span> 进入ONIE救援模式</h3>
-<div class="outline-text-3" id="text-1-3">
-<p>
-出现 *Boot Main Menu *时，选择选项“13”进入ONIE救援模式。
-</p>
-
-<pre class="example">
-启动主菜单
-==============
-
-1  - 启动操作代码
-2  - 选择波特率
-3  - 检索日志
-4  - 加载新的操作代码
-5  - 显示操作代码详细信息
-9  - 重新启动
-10  - 将配置恢复为出厂默认值
-11  - 激活备份映像
-12  - 启动密码恢复
-13  -  Boot ONIE（救援模式）
-14  - 引导诊断
-
-输入选择＃13
-</pre>
-
-
-
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-left" />
-</colgroup>
-<tbody>
-<tr>
-<td class="org-left"><b>注意：</b></td>
-</tr>
-
-<tr>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left">如果未执行任何操作，系统将在5秒后启动到PICOS。</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-
-<div id="outline-container-org67b9e81" class="outline-3">
-<h3 id="org67b9e81"><span class="section-number-3">1.4</span> 安装PicOS</h3>
-<div class="outline-text-3" id="text-1-4">
-<p>
-在ONIE提示符下，运行 <b>onie-nos-install</b> 命令安装PICOS。
-</p>
-
-
-
-<ul class="org-ul">
-<li><p>
-<b>通过TFTP安装</b>
-</p>
-
-<pre class="example">
-ONIE＃onie-nos-install tftp：// &lt;image路径&gt; /PicOS.bin
-</pre></li>
-
-<li><p>
-<b>通过FTP安装</b>
-</p>
-
-<p>
-通过FTP安装时，您需要输入 像文件所在的FTP服务器的 <b>username</b> 和 <b>password</b>
-</p>
-
-<pre class="example">
-ONIE＃onie-nos-install ftp：//用户名：密码@ &lt;image路径&gt; /PicOS.bin
-</pre></li>
-
-<li><p>
-<b>通过HTTP</b> 安装
-</p>
-<pre class="example">
-ONIE＃onie-nos-install http：// &lt;image路径&gt; /PicOS.bin
-</pre></li>
-
-<li><b>通过本地目录安装</b>
-
-<ul class="org-ul">
-<li><p>
-在* ONIE rescue *模式下，将image文件复制到当前  目录。
-</p>
-
-<pre class="example">
-ONIE #scp username @ &lt;image路径&gt; /PicOS.bin。
-</pre></li>
-
-<li><p>
-运行* onie-nos-install *命令开始安装。
-</p>
-
-<pre class="example">
-ONIE＃onie-nos-install PicOS.bin
-</pre></li>
-</ul></li>
-</ul>
-
-<p>
-安装程序运行并在完成安装后运行
-自动重启，系统将运行新网络
-操作系统。
-</p>
-
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-left" />
-</colgroup>
-<tbody>
-<tr>
-<td class="org-left"><b>注意：</b></td>
-</tr>
-
-<tr>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left">- 系统重启后，需要输入用户名和密码，初始登录用户名为* admin <b>，密码为</b> pica8 *。</td>
-</tr>
-
-<tr>
-<td class="org-left">- 输入用户名和密码后，系统会要求用户为admin选择新密码。这是安装后的唯一步骤，之后可以使用PicOS操作系统。</td>
-</tr>
-</tbody>
-</table>
-
-
-<p>
-如果已经安装好，底下不用看了。
-</p>
-</div>
-</div>
-</div>
-
-<div id="outline-container-org917cd7c" class="outline-2">
-<h2 id="org917cd7c"><span class="section-number-2">2</span> <b>传统安装流程</b></h2>
-<div class="outline-text-2" id="text-2">
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-left" />
-</colgroup>
-<tbody>
-<tr>
-<td class="org-left"><b>注意：</b></td>
-</tr>
-
-<tr>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left">您需要通过交换机的控制台端口登录并执行本节中描述的ONIE安装。</td>
-</tr>
-</tbody>
-</table>
-</div>
-
-
-
-
-<div id="outline-container-org1f7720e" class="outline-3">
-<h3 id="org1f7720e"><span class="section-number-3">2.1</span> 文件准备</h3>
-<div class="outline-text-3" id="text-2-1">
-<p>
-<b>确保</b> .bin *文件的安装包已加载到服务器（服务器可能是HTTP，TFTP或
-FTP服务器或交换机本地目录根据实际情况而定安装环境）。
-</p>
-</div>
-</div>
-
-<div id="outline-container-org754c087" class="outline-3">
-<h3 id="org754c087"><span class="section-number-3">2.2</span> 进入救援模式</h3>
-<div class="outline-text-3" id="text-2-2">
-<p>
-进入ONIE安装环境。
-</p>
-
-<p>
-打开电源，当出现* Boot Main Menu <b>时，选择选项“</b> 2 *”进入ONIE救援模式。
-</p>
-
-<pre class="example">
-启动主菜单
-====================
-1  - 引导PICOS（默认）
-2  - 启动ONIE（救援模式）
-3  - 引导诊断
-4  - 引导Dell EMC网络系统
-输入您的选择（1,2,3,4）：2
-</pre>
-
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-left" />
-</colgroup>
-<tbody>
-<tr>
-<td class="org-left"><b>注意：</b></td>
-</tr>
-
-<tr>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left">如果未执行任何操作，系统将在5秒后启动到PICOS。</td>
-</tr>
-</tbody>
-</table>
-</div>
-
-<div id="outline-container-orgb8816ae" class="outline-4">
-<h4 id="orgb8816ae"><span class="section-number-4">2.2.1</span> 在ONIE提示符下，运行 <b>onie-nos-install</b> 命令安装PICOS。</h4>
-<div class="outline-text-4" id="text-2-2-1">
-<ul class="org-ul">
-<li><p>
-<b>通过TFTP安装</b>
-</p>
-
-<pre class="example">
-ONIE＃onie-nos-install tftp：// &lt;image路径&gt; /PicOS.bin
-</pre></li>
-
-<li><p>
-<b>通过FTP安装</b>
-</p>
-
-<p>
-通过FTP安装时，您需要
-输入image文件所在的FTP服务器的* username <b>和</b> password *
-已加载。
-</p>
-
-<pre class="example">
-ONIE＃onie-nos-install ftp：//用户名：密码@ &lt;image路径&gt; /PicOS.bin
-</pre></li>
-
-<li><p>
-*通过HTTP *安装
-</p>
-
-<pre class="example">
-ONIE＃onie-nos-install http：// &lt;image路径&gt; /PicOS.bin
-</pre></li>
-
-<li><p>
-<b>通过本地目录安装</b>
-</p>
-
-<p>
-a）在* ONIE rescue *模式下，将image文件复制到当前
-目录。
-</p>
-
-<pre class="example">
-ONIE #scp username @ &lt;image路径&gt; /PicOS.bin。
-</pre>
-
-<p>
-b）运行* onie-nos-install *命令开始安装。
-</p>
-
-<pre class="example">
-ONIE＃onie-nos-install PicOS.bin
-</pre></li>
-</ul>
-
-<p>
-安装程序运行并在完成安装后运行
-自动重启，系统将运行新网络
-操作系统。
-</p>
-
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-left" />
-</colgroup>
-<tbody>
-<tr>
-<td class="org-left"><b>注意：</b></td>
-</tr>
-
-<tr>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left">- 系统重启后，需要输入用户名和密码，初始登录用户名为* admin <b>，密码为</b> pica8 *。</td>
-</tr>
-
-<tr>
-<td class="org-left">- 输入用户名和密码后，系统会要求用户为admin选择新密码。这是安装后的唯一步骤，之后可以使用PicOS操作系统。</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
-<p>There are <a href="/lab/install_picos_on_dell.html#disqus_thread">comments</a>.</p>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
+设定服务器将将该.bin 文件的安装包通过（HTTP …</p></div></div></div>
+                <a class="readmore" href="/lab/install_picos_on_dell.html">read more</a>
+<p>There are <a href="/lab/install_picos_on_dell.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>
@@ -501,13 +1061,13 @@ Linux 操作系统环境作为其仿真环境,因此,它的主要特色就是整
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org041aae7">1. 流表配置如下</a></li>
+<li><a href="#orgde5e25c">1. 流表配置如下</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org041aae7" class="outline-2">
-<h2 id="org041aae7"><span class="section-number-2">1</span> 流表配置如下</h2>
+<div id="outline-container-orgde5e25c" class="outline-2">
+<h2 id="orgde5e25c"><span class="section-number-2">1</span> 流表配置如下</h2>
 <div class="outline-text-2" id="text-1">
 <pre class="example">
 ovs-ofctl -O OpenFlow13 add-flow br0 table=0,in_port=50,actions=mod_vlan_vid:10,mod_dl_src:6c:59:79:33:44:55,mod_dl_dst:f8:bc:12:4d:e9:d8,goto_table:8
@@ -550,9 +1110,9 @@ admin@PICOS-OVS …</pre></div></div>
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orga1242b6">1. 初始设置和访问</a>
+<li><a href="#orge260083">1. 初始设置和访问</a>
 <ul>
-<li><a href="#org7cd5e33">1.1. 登陆交换机</a></li>
+<li><a href="#org192db27">1.1. 登陆交换机</a></li>
 </ul>
 </li>
 </ul>
@@ -561,12 +1121,12 @@ admin@PICOS-OVS …</pre></div></div>
 
 
 
-<div id="outline-container-orga1242b6" class="outline-2">
-<h2 id="orga1242b6"><span class="section-number-2">1</span> 初始设置和访问</h2>
+<div id="outline-container-orge260083" class="outline-2">
+<h2 id="orge260083"><span class="section-number-2">1</span> 初始设置和访问</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org7cd5e33" class="outline-3">
-<h3 id="org7cd5e33"><span class="section-number-3">1.1</span> 登陆交换机</h3>
+<div id="outline-container-org192db27" class="outline-3">
+<h3 id="org192db27"><span class="section-number-3">1.1</span> 登陆交换机</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 交换机开箱后的初始登录，可以通过 串口(RJ45)来进行。 找到交换机 的console
@@ -591,79 +1151,6 @@ securecrt 等 终端工具，配置串口参数为 115200,
 
             <li><article class="hentry">
                 <header>
-                    <h1><a href="/product/aovs_install.html" rel="bookmark"
-                           title="Permalink to Netronome AOVS 安装">Netronome AOVS 安装</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2018-04-22T00:00:00+08:00">
-                Published: 日 22 四月 2018
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/bill.html">bill</a>
-        </address>
-<p>In <a href="/category/product.html">product</a>.</p>
-<p>tags: <a href="/tag/aovs.html">aovs</a> <a href="/tag/netronome.html">netronome</a> </p>
-</footer><!-- /.post-info -->                <div id="table-of-contents">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents">
-<ul>
-<li><a href="#org5897f32">1. 准备工作</a></li>
-<li><a href="#org5432b6c">2. 更新内核</a></li>
-<li><a href="#orgdbc9255">3. 安装AOVS</a></li>
-</ul>
-</div>
-</div>
-
-
-<div id="outline-container-org5897f32" class="outline-2">
-<h2 id="org5897f32"><span class="section-number-2">1</span> 准备工作</h2>
-<div class="outline-text-2" id="text-1">
-<ol class="org-ol">
-<li>确保服务器打开SR-IOV，（BIOS 设置）</li>
-</ol>
-</div>
-</div>
-
-<div id="outline-container-org5432b6c" class="outline-2">
-<h2 id="org5432b6c"><span class="section-number-2">2</span> 更新内核</h2>
-<div class="outline-text-2" id="text-2">
-<p>
-Centos/RHEL 操作系统可以从我们提供的网盘下载
-链接:<a href="https://pan.baidu.com/s/1geZ2kev">https://pan.baidu.com/s/1geZ2kev</a> 密码:76hp
-</p>
-
-<p>
-rhel-3.10.0-493.el7.tar.gz 解压后安装所有包
-</p>
-<pre class="example">
-cd "extract path"
-yum localinstall *.rpm
-</pre>
-</div>
-</div>
-
-<div id="outline-container-orgdbc9255" class="outline-2">
-<h2 id="orgdbc9255"><span class="section-number-2">3</span> 安装AOVS</h2>
-<div class="outline-text-2" id="text-3">
-<p>
-下载 
-</p>
-
-
-
-
-<pre class="example">
-rpm -i kernel*.rpm
-yum -y …</pre></div></div>
-                <a class="readmore" href="/product/aovs_install.html">read more</a>
-<p>There are <a href="/product/aovs_install.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
                     <h1><a href="/troubleshooting/xfs_on_crash_ssd.html" rel="bookmark"
                            title="Permalink to XFS repair on failed SSD">XFS repair on failed SSD</a></h1>
                 </header>
@@ -683,9 +1170,9 @@ yum -y …</pre></div></div>
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org3f95277">1. 先备份</a></li>
-<li><a href="#orgf18f5be">2. 恢复</a></li>
-<li><a href="#org1df6c75">3. 重新启用该SSD</a></li>
+<li><a href="#org672d4ca">1. 先备份</a></li>
+<li><a href="#orga1233f2">2. 恢复</a></li>
+<li><a href="#orgf24d4de">3. 重新启用该SSD</a></li>
 </ul>
 </div>
 </div>
@@ -698,8 +1185,8 @@ yum -y …</pre></div></div>
 尝试重启，再挂载,当然还是不行，因为是一块PCI-E SSD 卡，非常担心数据搞不出来。
 </p>
 
-<div id="outline-container-org3f95277" class="outline-2">
-<h2 id="org3f95277"><span class="section-number-2">1</span> 先备份</h2>
+<div id="outline-container-org672d4ca" class="outline-2">
+<h2 id="org672d4ca"><span class="section-number-2">1</span> 先备份</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 保险起见，先dd出来，因为本地没有足够大的空间，尝试将现有信息保存到另外一台主机，
@@ -713,202 +1200,9 @@ ssh root@192.168.1.1 "dd iflag=fullblock  conv=sync,noerror if=/dev/nvme0n1 |gzi
                 <a class="readmore" href="/troubleshooting/xfs_on_crash_ssd.html">read more</a>
 <p>There are <a href="/troubleshooting/xfs_on_crash_ssd.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
             </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/lab/try_ryu_nat.html" rel="bookmark"
-                           title="Permalink to 试用 RYU NAT">试用 RYU NAT</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2018-01-24T00:00:00+08:00">
-                Published: 三 24 一月 2018
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/bill.html">bill</a>
-        </address>
-<p>In <a href="/category/lab.html">lab</a>.</p>
-<p>tags: <a href="/tag/ryu.html">ryu</a> <a href="/tag/nat.html">nat</a> <a href="/tag/dhcp.html">dhcp</a> <a href="/tag/agent.html">agent</a> <a href="/tag/sdn.html">sdn</a> <a href="/tag/openflow.html">OpenFlow</a> </p>
-</footer><!-- /.post-info -->                <div id="table-of-contents">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents">
-<ul>
-<li><a href="#orgd20a0f0">1. 安装RYU</a></li>
-<li><a href="#orgc23cabe">2. 安装</a></li>
-<li><a href="#org93056c2">3. 运行</a></li>
-<li><a href="#orgb54dbe6">4. 验证</a></li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-orgd20a0f0" class="outline-2">
-<h2 id="orgd20a0f0"><span class="section-number-2">1</span> 安装RYU</h2>
-<div class="outline-text-2" id="text-1">
-<p>
-略，不清楚可以参考 <a href="https://bbill.github.io/lab/ryu_lab1.org">这里</a>
-</p>
-</div>
-</div>
-<div id="outline-container-orgc23cabe" class="outline-2">
-<h2 id="orgc23cabe"><span class="section-number-2">2</span> 安装</h2>
-<div class="outline-text-2" id="text-2">
-<pre class="example">
-cd 
-git clone https://github.com/bbill/nat.git ryu/ryu/app/nat
-</pre>
-</div>
-</div>
-<div id="outline-container-org93056c2" class="outline-2">
-<h2 id="org93056c2"><span class="section-number-2">3</span> 运行</h2>
-<div class="outline-text-2" id="text-3">
-<pre class="example">
-
-</pre>
-</div>
-</div>
-
-<div id="outline-container-orgb54dbe6" class="outline-2">
-<h2 id="orgb54dbe6"><span class="section-number-2">4</span> 验证</h2>
-<div class="outline-text-2" id="text-4">
-<ol class="org-ol">
-<li><p>
-如果没有实体SDN交换机，请安装 mininet
-</p>
-<pre class="example">
-cd 
-git clone https://github.com/mininet/mininet.git
-./mininet/util/install …</pre></li></ol></div></div>
-                <a class="readmore" href="/lab/try_ryu_nat.html">read more</a>
-<p>There are <a href="/lab/try_ryu_nat.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/product/Spice_over_Ubuntu_16.04.html" rel="bookmark"
-                           title="Permalink to The SPICE support in KVM Ubunt 16.04 guest">The SPICE support in KVM Ubunt 16.04 guest</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2018-01-23T00:00:00+08:00">
-                Published: 二 23 一月 2018
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/bill.html">bill</a>
-        </address>
-<p>In <a href="/category/product.html">product</a>.</p>
-<p>tags: <a href="/tag/kvm.html">kvm</a> <a href="/tag/ovirt.html">ovirt</a> <a href="/tag/spice.html">spice</a> <a href="/tag/qxl.html">qxl</a> <a href="/tag/ubuntu-1604.html">ubuntu 16.04</a> </p>
-</footer><!-- /.post-info -->                <div id="table-of-contents">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents">
-<ul>
-<li><a href="#org841105b">1. Problem</a></li>
-<li><a href="#org761aa7e">2. Solution</a></li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-org841105b" class="outline-2">
-<h2 id="org841105b"><span class="section-number-2">1</span> Problem</h2>
-<div class="outline-text-2" id="text-1">
-<p>
-The OS can't detect the qxl video driver. The display resolution
-can't be changed not to mention adjust automatically.
-</p>
-
-<p>
-Try to solve it by kill X,then reconfigure it.
-</p>
-<pre class="example">
-init 3
-</pre>
-<p>
-after relogin
-</p>
-
-<pre class="example">
-X -configure
-</pre>
-
-<p>
-It keep complains 
-</p>
-
-<pre class="example">
-X.Org X …</pre></div></div>
-                <a class="readmore" href="/product/Spice_over_Ubuntu_16.04.html">read more</a>
-<p>There are <a href="/product/Spice_over_Ubuntu_16.04.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/lab/libvirt_dnsmasq_conflict.html" rel="bookmark"
-                           title="Permalink to libvirtd 导致的dnsmasq 冲突问题">libvirtd 导致的dnsmasq 冲突问题</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2018-01-20T00:00:00+08:00">
-                Published: 六 20 一月 2018
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/bill.html">bill</a>
-        </address>
-<p>In <a href="/category/lab.html">lab</a>.</p>
-<p>tags: <a href="/tag/libvirtd.html">libvirtd</a> <a href="/tag/dasmasq.html">dasmasq</a> <a href="/tag/conflict.html">conflict</a> </p>
-</footer><!-- /.post-info -->                <p>
-在一台机器上用dnsmasq 做dhcp server，报错
-</p>
-
-<pre class="example">
-failed to bind dhcp server socket: Address already in use.
-</pre>
-<p>
-查看后发现系统内已经由libvirtd 启动了一个dnsmasq，对virtbr0提供服务。<a href="https://wiki.libvirt.org/page/Libvirtd_and_dnsmasq">这里</a>提供了解决方案。
-关键是取消  bind-interfaces这一行的注释。并且指定需要监听的interface或者IP。
-</p>
-
-<pre class="example">
-bind-interfaces
-interface=eth0
-listen-address=192.168.0.1
-</pre>
-
-                <a class="readmore" href="/lab/libvirt_dnsmasq_conflict.html">read more</a>
-<p>There are <a href="/lab/libvirt_dnsmasq_conflict.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/product/add_guest_agent.html" rel="bookmark"
-                           title="Permalink to 给 ubuntu 16.04 添加 guest agent">给 ubuntu 16.04 添加 guest agent</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2018-01-13T00:00:00+08:00">
-                Published: 六 13 一月 2018
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/bill.html">bill</a>
-        </address>
-<p>In <a href="/category/product.html">product</a>.</p>
-<p>tags: <a href="/tag/ybox.html">Ybox</a> <a href="/tag/kvm.html">KVM</a> <a href="/tag/xu-ni-hua.html">虚拟化</a> <a href="/tag/fang-zhen.html">仿真</a> </p>
-</footer><!-- /.post-info -->                <p>
-wget -O -  <a href="https://raw.githubusercontent.com/bbill/scripts/master/Ybox/ubuntu16_guest_agent.sh">https://raw.githubusercontent.com/bbill/scripts/master/Ybox/ubuntu16_guest_agent.sh</a> |bash
-</p>
-
-                <a class="readmore" href="/product/add_guest_agent.html">read more</a>
-<p>There are <a href="/product/add_guest_agent.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
-            </article></li>
                 </ol><!-- /#posts-list -->
 <p class="paginator">
-    Page 1 / 2
+    Page 1 / 3
         <a href="/index2.html">&raquo;</a>
 </p>
                 </section><!-- /#content -->

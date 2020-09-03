@@ -26,6 +26,199 @@
                     <ol id="posts-list" class="hfeed" start="9">
             <li><article class="hentry">
                 <header>
+                    <h1><a href="/lab/try_ryu_nat.html" rel="bookmark"
+                           title="Permalink to 试用 RYU NAT">试用 RYU NAT</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2018-01-24T00:00:00+08:00">
+                Published: 三 24 一月 2018
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/bill.html">bill</a>
+        </address>
+<p>In <a href="/category/lab.html">lab</a>.</p>
+<p>tags: <a href="/tag/ryu.html">ryu</a> <a href="/tag/nat.html">nat</a> <a href="/tag/dhcp.html">dhcp</a> <a href="/tag/agent.html">agent</a> <a href="/tag/sdn.html">sdn</a> <a href="/tag/openflow.html">OpenFlow</a> </p>
+</footer><!-- /.post-info -->                <div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org4425e5f">1. 安装RYU</a></li>
+<li><a href="#org284d1e7">2. 安装</a></li>
+<li><a href="#org8ad0584">3. 运行</a></li>
+<li><a href="#orgfe2aabc">4. 验证</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org4425e5f" class="outline-2">
+<h2 id="org4425e5f"><span class="section-number-2">1</span> 安装RYU</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+略，不清楚可以参考 <a href="https://bbill.github.io/lab/ryu_lab1.org">这里</a>
+</p>
+</div>
+</div>
+<div id="outline-container-org284d1e7" class="outline-2">
+<h2 id="org284d1e7"><span class="section-number-2">2</span> 安装</h2>
+<div class="outline-text-2" id="text-2">
+<pre class="example">
+cd 
+git clone https://github.com/bbill/nat.git ryu/ryu/app/nat
+</pre>
+</div>
+</div>
+<div id="outline-container-org8ad0584" class="outline-2">
+<h2 id="org8ad0584"><span class="section-number-2">3</span> 运行</h2>
+<div class="outline-text-2" id="text-3">
+<pre class="example">
+
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgfe2aabc" class="outline-2">
+<h2 id="orgfe2aabc"><span class="section-number-2">4</span> 验证</h2>
+<div class="outline-text-2" id="text-4">
+<ol class="org-ol">
+<li><p>
+如果没有实体SDN交换机，请安装 mininet
+</p>
+<pre class="example">
+cd 
+git clone https://github.com/mininet/mininet.git
+./mininet/util/install …</pre></li></ol></div></div>
+                <a class="readmore" href="/lab/try_ryu_nat.html">read more</a>
+<p>There are <a href="/lab/try_ryu_nat.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/product/Spice_over_Ubuntu_16.04.html" rel="bookmark"
+                           title="Permalink to The SPICE support in KVM Ubunt 16.04 guest">The SPICE support in KVM Ubunt 16.04 guest</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2018-01-23T00:00:00+08:00">
+                Published: 二 23 一月 2018
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/bill.html">bill</a>
+        </address>
+<p>In <a href="/category/product.html">product</a>.</p>
+<p>tags: <a href="/tag/kvm.html">kvm</a> <a href="/tag/ovirt.html">ovirt</a> <a href="/tag/spice.html">spice</a> <a href="/tag/qxl.html">qxl</a> <a href="/tag/ubuntu-1604.html">ubuntu 16.04</a> </p>
+</footer><!-- /.post-info -->                <div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orga14401f">1. Problem</a></li>
+<li><a href="#org855ebd0">2. Solution</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orga14401f" class="outline-2">
+<h2 id="orga14401f"><span class="section-number-2">1</span> Problem</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+The OS can't detect the qxl video driver. The display resolution
+can't be changed not to mention adjust automatically.
+</p>
+
+<p>
+Try to solve it by kill X,then reconfigure it.
+</p>
+<pre class="example">
+init 3
+</pre>
+<p>
+after relogin
+</p>
+
+<pre class="example">
+X -configure
+</pre>
+
+<p>
+It keep complains 
+</p>
+
+<pre class="example">
+X.Org X …</pre></div></div>
+                <a class="readmore" href="/product/Spice_over_Ubuntu_16.04.html">read more</a>
+<p>There are <a href="/product/Spice_over_Ubuntu_16.04.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/lab/libvirt_dnsmasq_conflict.html" rel="bookmark"
+                           title="Permalink to libvirtd 导致的dnsmasq 冲突问题">libvirtd 导致的dnsmasq 冲突问题</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2018-01-20T00:00:00+08:00">
+                Published: 六 20 一月 2018
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/bill.html">bill</a>
+        </address>
+<p>In <a href="/category/lab.html">lab</a>.</p>
+<p>tags: <a href="/tag/libvirtd.html">libvirtd</a> <a href="/tag/dasmasq.html">dasmasq</a> <a href="/tag/conflict.html">conflict</a> </p>
+</footer><!-- /.post-info -->                <p>
+在一台机器上用dnsmasq 做dhcp server，报错
+</p>
+
+<pre class="example">
+failed to bind dhcp server socket: Address already in use.
+</pre>
+<p>
+查看后发现系统内已经由libvirtd 启动了一个dnsmasq，对virtbr0提供服务。<a href="https://wiki.libvirt.org/page/Libvirtd_and_dnsmasq">这里</a>提供了解决方案。
+关键是取消  bind-interfaces这一行的注释。并且指定需要监听的interface或者IP。
+</p>
+
+<pre class="example">
+bind-interfaces
+interface=eth0
+listen-address=192.168.0.1
+</pre>
+
+                <a class="readmore" href="/lab/libvirt_dnsmasq_conflict.html">read more</a>
+<p>There are <a href="/lab/libvirt_dnsmasq_conflict.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/product/add_guest_agent.html" rel="bookmark"
+                           title="Permalink to 给 ubuntu 16.04 添加 guest agent">给 ubuntu 16.04 添加 guest agent</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2018-01-13T00:00:00+08:00">
+                Published: 六 13 一月 2018
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/bill.html">bill</a>
+        </address>
+<p>In <a href="/category/product.html">product</a>.</p>
+<p>tags: <a href="/tag/ybox.html">Ybox</a> <a href="/tag/kvm.html">KVM</a> <a href="/tag/xu-ni-hua.html">虚拟化</a> <a href="/tag/fang-zhen.html">仿真</a> </p>
+</footer><!-- /.post-info -->                <p>
+wget -O -  <a href="https://raw.githubusercontent.com/bbill/scripts/master/Ybox/ubuntu16_guest_agent.sh">https://raw.githubusercontent.com/bbill/scripts/master/Ybox/ubuntu16_guest_agent.sh</a> |bash
+</p>
+
+                <a class="readmore" href="/product/add_guest_agent.html">read more</a>
+<p>There are <a href="/product/add_guest_agent.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
                     <h1><a href="/lab/pica8_OVS_Command_Reference.html" rel="bookmark"
                            title="Permalink to Pica8 OVS 模式常用命令">Pica8 OVS 模式常用命令</a></h1>
                 </header>
@@ -45,14 +238,14 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgb28cc98">1. 确认端口状态</a></li>
-<li><a href="#orge75c625">2. 确认硬件流表支持的最大条目</a></li>
+<li><a href="#orge64d4f0">1. 确认端口状态</a></li>
+<li><a href="#org27e15c3">2. 确认硬件流表支持的最大条目</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgb28cc98" class="outline-2">
-<h2 id="orgb28cc98"><span class="section-number-2">1</span> 确认端口状态</h2>
+<div id="outline-container-orge64d4f0" class="outline-2">
+<h2 id="orge64d4f0"><span class="section-number-2">1</span> 确认端口状态</h2>
 <div class="outline-text-2" id="text-1">
 <ol class="org-ol">
 <li><p>
@@ -65,59 +258,6 @@ OFPST_PORT reply (OF1.3) (xid=0x2): 49 ports
            tx pkts=457981, bytes=34858800, drop=0, errs=0, coll …</pre></li></ol></div></div>
                 <a class="readmore" href="/lab/pica8_OVS_Command_Reference.html">read more</a>
 <p>There are <a href="/lab/pica8_OVS_Command_Reference.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/lab/pica8_quick_start.html" rel="bookmark"
-                           title="Permalink to Pica8 白盒交换机快速上手">Pica8 白盒交换机快速上手</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2018-01-05T00:00:00+08:00">
-                Published: 五 05 一月 2018
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/bill.html">bill</a>
-        </address>
-<p>In <a href="/category/lab.html">lab</a>.</p>
-<p>tags: <a href="/tag/pica.html">pica</a> <a href="/tag/white-box.html">white box</a> <a href="/tag/openflow.html">openflow</a> <a href="/tag/sdn.html">sdn</a> </p>
-</footer><!-- /.post-info -->                <div id="table-of-contents">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents">
-<ul>
-<li><a href="#org8a3397e">1. 初始设置和访问</a>
-<ul>
-<li><a href="#orgcdfdc8c">1.1. 登陆交换机</a></li>
-<li><a href="#org4d96f36">1.2. 设定默认启动模式</a></li>
-<li><a href="#org74af0d1">1.3. 设置 Openflow SDN网络</a></li>
-</ul>
-</li>
-<li><a href="#org55d209a">2. TAP简单上手</a></li>
-<li><a href="#orgd185e44">3. CrossFlow 配置</a></li>
-<li><a href="#org9af139c">4. 软件版本升级</a></li>
-<li><a href="#org9b0d8bb">5. 手册及参考</a></li>
-</ul>
-</div>
-</div>
-
-
-<div id="outline-container-org8a3397e" class="outline-2">
-<h2 id="org8a3397e"><span class="section-number-2">1</span> 初始设置和访问</h2>
-<div class="outline-text-2" id="text-1">
-</div>
-<div id="outline-container-orgcdfdc8c" class="outline-3">
-<h3 id="orgcdfdc8c"><span class="section-number-3">1.1</span> 登陆交换机</h3>
-<div class="outline-text-3" id="text-1-1">
-<p>
-交换机开箱后的初始登录，可以通过 串口(RJ45)来进行。 找到交换机 的console
-口(一般会标有Con)。通过windows 主机上的超级终端工具，或者putty,
-securecrt 等 终端工具，配置串口参数为 115200,
-8/N/1 …</p></div></div></div>
-                <a class="readmore" href="/lab/pica8_quick_start.html">read more</a>
-<p>There are <a href="/lab/pica8_quick_start.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
             </article></li>
 
             <li><article class="hentry">
@@ -141,22 +281,22 @@ securecrt 等 终端工具，配置串口参数为 115200,
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org7541b92">1. OpenMesh SDN交换机设置静态流表的"正确"方法</a>
+<li><a href="#org34b4424">1. OpenMesh SDN交换机设置静态流表的"正确"方法</a>
 <ul>
-<li><a href="#orgfde2fbe">1.1. 系统初始设置</a></li>
-<li><a href="#orgf197f4f">1.2. 添加静态流配置命令</a></li>
+<li><a href="#org57af654">1.1. 系统初始设置</a></li>
+<li><a href="#orgd42c76f">1.2. 添加静态流配置命令</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org7541b92" class="outline-2">
-<h2 id="org7541b92"><span class="section-number-2">1</span> OpenMesh SDN交换机设置静态流表的"正确"方法</h2>
+<div id="outline-container-org34b4424" class="outline-2">
+<h2 id="org34b4424"><span class="section-number-2">1</span> OpenMesh SDN交换机设置静态流表的"正确"方法</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-orgfde2fbe" class="outline-3">
-<h3 id="orgfde2fbe"><span class="section-number-3">1.1</span> 系统初始设置</h3>
+<div id="outline-container-org57af654" class="outline-3">
+<h3 id="org57af654"><span class="section-number-3">1.1</span> 系统初始设置</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 参见 <a href="../lab/pica8_quick_start.html">快速上手</a>
@@ -164,8 +304,8 @@ securecrt 等 终端工具，配置串口参数为 115200,
 </div>
 </div>
 
-<div id="outline-container-orgf197f4f" class="outline-3">
-<h3 id="orgf197f4f"><span class="section-number-3">1.2</span> 添加静态流配置命令</h3>
+<div id="outline-container-orgd42c76f" class="outline-3">
+<h3 id="orgd42c76f"><span class="section-number-3">1.2</span> 添加静态流配置命令</h3>
 <div class="outline-text-3" id="text-1-2">
 <pre class="example">
 admin@PICOS-OVS$sudo mkdir /cftmp/
@@ -234,12 +374,12 @@ export PATH=/ovs …</pre></div></div></div>
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgd7cf4e3">1. 重启交换机</a></li>
+<li><a href="#orgc817490">1. 重启交换机</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgd7cf4e3" class="outline-2">
-<h2 id="orgd7cf4e3"><span class="section-number-2">1</span> 重启交换机</h2>
+<div id="outline-container-orgc817490" class="outline-2">
+<h2 id="orgc817490"><span class="section-number-2">1</span> 重启交换机</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 以3290 为例，不同交换机进入 底层 shell的方法不同
