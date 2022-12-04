@@ -40,28 +40,28 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org073984c">1. 初始设置和访问</a>
+<li><a href="#orgc7acc3c">1. 初始设置和访问</a>
 <ul>
-<li><a href="#orge0d75bf">1.1. 登陆交换机</a></li>
-<li><a href="#org7001f53">1.2. 设定默认启动模式</a></li>
-<li><a href="#orgf45ab38">1.3. 设置 Openflow SDN网络</a></li>
+<li><a href="#orgf5c0c63">1.1. 登陆交换机</a></li>
+<li><a href="#org45e9a4c">1.2. 设定默认启动模式</a></li>
+<li><a href="#org8501658">1.3. 设置 Openflow SDN网络</a></li>
 </ul>
 </li>
-<li><a href="#org6e772ce">2. TAP简单上手</a></li>
-<li><a href="#org4bae0bf">3. CrossFlow 配置</a></li>
-<li><a href="#org4326f3d">4. 软件版本升级</a></li>
-<li><a href="#orge9814d1">5. 手册及参考</a></li>
+<li><a href="#org5debfb7">2. TAP简单上手</a></li>
+<li><a href="#orgeba8d46">3. CrossFlow 配置</a></li>
+<li><a href="#org6dc9601">4. 软件版本升级</a></li>
+<li><a href="#org9d762a0">5. 手册及参考</a></li>
 </ul>
 </div>
 </div>
 
 
-<div id="outline-container-org073984c" class="outline-2">
-<h2 id="org073984c"><span class="section-number-2">1.</span> 初始设置和访问</h2>
+<div id="outline-container-orgc7acc3c" class="outline-2">
+<h2 id="orgc7acc3c"><span class="section-number-2">1.</span> 初始设置和访问</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-orge0d75bf" class="outline-3">
-<h3 id="orge0d75bf"><span class="section-number-3">1.1.</span> 登陆交换机</h3>
+<div id="outline-container-orgf5c0c63" class="outline-3">
+<h3 id="orgf5c0c63"><span class="section-number-3">1.1.</span> 登陆交换机</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 交换机开箱后的初始登录，可以通过 串口(RJ45)来进行。 找到交换机 的console
@@ -72,12 +72,12 @@ securecrt 等 终端工具，配置串口参数为 115200,
 </p>
 
 
-<div id="org53be04e" class="figure">
+<div id="orgc6211ce" class="figure">
 <p><img src="http://www.tooyum.com/images/rs232.png" alt="rs232.png" width="300px" />
 </p>
 </div>
 
-<pre class="example" id="org65bb948">
+<pre class="example" id="orgfd886eb">
 PicOS-OVS login: admin
 Password:
 
@@ -86,8 +86,8 @@ admin@XorPlus$
 </div>
 </div>
 
-<div id="outline-container-org7001f53" class="outline-3">
-<h3 id="org7001f53"><span class="section-number-3">1.2.</span> 设定默认启动模式</h3>
+<div id="outline-container-org45e9a4c" class="outline-3">
+<h3 id="org45e9a4c"><span class="section-number-3">1.2.</span> 设定默认启动模式</h3>
 <div class="outline-text-3" id="text-1-2">
 <ol class="org-ol">
 <li><p>
@@ -98,7 +98,7 @@ admin@XorPlus$
 通过发出下面的命令检查PICOS交换机 的当前模式。
 </p>
 
-<pre class="example" id="org6ceaf57">
+<pre class="example" id="org16a07ac">
 admin@XorPlus$ps -ef | grep xorp | grep -v grep
 admin@XorPlus$ps -ef | grep ovs | grep -v grep
 admin@XorPlus$
@@ -128,7 +128,7 @@ OVS模式以支持 OpenFlow。要做到这一点，我们将运行Pica8模式切
 选择OVS模式。
 </p>
 
-<pre class="example" id="org6f8d5d8">
+<pre class="example" id="org21d1bd7">
 admin@XorPlus$sudo picos_boot
 Please configure the default system start-up options:
  (Press other key if no change)
@@ -144,7 +144,7 @@ Enter your choice (1,2,3):2
 这个IP地址。输入IP地址，子网掩码和默认网关。
 </p>
 
-<pre class="example" id="org0ddf473">
+<pre class="example" id="org14fb3e4">
 
 PicOS Open vSwitch/OpenFlow is selected.
 
@@ -167,7 +167,7 @@ admin@XorPlus$
 来应用这 个改变
 </p>
 
-<pre class="example" id="org0d9b6d4">
+<pre class="example" id="org5c4a934">
 admin@XorPlus$sudo service picos start
 [....] Stopping enhanced syslogd: rsyslogd.
 [....] Starting enhanced syslogd: rsyslogd.
@@ -187,7 +187,7 @@ RTNETLINK answers: No such process
 验证对 'picos_start.conf' 文件的改变。
 </p>
 
-<pre class="example" id="orgd5da5bb">
+<pre class="example" id="org8e5b127">
 admin@XorPlus$more /etc/picos/picos_start.conf
 # configuration file for PicOS
 
@@ -221,7 +221,7 @@ ztp_disable=false
 如果进程输出如下，则Pica8 交换机运行在 OVS/Openflow 模式下。
 </p>
 
-<pre class="example" id="org883f4db">
+<pre class="example" id="org47ed30b">
 admin@XorPlus$ps -ef | grep ovs | grep -v grep
 root      3182     1  0 05:26 ttyS0    00:00:00 ovsdb-server /ovs/ovs-vswitchd.conf.db --remote=ptcp:6633:192.168.16.101 --remote=punix:/ovs/var/run/openvswitch/db.sock
 root      3184     1  0 05:26 ttyS0    00:00:00 ovs-vswitchd --pidfile=ovs-vswitchd.pid --overwrite-pidfile
@@ -231,7 +231,7 @@ root      3184     1  0 05:26 ttyS0    00:00:00 ovs-vswitchd --pidfile=ovs-vswit
 现在重新启动交换机，以确保配置是持久的。这可能需要几分钟的时间才能完成。(如果确认 /etc/picos/picos_start.conf 已经成功修改，则此步骤可以省略）
 </p>
 
-<pre class="example" id="orgace7c23">
+<pre class="example" id="org8a7b44c">
 admin@XorPlus$sudo reboot
 
 Broadcast message from root@PicOS-OVS (ttyS0) (Tue Oct 21 05:47:19 2014):
@@ -249,7 +249,7 @@ The system is going down for reboot NOW!
 “文件更改。
 </p>
 
-<pre class="example" id="org818ca39">
+<pre class="example" id="orgf7c295f">
 admin@PicOS-OVS$ifconfig eth0
 eth0      Link encap:Ethernet  HWaddr 48:6e:73:02:00:22
           inet addr:192.168.16.101  Bcast:192.168.16.255  Mask:255.255.255.0
@@ -276,8 +276,8 @@ rtt min/avg/max/mdev = 0.939/11.900/32.754/14.752 ms
 </div>
 </div>
 
-<div id="outline-container-orgf45ab38" class="outline-3">
-<h3 id="orgf45ab38"><span class="section-number-3">1.3.</span> 设置 Openflow SDN网络</h3>
+<div id="outline-container-org8501658" class="outline-3">
+<h3 id="org8501658"><span class="section-number-3">1.3.</span> 设置 Openflow SDN网络</h3>
 <div class="outline-text-3" id="text-1-3">
 <ol class="org-ol">
 <li><p>
@@ -297,7 +297,7 @@ license 检查
 是否激活，在交换机的命令行界面里执行
 </p>
 
-<pre class="example" id="org82bdf15">
+<pre class="example" id="org9b59d93">
 license -s
 </pre>
 
@@ -305,7 +305,7 @@ license -s
 如果显示：
 </p>
 
-<pre class="example" id="org7e81a5d">
+<pre class="example" id="org629eda8">
 No license installed.Use below information to create a license
 </pre>
 
@@ -320,7 +320,7 @@ No license installed.Use below information to create a license
 该文件中。 然后在交换机上执行
 </p>
 
-<pre class="example" id="org1c9d4d2">
+<pre class="example" id="org00a6874">
 sudo license -i /etc/file.lic
 </pre>
 
@@ -328,7 +328,7 @@ sudo license -i /etc/file.lic
 并再次执行
 </p>
 
-<pre class="example" id="org05716b8">
+<pre class="example" id="org39ffd88">
 license -s
 </pre>
 
@@ -345,7 +345,7 @@ license -s
 命令,创建一个虚拟交换机br0。以命令行为例：
 </p>
 
-<pre class="example" id="org1e6ee06">
+<pre class="example" id="orgfd23a67">
 admin@PicOS-OVS$ovs-vsctl add-br br0 -- set bridge br0 datapath_type=pica8
 
 device ovs-pica8 entered promiscuous mode
@@ -362,7 +362,7 @@ admin@PicOS-OVS$
 下一步验证桥已成功创建。
 </p>
 
-<pre class="example" id="org174dce3">
+<pre class="example" id="org9068829">
 
 admin@PicOS-OVS$ovs-ofctl show br0
 OFPT_FEATURES_REPLY (OF1.4) (xid=0x2): dpid:5e3ea67edf6c5f60
@@ -395,7 +395,7 @@ OFPT_GET_CONFIG_REPLY (OF1.4) (xid=0x6): frags=normal miss_send_len=0
 GE-1/1/1 ， GE-1/1/2 ，和GE-1/1/48,请注意，务必正确输入下面命令。
 </p>
 
-<pre class="example" id="org664e390">
+<pre class="example" id="org9d5f2eb">
 admin@PicOS-OVS$ovs-vsctl add-port br0 ge-1/1/1 vlan_mode=trunk tag=1 -- set interface ge-1/1/1 type=pica8
 admin@PicOS-OVS$ovs-vsctl add-port br0 ge-1/1/2 vlan_mode=trunk tag=1 -- set interface ge-1/1/2 type=pica8
 admin@PicOS-OVS$ovs-vsctl add-port br0 ge-1/1/48 vlan_mode=trunk tag=1 -- set interface ge-1/1/48 type=pica8
@@ -410,7 +410,7 @@ admin@PicOS-OVS$
 添加千兆端口<sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup>
 </p>
 
-<pre class="example" id="org158c2f8">
+<pre class="example" id="orgb732a49">
 for i in $(seq 1 24);do ovs-vsctl add-port br0 ge-1/1/$i vlan_mode=trunk tag=1 -- set interface ge-1/1/$i type=pica8;done
 </pre>
 
@@ -418,7 +418,7 @@ for i in $(seq 1 24);do ovs-vsctl add-port br0 ge-1/1/$i vlan_mode=trunk tag=1 -
 添加万兆端口，万兆端口的编号视不同平台不同，可能是 （25~28，49~52等请根据实际情况调整）。
 </p>
 
-<pre class="example" id="org93983d6">
+<pre class="example" id="org4e6c439">
 for i in $(seq 25 28);do ovs-vsctl add-port br0 te-1/1/$i vlan_mode=trunk tag=1 -- set interface te-1/1/$i type=pica8;done
 </pre>
 
@@ -426,7 +426,7 @@ for i in $(seq 25 28);do ovs-vsctl add-port br0 te-1/1/$i vlan_mode=trunk tag=1 
 5101 添加所有端口可以采用如下命令：
 </p>
 
-<pre class="example" id="org600cebc">
+<pre class="example" id="orga8aaca1">
 for i in $(seq 1 48);do ovs-vsctl add-port br0 te-1/1/$i vlan_mode=trunk tag=1 -- set interface te-1/1/$i type=pica8;done
 for i in $(seq 49 54);do ovs-vsctl add-port br0 qe-1/1/$i vlan_mode=trunk tag=1 -- set interface qe-1/1/$i type=pica8;done
 </pre>
@@ -438,7 +438,7 @@ for i in $(seq 49 54);do ovs-vsctl add-port br0 qe-1/1/$i vlan_mode=trunk tag=1 
 为 in-band），为了规避可能的问题，可以用如下命令禁用：
 </p>
 
-<pre class="example" id="orgc9708ad">
+<pre class="example" id="orgfa49ca4">
 ovs-vsctl set bridge br0 other_config=disable-in-band=true
 </pre>
 
@@ -479,7 +479,7 @@ ovs-vsctl set bridge br0 other_config=disable-in-band=true
 我们可以使用相同的命令验证对br0的修改。
 </p>
 
-<pre class="example" id="org1e52209">
+<pre class="example" id="orgdd1bb16">
 admin@PicOS-OVS$ovs-ofctl show br0
 OFPT_FEATURES_REPLY (OF1.4) (xid=0x2): dpid:5e3e486e73020023
 n_tables:254, n_buffers:256
@@ -540,7 +540,7 @@ vBridge添加物理端口后，我们将试图通过Pica8交换机转发一些�
 2口上连接的主机。
 </p>
 
-<pre class="example" id="org3f837c1">
+<pre class="example" id="org7a1b99c">
 pica8@of-dev01-traff01:~$ ping 10.10.11.3
 PING 10.10.11.3 (10.10.11.3) 56(84) bytes of data.
 ^C
@@ -562,7 +562,7 @@ OFPT_PACKET_OUT 消息重定向到控制器。
 我们必须配置交换机连接到通过OpenFlow的控制器。
 </p>
 
-<pre class="example" id="orga6dce07">
+<pre class="example" id="org41a70e0">
 admin@PicOS-OVS$ping 192.168.16.82 -c 3
 PING 192.168.16.82 (192.168.16.82) 56(84) bytes of data.
 64 bytes from 192.168.16.82: icmp_req=1 ttl=64 time=3.28 ms
@@ -582,7 +582,7 @@ rtt min/avg/max/mdev = 0.393/1.378/3.284/1.348 ms
 配置Pica8交换机连接到通过对应的 Ryu 控制器。
 </p>
 
-<pre class="example" id="org8547e3c">
+<pre class="example" id="org89d6aec">
 admin@PicOS-OVS$
 admin@PicOS-OVS$ovs-vsctl set-controller br0 tcp:192.168.16.82:6633
 admin@PicOS-OVS$
@@ -596,7 +596,7 @@ admin@PicOS-OVS$
 验证Pica8 交换机 有一个到端口6633的连接 。
 </p>
 
-<pre class="example" id="orgb365aa7">
+<pre class="example" id="orge1204f2">
 admin@PicOS-OVS$
 admin@PicOS-OVS$netstat -n | grep 6633
 admin@PicOS-OVS$
@@ -622,7 +622,7 @@ admin@PicOS-OVS$
 。在交换机上使用下面的命令进行此更改。
 </p>
 
-<pre class="example" id="orgb33337f">
+<pre class="example" id="org072fc59">
 admin@PicOS-OVS$
 admin@PicOS-OVS$ovs-vsctl set Bridge br0 protocols=OpenFlow13
 admin@PicOS-OVS$
@@ -636,7 +636,7 @@ admin@PicOS-OVS$
 运行'netstat -n | grep 6633'命令，看看是否已经解决了问题。
 </p>
 
-<pre class="example" id="orgb83ae4e">
+<pre class="example" id="orgc55a9c2">
 admin@PicOS-OVS$netstat -n | grep 6633
 tcp        0      0 192.168.16.101:56974    192.168.16.82:6633      ESTABLISHED
 admin@PicOS-OVS$
@@ -654,14 +654,14 @@ admin@PicOS-OVS$
 </div>
 </div>
 
-<div id="outline-container-org6e772ce" class="outline-2">
-<h2 id="org6e772ce"><span class="section-number-2">2.</span> TAP简单上手</h2>
+<div id="outline-container-org5debfb7" class="outline-2">
+<h2 id="org5debfb7"><span class="section-number-2">2.</span> TAP简单上手</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 系统启动后，将需要设定的流表命令追加到/etc/rc3.d/S06tap，如果要确认效果，可以执行
 </p>
 
-<pre class="example" id="org792bddc">
+<pre class="example" id="org5186e88">
 source /etc/rc3.d/S06tap
 </pre>
 
@@ -669,7 +669,7 @@ source /etc/rc3.d/S06tap
 用类似如下命令查看生效的流表：
 </p>
 
-<pre class="example" id="org564f282">
+<pre class="example" id="org57c0068">
 
 ovs-ofctl dump-flows br0
 
@@ -677,16 +677,16 @@ ovs-ofctl dump-flows br0
 </div>
 </div>
 
-<div id="outline-container-org4bae0bf" class="outline-2">
-<h2 id="org4bae0bf"><span class="section-number-2">3.</span> CrossFlow 配置</h2>
+<div id="outline-container-orgeba8d46" class="outline-2">
+<h2 id="orgeba8d46"><span class="section-number-2">3.</span> CrossFlow 配置</h2>
 </div>
 
-<div id="outline-container-org4326f3d" class="outline-2">
-<h2 id="org4326f3d"><span class="section-number-2">4.</span> 软件版本升级</h2>
+<div id="outline-container-org6dc9601" class="outline-2">
+<h2 id="org6dc9601"><span class="section-number-2">4.</span> 软件版本升级</h2>
 </div>
 
-<div id="outline-container-orge9814d1" class="outline-2">
-<h2 id="orge9814d1"><span class="section-number-2">5.</span> 手册及参考</h2>
+<div id="outline-container-org9d762a0" class="outline-2">
+<h2 id="org9d762a0"><span class="section-number-2">5.</span> 手册及参考</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 由于产品版本更新较快，随机并没有附操作手册。
@@ -717,7 +717,7 @@ Pica8 交换机的配置文档主要有:
 
 
 </div>
-</div><p>There are <a href="https://bbill.github.io/lab/pica8_quick_start.html#disqus_thread">comments</a>.</p>                </article>
+</div>                </article>
             </aside><!-- /#featured -->
                 <section id="content" class="body">
                     <h1>Other articles</h1>
@@ -745,26 +745,26 @@ Pica8 交换机的配置文档主要有:
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgf90f4cb">1. 确认端口状态</a></li>
-<li><a href="#org387789a">2. 确认硬件流表支持的最大条目</a></li>
+<li><a href="#org3bc6063">1. 确认端口状态</a></li>
+<li><a href="#orge5af483">2. 确认硬件流表支持的最大条目</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgf90f4cb" class="outline-2">
-<h2 id="orgf90f4cb"><span class="section-number-2">1.</span> 确认端口状态</h2>
+<div id="outline-container-org3bc6063" class="outline-2">
+<h2 id="org3bc6063"><span class="section-number-2">1.</span> 确认端口状态</h2>
 <div class="outline-text-2" id="text-1">
 <ol class="org-ol">
 <li><p>
 端口计数器
 </p>
-<pre class="example" id="orgec2350c">
+<pre class="example" id="org5f71998">
 admin@PicOS-OVS$ovs-ofctl dump-ports  br0
 OFPST_PORT reply (OF1.3) (xid=0x2): 49 ports
   port  1: rx pkts=0, bytes=979551, drop=0, errs=518513, frame=0, over=0, crc=0
            tx pkts=457981, bytes=34858800, drop=0, errs=0, coll …</pre></li></ol></div></div>
                 <a class="readmore" href="https://bbill.github.io/lab/pica8_OVS_Command_Reference.html">read more</a>
-<p>There are <a href="https://bbill.github.io/lab/pica8_OVS_Command_Reference.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
+                </div><!-- /.entry-content -->
             </article></li>
                 </ol><!-- /#posts-list -->
                 </section><!-- /#content -->
@@ -792,14 +792,5 @@ OFPST_PORT reply (OF1.3) (xid=0x2): 49 ports
                 <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
         </footer><!-- /#contentinfo -->
 
-<script type="text/javascript">
-    var disqus_shortname = 'bbill';
-    (function () {
-        var s = document.createElement('script'); s.async = true;
-        s.type = 'text/javascript';
-        s.src = 'https://' + disqus_shortname + '.disqus.com/count.js';
-        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-    }());
-</script>
 </body>
 </html>

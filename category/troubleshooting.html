@@ -40,13 +40,13 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org54adcd2">1. 流表配置如下</a></li>
+<li><a href="#orgfb3884c">1. 流表配置如下</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org54adcd2" class="outline-2">
-<h2 id="org54adcd2"><span class="section-number-2">1.</span> 流表配置如下</h2>
+<div id="outline-container-orgfb3884c" class="outline-2">
+<h2 id="orgfb3884c"><span class="section-number-2">1.</span> 流表配置如下</h2>
 <div class="outline-text-2" id="text-1">
 <pre class="example">
 ovs-ofctl -O OpenFlow13 add-flow br0 table=0,in_port=50,actions=mod_vlan_vid:10,mod_dl_src:6c:59:79:33:44:55,mod_dl_dst:f8:bc:12:4d:e9:d8,goto_table:8
@@ -122,7 +122,7 @@ ovs-vsctl set port te-1/1/49 trunks=10
 </pre>
 </div>
 </div>
-<p>There are <a href="https://bbill.github.io/troubleshooting/no_rx_while_correct_rule.html#disqus_thread">comments</a>.</p>                </article>
+                </article>
             </aside><!-- /#featured -->
                 <section id="content" class="body">
                     <h1>Other articles</h1>
@@ -150,9 +150,9 @@ ovs-vsctl set port te-1/1/49 trunks=10
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orga987269">1. 先备份</a></li>
-<li><a href="#orgcffcd9f">2. 恢复</a></li>
-<li><a href="#org9be6157">3. 重新启用该SSD</a></li>
+<li><a href="#org7d4b52d">1. 先备份</a></li>
+<li><a href="#orge82c616">2. 恢复</a></li>
+<li><a href="#org412e7af">3. 重新启用该SSD</a></li>
 </ul>
 </div>
 </div>
@@ -165,8 +165,8 @@ ovs-vsctl set port te-1/1/49 trunks=10
 尝试重启，再挂载,当然还是不行，因为是一块PCI-E SSD 卡，非常担心数据搞不出来。
 </p>
 
-<div id="outline-container-orga987269" class="outline-2">
-<h2 id="orga987269"><span class="section-number-2">1.</span> 先备份</h2>
+<div id="outline-container-org7d4b52d" class="outline-2">
+<h2 id="org7d4b52d"><span class="section-number-2">1.</span> 先备份</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 保险起见，先dd出来，因为本地没有足够大的空间，尝试将现有信息保存到另外一台主机，
@@ -175,10 +175,10 @@ ovs-vsctl set port te-1/1/49 trunks=10
 <p>
 在有空间的主机（192.168.1.2)运行：
 </p>
-<pre class="example" id="orgecc53a4">
+<pre class="example" id="org4daccb5">
 ssh root@192.168.1.1 "dd iflag=fullblock  conv=sync,noerror if=/dev/nvme0n1 |gzip …</pre></div></div>
                 <a class="readmore" href="https://bbill.github.io/troubleshooting/xfs_on_crash_ssd.html">read more</a>
-<p>There are <a href="https://bbill.github.io/troubleshooting/xfs_on_crash_ssd.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
+                </div><!-- /.entry-content -->
             </article></li>
                 </ol><!-- /#posts-list -->
                 </section><!-- /#content -->
@@ -206,14 +206,5 @@ ssh root@192.168.1.1 "dd iflag=fullblock  conv=sync,noerror if=/dev/nvme0n1 |gzi
                 <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
         </footer><!-- /#contentinfo -->
 
-<script type="text/javascript">
-    var disqus_shortname = 'bbill';
-    (function () {
-        var s = document.createElement('script'); s.async = true;
-        s.type = 'text/javascript';
-        s.src = 'https://' + disqus_shortname + '.disqus.com/count.js';
-        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-    }());
-</script>
 </body>
 </html>

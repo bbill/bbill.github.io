@@ -52,16 +52,16 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org4d5056a">1. 准备工作</a></li>
-<li><a href="#org292411d">2. 更新内核</a></li>
-<li><a href="#org13a0b09">3. 安装AOVS</a></li>
+<li><a href="#orgb130fb0">1. 准备工作</a></li>
+<li><a href="#orgb04681a">2. 更新内核</a></li>
+<li><a href="#orgd2a309c">3. 安装AOVS</a></li>
 </ul>
 </div>
 </div>
 
 
-<div id="outline-container-org4d5056a" class="outline-2">
-<h2 id="org4d5056a"><span class="section-number-2">1.</span> 准备工作</h2>
+<div id="outline-container-orgb130fb0" class="outline-2">
+<h2 id="orgb130fb0"><span class="section-number-2">1.</span> 准备工作</h2>
 <div class="outline-text-2" id="text-1">
 <ol class="org-ol">
 <li>确保服务器打开SR-IOV，（BIOS 设置）</li>
@@ -69,8 +69,8 @@
 </div>
 </div>
 
-<div id="outline-container-org292411d" class="outline-2">
-<h2 id="org292411d"><span class="section-number-2">2.</span> 更新内核</h2>
+<div id="outline-container-orgb04681a" class="outline-2">
+<h2 id="orgb04681a"><span class="section-number-2">2.</span> 更新内核</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Centos/RHEL 操作系统可以从我们提供的网盘下载
@@ -80,15 +80,15 @@ Centos/RHEL 操作系统可以从我们提供的网盘下载
 <p>
 rhel-3.10.0-493.el7.tar.gz 解压后安装所有包
 </p>
-<pre class="example" id="org43186ad">
+<pre class="example" id="org2d8dfac">
 cd "extract path"
 yum localinstall *.rpm
 </pre>
 </div>
 </div>
 
-<div id="outline-container-org13a0b09" class="outline-2">
-<h2 id="org13a0b09"><span class="section-number-2">3.</span> 安装AOVS</h2>
+<div id="outline-container-orgd2a309c" class="outline-2">
+<h2 id="orgd2a309c"><span class="section-number-2">3.</span> 安装AOVS</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 下载 
@@ -97,7 +97,7 @@ yum localinstall *.rpm
 
 
 
-<pre class="example" id="org482b3ad">
+<pre class="example" id="org43b562e">
 rpm -i kernel*.rpm
 yum -y install epel-release
 yum -y install make autoconf automake libtool gcc gcc-c++ libpcap-devel \
@@ -151,14 +151,5 @@ cloud-utils virt-install lvm2 wget git net-tools libguestfs-tools
                 <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
         </footer><!-- /#contentinfo -->
 
-<script type="text/javascript">
-    var disqus_shortname = 'bbill';
-    (function () {
-        var s = document.createElement('script'); s.async = true;
-        s.type = 'text/javascript';
-        s.src = 'https://' + disqus_shortname + '.disqus.com/count.js';
-        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-    }());
-</script>
 </body>
 </html>

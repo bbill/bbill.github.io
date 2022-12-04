@@ -52,20 +52,20 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgf90f4cb">1. 确认端口状态</a></li>
-<li><a href="#org387789a">2. 确认硬件流表支持的最大条目</a></li>
+<li><a href="#org3bc6063">1. 确认端口状态</a></li>
+<li><a href="#orge5af483">2. 确认硬件流表支持的最大条目</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgf90f4cb" class="outline-2">
-<h2 id="orgf90f4cb"><span class="section-number-2">1.</span> 确认端口状态</h2>
+<div id="outline-container-org3bc6063" class="outline-2">
+<h2 id="org3bc6063"><span class="section-number-2">1.</span> 确认端口状态</h2>
 <div class="outline-text-2" id="text-1">
 <ol class="org-ol">
 <li><p>
 端口计数器
 </p>
-<pre class="example" id="orgec2350c">
+<pre class="example" id="org5f71998">
 admin@PicOS-OVS$ovs-ofctl dump-ports  br0
 OFPST_PORT reply (OF1.3) (xid=0x2): 49 ports
   port  1: rx pkts=0, bytes=979551, drop=0, errs=518513, frame=0, over=0, crc=0
@@ -92,7 +92,7 @@ admin@PicOS-OVS$
 <li><p>
 端口链路状态
 </p>
-<pre class="example" id="org942c2ee">
+<pre class="example" id="orgac09697">
 
 admin@PicOS-OVS$ovs-ofctl dump-ports-desc  br0 
 OFPST_PORT_DESC reply (OF1.3) (xid=0x2):
@@ -140,8 +140,8 @@ OFPST_PORT_DESC reply (OF1.3) (xid=0x2):
 
 
 
-<div id="outline-container-org387789a" class="outline-2">
-<h2 id="org387789a"><span class="section-number-2">2.</span> 确认硬件流表支持的最大条目</h2>
+<div id="outline-container-orge5af483" class="outline-2">
+<h2 id="orge5af483"><span class="section-number-2">2.</span> 确认硬件流表支持的最大条目</h2>
 <div class="outline-text-2" id="text-2">
 <pre class="example">
 admin@PICOS-OVS:~$ ovs-appctl pica/show tables
@@ -163,24 +163,6 @@ admin@PICOS-OVS:~$
 
 
 
-
-    <div class="comments">
-      <h2>Comments !</h2>
-      <div id="disqus_thread"></div>
-      <script type="text/javascript">
-        var disqus_shortname = 'bbill';
-        var disqus_identifier = 'lab/pica8_OVS_Command_Reference.html';
-        var disqus_url = 'https://bbill.github.io/lab/pica8_OVS_Command_Reference.html';
-        (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//bbill.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-      </script>
-
-
-      <noscript>Please enable JavaScript to view the comments.</noscript>
-    </div>
     <section id="lg"></section>
   <section id="md"></section>
   <section id="sm"></section>
@@ -216,14 +198,5 @@ admin@PICOS-OVS:~$
                 <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
         </footer><!-- /#contentinfo -->
 
-<script type="text/javascript">
-    var disqus_shortname = 'bbill';
-    (function () {
-        var s = document.createElement('script'); s.async = true;
-        s.type = 'text/javascript';
-        s.src = 'https://' + disqus_shortname + '.disqus.com/count.js';
-        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-    }());
-</script>
 </body>
 </html>

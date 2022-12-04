@@ -3,13 +3,13 @@
 &lt;h2&gt;Table of Contents&lt;/h2&gt;
 &lt;div id="text-table-of-contents" role="doc-toc"&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href="#org54adcd2"&gt;1. 流表配置如下&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#orgfb3884c"&gt;1. 流表配置如下&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;div id="outline-container-org54adcd2" class="outline-2"&gt;
-&lt;h2 id="org54adcd2"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; 流表配置如下&lt;/h2&gt;
+&lt;div id="outline-container-orgfb3884c" class="outline-2"&gt;
+&lt;h2 id="orgfb3884c"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; 流表配置如下&lt;/h2&gt;
 &lt;div class="outline-text-2" id="text-1"&gt;
 &lt;pre class="example"&gt;
 ovs-ofctl -O OpenFlow13 add-flow br0 table=0,in_port=50,actions=mod_vlan_vid:10,mod_dl_src:6c:59:79:33:44:55,mod_dl_dst:f8:bc:12:4d:e9:d8,goto_table:8
@@ -30,13 +30,13 @@ admin@PICOS-OVS …&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</summary><content type="
 &lt;h2&gt;Table of Contents&lt;/h2&gt;
 &lt;div id="text-table-of-contents" role="doc-toc"&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href="#org54adcd2"&gt;1. 流表配置如下&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#orgfb3884c"&gt;1. 流表配置如下&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;div id="outline-container-org54adcd2" class="outline-2"&gt;
-&lt;h2 id="org54adcd2"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; 流表配置如下&lt;/h2&gt;
+&lt;div id="outline-container-orgfb3884c" class="outline-2"&gt;
+&lt;h2 id="orgfb3884c"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; 流表配置如下&lt;/h2&gt;
 &lt;div class="outline-text-2" id="text-1"&gt;
 &lt;pre class="example"&gt;
 ovs-ofctl -O OpenFlow13 add-flow br0 table=0,in_port=50,actions=mod_vlan_vid:10,mod_dl_src:6c:59:79:33:44:55,mod_dl_dst:f8:bc:12:4d:e9:d8,goto_table:8
@@ -116,9 +116,9 @@ ovs-vsctl set port te-1/1/49 trunks=10
 &lt;h2&gt;Table of Contents&lt;/h2&gt;
 &lt;div id="text-table-of-contents" role="doc-toc"&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href="#orga987269"&gt;1. 先备份&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#orgcffcd9f"&gt;2. 恢复&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#org9be6157"&gt;3. 重新启用该SSD&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org7d4b52d"&gt;1. 先备份&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#orge82c616"&gt;2. 恢复&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org412e7af"&gt;3. 重新启用该SSD&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -131,8 +131,8 @@ ovs-vsctl set port te-1/1/49 trunks=10
 尝试重启，再挂载,当然还是不行，因为是一块PCI-E SSD 卡，非常担心数据搞不出来。
 &lt;/p&gt;
 
-&lt;div id="outline-container-orga987269" class="outline-2"&gt;
-&lt;h2 id="orga987269"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; 先备份&lt;/h2&gt;
+&lt;div id="outline-container-org7d4b52d" class="outline-2"&gt;
+&lt;h2 id="org7d4b52d"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; 先备份&lt;/h2&gt;
 &lt;div class="outline-text-2" id="text-1"&gt;
 &lt;p&gt;
 保险起见，先dd出来，因为本地没有足够大的空间，尝试将现有信息保存到另外一台主机，
@@ -141,14 +141,14 @@ ovs-vsctl set port te-1/1/49 trunks=10
 &lt;p&gt;
 在有空间的主机（192.168.1.2)运行：
 &lt;/p&gt;
-&lt;pre class="example" id="orgecc53a4"&gt;
+&lt;pre class="example" id="org4daccb5"&gt;
 ssh root@192.168.1.1 "dd iflag=fullblock  conv=sync,noerror if=/dev/nvme0n1 |gzip …&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</summary><content type="html">&lt;div id="table-of-contents" role="doc-toc"&gt;
 &lt;h2&gt;Table of Contents&lt;/h2&gt;
 &lt;div id="text-table-of-contents" role="doc-toc"&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href="#orga987269"&gt;1. 先备份&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#orgcffcd9f"&gt;2. 恢复&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#org9be6157"&gt;3. 重新启用该SSD&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org7d4b52d"&gt;1. 先备份&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#orge82c616"&gt;2. 恢复&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org412e7af"&gt;3. 重新启用该SSD&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -161,8 +161,8 @@ ssh root@192.168.1.1 "dd iflag=fullblock  conv=sync,noerror if=/dev/nvme0n1 |gzi
 尝试重启，再挂载,当然还是不行，因为是一块PCI-E SSD 卡，非常担心数据搞不出来。
 &lt;/p&gt;
 
-&lt;div id="outline-container-orga987269" class="outline-2"&gt;
-&lt;h2 id="orga987269"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; 先备份&lt;/h2&gt;
+&lt;div id="outline-container-org7d4b52d" class="outline-2"&gt;
+&lt;h2 id="org7d4b52d"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; 先备份&lt;/h2&gt;
 &lt;div class="outline-text-2" id="text-1"&gt;
 &lt;p&gt;
 保险起见，先dd出来，因为本地没有足够大的空间，尝试将现有信息保存到另外一台主机，
@@ -171,7 +171,7 @@ ssh root@192.168.1.1 "dd iflag=fullblock  conv=sync,noerror if=/dev/nvme0n1 |gzi
 &lt;p&gt;
 在有空间的主机（192.168.1.2)运行：
 &lt;/p&gt;
-&lt;pre class="example" id="orgecc53a4"&gt;
+&lt;pre class="example" id="org4daccb5"&gt;
 ssh root@192.168.1.1 "dd iflag=fullblock  conv=sync,noerror if=/dev/nvme0n1 |gzip -1 -" |dd  of=/mnt/nvme.bak
 &lt;/pre&gt;
 
@@ -188,7 +188,7 @@ ddrescue，没看到可以支持管道到远端，放弃。换dd&lt;sub&gt;rescu
 命令够简单：
 在故障磁盘(/dev/nvme0n1)所在主机执行
 &lt;/p&gt;
-&lt;pre class="example" id="org8a718a1"&gt;
+&lt;pre class="example" id="org481f26a"&gt;
 dd_rescue /dev/nvme0n1 - | ssh root@192.168.1.2 "cat - &amp;gt; /mnt/filename.img"
 &lt;/pre&gt;
 
@@ -199,21 +199,21 @@ dd_rescue /dev/nvme0n1 - | ssh root@192.168.1.2 "cat - &amp;gt; /mnt/filename.im
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;div id="outline-container-orgcffcd9f" class="outline-2"&gt;
-&lt;h2 id="orgcffcd9f"&gt;&lt;span class="section-number-2"&gt;2.&lt;/span&gt; 恢复&lt;/h2&gt;
+&lt;div id="outline-container-orge82c616" class="outline-2"&gt;
+&lt;h2 id="orge82c616"&gt;&lt;span class="section-number-2"&gt;2.&lt;/span&gt; 恢复&lt;/h2&gt;
 &lt;div class="outline-text-2" id="text-2"&gt;
 &lt;p&gt;
 备份完成后在原始磁盘上尝试修复。
 直接上大招
 &lt;/p&gt;
-&lt;pre class="example" id="orgca1dc4a"&gt;
+&lt;pre class="example" id="org963fad6"&gt;
 xfs_repair -L  /dev/nvme0n1
 &lt;/pre&gt;
 &lt;p&gt;
 输出如下：
 &lt;/p&gt;
 
-&lt;pre class="example" id="org0a89158"&gt;
+&lt;pre class="example" id="org728ada5"&gt;
 xfs_repair -L /dev/nvme0n1                                                        
 Phase 1 - find and verify superblock...
 Phase 2 - using internal log
@@ -230,14 +230,14 @@ xfs_repair: libxfs_device_zero write failed: Input/output error
 &lt;p&gt;
 尝试从备份出来的文件进行恢复。
 &lt;/p&gt;
-&lt;pre class="example" id="org331ac7f"&gt;
+&lt;pre class="example" id="org256aa22"&gt;
 xfs_repair -Lf /mnt/filename.img 
 &lt;/pre&gt;
 
 &lt;p&gt;
 尝试挂载这个文件
 &lt;/p&gt;
-&lt;pre class="example" id="org2e0377c"&gt;
+&lt;pre class="example" id="org6b331b2"&gt;
 mount /mnt/filename.img /media/
 ls /media
 &lt;/pre&gt;
@@ -248,13 +248,13 @@ ls /media
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;div id="outline-container-org9be6157" class="outline-2"&gt;
-&lt;h2 id="org9be6157"&gt;&lt;span class="section-number-2"&gt;3.&lt;/span&gt; 重新启用该SSD&lt;/h2&gt;
+&lt;div id="outline-container-org412e7af" class="outline-2"&gt;
+&lt;h2 id="org412e7af"&gt;&lt;span class="section-number-2"&gt;3.&lt;/span&gt; 重新启用该SSD&lt;/h2&gt;
 &lt;div class="outline-text-2" id="text-3"&gt;
 &lt;p&gt;
 SSD还没有完全故障，还是要利用起来。看了下xfs似乎没有排除坏块的选项，用ext4重新格式化，再挂载。（当然，这次要定期做好备份）
 &lt;/p&gt;
-&lt;pre class="example" id="org6f09773"&gt;
+&lt;pre class="example" id="orgcf97867"&gt;
 mkfs.ext4 -c -c /dev/nvme0n1
 &lt;/pre&gt;
 &lt;/div&gt;

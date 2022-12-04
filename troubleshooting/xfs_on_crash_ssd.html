@@ -52,9 +52,9 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orga987269">1. 先备份</a></li>
-<li><a href="#orgcffcd9f">2. 恢复</a></li>
-<li><a href="#org9be6157">3. 重新启用该SSD</a></li>
+<li><a href="#org7d4b52d">1. 先备份</a></li>
+<li><a href="#orge82c616">2. 恢复</a></li>
+<li><a href="#org412e7af">3. 重新启用该SSD</a></li>
 </ul>
 </div>
 </div>
@@ -67,8 +67,8 @@
 尝试重启，再挂载,当然还是不行，因为是一块PCI-E SSD 卡，非常担心数据搞不出来。
 </p>
 
-<div id="outline-container-orga987269" class="outline-2">
-<h2 id="orga987269"><span class="section-number-2">1.</span> 先备份</h2>
+<div id="outline-container-org7d4b52d" class="outline-2">
+<h2 id="org7d4b52d"><span class="section-number-2">1.</span> 先备份</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 保险起见，先dd出来，因为本地没有足够大的空间，尝试将现有信息保存到另外一台主机，
@@ -77,7 +77,7 @@
 <p>
 在有空间的主机（192.168.1.2)运行：
 </p>
-<pre class="example" id="orgecc53a4">
+<pre class="example" id="org4daccb5">
 ssh root@192.168.1.1 "dd iflag=fullblock  conv=sync,noerror if=/dev/nvme0n1 |gzip -1 -" |dd  of=/mnt/nvme.bak
 </pre>
 
@@ -94,7 +94,7 @@ ddrescue，没看到可以支持管道到远端，放弃。换dd<sub>rescue</sub
 命令够简单：
 在故障磁盘(/dev/nvme0n1)所在主机执行
 </p>
-<pre class="example" id="org8a718a1">
+<pre class="example" id="org481f26a">
 dd_rescue /dev/nvme0n1 - | ssh root@192.168.1.2 "cat - &gt; /mnt/filename.img"
 </pre>
 
@@ -105,21 +105,21 @@ dd_rescue /dev/nvme0n1 - | ssh root@192.168.1.2 "cat - &gt; /mnt/filename.img"
 </div>
 </div>
 
-<div id="outline-container-orgcffcd9f" class="outline-2">
-<h2 id="orgcffcd9f"><span class="section-number-2">2.</span> 恢复</h2>
+<div id="outline-container-orge82c616" class="outline-2">
+<h2 id="orge82c616"><span class="section-number-2">2.</span> 恢复</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 备份完成后在原始磁盘上尝试修复。
 直接上大招
 </p>
-<pre class="example" id="orgca1dc4a">
+<pre class="example" id="org963fad6">
 xfs_repair -L  /dev/nvme0n1
 </pre>
 <p>
 输出如下：
 </p>
 
-<pre class="example" id="org0a89158">
+<pre class="example" id="org728ada5">
 xfs_repair -L /dev/nvme0n1                                                        
 Phase 1 - find and verify superblock...
 Phase 2 - using internal log
@@ -136,14 +136,14 @@ xfs_repair: libxfs_device_zero write failed: Input/output error
 <p>
 尝试从备份出来的文件进行恢复。
 </p>
-<pre class="example" id="org331ac7f">
+<pre class="example" id="org256aa22">
 xfs_repair -Lf /mnt/filename.img 
 </pre>
 
 <p>
 尝试挂载这个文件
 </p>
-<pre class="example" id="org2e0377c">
+<pre class="example" id="org6b331b2">
 mount /mnt/filename.img /media/
 ls /media
 </pre>
@@ -154,13 +154,13 @@ ls /media
 </div>
 </div>
 
-<div id="outline-container-org9be6157" class="outline-2">
-<h2 id="org9be6157"><span class="section-number-2">3.</span> 重新启用该SSD</h2>
+<div id="outline-container-org412e7af" class="outline-2">
+<h2 id="org412e7af"><span class="section-number-2">3.</span> 重新启用该SSD</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 SSD还没有完全故障，还是要利用起来。看了下xfs似乎没有排除坏块的选项，用ext4重新格式化，再挂载。（当然，这次要定期做好备份）
 </p>
-<pre class="example" id="org6f09773">
+<pre class="example" id="orgcf97867">
 mkfs.ext4 -c -c /dev/nvme0n1
 </pre>
 </div>
@@ -168,24 +168,6 @@ mkfs.ext4 -c -c /dev/nvme0n1
 
 
 
-
-    <div class="comments">
-      <h2>Comments !</h2>
-      <div id="disqus_thread"></div>
-      <script type="text/javascript">
-        var disqus_shortname = 'bbill';
-        var disqus_identifier = 'troubleshooting/xfs_on_crash_ssd.html';
-        var disqus_url = 'https://bbill.github.io/troubleshooting/xfs_on_crash_ssd.html';
-        (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//bbill.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-      </script>
-
-
-      <noscript>Please enable JavaScript to view the comments.</noscript>
-    </div>
     <section id="lg"></section>
   <section id="md"></section>
   <section id="sm"></section>
@@ -221,14 +203,5 @@ mkfs.ext4 -c -c /dev/nvme0n1
                 <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
         </footer><!-- /#contentinfo -->
 
-<script type="text/javascript">
-    var disqus_shortname = 'bbill';
-    (function () {
-        var s = document.createElement('script'); s.async = true;
-        s.type = 'text/javascript';
-        s.src = 'https://' + disqus_shortname + '.disqus.com/count.js';
-        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-    }());
-</script>
 </body>
 </html>

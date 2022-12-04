@@ -3,14 +3,14 @@
 &lt;h2&gt;Table of Contents&lt;/h2&gt;
 &lt;div id="text-table-of-contents" role="doc-toc"&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href="#orga321c72"&gt;1. Problem&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#org9a6ebda"&gt;2. Solution&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#orgb946f72"&gt;1. Problem&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#orgf80e79e"&gt;2. Solution&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;div id="outline-container-orga321c72" class="outline-2"&gt;
-&lt;h2 id="orga321c72"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; Problem&lt;/h2&gt;
+&lt;div id="outline-container-orgb946f72" class="outline-2"&gt;
+&lt;h2 id="orgb946f72"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; Problem&lt;/h2&gt;
 &lt;div class="outline-text-2" id="text-1"&gt;
 &lt;p&gt;
 The OS can't detect the qxl video driver. The display resolution
@@ -20,14 +20,14 @@ can't be changed not to mention adjust automatically.
 &lt;p&gt;
 Try to solve it by kill X,then reconfigure it.
 &lt;/p&gt;
-&lt;pre class="example" id="org280716e"&gt;
+&lt;pre class="example" id="org91f8f2a"&gt;
 init 3
 &lt;/pre&gt;
 &lt;p&gt;
 after relogin
 &lt;/p&gt;
 
-&lt;pre class="example" id="org1a4485b"&gt;
+&lt;pre class="example" id="org2ee73f7"&gt;
 X -configure
 &lt;/pre&gt;
 
@@ -35,19 +35,19 @@ X -configure
 It keep complains 
 &lt;/p&gt;
 
-&lt;pre class="example" id="orgb075db9"&gt;
+&lt;pre class="example" id="org3f46b37"&gt;
 X.Org X …&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</summary><content type="html">&lt;div id="table-of-contents" role="doc-toc"&gt;
 &lt;h2&gt;Table of Contents&lt;/h2&gt;
 &lt;div id="text-table-of-contents" role="doc-toc"&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href="#orga321c72"&gt;1. Problem&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#org9a6ebda"&gt;2. Solution&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#orgb946f72"&gt;1. Problem&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#orgf80e79e"&gt;2. Solution&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;div id="outline-container-orga321c72" class="outline-2"&gt;
-&lt;h2 id="orga321c72"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; Problem&lt;/h2&gt;
+&lt;div id="outline-container-orgb946f72" class="outline-2"&gt;
+&lt;h2 id="orgb946f72"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; Problem&lt;/h2&gt;
 &lt;div class="outline-text-2" id="text-1"&gt;
 &lt;p&gt;
 The OS can't detect the qxl video driver. The display resolution
@@ -57,14 +57,14 @@ can't be changed not to mention adjust automatically.
 &lt;p&gt;
 Try to solve it by kill X,then reconfigure it.
 &lt;/p&gt;
-&lt;pre class="example" id="org280716e"&gt;
+&lt;pre class="example" id="org91f8f2a"&gt;
 init 3
 &lt;/pre&gt;
 &lt;p&gt;
 after relogin
 &lt;/p&gt;
 
-&lt;pre class="example" id="org1a4485b"&gt;
+&lt;pre class="example" id="org2ee73f7"&gt;
 X -configure
 &lt;/pre&gt;
 
@@ -72,7 +72,7 @@ X -configure
 It keep complains 
 &lt;/p&gt;
 
-&lt;pre class="example" id="orgb075db9"&gt;
+&lt;pre class="example" id="org3f46b37"&gt;
 X.Org X Server 1.18.4
 Release Date: 2016-07-19
 X Protocol Version 11, Revision 0
@@ -106,32 +106,32 @@ No devices to configure.  Configuration failed.
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;div id="outline-container-org9a6ebda" class="outline-2"&gt;
-&lt;h2 id="org9a6ebda"&gt;&lt;span class="section-number-2"&gt;2.&lt;/span&gt; Solution&lt;/h2&gt;
+&lt;div id="outline-container-orgf80e79e" class="outline-2"&gt;
+&lt;h2 id="orgf80e79e"&gt;&lt;span class="section-number-2"&gt;2.&lt;/span&gt; Solution&lt;/h2&gt;
 &lt;div class="outline-text-2" id="text-2"&gt;
 &lt;ol class="org-ol"&gt;
 &lt;li&gt;&lt;p&gt;
 Turn off Xserver used
 &lt;/p&gt;
-&lt;pre class="example" id="org2aad8e7"&gt;
+&lt;pre class="example" id="org9276f1e"&gt;
 sudo init 3
 &lt;/pre&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;
 Remove xserver-xorg-core
 &lt;/p&gt;
-&lt;pre class="example" id="org4e16571"&gt;
+&lt;pre class="example" id="org43bbb07"&gt;
 sudo apt-get remove  xserver-xorg-core -y
 &lt;/pre&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;
 Install the driver or so
 &lt;/p&gt;
-&lt;pre class="example" id="orgf7fe66c"&gt;
+&lt;pre class="example" id="orgebdca41"&gt;
 sudo apt-get install  spice-vdagent gdm xserver-xorg-video-qxl-hwe-16.04 
 &lt;/pre&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;
 Create the xorg.conf we needed
 &lt;/p&gt;
-&lt;pre class="example" id="org5205a6d"&gt;
+&lt;pre class="example" id="org4059a08"&gt;
 sudo X -configure
 sudo cp ./xorg.conf.new /etc/X11/xorg.conf
 
@@ -139,20 +139,20 @@ sudo cp ./xorg.conf.new /etc/X11/xorg.conf
 &lt;li&gt;&lt;p&gt;
 Get X Back
 &lt;/p&gt;
-&lt;pre class="example" id="orgd409ea4"&gt;
+&lt;pre class="example" id="orgf361cc4"&gt;
 sudo apt-get install   xserver-xorg-core xserver-xorg-input-all -y
 &lt;/pre&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;
 Make sure spice-vdagent start automatically
 &lt;/p&gt;
-&lt;pre class="example" id="orgb74db6e"&gt;
+&lt;pre class="example" id="org864cf0a"&gt;
 sudo systemctl enable spice-vdagentd
 sudo systemctl start spice-vdagentd
 &lt;/pre&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;
 Time to cross your fingers
 &lt;/p&gt;
-&lt;pre class="example" id="org43cbb88"&gt;
+&lt;pre class="example" id="org724ffc4"&gt;
 sudo init 5
 &lt;/pre&gt;&lt;/li&gt;
 &lt;/ol&gt;

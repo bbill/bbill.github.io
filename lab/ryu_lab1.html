@@ -52,19 +52,19 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org1337435">1. 实验环境</a></li>
-<li><a href="#org887cbb2">2. 实验目的</a></li>
-<li><a href="#org35cfb57">3. 操作步骤</a>
+<li><a href="#org9d2c145">1. 实验环境</a></li>
+<li><a href="#org8fa0fe3">2. 实验目的</a></li>
+<li><a href="#orgc7547fa">3. 操作步骤</a>
 <ul>
-<li><a href="#org7e00df2">3.1. 安装一些后续需要使用的软件</a></li>
-<li><a href="#orgb06f4c8">3.2. 安装 ryu</a></li>
-<li><a href="#org00d323f">3.3. 安装 mininet</a></li>
-<li><a href="#orgfc30b92">3.4. ryu 控制和mininet连接</a></li>
+<li><a href="#org4dfdf7f">3.1. 安装一些后续需要使用的软件</a></li>
+<li><a href="#org689ceb0">3.2. 安装 ryu</a></li>
+<li><a href="#org4c4cd71">3.3. 安装 mininet</a></li>
+<li><a href="#org963c3a2">3.4. ryu 控制和mininet连接</a></li>
 </ul>
 </li>
-<li><a href="#org9d5f80a">4. 附录</a>
+<li><a href="#orgcd90c47">4. 附录</a>
 <ul>
-<li><a href="#org2d7d03d">4.1. 用到的命令</a></li>
+<li><a href="#orgedcbfe6">4.1. 用到的命令</a></li>
 </ul>
 </li>
 </ul>
@@ -73,8 +73,8 @@
 
 
 
-<div id="outline-container-org1337435" class="outline-2">
-<h2 id="org1337435"><span class="section-number-2">1.</span> 实验环境</h2>
+<div id="outline-container-org9d2c145" class="outline-2">
+<h2 id="org9d2c145"><span class="section-number-2">1.</span> 实验环境</h2>
 <div class="outline-text-2" id="text-1">
 <ol class="org-ol">
 <li>一台可以上网的主机station X (IP 地址 192.168.10.X）</li>
@@ -83,8 +83,8 @@
 </div>
 </div>
 
-<div id="outline-container-org887cbb2" class="outline-2">
-<h2 id="org887cbb2"><span class="section-number-2">2.</span> 实验目的</h2>
+<div id="outline-container-org8fa0fe3" class="outline-2">
+<h2 id="org8fa0fe3"><span class="section-number-2">2.</span> 实验目的</h2>
 <div class="outline-text-2" id="text-2">
 <ol class="org-ol">
 <li>掌握Linux 命令行基础使用方法</li>
@@ -96,12 +96,12 @@
 </div>
 </div>
 
-<div id="outline-container-org35cfb57" class="outline-2">
-<h2 id="org35cfb57"><span class="section-number-2">3.</span> 操作步骤</h2>
+<div id="outline-container-orgc7547fa" class="outline-2">
+<h2 id="orgc7547fa"><span class="section-number-2">3.</span> 操作步骤</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org7e00df2" class="outline-3">
-<h3 id="org7e00df2"><span class="section-number-3">3.1.</span> 安装一些后续需要使用的软件</h3>
+<div id="outline-container-org4dfdf7f" class="outline-3">
+<h3 id="org4dfdf7f"><span class="section-number-3">3.1.</span> 安装一些后续需要使用的软件</h3>
 <div class="outline-text-3" id="text-3-1">
 <ul class="org-ul">
 <li>git 版本管理工具</li>
@@ -137,8 +137,8 @@ root权限，不进入交互模式。将以上命令修改为：
 </ul>
 </div>
 </div>
-<div id="outline-container-orgb06f4c8" class="outline-3">
-<h3 id="orgb06f4c8"><span class="section-number-3">3.2.</span> 安装 ryu</h3>
+<div id="outline-container-org689ceb0" class="outline-3">
+<h3 id="org689ceb0"><span class="section-number-3">3.2.</span> 安装 ryu</h3>
 <div class="outline-text-3" id="text-3-2">
 <ol class="org-ol">
 <li><p>
@@ -180,8 +180,8 @@ sudo apt-key adv &#x2013;keyserver keyserver.ubuntu.com &#x2013;recv-keys
 </div>
 
 
-<div id="outline-container-org00d323f" class="outline-3">
-<h3 id="org00d323f"><span class="section-number-3">3.3.</span> 安装 mininet</h3>
+<div id="outline-container-org4c4cd71" class="outline-3">
+<h3 id="org4c4cd71"><span class="section-number-3">3.3.</span> 安装 mininet</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 mininet 是一个网络拓扑仿真程序，可以非常方便的实现拓扑/交换机的模拟，
@@ -219,8 +219,8 @@ mininet 默认会安装一个openvswitch-controller 控制器，此服务启动�
 </div>
 
 
-<div id="outline-container-orgfc30b92" class="outline-3">
-<h3 id="orgfc30b92"><span class="section-number-3">3.4.</span> ryu 控制和mininet连接</h3>
+<div id="outline-container-org963c3a2" class="outline-3">
+<h3 id="org963c3a2"><span class="section-number-3">3.4.</span> ryu 控制和mininet连接</h3>
 <div class="outline-text-3" id="text-3-4">
 <ol class="org-ol">
 <li>启动 screen 终端管理工具
@@ -357,12 +357,12 @@ unsupported version 0x1. If possible, set the switch to use one of the versions 
 
 
 
-<div id="outline-container-org9d5f80a" class="outline-2">
-<h2 id="org9d5f80a"><span class="section-number-2">4.</span> 附录</h2>
+<div id="outline-container-orgcd90c47" class="outline-2">
+<h2 id="orgcd90c47"><span class="section-number-2">4.</span> 附录</h2>
 <div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-org2d7d03d" class="outline-3">
-<h3 id="org2d7d03d"><span class="section-number-3">4.1.</span> 用到的命令</h3>
+<div id="outline-container-orgedcbfe6" class="outline-3">
+<h3 id="orgedcbfe6"><span class="section-number-3">4.1.</span> 用到的命令</h3>
 <div class="outline-text-3" id="text-4-1">
 <div class="org-src-container">
 <pre class="src src-bash">apt-get install git screen
@@ -413,24 +413,6 @@ sudo kill -9 <span style="font-weight: bold;">`pgrep -f 'ryu-manager'`</span>
 
 
 
-
-    <div class="comments">
-      <h2>Comments !</h2>
-      <div id="disqus_thread"></div>
-      <script type="text/javascript">
-        var disqus_shortname = 'bbill';
-        var disqus_identifier = 'lab/ryu_lab1.html';
-        var disqus_url = 'https://bbill.github.io/lab/ryu_lab1.html';
-        (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//bbill.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-      </script>
-
-
-      <noscript>Please enable JavaScript to view the comments.</noscript>
-    </div>
     <section id="lg"></section>
   <section id="md"></section>
   <section id="sm"></section>
@@ -466,14 +448,5 @@ sudo kill -9 <span style="font-weight: bold;">`pgrep -f 'ryu-manager'`</span>
                 <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
         </footer><!-- /#contentinfo -->
 
-<script type="text/javascript">
-    var disqus_shortname = 'bbill';
-    (function () {
-        var s = document.createElement('script'); s.async = true;
-        s.type = 'text/javascript';
-        s.src = 'https://' + disqus_shortname + '.disqus.com/count.js';
-        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-    }());
-</script>
 </body>
 </html>

@@ -52,48 +52,48 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org1747df4">1. 安装RYU</a></li>
-<li><a href="#org5aa3357">2. 安装</a></li>
-<li><a href="#orgfe5de31">3. 运行</a></li>
-<li><a href="#org428b10c">4. 验证</a></li>
+<li><a href="#org3a1669c">1. 安装RYU</a></li>
+<li><a href="#org5ec436d">2. 安装</a></li>
+<li><a href="#org39b1f41">3. 运行</a></li>
+<li><a href="#orge371172">4. 验证</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org1747df4" class="outline-2">
-<h2 id="org1747df4"><span class="section-number-2">1.</span> 安装RYU</h2>
+<div id="outline-container-org3a1669c" class="outline-2">
+<h2 id="org3a1669c"><span class="section-number-2">1.</span> 安装RYU</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 略，不清楚可以参考 <a href="https://bbill.github.io/lab/ryu_lab1.org">这里</a>
 </p>
 </div>
 </div>
-<div id="outline-container-org5aa3357" class="outline-2">
-<h2 id="org5aa3357"><span class="section-number-2">2.</span> 安装</h2>
+<div id="outline-container-org5ec436d" class="outline-2">
+<h2 id="org5ec436d"><span class="section-number-2">2.</span> 安装</h2>
 <div class="outline-text-2" id="text-2">
-<pre class="example" id="orgeb7d537">
+<pre class="example" id="orge47a9a6">
 cd 
 git clone https://github.com/bbill/nat.git ryu/ryu/app/nat
 </pre>
 </div>
 </div>
-<div id="outline-container-orgfe5de31" class="outline-2">
-<h2 id="orgfe5de31"><span class="section-number-2">3.</span> 运行</h2>
+<div id="outline-container-org39b1f41" class="outline-2">
+<h2 id="org39b1f41"><span class="section-number-2">3.</span> 运行</h2>
 <div class="outline-text-2" id="text-3">
-<pre class="example" id="org393b7b5">
+<pre class="example" id="org79b575f">
 
 </pre>
 </div>
 </div>
 
-<div id="outline-container-org428b10c" class="outline-2">
-<h2 id="org428b10c"><span class="section-number-2">4.</span> 验证</h2>
+<div id="outline-container-orge371172" class="outline-2">
+<h2 id="orge371172"><span class="section-number-2">4.</span> 验证</h2>
 <div class="outline-text-2" id="text-4">
 <ol class="org-ol">
 <li><p>
 如果没有实体SDN交换机，请安装 mininet
 </p>
-<pre class="example" id="org180da9c">
+<pre class="example" id="org8f66dff">
 cd 
 git clone https://github.com/mininet/mininet.git
 ./mininet/util/install.sh -fnv
@@ -101,14 +101,14 @@ git clone https://github.com/mininet/mininet.git
 <p>
 因为我们使用RYU控制器，禁用mininet 自带控制器。
 </p>
-<pre class="example" id="org01a5e0a">
+<pre class="example" id="org5e220d2">
 sudo systemctl disable openvswitch-testcontroller
 sudo systemctl stop openvswitch-testcontroller
 </pre></li>
 <li><p>
 启动一个简单SDN交换机连接三个主机并指向控制器
 </p>
-<pre class="example" id="org21b7daa">
+<pre class="example" id="org3952edf">
 
 </pre></li>
 <li><p>
@@ -118,7 +118,7 @@ sudo systemctl stop openvswitch-testcontroller
 <p>
 依次查看主机1到3的(h1~h3)网络配置
 </p>
-<pre class="example" id="orgf6eff11">
+<pre class="example" id="org0b2f3c1">
 mininet&gt; h1 ifconfig
 h1-eth0   Link encap:Ethernet  HWaddr 00:00:00:00:00:01
           inet addr:10.0.0.1  Bcast:10.255.255.255  Mask:255.0.0.0
@@ -152,7 +152,7 @@ lo        Link encap:Local Loopback
 SDN交换机
 在h2 主机上尝试动态获得IP，
 </p>
-<pre class="example" id="orga3c0d7d">
+<pre class="example" id="orgcfd8bc8">
 mininet&gt; h2 ifconfig h2-eth0 0.0.0.0
 mininet&gt; h2 dhclient h2-eth0
 </pre>
@@ -212,14 +212,5 @@ SNAT还有带验证。
                 <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
         </footer><!-- /#contentinfo -->
 
-<script type="text/javascript">
-    var disqus_shortname = 'bbill';
-    (function () {
-        var s = document.createElement('script'); s.async = true;
-        s.type = 'text/javascript';
-        s.src = 'https://' + disqus_shortname + '.disqus.com/count.js';
-        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-    }());
-</script>
 </body>
 </html>

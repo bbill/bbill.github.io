@@ -40,13 +40,13 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org54adcd2">1. 流表配置如下</a></li>
+<li><a href="#orgfb3884c">1. 流表配置如下</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org54adcd2" class="outline-2">
-<h2 id="org54adcd2"><span class="section-number-2">1.</span> 流表配置如下</h2>
+<div id="outline-container-orgfb3884c" class="outline-2">
+<h2 id="orgfb3884c"><span class="section-number-2">1.</span> 流表配置如下</h2>
 <div class="outline-text-2" id="text-1">
 <pre class="example">
 ovs-ofctl -O OpenFlow13 add-flow br0 table=0,in_port=50,actions=mod_vlan_vid:10,mod_dl_src:6c:59:79:33:44:55,mod_dl_dst:f8:bc:12:4d:e9:d8,goto_table:8
@@ -122,7 +122,7 @@ ovs-vsctl set port te-1/1/49 trunks=10
 </pre>
 </div>
 </div>
-<p>There are <a href="https://bbill.github.io/troubleshooting/no_rx_while_correct_rule.html#disqus_thread">comments</a>.</p>                </article>
+                </article>
             </aside><!-- /#featured -->
                 <section id="content" class="body">
                     <h1>Other articles</h1>
@@ -150,12 +150,12 @@ ovs-vsctl set port te-1/1/49 trunks=10
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org4ccb982">1. 重启交换机</a></li>
+<li><a href="#org943ff41">1. 重启交换机</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org4ccb982" class="outline-2">
-<h2 id="org4ccb982"><span class="section-number-2">1.</span> 重启交换机</h2>
+<div id="outline-container-org943ff41" class="outline-2">
+<h2 id="org943ff41"><span class="section-number-2">1.</span> 重启交换机</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 以3290 为例，不同交换机进入 底层 shell的方法不同
@@ -187,7 +187,7 @@ press any key to stop autoboot 时，按回车
 rm &#8211;rf [a-y]* 
 tftp -gr picos-2.9.2.5-P3290-30f7332.tar.gz -l z.tgz 192.168 …</pre></div></div></div>
                 <a class="readmore" href="https://bbill.github.io/lab/upgrade_P-3290.html">read more</a>
-<p>There are <a href="https://bbill.github.io/lab/upgrade_P-3290.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
+                </div><!-- /.entry-content -->
             </article></li>
 
             <li><article class="hentry">
@@ -229,7 +229,7 @@ tar cavf lic.tgz  /etc/picos/switch-public.key /etc/picos/pica.lic
 <p>
 admin@PicOS-OVS$cat /etc/picos/fs …</p></blockquote></li></ol>
                 <a class="readmore" href="https://bbill.github.io/lab/upgrade_picos.html">read more</a>
-<p>There are <a href="https://bbill.github.io/lab/upgrade_picos.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
+                </div><!-- /.entry-content -->
             </article></li>
                 </ol><!-- /#posts-list -->
                 </section><!-- /#content -->
@@ -257,14 +257,5 @@ admin@PicOS-OVS$cat /etc/picos/fs …</p></blockquote></li></ol>
                 <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
         </footer><!-- /#contentinfo -->
 
-<script type="text/javascript">
-    var disqus_shortname = 'bbill';
-    (function () {
-        var s = document.createElement('script'); s.async = true;
-        s.type = 'text/javascript';
-        s.src = 'https://' + disqus_shortname + '.disqus.com/count.js';
-        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-    }());
-</script>
 </body>
 </html>

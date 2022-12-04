@@ -52,13 +52,13 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org54adcd2">1. 流表配置如下</a></li>
+<li><a href="#orgfb3884c">1. 流表配置如下</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org54adcd2" class="outline-2">
-<h2 id="org54adcd2"><span class="section-number-2">1.</span> 流表配置如下</h2>
+<div id="outline-container-orgfb3884c" class="outline-2">
+<h2 id="orgfb3884c"><span class="section-number-2">1.</span> 流表配置如下</h2>
 <div class="outline-text-2" id="text-1">
 <pre class="example">
 ovs-ofctl -O OpenFlow13 add-flow br0 table=0,in_port=50,actions=mod_vlan_vid:10,mod_dl_src:6c:59:79:33:44:55,mod_dl_dst:f8:bc:12:4d:e9:d8,goto_table:8
@@ -137,24 +137,6 @@ ovs-vsctl set port te-1/1/49 trunks=10
 
 
 
-
-    <div class="comments">
-      <h2>Comments !</h2>
-      <div id="disqus_thread"></div>
-      <script type="text/javascript">
-        var disqus_shortname = 'bbill';
-        var disqus_identifier = 'troubleshooting/no_rx_while_correct_rule.html';
-        var disqus_url = 'https://bbill.github.io/troubleshooting/no_rx_while_correct_rule.html';
-        (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//bbill.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-      </script>
-
-
-      <noscript>Please enable JavaScript to view the comments.</noscript>
-    </div>
     <section id="lg"></section>
   <section id="md"></section>
   <section id="sm"></section>
@@ -190,14 +172,5 @@ ovs-vsctl set port te-1/1/49 trunks=10
                 <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
         </footer><!-- /#contentinfo -->
 
-<script type="text/javascript">
-    var disqus_shortname = 'bbill';
-    (function () {
-        var s = document.createElement('script'); s.async = true;
-        s.type = 'text/javascript';
-        s.src = 'https://' + disqus_shortname + '.disqus.com/count.js';
-        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-    }());
-</script>
 </body>
 </html>

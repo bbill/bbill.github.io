@@ -52,14 +52,14 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orga321c72">1. Problem</a></li>
-<li><a href="#org9a6ebda">2. Solution</a></li>
+<li><a href="#orgb946f72">1. Problem</a></li>
+<li><a href="#orgf80e79e">2. Solution</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orga321c72" class="outline-2">
-<h2 id="orga321c72"><span class="section-number-2">1.</span> Problem</h2>
+<div id="outline-container-orgb946f72" class="outline-2">
+<h2 id="orgb946f72"><span class="section-number-2">1.</span> Problem</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 The OS can't detect the qxl video driver. The display resolution
@@ -69,14 +69,14 @@ can't be changed not to mention adjust automatically.
 <p>
 Try to solve it by kill X,then reconfigure it.
 </p>
-<pre class="example" id="org280716e">
+<pre class="example" id="org91f8f2a">
 init 3
 </pre>
 <p>
 after relogin
 </p>
 
-<pre class="example" id="org1a4485b">
+<pre class="example" id="org2ee73f7">
 X -configure
 </pre>
 
@@ -84,7 +84,7 @@ X -configure
 It keep complains 
 </p>
 
-<pre class="example" id="orgb075db9">
+<pre class="example" id="org3f46b37">
 X.Org X Server 1.18.4
 Release Date: 2016-07-19
 X Protocol Version 11, Revision 0
@@ -118,32 +118,32 @@ No devices to configure.  Configuration failed.
 </div>
 </div>
 
-<div id="outline-container-org9a6ebda" class="outline-2">
-<h2 id="org9a6ebda"><span class="section-number-2">2.</span> Solution</h2>
+<div id="outline-container-orgf80e79e" class="outline-2">
+<h2 id="orgf80e79e"><span class="section-number-2">2.</span> Solution</h2>
 <div class="outline-text-2" id="text-2">
 <ol class="org-ol">
 <li><p>
 Turn off Xserver used
 </p>
-<pre class="example" id="org2aad8e7">
+<pre class="example" id="org9276f1e">
 sudo init 3
 </pre></li>
 <li><p>
 Remove xserver-xorg-core
 </p>
-<pre class="example" id="org4e16571">
+<pre class="example" id="org43bbb07">
 sudo apt-get remove  xserver-xorg-core -y
 </pre></li>
 <li><p>
 Install the driver or so
 </p>
-<pre class="example" id="orgf7fe66c">
+<pre class="example" id="orgebdca41">
 sudo apt-get install  spice-vdagent gdm xserver-xorg-video-qxl-hwe-16.04 
 </pre></li>
 <li><p>
 Create the xorg.conf we needed
 </p>
-<pre class="example" id="org5205a6d">
+<pre class="example" id="org4059a08">
 sudo X -configure
 sudo cp ./xorg.conf.new /etc/X11/xorg.conf
 
@@ -151,20 +151,20 @@ sudo cp ./xorg.conf.new /etc/X11/xorg.conf
 <li><p>
 Get X Back
 </p>
-<pre class="example" id="orgd409ea4">
+<pre class="example" id="orgf361cc4">
 sudo apt-get install   xserver-xorg-core xserver-xorg-input-all -y
 </pre></li>
 <li><p>
 Make sure spice-vdagent start automatically
 </p>
-<pre class="example" id="orgb74db6e">
+<pre class="example" id="org864cf0a">
 sudo systemctl enable spice-vdagentd
 sudo systemctl start spice-vdagentd
 </pre></li>
 <li><p>
 Time to cross your fingers
 </p>
-<pre class="example" id="org43cbb88">
+<pre class="example" id="org724ffc4">
 sudo init 5
 </pre></li>
 </ol>
@@ -177,24 +177,6 @@ If everything goes smoothly, your screen resolution will change automatically.
 
 
 
-
-    <div class="comments">
-      <h2>Comments !</h2>
-      <div id="disqus_thread"></div>
-      <script type="text/javascript">
-        var disqus_shortname = 'bbill';
-        var disqus_identifier = 'product/Spice_over_Ubuntu_16.04.html';
-        var disqus_url = 'https://bbill.github.io/product/Spice_over_Ubuntu_16.04.html';
-        (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//bbill.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-      </script>
-
-
-      <noscript>Please enable JavaScript to view the comments.</noscript>
-    </div>
     <section id="lg"></section>
   <section id="md"></section>
   <section id="sm"></section>
@@ -230,14 +212,5 @@ If everything goes smoothly, your screen resolution will change automatically.
                 <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
         </footer><!-- /#contentinfo -->
 
-<script type="text/javascript">
-    var disqus_shortname = 'bbill';
-    (function () {
-        var s = document.createElement('script'); s.async = true;
-        s.type = 'text/javascript';
-        s.src = 'https://' + disqus_shortname + '.disqus.com/count.js';
-        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-    }());
-</script>
 </body>
 </html>

@@ -3,16 +3,16 @@
 &lt;h2&gt;Table of Contents&lt;/h2&gt;
 &lt;div id="text-table-of-contents" role="doc-toc"&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href="#org5c6d845"&gt;1. 选择CPU&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#orgfe2d8f8"&gt;2. 交换芯片&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#orgc002c38"&gt;3. 软件支持&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#org3092ff6"&gt;4. 扩展能力&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#orgffa48f0"&gt;1. 选择CPU&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org8eedc3f"&gt;2. 交换芯片&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org68580ec"&gt;3. 软件支持&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#orgddcd3e4"&gt;4. 扩展能力&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;div id="outline-container-org5c6d845" class="outline-2"&gt;
-&lt;h2 id="org5c6d845"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; 选择CPU&lt;/h2&gt;
+&lt;div id="outline-container-orgffa48f0" class="outline-2"&gt;
+&lt;h2 id="orgffa48f0"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; 选择CPU&lt;/h2&gt;
 &lt;div class="outline-text-2" id="text-1"&gt;
 &lt;p&gt;
 CPU 分两类
@@ -37,8 +37,8 @@ CPU 分两类
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;div id="outline-container-orgfe2d8f8" class="outline-2"&gt;
-&lt;h2 id="orgfe2d8f8"&gt;&lt;span class="section-number-2"&gt;2.&lt;/span&gt; 交换芯片&lt;/h2&gt;
+&lt;div id="outline-container-org8eedc3f" class="outline-2"&gt;
+&lt;h2 id="org8eedc3f"&gt;&lt;span class="section-number-2"&gt;2.&lt;/span&gt; 交换芯片&lt;/h2&gt;
 &lt;div class="outline-text-2" id="text-2"&gt;
 &lt;p&gt;
 Intel Tofino 系列芯片：
@@ -97,8 +97,8 @@ Intel Tofino 系列芯片：
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;div id="outline-container-orgc002c38" class="outline-2"&gt;
-&lt;h2 id="orgc002c38"&gt;&lt;span class="section-number-2"&gt;3.&lt;/span&gt; 软件支持&lt;/h2&gt;
+&lt;div id="outline-container-org68580ec" class="outline-2"&gt;
+&lt;h2 id="org68580ec"&gt;&lt;span class="section-number-2"&gt;3.&lt;/span&gt; 软件支持&lt;/h2&gt;
 &lt;div class="outline-text-2" id="text-3"&gt;
 &lt;ol class="org-ol"&gt;
 &lt;li&gt;&lt;p&gt;
@@ -126,8 +126,8 @@ github 上的大牛开源出来的代码，能不能复现，大牛用什么平�
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;div id="outline-container-org3092ff6" class="outline-2"&gt;
-&lt;h2 id="org3092ff6"&gt;&lt;span class="section-number-2"&gt;4.&lt;/span&gt; 扩展能力&lt;/h2&gt;
+&lt;div id="outline-container-orgddcd3e4" class="outline-2"&gt;
+&lt;h2 id="orgddcd3e4"&gt;&lt;span class="section-number-2"&gt;4.&lt;/span&gt; 扩展能力&lt;/h2&gt;
 &lt;div class="outline-text-2" id="text-4"&gt;
 &lt;p&gt;
 Tofino作为交换芯片，受资源限制表项一般模糊匹配一万条左右，精确10万条
@@ -156,28 +156,28 @@ FGGA，智能网卡。这时需要考虑的是扩展能力，根据具体需求�
 &lt;h2&gt;Table of Contents&lt;/h2&gt;
 &lt;div id="text-table-of-contents" role="doc-toc"&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href="#org073984c"&gt;1. 初始设置和访问&lt;/a&gt;
+&lt;li&gt;&lt;a href="#orgc7acc3c"&gt;1. 初始设置和访问&lt;/a&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href="#orge0d75bf"&gt;1.1. 登陆交换机&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#org7001f53"&gt;1.2. 设定默认启动模式&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#orgf45ab38"&gt;1.3. 设置 Openflow SDN网络&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#orgf5c0c63"&gt;1.1. 登陆交换机&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org45e9a4c"&gt;1.2. 设定默认启动模式&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org8501658"&gt;1.3. 设置 Openflow SDN网络&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a href="#org6e772ce"&gt;2. TAP简单上手&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#org4bae0bf"&gt;3. CrossFlow 配置&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#org4326f3d"&gt;4. 软件版本升级&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#orge9814d1"&gt;5. 手册及参考&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org5debfb7"&gt;2. TAP简单上手&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#orgeba8d46"&gt;3. CrossFlow 配置&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org6dc9601"&gt;4. 软件版本升级&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org9d762a0"&gt;5. 手册及参考&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
 
-&lt;div id="outline-container-org073984c" class="outline-2"&gt;
-&lt;h2 id="org073984c"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; 初始设置和访问&lt;/h2&gt;
+&lt;div id="outline-container-orgc7acc3c" class="outline-2"&gt;
+&lt;h2 id="orgc7acc3c"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; 初始设置和访问&lt;/h2&gt;
 &lt;div class="outline-text-2" id="text-1"&gt;
 &lt;/div&gt;
-&lt;div id="outline-container-orge0d75bf" class="outline-3"&gt;
-&lt;h3 id="orge0d75bf"&gt;&lt;span class="section-number-3"&gt;1.1.&lt;/span&gt; 登陆交换机&lt;/h3&gt;
+&lt;div id="outline-container-orgf5c0c63" class="outline-3"&gt;
+&lt;h3 id="orgf5c0c63"&gt;&lt;span class="section-number-3"&gt;1.1.&lt;/span&gt; 登陆交换机&lt;/h3&gt;
 &lt;div class="outline-text-3" id="text-1-1"&gt;
 &lt;p&gt;
 交换机开箱后的初始登录，可以通过 串口(RJ45)来进行。 找到交换机 的console
@@ -187,28 +187,28 @@ securecrt 等 终端工具，配置串口参数为 115200,
 &lt;h2&gt;Table of Contents&lt;/h2&gt;
 &lt;div id="text-table-of-contents" role="doc-toc"&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href="#org073984c"&gt;1. 初始设置和访问&lt;/a&gt;
+&lt;li&gt;&lt;a href="#orgc7acc3c"&gt;1. 初始设置和访问&lt;/a&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href="#orge0d75bf"&gt;1.1. 登陆交换机&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#org7001f53"&gt;1.2. 设定默认启动模式&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#orgf45ab38"&gt;1.3. 设置 Openflow SDN网络&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#orgf5c0c63"&gt;1.1. 登陆交换机&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org45e9a4c"&gt;1.2. 设定默认启动模式&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org8501658"&gt;1.3. 设置 Openflow SDN网络&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a href="#org6e772ce"&gt;2. TAP简单上手&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#org4bae0bf"&gt;3. CrossFlow 配置&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#org4326f3d"&gt;4. 软件版本升级&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#orge9814d1"&gt;5. 手册及参考&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org5debfb7"&gt;2. TAP简单上手&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#orgeba8d46"&gt;3. CrossFlow 配置&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org6dc9601"&gt;4. 软件版本升级&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org9d762a0"&gt;5. 手册及参考&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
 
-&lt;div id="outline-container-org073984c" class="outline-2"&gt;
-&lt;h2 id="org073984c"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; 初始设置和访问&lt;/h2&gt;
+&lt;div id="outline-container-orgc7acc3c" class="outline-2"&gt;
+&lt;h2 id="orgc7acc3c"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; 初始设置和访问&lt;/h2&gt;
 &lt;div class="outline-text-2" id="text-1"&gt;
 &lt;/div&gt;
-&lt;div id="outline-container-orge0d75bf" class="outline-3"&gt;
-&lt;h3 id="orge0d75bf"&gt;&lt;span class="section-number-3"&gt;1.1.&lt;/span&gt; 登陆交换机&lt;/h3&gt;
+&lt;div id="outline-container-orgf5c0c63" class="outline-3"&gt;
+&lt;h3 id="orgf5c0c63"&gt;&lt;span class="section-number-3"&gt;1.1.&lt;/span&gt; 登陆交换机&lt;/h3&gt;
 &lt;div class="outline-text-3" id="text-1-1"&gt;
 &lt;p&gt;
 交换机开箱后的初始登录，可以通过 串口(RJ45)来进行。 找到交换机 的console
@@ -219,12 +219,12 @@ securecrt 等 终端工具，配置串口参数为 115200,
 &lt;/p&gt;
 
 
-&lt;div id="org53be04e" class="figure"&gt;
+&lt;div id="orgc6211ce" class="figure"&gt;
 &lt;p&gt;&lt;img src="http://www.tooyum.com/images/rs232.png" alt="rs232.png" width="300px" /&gt;
 &lt;/p&gt;
 &lt;/div&gt;
 
-&lt;pre class="example" id="org65bb948"&gt;
+&lt;pre class="example" id="orgfd886eb"&gt;
 PicOS-OVS login: admin
 Password:
 
@@ -233,8 +233,8 @@ admin@XorPlus$
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;div id="outline-container-org7001f53" class="outline-3"&gt;
-&lt;h3 id="org7001f53"&gt;&lt;span class="section-number-3"&gt;1.2.&lt;/span&gt; 设定默认启动模式&lt;/h3&gt;
+&lt;div id="outline-container-org45e9a4c" class="outline-3"&gt;
+&lt;h3 id="org45e9a4c"&gt;&lt;span class="section-number-3"&gt;1.2.&lt;/span&gt; 设定默认启动模式&lt;/h3&gt;
 &lt;div class="outline-text-3" id="text-1-2"&gt;
 &lt;ol class="org-ol"&gt;
 &lt;li&gt;&lt;p&gt;
@@ -245,7 +245,7 @@ admin@XorPlus$
 通过发出下面的命令检查PICOS交换机 的当前模式。
 &lt;/p&gt;
 
-&lt;pre class="example" id="org6ceaf57"&gt;
+&lt;pre class="example" id="org16a07ac"&gt;
 admin@XorPlus$ps -ef | grep xorp | grep -v grep
 admin@XorPlus$ps -ef | grep ovs | grep -v grep
 admin@XorPlus$
@@ -275,7 +275,7 @@ OVS模式以支持 OpenFlow。要做到这一点，我们将运行Pica8模式切
 选择OVS模式。
 &lt;/p&gt;
 
-&lt;pre class="example" id="org6f8d5d8"&gt;
+&lt;pre class="example" id="org21d1bd7"&gt;
 admin@XorPlus$sudo picos_boot
 Please configure the default system start-up options:
  (Press other key if no change)
@@ -291,7 +291,7 @@ Enter your choice (1,2,3):2
 这个IP地址。输入IP地址，子网掩码和默认网关。
 &lt;/p&gt;
 
-&lt;pre class="example" id="org0ddf473"&gt;
+&lt;pre class="example" id="org14fb3e4"&gt;
 
 PicOS Open vSwitch/OpenFlow is selected.
 
@@ -314,7 +314,7 @@ admin@XorPlus$
 来应用这 个改变
 &lt;/p&gt;
 
-&lt;pre class="example" id="org0d9b6d4"&gt;
+&lt;pre class="example" id="org5c4a934"&gt;
 admin@XorPlus$sudo service picos start
 [....] Stopping enhanced syslogd: rsyslogd.
 [....] Starting enhanced syslogd: rsyslogd.
@@ -334,7 +334,7 @@ RTNETLINK answers: No such process
 验证对 'picos_start.conf' 文件的改变。
 &lt;/p&gt;
 
-&lt;pre class="example" id="orgd5da5bb"&gt;
+&lt;pre class="example" id="org8e5b127"&gt;
 admin@XorPlus$more /etc/picos/picos_start.conf
 # configuration file for PicOS
 
@@ -368,7 +368,7 @@ ztp_disable=false
 如果进程输出如下，则Pica8 交换机运行在 OVS/Openflow 模式下。
 &lt;/p&gt;
 
-&lt;pre class="example" id="org883f4db"&gt;
+&lt;pre class="example" id="org47ed30b"&gt;
 admin@XorPlus$ps -ef | grep ovs | grep -v grep
 root      3182     1  0 05:26 ttyS0    00:00:00 ovsdb-server /ovs/ovs-vswitchd.conf.db --remote=ptcp:6633:192.168.16.101 --remote=punix:/ovs/var/run/openvswitch/db.sock
 root      3184     1  0 05:26 ttyS0    00:00:00 ovs-vswitchd --pidfile=ovs-vswitchd.pid --overwrite-pidfile
@@ -378,7 +378,7 @@ root      3184     1  0 05:26 ttyS0    00:00:00 ovs-vswitchd --pidfile=ovs-vswit
 现在重新启动交换机，以确保配置是持久的。这可能需要几分钟的时间才能完成。(如果确认 /etc/picos/picos_start.conf 已经成功修改，则此步骤可以省略）
 &lt;/p&gt;
 
-&lt;pre class="example" id="orgace7c23"&gt;
+&lt;pre class="example" id="org8a7b44c"&gt;
 admin@XorPlus$sudo reboot
 
 Broadcast message from root@PicOS-OVS (ttyS0) (Tue Oct 21 05:47:19 2014):
@@ -396,7 +396,7 @@ The system is going down for reboot NOW!
 “文件更改。
 &lt;/p&gt;
 
-&lt;pre class="example" id="org818ca39"&gt;
+&lt;pre class="example" id="orgf7c295f"&gt;
 admin@PicOS-OVS$ifconfig eth0
 eth0      Link encap:Ethernet  HWaddr 48:6e:73:02:00:22
           inet addr:192.168.16.101  Bcast:192.168.16.255  Mask:255.255.255.0
@@ -423,8 +423,8 @@ rtt min/avg/max/mdev = 0.939/11.900/32.754/14.752 ms
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;div id="outline-container-orgf45ab38" class="outline-3"&gt;
-&lt;h3 id="orgf45ab38"&gt;&lt;span class="section-number-3"&gt;1.3.&lt;/span&gt; 设置 Openflow SDN网络&lt;/h3&gt;
+&lt;div id="outline-container-org8501658" class="outline-3"&gt;
+&lt;h3 id="org8501658"&gt;&lt;span class="section-number-3"&gt;1.3.&lt;/span&gt; 设置 Openflow SDN网络&lt;/h3&gt;
 &lt;div class="outline-text-3" id="text-1-3"&gt;
 &lt;ol class="org-ol"&gt;
 &lt;li&gt;&lt;p&gt;
@@ -444,7 +444,7 @@ license 检查
 是否激活，在交换机的命令行界面里执行
 &lt;/p&gt;
 
-&lt;pre class="example" id="org82bdf15"&gt;
+&lt;pre class="example" id="org9b59d93"&gt;
 license -s
 &lt;/pre&gt;
 
@@ -452,7 +452,7 @@ license -s
 如果显示：
 &lt;/p&gt;
 
-&lt;pre class="example" id="org7e81a5d"&gt;
+&lt;pre class="example" id="org629eda8"&gt;
 No license installed.Use below information to create a license
 &lt;/pre&gt;
 
@@ -467,7 +467,7 @@ No license installed.Use below information to create a license
 该文件中。 然后在交换机上执行
 &lt;/p&gt;
 
-&lt;pre class="example" id="org1c9d4d2"&gt;
+&lt;pre class="example" id="org00a6874"&gt;
 sudo license -i /etc/file.lic
 &lt;/pre&gt;
 
@@ -475,7 +475,7 @@ sudo license -i /etc/file.lic
 并再次执行
 &lt;/p&gt;
 
-&lt;pre class="example" id="org05716b8"&gt;
+&lt;pre class="example" id="org39ffd88"&gt;
 license -s
 &lt;/pre&gt;
 
@@ -492,7 +492,7 @@ license -s
 命令,创建一个虚拟交换机br0。以命令行为例：
 &lt;/p&gt;
 
-&lt;pre class="example" id="org1e6ee06"&gt;
+&lt;pre class="example" id="orgfd23a67"&gt;
 admin@PicOS-OVS$ovs-vsctl add-br br0 -- set bridge br0 datapath_type=pica8
 
 device ovs-pica8 entered promiscuous mode
@@ -509,7 +509,7 @@ admin@PicOS-OVS$
 下一步验证桥已成功创建。
 &lt;/p&gt;
 
-&lt;pre class="example" id="org174dce3"&gt;
+&lt;pre class="example" id="org9068829"&gt;
 
 admin@PicOS-OVS$ovs-ofctl show br0
 OFPT_FEATURES_REPLY (OF1.4) (xid=0x2): dpid:5e3ea67edf6c5f60
@@ -542,7 +542,7 @@ OFPT_GET_CONFIG_REPLY (OF1.4) (xid=0x6): frags=normal miss_send_len=0
 GE-1/1/1 ， GE-1/1/2 ，和GE-1/1/48,请注意，务必正确输入下面命令。
 &lt;/p&gt;
 
-&lt;pre class="example" id="org664e390"&gt;
+&lt;pre class="example" id="org9d5f2eb"&gt;
 admin@PicOS-OVS$ovs-vsctl add-port br0 ge-1/1/1 vlan_mode=trunk tag=1 -- set interface ge-1/1/1 type=pica8
 admin@PicOS-OVS$ovs-vsctl add-port br0 ge-1/1/2 vlan_mode=trunk tag=1 -- set interface ge-1/1/2 type=pica8
 admin@PicOS-OVS$ovs-vsctl add-port br0 ge-1/1/48 vlan_mode=trunk tag=1 -- set interface ge-1/1/48 type=pica8
@@ -557,7 +557,7 @@ admin@PicOS-OVS$
 添加千兆端口&lt;sup&gt;&lt;a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink"&gt;1&lt;/a&gt;&lt;/sup&gt;
 &lt;/p&gt;
 
-&lt;pre class="example" id="org158c2f8"&gt;
+&lt;pre class="example" id="orgb732a49"&gt;
 for i in $(seq 1 24);do ovs-vsctl add-port br0 ge-1/1/$i vlan_mode=trunk tag=1 -- set interface ge-1/1/$i type=pica8;done
 &lt;/pre&gt;
 
@@ -565,7 +565,7 @@ for i in $(seq 1 24);do ovs-vsctl add-port br0 ge-1/1/$i vlan_mode=trunk tag=1 -
 添加万兆端口，万兆端口的编号视不同平台不同，可能是 （25~28，49~52等请根据实际情况调整）。
 &lt;/p&gt;
 
-&lt;pre class="example" id="org93983d6"&gt;
+&lt;pre class="example" id="org4e6c439"&gt;
 for i in $(seq 25 28);do ovs-vsctl add-port br0 te-1/1/$i vlan_mode=trunk tag=1 -- set interface te-1/1/$i type=pica8;done
 &lt;/pre&gt;
 
@@ -573,7 +573,7 @@ for i in $(seq 25 28);do ovs-vsctl add-port br0 te-1/1/$i vlan_mode=trunk tag=1 
 5101 添加所有端口可以采用如下命令：
 &lt;/p&gt;
 
-&lt;pre class="example" id="org600cebc"&gt;
+&lt;pre class="example" id="orga8aaca1"&gt;
 for i in $(seq 1 48);do ovs-vsctl add-port br0 te-1/1/$i vlan_mode=trunk tag=1 -- set interface te-1/1/$i type=pica8;done
 for i in $(seq 49 54);do ovs-vsctl add-port br0 qe-1/1/$i vlan_mode=trunk tag=1 -- set interface qe-1/1/$i type=pica8;done
 &lt;/pre&gt;
@@ -585,7 +585,7 @@ for i in $(seq 49 54);do ovs-vsctl add-port br0 qe-1/1/$i vlan_mode=trunk tag=1 
 为 in-band），为了规避可能的问题，可以用如下命令禁用：
 &lt;/p&gt;
 
-&lt;pre class="example" id="orgc9708ad"&gt;
+&lt;pre class="example" id="orgfa49ca4"&gt;
 ovs-vsctl set bridge br0 other_config=disable-in-band=true
 &lt;/pre&gt;
 
@@ -626,7 +626,7 @@ ovs-vsctl set bridge br0 other_config=disable-in-band=true
 我们可以使用相同的命令验证对br0的修改。
 &lt;/p&gt;
 
-&lt;pre class="example" id="org1e52209"&gt;
+&lt;pre class="example" id="orgdd1bb16"&gt;
 admin@PicOS-OVS$ovs-ofctl show br0
 OFPT_FEATURES_REPLY (OF1.4) (xid=0x2): dpid:5e3e486e73020023
 n_tables:254, n_buffers:256
@@ -687,7 +687,7 @@ vBridge添加物理端口后，我们将试图通过Pica8交换机转发一些�
 2口上连接的主机。
 &lt;/p&gt;
 
-&lt;pre class="example" id="org3f837c1"&gt;
+&lt;pre class="example" id="org7a1b99c"&gt;
 pica8@of-dev01-traff01:~$ ping 10.10.11.3
 PING 10.10.11.3 (10.10.11.3) 56(84) bytes of data.
 ^C
@@ -709,7 +709,7 @@ OFPT_PACKET_OUT 消息重定向到控制器。
 我们必须配置交换机连接到通过OpenFlow的控制器。
 &lt;/p&gt;
 
-&lt;pre class="example" id="orga6dce07"&gt;
+&lt;pre class="example" id="org41a70e0"&gt;
 admin@PicOS-OVS$ping 192.168.16.82 -c 3
 PING 192.168.16.82 (192.168.16.82) 56(84) bytes of data.
 64 bytes from 192.168.16.82: icmp_req=1 ttl=64 time=3.28 ms
@@ -729,7 +729,7 @@ rtt min/avg/max/mdev = 0.393/1.378/3.284/1.348 ms
 配置Pica8交换机连接到通过对应的 Ryu 控制器。
 &lt;/p&gt;
 
-&lt;pre class="example" id="org8547e3c"&gt;
+&lt;pre class="example" id="org89d6aec"&gt;
 admin@PicOS-OVS$
 admin@PicOS-OVS$ovs-vsctl set-controller br0 tcp:192.168.16.82:6633
 admin@PicOS-OVS$
@@ -743,7 +743,7 @@ admin@PicOS-OVS$
 验证Pica8 交换机 有一个到端口6633的连接 。
 &lt;/p&gt;
 
-&lt;pre class="example" id="orgb365aa7"&gt;
+&lt;pre class="example" id="orge1204f2"&gt;
 admin@PicOS-OVS$
 admin@PicOS-OVS$netstat -n | grep 6633
 admin@PicOS-OVS$
@@ -769,7 +769,7 @@ admin@PicOS-OVS$
 。在交换机上使用下面的命令进行此更改。
 &lt;/p&gt;
 
-&lt;pre class="example" id="orgb33337f"&gt;
+&lt;pre class="example" id="org072fc59"&gt;
 admin@PicOS-OVS$
 admin@PicOS-OVS$ovs-vsctl set Bridge br0 protocols=OpenFlow13
 admin@PicOS-OVS$
@@ -783,7 +783,7 @@ admin@PicOS-OVS$
 运行'netstat -n | grep 6633'命令，看看是否已经解决了问题。
 &lt;/p&gt;
 
-&lt;pre class="example" id="orgb83ae4e"&gt;
+&lt;pre class="example" id="orgc55a9c2"&gt;
 admin@PicOS-OVS$netstat -n | grep 6633
 tcp        0      0 192.168.16.101:56974    192.168.16.82:6633      ESTABLISHED
 admin@PicOS-OVS$
@@ -801,14 +801,14 @@ admin@PicOS-OVS$
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;div id="outline-container-org6e772ce" class="outline-2"&gt;
-&lt;h2 id="org6e772ce"&gt;&lt;span class="section-number-2"&gt;2.&lt;/span&gt; TAP简单上手&lt;/h2&gt;
+&lt;div id="outline-container-org5debfb7" class="outline-2"&gt;
+&lt;h2 id="org5debfb7"&gt;&lt;span class="section-number-2"&gt;2.&lt;/span&gt; TAP简单上手&lt;/h2&gt;
 &lt;div class="outline-text-2" id="text-2"&gt;
 &lt;p&gt;
 系统启动后，将需要设定的流表命令追加到/etc/rc3.d/S06tap，如果要确认效果，可以执行
 &lt;/p&gt;
 
-&lt;pre class="example" id="org792bddc"&gt;
+&lt;pre class="example" id="org5186e88"&gt;
 source /etc/rc3.d/S06tap
 &lt;/pre&gt;
 
@@ -816,7 +816,7 @@ source /etc/rc3.d/S06tap
 用类似如下命令查看生效的流表：
 &lt;/p&gt;
 
-&lt;pre class="example" id="org564f282"&gt;
+&lt;pre class="example" id="org57c0068"&gt;
 
 ovs-ofctl dump-flows br0
 
@@ -824,16 +824,16 @@ ovs-ofctl dump-flows br0
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;div id="outline-container-org4bae0bf" class="outline-2"&gt;
-&lt;h2 id="org4bae0bf"&gt;&lt;span class="section-number-2"&gt;3.&lt;/span&gt; CrossFlow 配置&lt;/h2&gt;
+&lt;div id="outline-container-orgeba8d46" class="outline-2"&gt;
+&lt;h2 id="orgeba8d46"&gt;&lt;span class="section-number-2"&gt;3.&lt;/span&gt; CrossFlow 配置&lt;/h2&gt;
 &lt;/div&gt;
 
-&lt;div id="outline-container-org4326f3d" class="outline-2"&gt;
-&lt;h2 id="org4326f3d"&gt;&lt;span class="section-number-2"&gt;4.&lt;/span&gt; 软件版本升级&lt;/h2&gt;
+&lt;div id="outline-container-org6dc9601" class="outline-2"&gt;
+&lt;h2 id="org6dc9601"&gt;&lt;span class="section-number-2"&gt;4.&lt;/span&gt; 软件版本升级&lt;/h2&gt;
 &lt;/div&gt;
 
-&lt;div id="outline-container-orge9814d1" class="outline-2"&gt;
-&lt;h2 id="orge9814d1"&gt;&lt;span class="section-number-2"&gt;5.&lt;/span&gt; 手册及参考&lt;/h2&gt;
+&lt;div id="outline-container-org9d762a0" class="outline-2"&gt;
+&lt;h2 id="org9d762a0"&gt;&lt;span class="section-number-2"&gt;5.&lt;/span&gt; 手册及参考&lt;/h2&gt;
 &lt;div class="outline-text-2" id="text-5"&gt;
 &lt;p&gt;
 由于产品版本更新较快，随机并没有附操作手册。
@@ -868,20 +868,20 @@ Pica8 交换机的配置文档主要有:
 &lt;h2&gt;Table of Contents&lt;/h2&gt;
 &lt;div id="text-table-of-contents" role="doc-toc"&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href="#orge8271fc"&gt;1. &lt;b&gt;首次安装PICOS&lt;/b&gt;&lt;/a&gt;
+&lt;li&gt;&lt;a href="#org6da6f1a"&gt;1. &lt;b&gt;首次安装PICOS&lt;/b&gt;&lt;/a&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href="#orga264900"&gt;1.1. 确保已经下载了正确的安装文件&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#org0f3a709"&gt;1.2. 进入Boot Main Menu。&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#org6bc3b59"&gt;1.3. 进入ONIE救援模式&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#org384f06f"&gt;1.4. 安装PicOS&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org9d89449"&gt;1.1. 确保已经下载了正确的安装文件&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org8124067"&gt;1.2. 进入Boot Main Menu。&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org5852c28"&gt;1.3. 进入ONIE救援模式&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#orgd58935d"&gt;1.4. 安装PicOS&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a href="#org0e475c7"&gt;2. &lt;b&gt;传统安装流程&lt;/b&gt;&lt;/a&gt;
+&lt;li&gt;&lt;a href="#orga1ac414"&gt;2. &lt;b&gt;传统安装流程&lt;/b&gt;&lt;/a&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href="#org8865aef"&gt;2.1. 文件准备&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#org767a37f"&gt;2.2. 进入救援模式&lt;/a&gt;
+&lt;li&gt;&lt;a href="#org2daa55b"&gt;2.1. 文件准备&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org0d78367"&gt;2.2. 进入救援模式&lt;/a&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href="#orgb93c612"&gt;2.2.1. 在ONIE提示符下，运行 &lt;b&gt;onie-nos-install&lt;/b&gt; 命令安装PICOS。&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org949ebe6"&gt;2.2.1. 在ONIE提示符下，运行 &lt;b&gt;onie-nos-install&lt;/b&gt; 命令安装PICOS。&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -893,8 +893,8 @@ Pica8 交换机的配置文档主要有:
 使用google translate 翻译自 &lt;a href="https://docs.pica8.com/display/PicOS21118sp/Installing+PICOS+on+Bare+Metal+Switches+for+N3048EP-ON"&gt;here&lt;/a&gt;.
 &lt;/p&gt;
 
-&lt;div id="outline-container-orge8271fc" class="outline-2"&gt;
-&lt;h2 id="orge8271fc"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; &lt;b&gt;首次安装PICOS&lt;/b&gt;&lt;/h2&gt;
+&lt;div id="outline-container-org6da6f1a" class="outline-2"&gt;
+&lt;h2 id="org6da6f1a"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; &lt;b&gt;首次安装PICOS&lt;/b&gt;&lt;/h2&gt;
 &lt;div class="outline-text-2" id="text-1"&gt;
 &lt;table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides"&gt;
 
@@ -915,28 +915,28 @@ Pica8 交换机的配置文档主要有:
 &lt;/div&gt;
 
 
-&lt;div id="outline-container-orga264900" class="outline-3"&gt;
-&lt;h3 id="orga264900"&gt;&lt;span class="section-number-3"&gt;1.1.&lt;/span&gt; 确保已经下载了正确的安装文件&lt;/h3&gt;
+&lt;div id="outline-container-org9d89449" class="outline-3"&gt;
+&lt;h3 id="org9d89449"&gt;&lt;span class="section-number-3"&gt;1.1.&lt;/span&gt; 确保已经下载了正确的安装文件&lt;/h3&gt;
 &lt;div class="outline-text-3" id="text-1-1"&gt;
 &lt;p&gt;
 设定服务器将将该.bin 文件的安装包通过（HTTP …&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</summary><content type="html">&lt;div id="table-of-contents" role="doc-toc"&gt;
 &lt;h2&gt;Table of Contents&lt;/h2&gt;
 &lt;div id="text-table-of-contents" role="doc-toc"&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href="#orge8271fc"&gt;1. &lt;b&gt;首次安装PICOS&lt;/b&gt;&lt;/a&gt;
+&lt;li&gt;&lt;a href="#org6da6f1a"&gt;1. &lt;b&gt;首次安装PICOS&lt;/b&gt;&lt;/a&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href="#orga264900"&gt;1.1. 确保已经下载了正确的安装文件&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#org0f3a709"&gt;1.2. 进入Boot Main Menu。&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#org6bc3b59"&gt;1.3. 进入ONIE救援模式&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#org384f06f"&gt;1.4. 安装PicOS&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org9d89449"&gt;1.1. 确保已经下载了正确的安装文件&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org8124067"&gt;1.2. 进入Boot Main Menu。&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org5852c28"&gt;1.3. 进入ONIE救援模式&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#orgd58935d"&gt;1.4. 安装PicOS&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a href="#org0e475c7"&gt;2. &lt;b&gt;传统安装流程&lt;/b&gt;&lt;/a&gt;
+&lt;li&gt;&lt;a href="#orga1ac414"&gt;2. &lt;b&gt;传统安装流程&lt;/b&gt;&lt;/a&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href="#org8865aef"&gt;2.1. 文件准备&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#org767a37f"&gt;2.2. 进入救援模式&lt;/a&gt;
+&lt;li&gt;&lt;a href="#org2daa55b"&gt;2.1. 文件准备&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org0d78367"&gt;2.2. 进入救援模式&lt;/a&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href="#orgb93c612"&gt;2.2.1. 在ONIE提示符下，运行 &lt;b&gt;onie-nos-install&lt;/b&gt; 命令安装PICOS。&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org949ebe6"&gt;2.2.1. 在ONIE提示符下，运行 &lt;b&gt;onie-nos-install&lt;/b&gt; 命令安装PICOS。&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -948,8 +948,8 @@ Pica8 交换机的配置文档主要有:
 使用google translate 翻译自 &lt;a href="https://docs.pica8.com/display/PicOS21118sp/Installing+PICOS+on+Bare+Metal+Switches+for+N3048EP-ON"&gt;here&lt;/a&gt;.
 &lt;/p&gt;
 
-&lt;div id="outline-container-orge8271fc" class="outline-2"&gt;
-&lt;h2 id="orge8271fc"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; &lt;b&gt;首次安装PICOS&lt;/b&gt;&lt;/h2&gt;
+&lt;div id="outline-container-org6da6f1a" class="outline-2"&gt;
+&lt;h2 id="org6da6f1a"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; &lt;b&gt;首次安装PICOS&lt;/b&gt;&lt;/h2&gt;
 &lt;div class="outline-text-2" id="text-1"&gt;
 &lt;table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides"&gt;
 
@@ -970,8 +970,8 @@ Pica8 交换机的配置文档主要有:
 &lt;/div&gt;
 
 
-&lt;div id="outline-container-orga264900" class="outline-3"&gt;
-&lt;h3 id="orga264900"&gt;&lt;span class="section-number-3"&gt;1.1.&lt;/span&gt; 确保已经下载了正确的安装文件&lt;/h3&gt;
+&lt;div id="outline-container-org9d89449" class="outline-3"&gt;
+&lt;h3 id="org9d89449"&gt;&lt;span class="section-number-3"&gt;1.1.&lt;/span&gt; 确保已经下载了正确的安装文件&lt;/h3&gt;
 &lt;div class="outline-text-3" id="text-1-1"&gt;
 &lt;p&gt;
 设定服务器将将该.bin 文件的安装包通过（HTTP，TFTP，FTP或交换机本
@@ -980,15 +980,15 @@ Pica8 交换机的配置文档主要有:
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;div id="outline-container-org0f3a709" class="outline-3"&gt;
-&lt;h3 id="org0f3a709"&gt;&lt;span class="section-number-3"&gt;1.2.&lt;/span&gt; 进入Boot Main Menu。&lt;/h3&gt;
+&lt;div id="outline-container-org8124067" class="outline-3"&gt;
+&lt;h3 id="org8124067"&gt;&lt;span class="section-number-3"&gt;1.2.&lt;/span&gt; 进入Boot Main Menu。&lt;/h3&gt;
 &lt;div class="outline-text-3" id="text-1-2"&gt;
 &lt;p&gt;
 当开关打开电源时   &lt;b&gt;出现Dell EMC Networking Boot Options&lt;/b&gt; 菜单，选择选项“2”
 进入Boot Main Menu。
 &lt;/p&gt;
 
-&lt;pre class="example" id="org3554120"&gt;
+&lt;pre class="example" id="org36dfa99"&gt;
 戴尔EMC网络引导选项
 ================================
 
@@ -1004,14 +1004,14 @@ Pica8 交换机的配置文档主要有:
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;div id="outline-container-org6bc3b59" class="outline-3"&gt;
-&lt;h3 id="org6bc3b59"&gt;&lt;span class="section-number-3"&gt;1.3.&lt;/span&gt; 进入ONIE救援模式&lt;/h3&gt;
+&lt;div id="outline-container-org5852c28" class="outline-3"&gt;
+&lt;h3 id="org5852c28"&gt;&lt;span class="section-number-3"&gt;1.3.&lt;/span&gt; 进入ONIE救援模式&lt;/h3&gt;
 &lt;div class="outline-text-3" id="text-1-3"&gt;
 &lt;p&gt;
 出现 *Boot Main Menu *时，选择选项“13”进入ONIE救援模式。
 &lt;/p&gt;
 
-&lt;pre class="example" id="org9532e52"&gt;
+&lt;pre class="example" id="org268a28a"&gt;
 启动主菜单
 ==============
 
@@ -1055,8 +1055,8 @@ Pica8 交换机的配置文档主要有:
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;div id="outline-container-org384f06f" class="outline-3"&gt;
-&lt;h3 id="org384f06f"&gt;&lt;span class="section-number-3"&gt;1.4.&lt;/span&gt; 安装PicOS&lt;/h3&gt;
+&lt;div id="outline-container-orgd58935d" class="outline-3"&gt;
+&lt;h3 id="orgd58935d"&gt;&lt;span class="section-number-3"&gt;1.4.&lt;/span&gt; 安装PicOS&lt;/h3&gt;
 &lt;div class="outline-text-3" id="text-1-4"&gt;
 &lt;p&gt;
 在ONIE提示符下，运行 &lt;b&gt;onie-nos-install&lt;/b&gt; 命令安装PICOS。
@@ -1069,7 +1069,7 @@ Pica8 交换机的配置文档主要有:
 &lt;b&gt;通过TFTP安装&lt;/b&gt;
 &lt;/p&gt;
 
-&lt;pre class="example" id="orgd19bf04"&gt;
+&lt;pre class="example" id="org967ad60"&gt;
 ONIE＃onie-nos-install tftp：// &amp;lt;image路径&amp;gt; /PicOS.bin
 &lt;/pre&gt;&lt;/li&gt;
 
@@ -1081,14 +1081,14 @@ ONIE＃onie-nos-install tftp：// &amp;lt;image路径&amp;gt; /PicOS.bin
 通过FTP安装时，您需要输入 像文件所在的FTP服务器的 &lt;b&gt;username&lt;/b&gt; 和 &lt;b&gt;password&lt;/b&gt;
 &lt;/p&gt;
 
-&lt;pre class="example" id="orgb6eadbf"&gt;
+&lt;pre class="example" id="org0722cee"&gt;
 ONIE＃onie-nos-install ftp：//用户名：密码@ &amp;lt;image路径&amp;gt; /PicOS.bin
 &lt;/pre&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;
 &lt;b&gt;通过HTTP&lt;/b&gt; 安装
 &lt;/p&gt;
-&lt;pre class="example" id="org1172ed8"&gt;
+&lt;pre class="example" id="orga1d6d3e"&gt;
 ONIE＃onie-nos-install http：// &amp;lt;image路径&amp;gt; /PicOS.bin
 &lt;/pre&gt;&lt;/li&gt;
 
@@ -1099,7 +1099,7 @@ ONIE＃onie-nos-install http：// &amp;lt;image路径&amp;gt; /PicOS.bin
 在* ONIE rescue *模式下，将image文件复制到当前  目录。
 &lt;/p&gt;
 
-&lt;pre class="example" id="orgde20337"&gt;
+&lt;pre class="example" id="org5c3b385"&gt;
 ONIE #scp username @ &amp;lt;image路径&amp;gt; /PicOS.bin。
 &lt;/pre&gt;&lt;/li&gt;
 
@@ -1107,7 +1107,7 @@ ONIE #scp username @ &amp;lt;image路径&amp;gt; /PicOS.bin。
 运行* onie-nos-install *命令开始安装。
 &lt;/p&gt;
 
-&lt;pre class="example" id="orgbea0bc3"&gt;
+&lt;pre class="example" id="org3ca14e8"&gt;
 ONIE＃onie-nos-install PicOS.bin
 &lt;/pre&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
@@ -1152,8 +1152,8 @@ ONIE＃onie-nos-install PicOS.bin
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;div id="outline-container-org0e475c7" class="outline-2"&gt;
-&lt;h2 id="org0e475c7"&gt;&lt;span class="section-number-2"&gt;2.&lt;/span&gt; &lt;b&gt;传统安装流程&lt;/b&gt;&lt;/h2&gt;
+&lt;div id="outline-container-orga1ac414" class="outline-2"&gt;
+&lt;h2 id="orga1ac414"&gt;&lt;span class="section-number-2"&gt;2.&lt;/span&gt; &lt;b&gt;传统安装流程&lt;/b&gt;&lt;/h2&gt;
 &lt;div class="outline-text-2" id="text-2"&gt;
 &lt;table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides"&gt;
 
@@ -1180,8 +1180,8 @@ ONIE＃onie-nos-install PicOS.bin
 
 
 
-&lt;div id="outline-container-org8865aef" class="outline-3"&gt;
-&lt;h3 id="org8865aef"&gt;&lt;span class="section-number-3"&gt;2.1.&lt;/span&gt; 文件准备&lt;/h3&gt;
+&lt;div id="outline-container-org2daa55b" class="outline-3"&gt;
+&lt;h3 id="org2daa55b"&gt;&lt;span class="section-number-3"&gt;2.1.&lt;/span&gt; 文件准备&lt;/h3&gt;
 &lt;div class="outline-text-3" id="text-2-1"&gt;
 &lt;p&gt;
 &lt;b&gt;确保&lt;/b&gt; .bin *文件的安装包已加载到服务器（服务器可能是HTTP，TFTP或
@@ -1190,8 +1190,8 @@ FTP服务器或交换机本地目录根据实际情况而定安装环境）。
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;div id="outline-container-org767a37f" class="outline-3"&gt;
-&lt;h3 id="org767a37f"&gt;&lt;span class="section-number-3"&gt;2.2.&lt;/span&gt; 进入救援模式&lt;/h3&gt;
+&lt;div id="outline-container-org0d78367" class="outline-3"&gt;
+&lt;h3 id="org0d78367"&gt;&lt;span class="section-number-3"&gt;2.2.&lt;/span&gt; 进入救援模式&lt;/h3&gt;
 &lt;div class="outline-text-3" id="text-2-2"&gt;
 &lt;p&gt;
 进入ONIE安装环境。
@@ -1201,7 +1201,7 @@ FTP服务器或交换机本地目录根据实际情况而定安装环境）。
 打开电源，当出现* Boot Main Menu &lt;b&gt;时，选择选项“&lt;/b&gt; 2 *”进入ONIE救援模式。
 &lt;/p&gt;
 
-&lt;pre class="example" id="orgf4a39c8"&gt;
+&lt;pre class="example" id="org1b5a5d4"&gt;
 启动主菜单
 ====================
 1  - 引导PICOS（默认）
@@ -1233,15 +1233,15 @@ FTP服务器或交换机本地目录根据实际情况而定安装环境）。
 &lt;/table&gt;
 &lt;/div&gt;
 
-&lt;div id="outline-container-orgb93c612" class="outline-4"&gt;
-&lt;h4 id="orgb93c612"&gt;&lt;span class="section-number-4"&gt;2.2.1.&lt;/span&gt; 在ONIE提示符下，运行 &lt;b&gt;onie-nos-install&lt;/b&gt; 命令安装PICOS。&lt;/h4&gt;
+&lt;div id="outline-container-org949ebe6" class="outline-4"&gt;
+&lt;h4 id="org949ebe6"&gt;&lt;span class="section-number-4"&gt;2.2.1.&lt;/span&gt; 在ONIE提示符下，运行 &lt;b&gt;onie-nos-install&lt;/b&gt; 命令安装PICOS。&lt;/h4&gt;
 &lt;div class="outline-text-4" id="text-2-2-1"&gt;
 &lt;ul class="org-ul"&gt;
 &lt;li&gt;&lt;p&gt;
 &lt;b&gt;通过TFTP安装&lt;/b&gt;
 &lt;/p&gt;
 
-&lt;pre class="example" id="org0908bd5"&gt;
+&lt;pre class="example" id="org201b57e"&gt;
 ONIE＃onie-nos-install tftp：// &amp;lt;image路径&amp;gt; /PicOS.bin
 &lt;/pre&gt;&lt;/li&gt;
 
@@ -1255,7 +1255,7 @@ ONIE＃onie-nos-install tftp：// &amp;lt;image路径&amp;gt; /PicOS.bin
 已加载。
 &lt;/p&gt;
 
-&lt;pre class="example" id="org17bf36b"&gt;
+&lt;pre class="example" id="orga04e849"&gt;
 ONIE＃onie-nos-install ftp：//用户名：密码@ &amp;lt;image路径&amp;gt; /PicOS.bin
 &lt;/pre&gt;&lt;/li&gt;
 
@@ -1263,7 +1263,7 @@ ONIE＃onie-nos-install ftp：//用户名：密码@ &amp;lt;image路径&amp;gt; 
 *通过HTTP *安装
 &lt;/p&gt;
 
-&lt;pre class="example" id="org5a66289"&gt;
+&lt;pre class="example" id="org136d5cb"&gt;
 ONIE＃onie-nos-install http：// &amp;lt;image路径&amp;gt; /PicOS.bin
 &lt;/pre&gt;&lt;/li&gt;
 
@@ -1276,7 +1276,7 @@ a）在* ONIE rescue *模式下，将image文件复制到当前
 目录。
 &lt;/p&gt;
 
-&lt;pre class="example" id="org0c2b5be"&gt;
+&lt;pre class="example" id="org3031c3a"&gt;
 ONIE #scp username @ &amp;lt;image路径&amp;gt; /PicOS.bin。
 &lt;/pre&gt;
 
@@ -1284,7 +1284,7 @@ ONIE #scp username @ &amp;lt;image路径&amp;gt; /PicOS.bin。
 b）运行* onie-nos-install *命令开始安装。
 &lt;/p&gt;
 
-&lt;pre class="example" id="org6fe74e0"&gt;
+&lt;pre class="example" id="org9a6bb7c"&gt;
 ONIE＃onie-nos-install PicOS.bin
 &lt;/pre&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -1327,13 +1327,13 @@ ONIE＃onie-nos-install PicOS.bin
 &lt;h2&gt;Table of Contents&lt;/h2&gt;
 &lt;div id="text-table-of-contents" role="doc-toc"&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href="#org54adcd2"&gt;1. 流表配置如下&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#orgfb3884c"&gt;1. 流表配置如下&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;div id="outline-container-org54adcd2" class="outline-2"&gt;
-&lt;h2 id="org54adcd2"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; 流表配置如下&lt;/h2&gt;
+&lt;div id="outline-container-orgfb3884c" class="outline-2"&gt;
+&lt;h2 id="orgfb3884c"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; 流表配置如下&lt;/h2&gt;
 &lt;div class="outline-text-2" id="text-1"&gt;
 &lt;pre class="example"&gt;
 ovs-ofctl -O OpenFlow13 add-flow br0 table=0,in_port=50,actions=mod_vlan_vid:10,mod_dl_src:6c:59:79:33:44:55,mod_dl_dst:f8:bc:12:4d:e9:d8,goto_table:8
@@ -1354,13 +1354,13 @@ admin@PICOS-OVS …&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</summary><content type="
 &lt;h2&gt;Table of Contents&lt;/h2&gt;
 &lt;div id="text-table-of-contents" role="doc-toc"&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href="#org54adcd2"&gt;1. 流表配置如下&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#orgfb3884c"&gt;1. 流表配置如下&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;div id="outline-container-org54adcd2" class="outline-2"&gt;
-&lt;h2 id="org54adcd2"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; 流表配置如下&lt;/h2&gt;
+&lt;div id="outline-container-orgfb3884c" class="outline-2"&gt;
+&lt;h2 id="orgfb3884c"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; 流表配置如下&lt;/h2&gt;
 &lt;div class="outline-text-2" id="text-1"&gt;
 &lt;pre class="example"&gt;
 ovs-ofctl -O OpenFlow13 add-flow br0 table=0,in_port=50,actions=mod_vlan_vid:10,mod_dl_src:6c:59:79:33:44:55,mod_dl_dst:f8:bc:12:4d:e9:d8,goto_table:8
@@ -1440,9 +1440,9 @@ ovs-vsctl set port te-1/1/49 trunks=10
 &lt;h2&gt;Table of Contents&lt;/h2&gt;
 &lt;div id="text-table-of-contents" role="doc-toc"&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href="#org31c4f5e"&gt;1. 初始设置和访问&lt;/a&gt;
+&lt;li&gt;&lt;a href="#orgba3835b"&gt;1. 初始设置和访问&lt;/a&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href="#orgd330cdc"&gt;1.1. 登陆交换机&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org52d6d7e"&gt;1.1. 登陆交换机&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -1451,12 +1451,12 @@ ovs-vsctl set port te-1/1/49 trunks=10
 
 
 
-&lt;div id="outline-container-org31c4f5e" class="outline-2"&gt;
-&lt;h2 id="org31c4f5e"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; 初始设置和访问&lt;/h2&gt;
+&lt;div id="outline-container-orgba3835b" class="outline-2"&gt;
+&lt;h2 id="orgba3835b"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; 初始设置和访问&lt;/h2&gt;
 &lt;div class="outline-text-2" id="text-1"&gt;
 &lt;/div&gt;
-&lt;div id="outline-container-orgd330cdc" class="outline-3"&gt;
-&lt;h3 id="orgd330cdc"&gt;&lt;span class="section-number-3"&gt;1.1.&lt;/span&gt; 登陆交换机&lt;/h3&gt;
+&lt;div id="outline-container-org52d6d7e" class="outline-3"&gt;
+&lt;h3 id="org52d6d7e"&gt;&lt;span class="section-number-3"&gt;1.1.&lt;/span&gt; 登陆交换机&lt;/h3&gt;
 &lt;div class="outline-text-3" id="text-1-1"&gt;
 &lt;p&gt;
 交换机开箱后的初始登录，可以通过 串口(RJ45)来进行。 找到交换机 的console
@@ -1467,7 +1467,7 @@ securecrt 等 终端工具，配置串口参数为 115200,
 &lt;/p&gt;
 
 
-&lt;div id="org0393079" class="figure"&gt;
+&lt;div id="org4334344" class="figure"&gt;
 &lt;p&gt;&lt;img src="http://www.tooyum.com/images/rs232.png" alt="rs232.png" width="300px" /&gt;
 &lt;/p&gt;
 &lt;/div&gt;
@@ -1478,9 +1478,9 @@ securecrt 等 终端工具，配置串口参数为 115200,
 &lt;h2&gt;Table of Contents&lt;/h2&gt;
 &lt;div id="text-table-of-contents" role="doc-toc"&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href="#orga987269"&gt;1. 先备份&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#orgcffcd9f"&gt;2. 恢复&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#org9be6157"&gt;3. 重新启用该SSD&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org7d4b52d"&gt;1. 先备份&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#orge82c616"&gt;2. 恢复&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org412e7af"&gt;3. 重新启用该SSD&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1493,8 +1493,8 @@ securecrt 等 终端工具，配置串口参数为 115200,
 尝试重启，再挂载,当然还是不行，因为是一块PCI-E SSD 卡，非常担心数据搞不出来。
 &lt;/p&gt;
 
-&lt;div id="outline-container-orga987269" class="outline-2"&gt;
-&lt;h2 id="orga987269"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; 先备份&lt;/h2&gt;
+&lt;div id="outline-container-org7d4b52d" class="outline-2"&gt;
+&lt;h2 id="org7d4b52d"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; 先备份&lt;/h2&gt;
 &lt;div class="outline-text-2" id="text-1"&gt;
 &lt;p&gt;
 保险起见，先dd出来，因为本地没有足够大的空间，尝试将现有信息保存到另外一台主机，
@@ -1503,14 +1503,14 @@ securecrt 等 终端工具，配置串口参数为 115200,
 &lt;p&gt;
 在有空间的主机（192.168.1.2)运行：
 &lt;/p&gt;
-&lt;pre class="example" id="orgecc53a4"&gt;
+&lt;pre class="example" id="org4daccb5"&gt;
 ssh root@192.168.1.1 "dd iflag=fullblock  conv=sync,noerror if=/dev/nvme0n1 |gzip …&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</summary><content type="html">&lt;div id="table-of-contents" role="doc-toc"&gt;
 &lt;h2&gt;Table of Contents&lt;/h2&gt;
 &lt;div id="text-table-of-contents" role="doc-toc"&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href="#orga987269"&gt;1. 先备份&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#orgcffcd9f"&gt;2. 恢复&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#org9be6157"&gt;3. 重新启用该SSD&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org7d4b52d"&gt;1. 先备份&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#orge82c616"&gt;2. 恢复&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org412e7af"&gt;3. 重新启用该SSD&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1523,8 +1523,8 @@ ssh root@192.168.1.1 "dd iflag=fullblock  conv=sync,noerror if=/dev/nvme0n1 |gzi
 尝试重启，再挂载,当然还是不行，因为是一块PCI-E SSD 卡，非常担心数据搞不出来。
 &lt;/p&gt;
 
-&lt;div id="outline-container-orga987269" class="outline-2"&gt;
-&lt;h2 id="orga987269"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; 先备份&lt;/h2&gt;
+&lt;div id="outline-container-org7d4b52d" class="outline-2"&gt;
+&lt;h2 id="org7d4b52d"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; 先备份&lt;/h2&gt;
 &lt;div class="outline-text-2" id="text-1"&gt;
 &lt;p&gt;
 保险起见，先dd出来，因为本地没有足够大的空间，尝试将现有信息保存到另外一台主机，
@@ -1533,7 +1533,7 @@ ssh root@192.168.1.1 "dd iflag=fullblock  conv=sync,noerror if=/dev/nvme0n1 |gzi
 &lt;p&gt;
 在有空间的主机（192.168.1.2)运行：
 &lt;/p&gt;
-&lt;pre class="example" id="orgecc53a4"&gt;
+&lt;pre class="example" id="org4daccb5"&gt;
 ssh root@192.168.1.1 "dd iflag=fullblock  conv=sync,noerror if=/dev/nvme0n1 |gzip -1 -" |dd  of=/mnt/nvme.bak
 &lt;/pre&gt;
 
@@ -1550,7 +1550,7 @@ ddrescue，没看到可以支持管道到远端，放弃。换dd&lt;sub&gt;rescu
 命令够简单：
 在故障磁盘(/dev/nvme0n1)所在主机执行
 &lt;/p&gt;
-&lt;pre class="example" id="org8a718a1"&gt;
+&lt;pre class="example" id="org481f26a"&gt;
 dd_rescue /dev/nvme0n1 - | ssh root@192.168.1.2 "cat - &amp;gt; /mnt/filename.img"
 &lt;/pre&gt;
 
@@ -1561,21 +1561,21 @@ dd_rescue /dev/nvme0n1 - | ssh root@192.168.1.2 "cat - &amp;gt; /mnt/filename.im
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;div id="outline-container-orgcffcd9f" class="outline-2"&gt;
-&lt;h2 id="orgcffcd9f"&gt;&lt;span class="section-number-2"&gt;2.&lt;/span&gt; 恢复&lt;/h2&gt;
+&lt;div id="outline-container-orge82c616" class="outline-2"&gt;
+&lt;h2 id="orge82c616"&gt;&lt;span class="section-number-2"&gt;2.&lt;/span&gt; 恢复&lt;/h2&gt;
 &lt;div class="outline-text-2" id="text-2"&gt;
 &lt;p&gt;
 备份完成后在原始磁盘上尝试修复。
 直接上大招
 &lt;/p&gt;
-&lt;pre class="example" id="orgca1dc4a"&gt;
+&lt;pre class="example" id="org963fad6"&gt;
 xfs_repair -L  /dev/nvme0n1
 &lt;/pre&gt;
 &lt;p&gt;
 输出如下：
 &lt;/p&gt;
 
-&lt;pre class="example" id="org0a89158"&gt;
+&lt;pre class="example" id="org728ada5"&gt;
 xfs_repair -L /dev/nvme0n1                                                        
 Phase 1 - find and verify superblock...
 Phase 2 - using internal log
@@ -1592,14 +1592,14 @@ xfs_repair: libxfs_device_zero write failed: Input/output error
 &lt;p&gt;
 尝试从备份出来的文件进行恢复。
 &lt;/p&gt;
-&lt;pre class="example" id="org331ac7f"&gt;
+&lt;pre class="example" id="org256aa22"&gt;
 xfs_repair -Lf /mnt/filename.img 
 &lt;/pre&gt;
 
 &lt;p&gt;
 尝试挂载这个文件
 &lt;/p&gt;
-&lt;pre class="example" id="org2e0377c"&gt;
+&lt;pre class="example" id="org6b331b2"&gt;
 mount /mnt/filename.img /media/
 ls /media
 &lt;/pre&gt;
@@ -1610,13 +1610,13 @@ ls /media
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;div id="outline-container-org9be6157" class="outline-2"&gt;
-&lt;h2 id="org9be6157"&gt;&lt;span class="section-number-2"&gt;3.&lt;/span&gt; 重新启用该SSD&lt;/h2&gt;
+&lt;div id="outline-container-org412e7af" class="outline-2"&gt;
+&lt;h2 id="org412e7af"&gt;&lt;span class="section-number-2"&gt;3.&lt;/span&gt; 重新启用该SSD&lt;/h2&gt;
 &lt;div class="outline-text-2" id="text-3"&gt;
 &lt;p&gt;
 SSD还没有完全故障，还是要利用起来。看了下xfs似乎没有排除坏块的选项，用ext4重新格式化，再挂载。（当然，这次要定期做好备份）
 &lt;/p&gt;
-&lt;pre class="example" id="org6f09773"&gt;
+&lt;pre class="example" id="orgcf97867"&gt;
 mkfs.ext4 -c -c /dev/nvme0n1
 &lt;/pre&gt;
 &lt;/div&gt;
@@ -1625,14 +1625,14 @@ mkfs.ext4 -c -c /dev/nvme0n1
 &lt;h2&gt;Table of Contents&lt;/h2&gt;
 &lt;div id="text-table-of-contents" role="doc-toc"&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href="#orga321c72"&gt;1. Problem&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#org9a6ebda"&gt;2. Solution&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#orgb946f72"&gt;1. Problem&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#orgf80e79e"&gt;2. Solution&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;div id="outline-container-orga321c72" class="outline-2"&gt;
-&lt;h2 id="orga321c72"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; Problem&lt;/h2&gt;
+&lt;div id="outline-container-orgb946f72" class="outline-2"&gt;
+&lt;h2 id="orgb946f72"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; Problem&lt;/h2&gt;
 &lt;div class="outline-text-2" id="text-1"&gt;
 &lt;p&gt;
 The OS can't detect the qxl video driver. The display resolution
@@ -1642,14 +1642,14 @@ can't be changed not to mention adjust automatically.
 &lt;p&gt;
 Try to solve it by kill X,then reconfigure it.
 &lt;/p&gt;
-&lt;pre class="example" id="org280716e"&gt;
+&lt;pre class="example" id="org91f8f2a"&gt;
 init 3
 &lt;/pre&gt;
 &lt;p&gt;
 after relogin
 &lt;/p&gt;
 
-&lt;pre class="example" id="org1a4485b"&gt;
+&lt;pre class="example" id="org2ee73f7"&gt;
 X -configure
 &lt;/pre&gt;
 
@@ -1657,19 +1657,19 @@ X -configure
 It keep complains 
 &lt;/p&gt;
 
-&lt;pre class="example" id="orgb075db9"&gt;
+&lt;pre class="example" id="org3f46b37"&gt;
 X.Org X …&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</summary><content type="html">&lt;div id="table-of-contents" role="doc-toc"&gt;
 &lt;h2&gt;Table of Contents&lt;/h2&gt;
 &lt;div id="text-table-of-contents" role="doc-toc"&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href="#orga321c72"&gt;1. Problem&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#org9a6ebda"&gt;2. Solution&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#orgb946f72"&gt;1. Problem&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#orgf80e79e"&gt;2. Solution&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;div id="outline-container-orga321c72" class="outline-2"&gt;
-&lt;h2 id="orga321c72"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; Problem&lt;/h2&gt;
+&lt;div id="outline-container-orgb946f72" class="outline-2"&gt;
+&lt;h2 id="orgb946f72"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; Problem&lt;/h2&gt;
 &lt;div class="outline-text-2" id="text-1"&gt;
 &lt;p&gt;
 The OS can't detect the qxl video driver. The display resolution
@@ -1679,14 +1679,14 @@ can't be changed not to mention adjust automatically.
 &lt;p&gt;
 Try to solve it by kill X,then reconfigure it.
 &lt;/p&gt;
-&lt;pre class="example" id="org280716e"&gt;
+&lt;pre class="example" id="org91f8f2a"&gt;
 init 3
 &lt;/pre&gt;
 &lt;p&gt;
 after relogin
 &lt;/p&gt;
 
-&lt;pre class="example" id="org1a4485b"&gt;
+&lt;pre class="example" id="org2ee73f7"&gt;
 X -configure
 &lt;/pre&gt;
 
@@ -1694,7 +1694,7 @@ X -configure
 It keep complains 
 &lt;/p&gt;
 
-&lt;pre class="example" id="orgb075db9"&gt;
+&lt;pre class="example" id="org3f46b37"&gt;
 X.Org X Server 1.18.4
 Release Date: 2016-07-19
 X Protocol Version 11, Revision 0
@@ -1728,32 +1728,32 @@ No devices to configure.  Configuration failed.
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;div id="outline-container-org9a6ebda" class="outline-2"&gt;
-&lt;h2 id="org9a6ebda"&gt;&lt;span class="section-number-2"&gt;2.&lt;/span&gt; Solution&lt;/h2&gt;
+&lt;div id="outline-container-orgf80e79e" class="outline-2"&gt;
+&lt;h2 id="orgf80e79e"&gt;&lt;span class="section-number-2"&gt;2.&lt;/span&gt; Solution&lt;/h2&gt;
 &lt;div class="outline-text-2" id="text-2"&gt;
 &lt;ol class="org-ol"&gt;
 &lt;li&gt;&lt;p&gt;
 Turn off Xserver used
 &lt;/p&gt;
-&lt;pre class="example" id="org2aad8e7"&gt;
+&lt;pre class="example" id="org9276f1e"&gt;
 sudo init 3
 &lt;/pre&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;
 Remove xserver-xorg-core
 &lt;/p&gt;
-&lt;pre class="example" id="org4e16571"&gt;
+&lt;pre class="example" id="org43bbb07"&gt;
 sudo apt-get remove  xserver-xorg-core -y
 &lt;/pre&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;
 Install the driver or so
 &lt;/p&gt;
-&lt;pre class="example" id="orgf7fe66c"&gt;
+&lt;pre class="example" id="orgebdca41"&gt;
 sudo apt-get install  spice-vdagent gdm xserver-xorg-video-qxl-hwe-16.04 
 &lt;/pre&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;
 Create the xorg.conf we needed
 &lt;/p&gt;
-&lt;pre class="example" id="org5205a6d"&gt;
+&lt;pre class="example" id="org4059a08"&gt;
 sudo X -configure
 sudo cp ./xorg.conf.new /etc/X11/xorg.conf
 
@@ -1761,20 +1761,20 @@ sudo cp ./xorg.conf.new /etc/X11/xorg.conf
 &lt;li&gt;&lt;p&gt;
 Get X Back
 &lt;/p&gt;
-&lt;pre class="example" id="orgd409ea4"&gt;
+&lt;pre class="example" id="orgf361cc4"&gt;
 sudo apt-get install   xserver-xorg-core xserver-xorg-input-all -y
 &lt;/pre&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;
 Make sure spice-vdagent start automatically
 &lt;/p&gt;
-&lt;pre class="example" id="orgb74db6e"&gt;
+&lt;pre class="example" id="org864cf0a"&gt;
 sudo systemctl enable spice-vdagentd
 sudo systemctl start spice-vdagentd
 &lt;/pre&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;
 Time to cross your fingers
 &lt;/p&gt;
-&lt;pre class="example" id="org43cbb88"&gt;
+&lt;pre class="example" id="org724ffc4"&gt;
 sudo init 5
 &lt;/pre&gt;&lt;/li&gt;
 &lt;/ol&gt;
@@ -1788,7 +1788,7 @@ If everything goes smoothly, your screen resolution will change automatically.
 在一台机器上用dnsmasq 做dhcp server，报错
 &lt;/p&gt;
 
-&lt;pre class="example" id="org7abade0"&gt;
+&lt;pre class="example" id="orgee6fe9c"&gt;
 failed to bind dhcp server socket: Address already in use.
 &lt;/pre&gt;
 &lt;p&gt;
@@ -1796,7 +1796,7 @@ failed to bind dhcp server socket: Address already in use.
 关键是取消  bind-interfaces这一行的注释。并且指定需要监听的interface或者IP。
 &lt;/p&gt;
 
-&lt;pre class="example" id="org3248fca"&gt;
+&lt;pre class="example" id="orgdb80a44"&gt;
 bind-interfaces
 interface=eth0
 listen-address=192.168.0.1
@@ -1805,20 +1805,20 @@ listen-address=192.168.0.1
 &lt;h2&gt;Table of Contents&lt;/h2&gt;
 &lt;div id="text-table-of-contents" role="doc-toc"&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href="#orgf90f4cb"&gt;1. 确认端口状态&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#org387789a"&gt;2. 确认硬件流表支持的最大条目&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org3bc6063"&gt;1. 确认端口状态&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#orge5af483"&gt;2. 确认硬件流表支持的最大条目&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;div id="outline-container-orgf90f4cb" class="outline-2"&gt;
-&lt;h2 id="orgf90f4cb"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; 确认端口状态&lt;/h2&gt;
+&lt;div id="outline-container-org3bc6063" class="outline-2"&gt;
+&lt;h2 id="org3bc6063"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; 确认端口状态&lt;/h2&gt;
 &lt;div class="outline-text-2" id="text-1"&gt;
 &lt;ol class="org-ol"&gt;
 &lt;li&gt;&lt;p&gt;
 端口计数器
 &lt;/p&gt;
-&lt;pre class="example" id="orgec2350c"&gt;
+&lt;pre class="example" id="org5f71998"&gt;
 admin@PicOS-OVS$ovs-ofctl dump-ports  br0
 OFPST_PORT reply (OF1.3) (xid=0x2): 49 ports
   port  1: rx pkts=0, bytes=979551, drop=0, errs=518513, frame=0, over=0, crc=0
@@ -1826,20 +1826,20 @@ OFPST_PORT reply (OF1.3) (xid=0x2): 49 ports
 &lt;h2&gt;Table of Contents&lt;/h2&gt;
 &lt;div id="text-table-of-contents" role="doc-toc"&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href="#orgf90f4cb"&gt;1. 确认端口状态&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#org387789a"&gt;2. 确认硬件流表支持的最大条目&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org3bc6063"&gt;1. 确认端口状态&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#orge5af483"&gt;2. 确认硬件流表支持的最大条目&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;div id="outline-container-orgf90f4cb" class="outline-2"&gt;
-&lt;h2 id="orgf90f4cb"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; 确认端口状态&lt;/h2&gt;
+&lt;div id="outline-container-org3bc6063" class="outline-2"&gt;
+&lt;h2 id="org3bc6063"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; 确认端口状态&lt;/h2&gt;
 &lt;div class="outline-text-2" id="text-1"&gt;
 &lt;ol class="org-ol"&gt;
 &lt;li&gt;&lt;p&gt;
 端口计数器
 &lt;/p&gt;
-&lt;pre class="example" id="orgec2350c"&gt;
+&lt;pre class="example" id="org5f71998"&gt;
 admin@PicOS-OVS$ovs-ofctl dump-ports  br0
 OFPST_PORT reply (OF1.3) (xid=0x2): 49 ports
   port  1: rx pkts=0, bytes=979551, drop=0, errs=518513, frame=0, over=0, crc=0
@@ -1866,7 +1866,7 @@ admin@PicOS-OVS$
 &lt;li&gt;&lt;p&gt;
 端口链路状态
 &lt;/p&gt;
-&lt;pre class="example" id="org942c2ee"&gt;
+&lt;pre class="example" id="orgac09697"&gt;
 
 admin@PicOS-OVS$ovs-ofctl dump-ports-desc  br0 
 OFPST_PORT_DESC reply (OF1.3) (xid=0x2):
@@ -1914,8 +1914,8 @@ OFPST_PORT_DESC reply (OF1.3) (xid=0x2):
 
 
 
-&lt;div id="outline-container-org387789a" class="outline-2"&gt;
-&lt;h2 id="org387789a"&gt;&lt;span class="section-number-2"&gt;2.&lt;/span&gt; 确认硬件流表支持的最大条目&lt;/h2&gt;
+&lt;div id="outline-container-orge5af483" class="outline-2"&gt;
+&lt;h2 id="orge5af483"&gt;&lt;span class="section-number-2"&gt;2.&lt;/span&gt; 确认硬件流表支持的最大条目&lt;/h2&gt;
 &lt;div class="outline-text-2" id="text-2"&gt;
 &lt;pre class="example"&gt;
 admin@PICOS-OVS:~$ ovs-appctl pica/show tables
@@ -1938,22 +1938,22 @@ admin@PICOS-OVS:~$
 &lt;h2&gt;Table of Contents&lt;/h2&gt;
 &lt;div id="text-table-of-contents" role="doc-toc"&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href="#orgc28be64"&gt;1. OpenMesh SDN交换机设置静态流表的"正确"方法&lt;/a&gt;
+&lt;li&gt;&lt;a href="#orgb528aa3"&gt;1. OpenMesh SDN交换机设置静态流表的"正确"方法&lt;/a&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href="#org1a17c45"&gt;1.1. 系统初始设置&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#orga532dff"&gt;1.2. 添加静态流配置命令&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#orgc6c18c0"&gt;1.1. 系统初始设置&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org070d4f8"&gt;1.2. 添加静态流配置命令&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;div id="outline-container-orgc28be64" class="outline-2"&gt;
-&lt;h2 id="orgc28be64"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; OpenMesh SDN交换机设置静态流表的"正确"方法&lt;/h2&gt;
+&lt;div id="outline-container-orgb528aa3" class="outline-2"&gt;
+&lt;h2 id="orgb528aa3"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; OpenMesh SDN交换机设置静态流表的"正确"方法&lt;/h2&gt;
 &lt;div class="outline-text-2" id="text-1"&gt;
 &lt;/div&gt;
-&lt;div id="outline-container-org1a17c45" class="outline-3"&gt;
-&lt;h3 id="org1a17c45"&gt;&lt;span class="section-number-3"&gt;1.1.&lt;/span&gt; 系统初始设置&lt;/h3&gt;
+&lt;div id="outline-container-orgc6c18c0" class="outline-3"&gt;
+&lt;h3 id="orgc6c18c0"&gt;&lt;span class="section-number-3"&gt;1.1.&lt;/span&gt; 系统初始设置&lt;/h3&gt;
 &lt;div class="outline-text-3" id="text-1-1"&gt;
 &lt;p&gt;
 参见 &lt;a href="../lab/pica8_quick_start.html"&gt;快速上手&lt;/a&gt;
@@ -1961,10 +1961,10 @@ admin@PICOS-OVS:~$
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;div id="outline-container-orga532dff" class="outline-3"&gt;
-&lt;h3 id="orga532dff"&gt;&lt;span class="section-number-3"&gt;1.2.&lt;/span&gt; 添加静态流配置命令&lt;/h3&gt;
+&lt;div id="outline-container-org070d4f8" class="outline-3"&gt;
+&lt;h3 id="org070d4f8"&gt;&lt;span class="section-number-3"&gt;1.2.&lt;/span&gt; 添加静态流配置命令&lt;/h3&gt;
 &lt;div class="outline-text-3" id="text-1-2"&gt;
-&lt;pre class="example" id="org12daf75"&gt;
+&lt;pre class="example" id="org4971963"&gt;
 admin@PICOS-OVS$sudo mkdir /cftmp/
 &lt;/pre&gt;
 
@@ -1972,7 +1972,7 @@ admin@PICOS-OVS$sudo mkdir /cftmp/
 创建规则脚本
 &lt;/p&gt;
 
-&lt;pre class="example" id="org38088e7"&gt;
+&lt;pre class="example" id="orgd96a579"&gt;
 admin@PICOS-OVS$sudo vi /cftmp/auto/post-ovs
 
 &lt;/pre&gt;
@@ -1981,28 +1981,28 @@ admin@PICOS-OVS$sudo vi /cftmp/auto/post-ovs
 在规则脚本 /cftmp/auto/post-ovs 中写入如下内容
 &lt;/p&gt;
 
-&lt;pre class="example" id="org89ea61e"&gt;
+&lt;pre class="example" id="org0a3a5b0"&gt;
 #!/bin/bash                                                                                                                                                   
 export PATH=/ovs …&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</summary><content type="html">&lt;div id="table-of-contents" role="doc-toc"&gt;
 &lt;h2&gt;Table of Contents&lt;/h2&gt;
 &lt;div id="text-table-of-contents" role="doc-toc"&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href="#orgc28be64"&gt;1. OpenMesh SDN交换机设置静态流表的"正确"方法&lt;/a&gt;
+&lt;li&gt;&lt;a href="#orgb528aa3"&gt;1. OpenMesh SDN交换机设置静态流表的"正确"方法&lt;/a&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href="#org1a17c45"&gt;1.1. 系统初始设置&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#orga532dff"&gt;1.2. 添加静态流配置命令&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#orgc6c18c0"&gt;1.1. 系统初始设置&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org070d4f8"&gt;1.2. 添加静态流配置命令&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;div id="outline-container-orgc28be64" class="outline-2"&gt;
-&lt;h2 id="orgc28be64"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; OpenMesh SDN交换机设置静态流表的"正确"方法&lt;/h2&gt;
+&lt;div id="outline-container-orgb528aa3" class="outline-2"&gt;
+&lt;h2 id="orgb528aa3"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; OpenMesh SDN交换机设置静态流表的"正确"方法&lt;/h2&gt;
 &lt;div class="outline-text-2" id="text-1"&gt;
 &lt;/div&gt;
-&lt;div id="outline-container-org1a17c45" class="outline-3"&gt;
-&lt;h3 id="org1a17c45"&gt;&lt;span class="section-number-3"&gt;1.1.&lt;/span&gt; 系统初始设置&lt;/h3&gt;
+&lt;div id="outline-container-orgc6c18c0" class="outline-3"&gt;
+&lt;h3 id="orgc6c18c0"&gt;&lt;span class="section-number-3"&gt;1.1.&lt;/span&gt; 系统初始设置&lt;/h3&gt;
 &lt;div class="outline-text-3" id="text-1-1"&gt;
 &lt;p&gt;
 参见 &lt;a href="../lab/pica8_quick_start.html"&gt;快速上手&lt;/a&gt;
@@ -2010,10 +2010,10 @@ export PATH=/ovs …&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</summary><c
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;div id="outline-container-orga532dff" class="outline-3"&gt;
-&lt;h3 id="orga532dff"&gt;&lt;span class="section-number-3"&gt;1.2.&lt;/span&gt; 添加静态流配置命令&lt;/h3&gt;
+&lt;div id="outline-container-org070d4f8" class="outline-3"&gt;
+&lt;h3 id="org070d4f8"&gt;&lt;span class="section-number-3"&gt;1.2.&lt;/span&gt; 添加静态流配置命令&lt;/h3&gt;
 &lt;div class="outline-text-3" id="text-1-2"&gt;
-&lt;pre class="example" id="org12daf75"&gt;
+&lt;pre class="example" id="org4971963"&gt;
 admin@PICOS-OVS$sudo mkdir /cftmp/
 &lt;/pre&gt;
 
@@ -2021,7 +2021,7 @@ admin@PICOS-OVS$sudo mkdir /cftmp/
 创建规则脚本
 &lt;/p&gt;
 
-&lt;pre class="example" id="org38088e7"&gt;
+&lt;pre class="example" id="orgd96a579"&gt;
 admin@PICOS-OVS$sudo vi /cftmp/auto/post-ovs
 
 &lt;/pre&gt;
@@ -2030,7 +2030,7 @@ admin@PICOS-OVS$sudo vi /cftmp/auto/post-ovs
 在规则脚本 /cftmp/auto/post-ovs 中写入如下内容
 &lt;/p&gt;
 
-&lt;pre class="example" id="org89ea61e"&gt;
+&lt;pre class="example" id="org0a3a5b0"&gt;
 #!/bin/bash                                                                                                                                                   
 export PATH=/ovs/bin:$PATH                                                                                                                                    
 while [ 1 ]; do                                                                                                                                               
@@ -2061,7 +2061,7 @@ ovs-ofctl 为流表设置命令，本文中的例子比较简单，不做过多�
 在文件创建好后，别忘了赋予可执行权限。
 &lt;/p&gt;
 
-&lt;pre class="example" id="orgb4d7a75"&gt;
+&lt;pre class="example" id="orge59f6b0"&gt;
 admin@PICOS-OVS$sudo chmod +x /cftmp/auto/post-ovs
 &lt;/pre&gt;
 
@@ -2079,19 +2079,19 @@ admin@PICOS-OVS$sudo chmod +x /cftmp/auto/post-ovs
 &lt;h2&gt;Table of Contents&lt;/h2&gt;
 &lt;div id="text-table-of-contents" role="doc-toc"&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href="#org639fced"&gt;1. Barefoot Tofino™&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#orgc257d29"&gt;2. Barefoot Capilano™ SDE&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#orgc83d998"&gt;3. Wedge 100BF-32X&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#orgc6858c7"&gt;4. CPU,BMC,Platform Software&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#org2c4c362"&gt;5. Wedge 100B Series – A Summary&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#orgd044217"&gt;1. Barefoot Tofino™&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org4ad0f4a"&gt;2. Barefoot Capilano™ SDE&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org11cfd5a"&gt;3. Wedge 100BF-32X&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#orge59f2a0"&gt;4. CPU,BMC,Platform Software&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org1318391"&gt;5. Wedge 100B Series – A Summary&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
 
 
-&lt;div id="outline-container-org639fced" class="outline-2"&gt;
-&lt;h2 id="org639fced"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; Barefoot Tofino™&lt;/h2&gt;
+&lt;div id="outline-container-orgd044217" class="outline-2"&gt;
+&lt;h2 id="orgd044217"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; Barefoot Tofino™&lt;/h2&gt;
 &lt;div class="outline-text-2" id="text-1"&gt;
 &lt;ul class="org-ul"&gt;
 &lt;li&gt;6.5 Tb/s P4-programmable Ethernet Switch&lt;/li&gt;
@@ -2113,29 +2113,29 @@ admin@PICOS-OVS$sudo chmod +x /cftmp/auto/post-ovs
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;div id="outline-container-orgc257d29" class="outline-2"&gt;
-&lt;h2 id="orgc257d29"&gt;&lt;span class="section-number-2"&gt;2.&lt;/span&gt; Barefoot Capilano™ SDE&lt;/h2&gt;
+&lt;div id="outline-container-org4ad0f4a" class="outline-2"&gt;
+&lt;h2 id="org4ad0f4a"&gt;&lt;span class="section-number-2"&gt;2.&lt;/span&gt; Barefoot Capilano™ SDE&lt;/h2&gt;
 &lt;div class="outline-text-2" id="text-2"&gt;
 
-&lt;div id="orgefd4bff" class="figure"&gt;
+&lt;div id="org84cc107" class="figure"&gt;
 &lt;p&gt;&lt;img src="../fig/capilano.png" alt="capilano.png" width="450;" /&gt;
 &lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div id="outline-container-orgc83d998" class="outline-2"&gt;
-&lt;h2 id="orgc83d998"&gt;&lt;span class="section-number-2"&gt;3.&lt;/span&gt; Wedge 100BF-32X&lt;/h2&gt;
+&lt;div id="outline-container-org11cfd5a" class="outline-2"&gt;
+&lt;h2 id="org11cfd5a"&gt;&lt;span class="section-number-2"&gt;3.&lt;/span&gt; Wedge 100BF-32X&lt;/h2&gt;
 &lt;div class="outline-text-2" id="text-3"&gt;
 
-&lt;div id="orgcbb2796" class="figure"&gt;
+&lt;div id="org5d698a8" class="figure"&gt;
 &lt;p&gt;&lt;img src="../fig/wedge_100bf-32x.png" alt="wedge_100bf-32x.png" width="450;" /&gt;
 &lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;div id="outline-container-orgc6858c7" class="outline-2"&gt;
-&lt;h2 id="orgc6858c7"&gt;&lt;span class="section-number-2"&gt;4.&lt;/span&gt; CPU,BMC,Platform Software&lt;/h2&gt;
+&lt;div id="outline-container-orge59f2a0" class="outline-2"&gt;
+&lt;h2 id="orge59f2a0"&gt;&lt;span class="section-number-2"&gt;4.&lt;/span&gt; CPU,BMC,Platform Software&lt;/h2&gt;
 &lt;div class="outline-text-2" id="text-4"&gt;
 &lt;ul class="org-ul"&gt;
 &lt;li&gt;CPU
@@ -2165,8 +2165,8 @@ admin@PICOS-OVS$sudo chmod +x /cftmp/auto/post-ovs
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;div id="outline-container-org2c4c362" class="outline-2"&gt;
-&lt;h2 id="org2c4c362"&gt;&lt;span class="section-number-2"&gt;5.&lt;/span&gt; Wedge 100B Series – A Summary&lt;/h2&gt;
+&lt;div id="outline-container-org1318391" class="outline-2"&gt;
+&lt;h2 id="org1318391"&gt;&lt;span class="section-number-2"&gt;5.&lt;/span&gt; Wedge 100B Series – A Summary&lt;/h2&gt;
 &lt;div class="outline-text-2" id="text-5"&gt;
 &lt;ul class="org-ul"&gt;
 &lt;li&gt;Two platforms
@@ -2185,38 +2185,38 @@ admin@PICOS-OVS$sudo chmod +x /cftmp/auto/post-ovs
 &lt;h2&gt;Table of Contents&lt;/h2&gt;
 &lt;div id="text-table-of-contents" role="doc-toc"&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href="#orgb06a3ca"&gt;1. 教学环境准备&lt;/a&gt;
+&lt;li&gt;&lt;a href="#orgcf5c4f3"&gt;1. 教学环境准备&lt;/a&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href="#org8540333"&gt;1.1. 仿真工具&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#org6049915"&gt;1.2. 常用工具&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#orgd449810"&gt;1.1. 仿真工具&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#orge854607"&gt;1.2. 常用工具&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a href="#org0ade73b"&gt;2. 传统网络基础&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#org3741d8b"&gt;3. SDN 与 OpenFlow 技术基本概念&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#orgfd0e891"&gt;4. SDN 网络入门实验&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#orgcf123ac"&gt;5. 了解流表&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#org20ae494"&gt;6. RYU控制器初步&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#org32eac3e"&gt;7. 进阶应用&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#org2173293"&gt;8. 实体交换机验证&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#orgbfc7730"&gt;2. 传统网络基础&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org0abbc92"&gt;3. SDN 与 OpenFlow 技术基本概念&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#orgcd321f8"&gt;4. SDN 网络入门实验&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org13edbbc"&gt;5. 了解流表&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org8d6e0d7"&gt;6. RYU控制器初步&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org6269890"&gt;7. 进阶应用&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org7ab7937"&gt;8. 实体交换机验证&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
 
-&lt;div id="outline-container-orgb06a3ca" class="outline-2"&gt;
-&lt;h2 id="orgb06a3ca"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; 教学环境准备&lt;/h2&gt;
+&lt;div id="outline-container-orgcf5c4f3" class="outline-2"&gt;
+&lt;h2 id="orgcf5c4f3"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; 教学环境准备&lt;/h2&gt;
 &lt;div class="outline-text-2" id="text-1"&gt;
 &lt;/div&gt;
-&lt;div id="outline-container-org8540333" class="outline-3"&gt;
-&lt;h3 id="org8540333"&gt;&lt;span class="section-number-3"&gt;1.1.&lt;/span&gt; 仿真工具&lt;/h3&gt;
+&lt;div id="outline-container-orgd449810" class="outline-3"&gt;
+&lt;h3 id="orgd449810"&gt;&lt;span class="section-number-3"&gt;1.1.&lt;/span&gt; 仿真工具&lt;/h3&gt;
 &lt;div class="outline-text-3" id="text-1-1"&gt;
 &lt;p&gt;
 可选开源(mininet)，商用(estinet)仿真软件
 &lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div id="outline-container-org6049915" class="outline-3"&gt;
-&lt;h3 id="org6049915"&gt;&lt;span class="section-number-3"&gt;1.2.&lt;/span&gt; 常用工具&lt;/h3&gt;
+&lt;div id="outline-container-orge854607" class="outline-3"&gt;
+&lt;h3 id="orge854607"&gt;&lt;span class="section-number-3"&gt;1.2.&lt;/span&gt; 常用工具&lt;/h3&gt;
 &lt;div class="outline-text-3" id="text-1-2"&gt;
 &lt;ol class="org-ol"&gt;
 &lt;li&gt;Wireshark 网路抓包工具&lt;/li&gt;
@@ -2231,8 +2231,8 @@ admin@PICOS-OVS$sudo chmod +x /cftmp/auto/post-ovs
 &lt;/div&gt;
 
 
-&lt;div id="outline-container-org0ade73b" class="outline-2"&gt;
-&lt;h2 id="org0ade73b"&gt;&lt;span class="section-number-2"&gt;2.&lt;/span&gt; 传统网络基础&lt;/h2&gt;
+&lt;div id="outline-container-orgbfc7730" class="outline-2"&gt;
+&lt;h2 id="orgbfc7730"&gt;&lt;span class="section-number-2"&gt;2.&lt;/span&gt; 传统网络基础&lt;/h2&gt;
 &lt;div class="outline-text-2" id="text-2"&gt;
 &lt;ol class="org-ol"&gt;
 &lt;li&gt;NAT 网路地址址转换（Network Address Translation）&lt;/li&gt;
@@ -2242,8 +2242,8 @@ admin@PICOS-OVS$sudo chmod +x /cftmp/auto/post-ovs
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;div id="outline-container-org3741d8b" class="outline-2"&gt;
-&lt;h2 id="org3741d8b"&gt;&lt;span class="section-number-2"&gt;3.&lt;/span&gt; SDN 与 OpenFlow 技术基本概念&lt;/h2&gt;
+&lt;div id="outline-container-org0abbc92" class="outline-2"&gt;
+&lt;h2 id="org0abbc92"&gt;&lt;span class="section-number-2"&gt;3.&lt;/span&gt; SDN 与 OpenFlow 技术基本概念&lt;/h2&gt;
 &lt;div class="outline-text-2" id="text-3"&gt;
 &lt;ol class="org-ol"&gt;
 &lt;li&gt;软体定义网路（Software-Defined Networking）&lt;/li&gt;
@@ -2265,8 +2265,8 @@ admin@PICOS-OVS$sudo chmod +x /cftmp/auto/post-ovs
 &lt;/div&gt;
 
 
-&lt;div id="outline-container-orgfd0e891" class="outline-2"&gt;
-&lt;h2 id="orgfd0e891"&gt;&lt;span class="section-number-2"&gt;4.&lt;/span&gt; SDN 网络入门实验&lt;/h2&gt;
+&lt;div id="outline-container-orgcd321f8" class="outline-2"&gt;
+&lt;h2 id="orgcd321f8"&gt;&lt;span class="section-number-2"&gt;4.&lt;/span&gt; SDN 网络入门实验&lt;/h2&gt;
 &lt;div class="outline-text-2" id="text-4"&gt;
 &lt;ol class="org-ol"&gt;
 &lt;li&gt;RYU 控制器安装启动&lt;/li&gt;
@@ -2278,8 +2278,8 @@ admin@PICOS-OVS$sudo chmod +x /cftmp/auto/post-ovs
 &lt;/div&gt;
 
 
-&lt;div id="outline-container-orgcf123ac" class="outline-2"&gt;
-&lt;h2 id="orgcf123ac"&gt;&lt;span class="section-number-2"&gt;5.&lt;/span&gt; 了解流表&lt;/h2&gt;
+&lt;div id="outline-container-org13edbbc" class="outline-2"&gt;
+&lt;h2 id="org13edbbc"&gt;&lt;span class="section-number-2"&gt;5.&lt;/span&gt; 了解流表&lt;/h2&gt;
 &lt;div class="outline-text-2" id="text-5"&gt;
 &lt;ol class="org-ol"&gt;
 &lt;li&gt;查看&lt;/li&gt;
@@ -2290,8 +2290,8 @@ admin@PICOS-OVS$sudo chmod +x /cftmp/auto/post-ovs
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;div id="outline-container-org20ae494" class="outline-2"&gt;
-&lt;h2 id="org20ae494"&gt;&lt;span class="section-number-2"&gt;6.&lt;/span&gt; RYU控制器初步&lt;/h2&gt;
+&lt;div id="outline-container-org8d6e0d7" class="outline-2"&gt;
+&lt;h2 id="org8d6e0d7"&gt;&lt;span class="section-number-2"&gt;6.&lt;/span&gt; RYU控制器初步&lt;/h2&gt;
 &lt;div class="outline-text-2" id="text-6"&gt;
 &lt;ol class="org-ol"&gt;
 &lt;li&gt;控制器框架&lt;/li&gt;
@@ -2301,8 +2301,8 @@ admin@PICOS-OVS$sudo chmod +x /cftmp/auto/post-ovs
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;div id="outline-container-org32eac3e" class="outline-2"&gt;
-&lt;h2 id="org32eac3e"&gt;&lt;span class="section-number-2"&gt;7.&lt;/span&gt; 进阶应用&lt;/h2&gt;
+&lt;div id="outline-container-org6269890" class="outline-2"&gt;
+&lt;h2 id="org6269890"&gt;&lt;span class="section-number-2"&gt;7.&lt;/span&gt; 进阶应用&lt;/h2&gt;
 &lt;div class="outline-text-2" id="text-7"&gt;
 &lt;ol class="org-ol"&gt;
 &lt;li&gt;simpleswitch&lt;/li&gt;
@@ -2317,8 +2317,8 @@ admin@PICOS-OVS$sudo chmod +x /cftmp/auto/post-ovs
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;div id="outline-container-org2173293" class="outline-2"&gt;
-&lt;h2 id="org2173293"&gt;&lt;span class="section-number-2"&gt;8.&lt;/span&gt; 实体交换机验证&lt;/h2&gt;
+&lt;div id="outline-container-org7ab7937" class="outline-2"&gt;
+&lt;h2 id="org7ab7937"&gt;&lt;span class="section-number-2"&gt;8.&lt;/span&gt; 实体交换机验证&lt;/h2&gt;
 &lt;div class="outline-text-2" id="text-8"&gt;
 &lt;ol class="org-ol"&gt;
 &lt;li&gt;在实体交换机上验证自己的APP&lt;/li&gt;
@@ -2329,12 +2329,12 @@ admin@PICOS-OVS$sudo chmod +x /cftmp/auto/post-ovs
 &lt;h2&gt;Table of Contents&lt;/h2&gt;
 &lt;div id="text-table-of-contents" role="doc-toc"&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href="#org4ccb982"&gt;1. 重启交换机&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org943ff41"&gt;1. 重启交换机&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div id="outline-container-org4ccb982" class="outline-2"&gt;
-&lt;h2 id="org4ccb982"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; 重启交换机&lt;/h2&gt;
+&lt;div id="outline-container-org943ff41" class="outline-2"&gt;
+&lt;h2 id="org943ff41"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; 重启交换机&lt;/h2&gt;
 &lt;div class="outline-text-2" id="text-1"&gt;
 &lt;p&gt;
 以3290 为例，不同交换机进入 底层 shell的方法不同
@@ -2368,12 +2368,12 @@ tftp -gr picos-2.9.2.5-P3290-30f7332.tar.gz -l z.tgz 192.168 …&lt;/pre&gt;&lt;
 &lt;h2&gt;Table of Contents&lt;/h2&gt;
 &lt;div id="text-table-of-contents" role="doc-toc"&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href="#org4ccb982"&gt;1. 重启交换机&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org943ff41"&gt;1. 重启交换机&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div id="outline-container-org4ccb982" class="outline-2"&gt;
-&lt;h2 id="org4ccb982"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; 重启交换机&lt;/h2&gt;
+&lt;div id="outline-container-org943ff41" class="outline-2"&gt;
+&lt;h2 id="org943ff41"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; 重启交换机&lt;/h2&gt;
 &lt;div class="outline-text-2" id="text-1"&gt;
 &lt;p&gt;
 以3290 为例，不同交换机进入 底层 shell的方法不同
@@ -2592,19 +2592,19 @@ tar xzvf ovs.tgz
 &lt;h2&gt;Table of Contents&lt;/h2&gt;
 &lt;div id="text-table-of-contents" role="doc-toc"&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href="#org1337435"&gt;1. 实验环境&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#org887cbb2"&gt;2. 实验目的&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#org35cfb57"&gt;3. 操作步骤&lt;/a&gt;
+&lt;li&gt;&lt;a href="#org9d2c145"&gt;1. 实验环境&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org8fa0fe3"&gt;2. 实验目的&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#orgc7547fa"&gt;3. 操作步骤&lt;/a&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href="#org7e00df2"&gt;3.1. 安装一些后续需要使用的软件&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#orgb06f4c8"&gt;3.2. 安装 ryu&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#org00d323f"&gt;3.3. 安装 mininet&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#orgfc30b92"&gt;3.4. ryu 控制和mininet连接&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org4dfdf7f"&gt;3.1. 安装一些后续需要使用的软件&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org689ceb0"&gt;3.2. 安装 ryu&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org4c4cd71"&gt;3.3. 安装 mininet&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org963c3a2"&gt;3.4. ryu 控制和mininet连接&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a href="#org9d5f80a"&gt;4. 附录&lt;/a&gt;
+&lt;li&gt;&lt;a href="#orgcd90c47"&gt;4. 附录&lt;/a&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href="#org2d7d03d"&gt;4.1. 用到的命令&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#orgedcbfe6"&gt;4.1. 用到的命令&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -2613,8 +2613,8 @@ tar xzvf ovs.tgz
 
 
 
-&lt;div id="outline-container-org1337435" class="outline-2"&gt;
-&lt;h2 id="org1337435"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; 实验环境&lt;/h2&gt;
+&lt;div id="outline-container-org9d2c145" class="outline-2"&gt;
+&lt;h2 id="org9d2c145"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; 实验环境&lt;/h2&gt;
 &lt;div class="outline-text-2" id="text-1"&gt;
 &lt;ol class="org-ol"&gt;
 &lt;li&gt;一台可以上网的主机station X (IP 地址 192.168.10.X）&lt;/li&gt;
@@ -2623,8 +2623,8 @@ tar xzvf ovs.tgz
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;div id="outline-container-org887cbb2" class="outline-2"&gt;
-&lt;h2 id="org887cbb2"&gt;&lt;span class="section-number-2"&gt;2.&lt;/span&gt; 实验目的&lt;/h2&gt;
+&lt;div id="outline-container-org8fa0fe3" class="outline-2"&gt;
+&lt;h2 id="org8fa0fe3"&gt;&lt;span class="section-number-2"&gt;2.&lt;/span&gt; 实验目的&lt;/h2&gt;
 &lt;div class="outline-text-2" id="text-2"&gt;
 &lt;ol class="org-ol"&gt;
 &lt;li&gt;掌握Linux 命令行基础使用方法&lt;/li&gt;
@@ -2636,12 +2636,12 @@ tar xzvf ovs.tgz
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;div id="outline-container-org35cfb57" class="outline-2"&gt;
-&lt;h2 id="org35cfb57"&gt;&lt;span class="section-number-2"&gt;3.&lt;/span&gt; 操作步骤&lt;/h2&gt;
+&lt;div id="outline-container-orgc7547fa" class="outline-2"&gt;
+&lt;h2 id="orgc7547fa"&gt;&lt;span class="section-number-2"&gt;3.&lt;/span&gt; 操作步骤&lt;/h2&gt;
 &lt;div class="outline-text-2" id="text-3"&gt;
 &lt;/div&gt;
-&lt;div id="outline-container-org7e00df2" class="outline-3"&gt;
-&lt;h3 id="org7e00df2"&gt;&lt;span class="section-number-3"&gt;3.1.&lt;/span&gt; 安装一些后续需要使用的软件&lt;/h3&gt;
+&lt;div id="outline-container-org4dfdf7f" class="outline-3"&gt;
+&lt;h3 id="org4dfdf7f"&gt;&lt;span class="section-number-3"&gt;3.1.&lt;/span&gt; 安装一些后续需要使用的软件&lt;/h3&gt;
 &lt;div class="outline-text-3" id="text-3-1"&gt;
 &lt;ul class="org-ul"&gt;
 &lt;li&gt;git 版本管理工具&lt;/li&gt;
@@ -2677,8 +2677,8 @@ root权限，不进入交互模式。将以上命令修改为：
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div id="outline-container-orgb06f4c8" class="outline-3"&gt;
-&lt;h3 id="orgb06f4c8"&gt;&lt;span class="section-number-3"&gt;3.2.&lt;/span&gt; 安装 ryu&lt;/h3&gt;
+&lt;div id="outline-container-org689ceb0" class="outline-3"&gt;
+&lt;h3 id="org689ceb0"&gt;&lt;span class="section-number-3"&gt;3.2.&lt;/span&gt; 安装 ryu&lt;/h3&gt;
 &lt;div class="outline-text-3" id="text-3-2"&gt;
 &lt;ol class="org-ol"&gt;
 &lt;li&gt;&lt;p&gt;
@@ -2720,8 +2720,8 @@ sudo apt-key adv &amp;#x2013;keyserver keyserver.ubuntu.com &amp;#x2013;recv-key
 &lt;/div&gt;
 
 
-&lt;div id="outline-container-org00d323f" class="outline-3"&gt;
-&lt;h3 id="org00d323f"&gt;&lt;span class="section-number-3"&gt;3.3.&lt;/span&gt; 安装 mininet&lt;/h3&gt;
+&lt;div id="outline-container-org4c4cd71" class="outline-3"&gt;
+&lt;h3 id="org4c4cd71"&gt;&lt;span class="section-number-3"&gt;3.3.&lt;/span&gt; 安装 mininet&lt;/h3&gt;
 &lt;div class="outline-text-3" id="text-3-3"&gt;
 &lt;p&gt;
 mininet 是一个网络拓扑仿真程序，可以非常方便的实现拓扑/交换机的模拟，
@@ -2759,8 +2759,8 @@ mininet 默认会安装一个openvswitch-controller 控制器，此服务启动�
 &lt;/div&gt;
 
 
-&lt;div id="outline-container-orgfc30b92" class="outline-3"&gt;
-&lt;h3 id="orgfc30b92"&gt;&lt;span class="section-number-3"&gt;3.4.&lt;/span&gt; ryu 控制和mininet连接&lt;/h3&gt;
+&lt;div id="outline-container-org963c3a2" class="outline-3"&gt;
+&lt;h3 id="org963c3a2"&gt;&lt;span class="section-number-3"&gt;3.4.&lt;/span&gt; ryu 控制和mininet连接&lt;/h3&gt;
 &lt;div class="outline-text-3" id="text-3-4"&gt;
 &lt;ol class="org-ol"&gt;
 &lt;li&gt;启动 screen 终端管理工具
@@ -2897,12 +2897,12 @@ unsupported version 0x1. If possible, set the switch to use one of the versions 
 
 
 
-&lt;div id="outline-container-org9d5f80a" class="outline-2"&gt;
-&lt;h2 id="org9d5f80a"&gt;&lt;span class="section-number-2"&gt;4.&lt;/span&gt; 附录&lt;/h2&gt;
+&lt;div id="outline-container-orgcd90c47" class="outline-2"&gt;
+&lt;h2 id="orgcd90c47"&gt;&lt;span class="section-number-2"&gt;4.&lt;/span&gt; 附录&lt;/h2&gt;
 &lt;div class="outline-text-2" id="text-4"&gt;
 &lt;/div&gt;
-&lt;div id="outline-container-org2d7d03d" class="outline-3"&gt;
-&lt;h3 id="org2d7d03d"&gt;&lt;span class="section-number-3"&gt;4.1.&lt;/span&gt; 用到的命令&lt;/h3&gt;
+&lt;div id="outline-container-orgedcbfe6" class="outline-3"&gt;
+&lt;h3 id="orgedcbfe6"&gt;&lt;span class="section-number-3"&gt;4.1.&lt;/span&gt; 用到的命令&lt;/h3&gt;
 &lt;div class="outline-text-3" id="text-4-1"&gt;
 &lt;div class="org-src-container"&gt;
 &lt;pre class="src src-bash"&gt;apt-get install git screen

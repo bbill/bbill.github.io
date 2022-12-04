@@ -40,7 +40,7 @@
 在一台机器上用dnsmasq 做dhcp server，报错
 </p>
 
-<pre class="example" id="org7abade0">
+<pre class="example" id="orgee6fe9c">
 failed to bind dhcp server socket: Address already in use.
 </pre>
 <p>
@@ -48,12 +48,12 @@ failed to bind dhcp server socket: Address already in use.
 关键是取消  bind-interfaces这一行的注释。并且指定需要监听的interface或者IP。
 </p>
 
-<pre class="example" id="org3248fca">
+<pre class="example" id="orgdb80a44">
 bind-interfaces
 interface=eth0
 listen-address=192.168.0.1
 </pre>
-<p>There are <a href="https://bbill.github.io/lab/libvirt_dnsmasq_conflict.html#disqus_thread">comments</a>.</p>                </article>
+                </article>
             </aside><!-- /#featured -->
         <section id="extras" class="body">
                 <div class="blogroll">
@@ -79,14 +79,5 @@ listen-address=192.168.0.1
                 <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
         </footer><!-- /#contentinfo -->
 
-<script type="text/javascript">
-    var disqus_shortname = 'bbill';
-    (function () {
-        var s = document.createElement('script'); s.async = true;
-        s.type = 'text/javascript';
-        s.src = 'https://' + disqus_shortname + '.disqus.com/count.js';
-        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-    }());
-</script>
 </body>
 </html>
