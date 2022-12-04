@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>用autohotkey减少烦人的网页重复操作</title>
+        <link rel="stylesheet" href="https://bbill.github.io/theme/css/main.css" />
+        <link href="https://bbill.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="SDN Hands ON! Atom Feed" />
+
+        <!--[if IE]>
+            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="https://bbill.github.io/">SDN Hands ON! </a></h1>
+                <nav><ul>
+                    <li><a href="https://bbill.github.io/category/chan-pin.html">产品</a></li>
+                    <li class="active"><a href="https://bbill.github.io/category/lab.html">lab</a></li>
+                    <li><a href="https://bbill.github.io/category/product.html">product</a></li>
+                    <li><a href="https://bbill.github.io/category/shi-yan.html">实验</a></li>
+                    <li><a href="https://bbill.github.io/category/troubleshooting.html">troubleshooting</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="https://bbill.github.io/social-share/dist/social-share.min.css">
+<script src="https://bbill.github.io/social-share/dist/social-share.min.js"></script>
+
+      <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<section id="content" class="body">
+  <article>
+    <header>
+
+      <h1 class="entry-title">
+        <a href="https://bbill.github.io/drafts/lab/automatic_boring_web_staff.html" rel="bookmark"
+           title="Permalink to 用autohotkey减少烦人的网页重复操作">用autohotkey减少烦人的网页重复操作</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2019-06-14T00:00:00+08:00">
+                Published: Fri 14 June 2019
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="https://bbill.github.io/author/bill.html">bill</a>
+        </address>
+<p>In <a href="https://bbill.github.io/category/lab.html">lab</a>.</p>
+<p>tags: <a href="https://bbill.github.io/tag/automatic.html">automatic</a> <a href="https://bbill.github.io/tag/autohotkey.html">autohotkey</a> <a href="https://bbill.github.io/tag/ahk.html">ahk</a> <a href="https://bbill.github.io/tag/web.html">web</a> <a href="https://bbill.github.io/tag/gui.html">gui</a> <a href="https://bbill.github.io/tag/in-turn.html">in turn</a> <a href="https://bbill.github.io/tag/zhong-fu.html">重复</a> </p>
+</footer><!-- /.post-info -->      <div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org86a8270">1. 问题</a></li>
+<li><a href="#org607dff9">2. 工具选择</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org86a8270" class="outline-2">
+<h2 id="org86a8270"><span class="section-number-2">1.</span> 问题</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+变态的网页应用，只支持IE 7，要重复做点击，输入文件名，保存。关键是
+要做很多次,忍无可忍。
+</p>
+</div>
+</div>
+
+<div id="outline-container-org607dff9" class="outline-2">
+<h2 id="org607dff9"><span class="section-number-2">2.</span> 工具选择</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+本来打算用sikuli,之前用的很爽，可以做类似录制宏的操作，可是最新的版
+本要 win7, windows 虚机里面一跑就死。放弃。
+</p>
+
+<p>
+然后看了web 自动化测试工具，太重，只有试用版，放弃。直到找到
+autohotkey ，发现正是自己要的。
+</p>
+
+<p>
+可以简单的解决我的问题，无需编程知识。可以把鼠标及键盘操作，存入一
+个脚本，然后执行。鼠标的操作可以通过，相对位置来定，程序可以提示光标位置。
+</p>
+
+<p>
+因为要依次点击，在弹出的会话框改文件名，理论上应该有个循环什么的。
+那个已经超出我的能力范围了，简单取了第一个点击框和最后一个框的位置，
+算了一下每个框的间隔。 用最dirty 的方法，谢了一个shell，sleep 是为
+了等待对话框。
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash"><span style="font-weight: bold; font-style: italic;">#</span><span style="font-weight: bold; font-style: italic;">!/bin/</span><span style="font-weight: bold;">bash</span>
+<span style="font-weight: bold;">typeset</span> <span style="font-weight: bold; font-style: italic;">j</span>=1
+<span style="font-weight: bold;">echo</span> <span style="font-style: italic;">"</span>
+<span style="font-style: italic;">#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.</span>
+<span style="font-style: italic;">; #Warn  ; Enable warnings to assist with detecting common errors.</span>
+<span style="font-style: italic;">SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.</span>
+<span style="font-style: italic;">SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.</span>
+<span style="font-style: italic;">^j::"</span>
+<span style="font-weight: bold;">for</span> i<span style="font-weight: bold;"> in</span> <span style="font-weight: bold;">`cat /tmp/list`</span>;<span style="font-weight: bold;">do</span>    ;/tmp/list &#37324;&#26159;&#29992;excel &#29983;&#25104;&#30340;&#39034;&#24207;&#24231;&#26631;
+    <span style="font-weight: bold;">echo</span> click, 690, $<span style="font-weight: bold; font-style: italic;">i</span>
+    <span style="font-weight: bold;">echo</span> Click, 715, 165
+    <span style="font-weight: bold;">echo</span> sleep, 2000
+    <span style="font-weight: bold;">echo</span> Click, 261, 151
+    <span style="font-weight: bold;">echo</span> sleep, 2000
+    <span style="font-weight: bold;">echo</span> send, $<span style="font-weight: bold; font-style: italic;">j</span> {Return} ;&#25991;&#20214;&#21517;&#35774;&#32622;&#25353;&#25968;&#23383;&#39034;&#24207;&#35774;&#32622;
+    <span style="font-weight: bold;">echo</span> sleep, 1000
+    <span style="font-weight: bold;">echo</span> click, 690, $<span style="font-weight: bold; font-style: italic;">i</span>
+    ((<span style="font-weight: bold; font-style: italic;">j</span>=j+1))
+<span style="font-weight: bold;">done</span>
+<span style="font-weight: bold;">echo</span> return
+</pre>
+</div>
+
+<p>
+把输出作为 autohotkey 的脚本跑，再下载页面按 "Ctrl-J" 快捷键触发,dirty but work。
+</p>
+</div>
+</div>
+
+
+
+    <section id="lg"></section>
+  <section id="md"></section>
+  <section id="sm"></section>
+  <section id="xs"></section>
+
+        <script src="https://bbill.github.io/js/social.js"></script>
+
+
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://www.tooyum.com/">tooyum</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+                            <li><a href="https://bbill.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'bbill';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = 'https://' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>SDN Hands ON! - ubuntu</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">SDN Hands ON! </a></h1>
+                <nav><ul>
+                    <li><a href="/category/chan-pin.html">产品</a></li>
+                    <li><a href="/category/lab.html">lab</a></li>
+                    <li><a href="/category/product.html">product</a></li>
+                    <li><a href="/category/shi-yan.html">实验</a></li>
+                    <li><a href="/category/troubleshooting.html">troubleshooting</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="/product/OpenFlow_over_p4.html">用P4实现的OpenFlow（OVS）交换机</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2020-01-01T00:00:00+08:00">
+                Published: 三 01 一月 2020
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/bill.html">bill</a>
+        </address>
+<p>In <a href="/category/product.html">product</a>.</p>
+<p>tags: <a href="/tag/tofino.html">tofino</a> <a href="/tag/ubuntu.html">ubuntu</a> <a href="/tag/ovs.html">ovs</a> </p>
+</footer><!-- /.post-info --><div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org2228906">1. 安装 SDE</a></li>
+<li><a href="#org4a2b1ba">2. 更新内核</a></li>
+<li><a href="#org94d392f">3. 安装AOVS</a></li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org2228906" class="outline-2">
+<h2 id="org2228906"><span class="section-number-2">1</span> 安装 SDE</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+由于ONL系统的源国内访问较慢
+准备工作
+</p>
+<ol class="org-ol">
+<li>确保服务器打开SR-IOV，（BIOS 设置）</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org4a2b1ba" class="outline-2">
+<h2 id="org4a2b1ba"><span class="section-number-2">2</span> 更新内核</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Centos/RHEL 操作系统可以从我们提供的网盘下载
+链接:<a href="https://pan.baidu.com/s/1geZ2kev">https://pan.baidu.com/s/1geZ2kev</a> 密码:76hp
+</p>
+
+<p>
+rhel-3.10.0-493.el7.tar.gz 解压后安装所有包
+</p>
+<pre class="example">
+cd "extract path"
+yum localinstall *.rpm
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org94d392f" class="outline-2">
+<h2 id="org94d392f"><span class="section-number-2">3</span> 安装AOVS</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+下载 
+</p>
+
+
+
+
+<pre class="example">
+rpm -i kernel*.rpm
+yum -y install epel-release
+yum -y install make autoconf automake libtool gcc gcc-c++ libpcap-devel \
+readline-devel jansson-devel libevent libevent-devel libtool openssl-devel \
+bison flex gawk hwloc gettext texinfo rpm-build \
+redhat-rpm-config graphviz python-devel python python-devel tcl-devel \
+tk-devel texinfo dkms zip unzip pkgconfig wget patch minicom libusb \
+libusb-devel psmisc libnl3-devel libftdi pciutils \
+zeromq3 zeromq3-devel protobuf-c-compiler protobuf-compiler protobuf-python \
+protobuf-c-devel python-six numactl-libs python-ethtool kvm qemu-kvm \
+virt-install libvirt libvirt-python virt-manager libguestfs-tools \
+cloud-utils virt-install lvm2 wget git net-tools libguestfs-tools
+</pre>
+</div>
+</div>
+<p>There are <a href="/product/OpenFlow_over_p4.html#disqus_thread">comments</a>.</p>                </article>
+            </aside><!-- /#featured -->
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://www.tooyum.com/">tooyum</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'bbill';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = 'https://' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+</body>
+</html>

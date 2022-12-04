@@ -3,7 +3,8 @@
 <head>
         <meta charset="utf-8" />
         <title>SDN Hands ON! - bill</title>
-        <link rel="stylesheet" href="/theme/css/main.css" />
+        <link rel="stylesheet" href="https://bbill.github.io/theme/css/main.css" />
+        <link href="https://bbill.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="SDN Hands ON! Atom Feed" />
 
         <!--[if IE]>
             <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -12,13 +13,13 @@
 
 <body id="index" class="home">
         <header id="banner" class="body">
-                <h1><a href="/">SDN Hands ON! </a></h1>
+                <h1><a href="https://bbill.github.io/">SDN Hands ON! </a></h1>
                 <nav><ul>
-                    <li><a href="/category/chan-pin.html">产品</a></li>
-                    <li><a href="/category/lab.html">lab</a></li>
-                    <li><a href="/category/product.html">product</a></li>
-                    <li><a href="/category/shi-yan.html">实验</a></li>
-                    <li><a href="/category/troubleshooting.html">troubleshooting</a></li>
+                    <li><a href="https://bbill.github.io/category/chan-pin.html">产品</a></li>
+                    <li><a href="https://bbill.github.io/category/lab.html">lab</a></li>
+                    <li><a href="https://bbill.github.io/category/product.html">product</a></li>
+                    <li><a href="https://bbill.github.io/category/shi-yan.html">实验</a></li>
+                    <li><a href="https://bbill.github.io/category/troubleshooting.html">troubleshooting</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
 
@@ -26,290 +27,53 @@
                     <ol id="posts-list" class="hfeed" start="9">
             <li><article class="hentry">
                 <header>
-                    <h1><a href="/product/Spice_over_Ubuntu_16.04.html" rel="bookmark"
-                           title="Permalink to The SPICE support in KVM Ubunt 16.04 guest">The SPICE support in KVM Ubunt 16.04 guest</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2018-01-23T00:00:00+08:00">
-                Published: 二 23 一月 2018
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/bill.html">bill</a>
-        </address>
-<p>In <a href="/category/product.html">product</a>.</p>
-<p>tags: <a href="/tag/kvm.html">kvm</a> <a href="/tag/ovirt.html">ovirt</a> <a href="/tag/spice.html">spice</a> <a href="/tag/qxl.html">qxl</a> <a href="/tag/ubuntu-1604.html">ubuntu 16.04</a> </p>
-</footer><!-- /.post-info -->                <div id="table-of-contents">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents">
-<ul>
-<li><a href="#org12e3bc9">1. Problem</a></li>
-<li><a href="#org5d6d6ea">2. Solution</a></li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-org12e3bc9" class="outline-2">
-<h2 id="org12e3bc9"><span class="section-number-2">1</span> Problem</h2>
-<div class="outline-text-2" id="text-1">
-<p>
-The OS can't detect the qxl video driver. The display resolution
-can't be changed not to mention adjust automatically.
-</p>
-
-<p>
-Try to solve it by kill X,then reconfigure it.
-</p>
-<pre class="example">
-init 3
-</pre>
-<p>
-after relogin
-</p>
-
-<pre class="example">
-X -configure
-</pre>
-
-<p>
-It keep complains 
-</p>
-
-<pre class="example">
-X.Org X …</pre></div></div>
-                <a class="readmore" href="/product/Spice_over_Ubuntu_16.04.html">read more</a>
-<p>There are <a href="/product/Spice_over_Ubuntu_16.04.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/lab/libvirt_dnsmasq_conflict.html" rel="bookmark"
-                           title="Permalink to libvirtd 导致的dnsmasq 冲突问题">libvirtd 导致的dnsmasq 冲突问题</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2018-01-20T00:00:00+08:00">
-                Published: 六 20 一月 2018
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/bill.html">bill</a>
-        </address>
-<p>In <a href="/category/lab.html">lab</a>.</p>
-<p>tags: <a href="/tag/libvirtd.html">libvirtd</a> <a href="/tag/dasmasq.html">dasmasq</a> <a href="/tag/conflict.html">conflict</a> </p>
-</footer><!-- /.post-info -->                <p>
-在一台机器上用dnsmasq 做dhcp server，报错
-</p>
-
-<pre class="example">
-failed to bind dhcp server socket: Address already in use.
-</pre>
-<p>
-查看后发现系统内已经由libvirtd 启动了一个dnsmasq，对virtbr0提供服务。<a href="https://wiki.libvirt.org/page/Libvirtd_and_dnsmasq">这里</a>提供了解决方案。
-关键是取消  bind-interfaces这一行的注释。并且指定需要监听的interface或者IP。
-</p>
-
-<pre class="example">
-bind-interfaces
-interface=eth0
-listen-address=192.168.0.1
-</pre>
-
-                <a class="readmore" href="/lab/libvirt_dnsmasq_conflict.html">read more</a>
-<p>There are <a href="/lab/libvirt_dnsmasq_conflict.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/product/add_guest_agent.html" rel="bookmark"
-                           title="Permalink to 给 ubuntu 16.04 添加 guest agent">给 ubuntu 16.04 添加 guest agent</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2018-01-13T00:00:00+08:00">
-                Published: 六 13 一月 2018
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/bill.html">bill</a>
-        </address>
-<p>In <a href="/category/product.html">product</a>.</p>
-<p>tags: <a href="/tag/ybox.html">Ybox</a> <a href="/tag/kvm.html">KVM</a> <a href="/tag/xu-ni-hua.html">虚拟化</a> <a href="/tag/fang-zhen.html">仿真</a> </p>
-</footer><!-- /.post-info -->                <p>
-wget -O -  <a href="https://raw.githubusercontent.com/bbill/scripts/master/Ybox/ubuntu16_guest_agent.sh">https://raw.githubusercontent.com/bbill/scripts/master/Ybox/ubuntu16_guest_agent.sh</a> |bash
-</p>
-
-                <a class="readmore" href="/product/add_guest_agent.html">read more</a>
-<p>There are <a href="/product/add_guest_agent.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/lab/pica8_OVS_Command_Reference.html" rel="bookmark"
-                           title="Permalink to Pica8 OVS 模式常用命令">Pica8 OVS 模式常用命令</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2018-01-05T00:00:00+08:00">
-                Published: 五 05 一月 2018
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/bill.html">bill</a>
-        </address>
-<p>In <a href="/category/lab.html">lab</a>.</p>
-<p>tags: <a href="/tag/pica.html">pica</a> <a href="/tag/white-box.html">white box</a> <a href="/tag/openflow.html">openflow</a> <a href="/tag/sdn.html">sdn</a> </p>
-</footer><!-- /.post-info -->                <div id="table-of-contents">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents">
-<ul>
-<li><a href="#org26372ca">1. 确认端口状态</a></li>
-<li><a href="#orgbe8ca9f">2. 确认硬件流表支持的最大条目</a></li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-org26372ca" class="outline-2">
-<h2 id="org26372ca"><span class="section-number-2">1</span> 确认端口状态</h2>
-<div class="outline-text-2" id="text-1">
-<ol class="org-ol">
-<li><p>
-端口计数器
-</p>
-<pre class="example">
-admin@PicOS-OVS$ovs-ofctl dump-ports  br0
-OFPST_PORT reply (OF1.3) (xid=0x2): 49 ports
-  port  1: rx pkts=0, bytes=979551, drop=0, errs=518513, frame=0, over=0, crc=0
-           tx pkts=457981, bytes=34858800, drop=0, errs=0, coll …</pre></li></ol></div></div>
-                <a class="readmore" href="/lab/pica8_OVS_Command_Reference.html">read more</a>
-<p>There are <a href="/lab/pica8_OVS_Command_Reference.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/product/openmesh_static_flow.html" rel="bookmark"
-                           title="Permalink to OpenMesh SDN 交换机的静态流表配置">OpenMesh SDN 交换机的静态流表配置</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2018-01-03T00:00:00+08:00">
-                Published: 三 03 一月 2018
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/bill.html">bill</a>
-        </address>
-<p>In <a href="/category/chan-pin.html">产品</a>.</p>
-<p>tags: <a href="/tag/sdn.html">sdn</a> <a href="/tag/openflow.html">openflow</a> <a href="/tag/ovs-vsctl.html">ovs-vsctl</a> <a href="/tag/static.html">static</a> <a href="/tag/flow.html">flow</a> </p>
-</footer><!-- /.post-info -->                <div id="table-of-contents">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents">
-<ul>
-<li><a href="#org213f574">1. OpenMesh SDN交换机设置静态流表的"正确"方法</a>
-<ul>
-<li><a href="#org719058b">1.1. 系统初始设置</a></li>
-<li><a href="#org2d299da">1.2. 添加静态流配置命令</a></li>
-</ul>
-</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-org213f574" class="outline-2">
-<h2 id="org213f574"><span class="section-number-2">1</span> OpenMesh SDN交换机设置静态流表的"正确"方法</h2>
-<div class="outline-text-2" id="text-1">
-</div>
-<div id="outline-container-org719058b" class="outline-3">
-<h3 id="org719058b"><span class="section-number-3">1.1</span> 系统初始设置</h3>
-<div class="outline-text-3" id="text-1-1">
-<p>
-参见 <a href="../lab/pica8_quick_start.html">快速上手</a>
-</p>
-</div>
-</div>
-
-<div id="outline-container-org2d299da" class="outline-3">
-<h3 id="org2d299da"><span class="section-number-3">1.2</span> 添加静态流配置命令</h3>
-<div class="outline-text-3" id="text-1-2">
-<pre class="example">
-admin@PICOS-OVS$sudo mkdir /cftmp/
-</pre>
-
-<p>
-创建规则脚本
-</p>
-
-<pre class="example">
-admin@PICOS-OVS$sudo vi /cftmp/auto/post-ovs
-
-</pre>
-
-<p>
-在规则脚本 /cftmp/auto/post-ovs 中写入如下内容
-</p>
-
-<pre class="example">
-#!/bin/bash                                                                                                                                                   
-export PATH=/ovs …</pre></div></div></div>
-                <a class="readmore" href="/product/openmesh_static_flow.html">read more</a>
-<p>There are <a href="/product/openmesh_static_flow.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/product/barefoot.html" rel="bookmark"
+                    <h1><a href="https://bbill.github.io/product/barefoot.html" rel="bookmark"
                            title="Permalink to Barefoot P4 Switch">Barefoot P4 Switch</a></h1>
                 </header>
 
                 <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2017-10-28T00:00:00+08:00">
-                Published: 六 28 十月 2017
+                Published: Sat 28 October 2017
         </abbr>
 
         <address class="vcard author">
-                By                         <a class="url fn" href="/author/bill.html">bill</a>
+                By                         <a class="url fn" href="https://bbill.github.io/author/bill.html">bill</a>
         </address>
-<p>In <a href="/category/chan-pin.html">产品</a>.</p>
-<p>tags: <a href="/tag/sdn.html">sdn</a> <a href="/tag/openflow.html">openflow</a> <a href="/tag/p4.html">p4</a> <a href="/tag/tofino.html">tofino</a> <a href="/tag/barefoot.html">barefoot</a> <a href="/tag/onie.html">onie</a> <a href="/tag/capilano.html">capilano</a> </p>
+<p>In <a href="https://bbill.github.io/category/chan-pin.html">产品</a>.</p>
+<p>tags: <a href="https://bbill.github.io/tag/sdn.html">sdn</a> <a href="https://bbill.github.io/tag/openflow.html">openflow</a> <a href="https://bbill.github.io/tag/p4.html">p4</a> <a href="https://bbill.github.io/tag/tofino.html">tofino</a> <a href="https://bbill.github.io/tag/barefoot.html">barefoot</a> <a href="https://bbill.github.io/tag/onie.html">onie</a> <a href="https://bbill.github.io/tag/capilano.html">capilano</a> </p>
 </footer><!-- /.post-info -->                Barefoot P4 交换机概况
-                <a class="readmore" href="/product/barefoot.html">read more</a>
-<p>There are <a href="/product/barefoot.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
+                <a class="readmore" href="https://bbill.github.io/product/barefoot.html">read more</a>
+<p>There are <a href="https://bbill.github.io/product/barefoot.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
             </article></li>
 
             <li><article class="hentry">
                 <header>
-                    <h1><a href="/lab/upgrade_P-3290.html" rel="bookmark"
+                    <h1><a href="https://bbill.github.io/lab/upgrade_P-3290.html" rel="bookmark"
                            title="Permalink to 在P-3290 系统上安装 PicOS 操作系统">在P-3290 系统上安装 PicOS 操作系统</a></h1>
                 </header>
 
                 <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2017-10-16T00:00:00+08:00">
-                Published: 一 16 十月 2017
+                Published: Mon 16 October 2017
         </abbr>
 
         <address class="vcard author">
-                By                         <a class="url fn" href="/author/bill.html">bill</a>
+                By                         <a class="url fn" href="https://bbill.github.io/author/bill.html">bill</a>
         </address>
-<p>In <a href="/category/lab.html">lab</a>.</p>
-<p>tags: <a href="/tag/p-3290.html">P-3290</a> <a href="/tag/upgrade.html">upgrade</a> <a href="/tag/pica8.html">pica8</a> <a href="/tag/sdn.html">sdn</a> <a href="/tag/openflow.html">openflow</a> <a href="/tag/baremetal.html">baremetal</a> </p>
-</footer><!-- /.post-info -->                <div id="table-of-contents">
+<p>In <a href="https://bbill.github.io/category/lab.html">lab</a>.</p>
+<p>tags: <a href="https://bbill.github.io/tag/p-3290.html">P-3290</a> <a href="https://bbill.github.io/tag/upgrade.html">upgrade</a> <a href="https://bbill.github.io/tag/pica8.html">pica8</a> <a href="https://bbill.github.io/tag/sdn.html">sdn</a> <a href="https://bbill.github.io/tag/openflow.html">openflow</a> <a href="https://bbill.github.io/tag/baremetal.html">baremetal</a> </p>
+</footer><!-- /.post-info -->                <div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgfd9d2bf">1. 重启交换机</a></li>
+<li><a href="#org4ccb982">1. 重启交换机</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgfd9d2bf" class="outline-2">
-<h2 id="orgfd9d2bf"><span class="section-number-2">1</span> 重启交换机</h2>
+<div id="outline-container-org4ccb982" class="outline-2">
+<h2 id="org4ccb982"><span class="section-number-2">1.</span> 重启交换机</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 以3290 为例，不同交换机进入 底层 shell的方法不同
@@ -340,27 +104,27 @@ press any key to stop autoboot 时，按回车
 <pre class="src src-bash"><span style="font-weight: bold;">cd</span> /cf_card
 rm &#8211;rf [a-y]* 
 tftp -gr picos-2.9.2.5-P3290-30f7332.tar.gz -l z.tgz 192.168 …</pre></div></div></div>
-                <a class="readmore" href="/lab/upgrade_P-3290.html">read more</a>
-<p>There are <a href="/lab/upgrade_P-3290.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
+                <a class="readmore" href="https://bbill.github.io/lab/upgrade_P-3290.html">read more</a>
+<p>There are <a href="https://bbill.github.io/lab/upgrade_P-3290.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
             </article></li>
 
             <li><article class="hentry">
                 <header>
-                    <h1><a href="/lab/upgrade_picos.html" rel="bookmark"
+                    <h1><a href="https://bbill.github.io/lab/upgrade_picos.html" rel="bookmark"
                            title="Permalink to 升级Pica8操作系统">升级Pica8操作系统</a></h1>
                 </header>
 
                 <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2017-10-16T00:00:00+08:00">
-                Published: 一 16 十月 2017
+                Published: Mon 16 October 2017
         </abbr>
 
         <address class="vcard author">
-                By                         <a class="url fn" href="/author/bill.html">bill</a>
+                By                         <a class="url fn" href="https://bbill.github.io/author/bill.html">bill</a>
         </address>
-<p>In <a href="/category/lab.html">lab</a>.</p>
-<p>tags: <a href="/tag/pica8.html">pica8</a> <a href="/tag/maitainence.html">maitainence</a> <a href="/tag/openflow.html">openflow</a> <a href="/tag/hardware.html">hardware</a> <a href="/tag/upgrade.html">upgrade</a> </p>
+<p>In <a href="https://bbill.github.io/category/lab.html">lab</a>.</p>
+<p>tags: <a href="https://bbill.github.io/tag/pica8.html">pica8</a> <a href="https://bbill.github.io/tag/maitainence.html">maitainence</a> <a href="https://bbill.github.io/tag/openflow.html">openflow</a> <a href="https://bbill.github.io/tag/hardware.html">hardware</a> <a href="https://bbill.github.io/tag/upgrade.html">upgrade</a> </p>
 </footer><!-- /.post-info -->                <p>
 更新前需要做如下检查，确保能使用upgrade命令升级：
 </p>
@@ -382,34 +146,35 @@ tar cavf lic.tgz  /etc/picos/switch-public.key /etc/picos/pica.lic
 <blockquote>
 <p>
 admin@PicOS-OVS$cat /etc/picos/fs …</p></blockquote></li></ol>
-                <a class="readmore" href="/lab/upgrade_picos.html">read more</a>
-<p>There are <a href="/lab/upgrade_picos.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
+                <a class="readmore" href="https://bbill.github.io/lab/upgrade_picos.html">read more</a>
+<p>There are <a href="https://bbill.github.io/lab/upgrade_picos.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
             </article></li>
 
             <li><article class="hentry">
                 <header>
-                    <h1><a href="/lab/ryu_lab1.html" rel="bookmark"
+                    <h1><a href="https://bbill.github.io/lab/ryu_lab1.html" rel="bookmark"
                            title="Permalink to Ryu 控制器的安装及基本操作">Ryu 控制器的安装及基本操作</a></h1>
                 </header>
 
                 <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2017-09-24T00:00:00+08:00">
-                Published: 日 24 九月 2017
+                Published: Sun 24 September 2017
         </abbr>
 
         <address class="vcard author">
-                By                         <a class="url fn" href="/author/bill.html">bill</a>
+                By                         <a class="url fn" href="https://bbill.github.io/author/bill.html">bill</a>
         </address>
-<p>In <a href="/category/lab.html">lab</a>.</p>
-<p>tags: <a href="/tag/ryu.html">ryu</a> <a href="/tag/openflow.html">openflow</a> <a href="/tag/mininet.html">mininet</a> </p>
+<p>In <a href="https://bbill.github.io/category/lab.html">lab</a>.</p>
+<p>tags: <a href="https://bbill.github.io/tag/ryu.html">ryu</a> <a href="https://bbill.github.io/tag/openflow.html">openflow</a> <a href="https://bbill.github.io/tag/mininet.html">mininet</a> </p>
 </footer><!-- /.post-info -->                RYU 安装操作
-                <a class="readmore" href="/lab/ryu_lab1.html">read more</a>
-<p>There are <a href="/lab/ryu_lab1.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
+                <a class="readmore" href="https://bbill.github.io/lab/ryu_lab1.html">read more</a>
+<p>There are <a href="https://bbill.github.io/lab/ryu_lab1.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
             </article></li>
                 </ol><!-- /#posts-list -->
 <p class="paginator">
-        <a href="/author/bill.html">&laquo;</a>
+        <a href="https://bbill.github.io/author/bill.html">&#8647;</a>
+        <a href="https://bbill.github.io/author/bill.html">&laquo;</a>
     Page 2 / 2
 </p>
                 </section><!-- /#content -->
@@ -420,6 +185,13 @@ admin@PicOS-OVS$cat /etc/picos/fs …</p></blockquote></li></ol>
                             <li><a href="http://www.tooyum.com/">tooyum</a></li>
                         </ul>
                 </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+                            <li><a href="https://bbill.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+
+                        </ul>
+                </div><!-- /.social -->
         </section><!-- /#extras -->
 
         <footer id="contentinfo" class="body">

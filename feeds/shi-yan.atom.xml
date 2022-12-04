@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>SDN Hands ON! - 实验</title><link href="https://bbill.github.io/" rel="alternate"></link><link href="https://bbill.github.io/feeds/shi-yan.atom.xml" rel="self"></link><id>https://bbill.github.io/</id><updated>2017-10-21T00:00:00+08:00</updated><entry><title>SDN 教学大纲</title><link href="https://bbill.github.io/lab/jiaxuedagang.html" rel="alternate"></link><published>2017-10-21T00:00:00+08:00</published><updated>2017-10-21T00:00:00+08:00</updated><author><name>service@tooyum.com</name></author><id>tag:bbill.github.io,2017-10-21:/lab/jiaxuedagang.html</id><summary type="html">一个简单的教学大纲,</summary><content type="html">&lt;div id="table-of-contents" role="doc-toc"&gt;
+&lt;h2&gt;Table of Contents&lt;/h2&gt;
+&lt;div id="text-table-of-contents" role="doc-toc"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#orgb06a3ca"&gt;1. 教学环境准备&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#org8540333"&gt;1.1. 仿真工具&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org6049915"&gt;1.2. 常用工具&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org0ade73b"&gt;2. 传统网络基础&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org3741d8b"&gt;3. SDN 与 OpenFlow 技术基本概念&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#orgfd0e891"&gt;4. SDN 网络入门实验&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#orgcf123ac"&gt;5. 了解流表&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org20ae494"&gt;6. RYU控制器初步&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org32eac3e"&gt;7. 进阶应用&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org2173293"&gt;8. 实体交换机验证&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+
+&lt;div id="outline-container-orgb06a3ca" class="outline-2"&gt;
+&lt;h2 id="orgb06a3ca"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; 教学环境准备&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-1"&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-org8540333" class="outline-3"&gt;
+&lt;h3 id="org8540333"&gt;&lt;span class="section-number-3"&gt;1.1.&lt;/span&gt; 仿真工具&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-1-1"&gt;
+&lt;p&gt;
+可选开源(mininet)，商用(estinet)仿真软件
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-org6049915" class="outline-3"&gt;
+&lt;h3 id="org6049915"&gt;&lt;span class="section-number-3"&gt;1.2.&lt;/span&gt; 常用工具&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-1-2"&gt;
+&lt;ol class="org-ol"&gt;
+&lt;li&gt;Wireshark 网路抓包工具&lt;/li&gt;
+&lt;li&gt;xterm&lt;/li&gt;
+&lt;li&gt;tcptrace&lt;/li&gt;
+&lt;li&gt;WinSCP&lt;/li&gt;
+&lt;li&gt;Gnuplot&lt;/li&gt;
+&lt;li&gt;Docker 与 OVS 介绍&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+
+&lt;div id="outline-container-org0ade73b" class="outline-2"&gt;
+&lt;h2 id="org0ade73b"&gt;&lt;span class="section-number-2"&gt;2.&lt;/span&gt; 传统网络基础&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-2"&gt;
+&lt;ol class="org-ol"&gt;
+&lt;li&gt;NAT 网路地址址转换（Network Address Translation）&lt;/li&gt;
+&lt;li&gt;DHCP 动态主机设定协议（Dynamic Host Configuration Protocol）&lt;/li&gt;
+&lt;li&gt;域名解析 DNS（Domain Name System）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id="outline-container-org3741d8b" class="outline-2"&gt;
+&lt;h2 id="org3741d8b"&gt;&lt;span class="section-number-2"&gt;3.&lt;/span&gt; SDN 与 OpenFlow 技术基本概念&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-3"&gt;
+&lt;ol class="org-ol"&gt;
+&lt;li&gt;软体定义网路（Software-Defined Networking）&lt;/li&gt;
+&lt;li&gt;控制平面（Control Plane）&lt;/li&gt;
+&lt;li&gt;资料平面（Data Plane）&lt;/li&gt;
+&lt;li&gt;OpenFlow 架构与运作原理&lt;/li&gt;
+&lt;li&gt;SDN 控制器（SDN Controller）
+&lt;ol class="org-ol"&gt;
+&lt;li&gt;POX&lt;/li&gt;
+&lt;li&gt;RYU&lt;/li&gt;
+&lt;li&gt;ONOS&lt;/li&gt;
+&lt;li&gt;ODL&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;li&gt;OVS（Open vSwitch）/ ovs-ofctl 简介&lt;/li&gt;
+&lt;li&gt;网路功能虚拟化&lt;/li&gt;
+&lt;li&gt;SDN与网路安全&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+
+&lt;div id="outline-container-orgfd0e891" class="outline-2"&gt;
+&lt;h2 id="orgfd0e891"&gt;&lt;span class="section-number-2"&gt;4.&lt;/span&gt; SDN 网络入门实验&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-4"&gt;
+&lt;ol class="org-ol"&gt;
+&lt;li&gt;RYU 控制器安装启动&lt;/li&gt;
+&lt;li&gt;仿真工具建立一个简单的拓扑&lt;/li&gt;
+&lt;li&gt;控制器和交换机（仿真拓扑）的对接&lt;/li&gt;
+&lt;li&gt;验证&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+
+&lt;div id="outline-container-orgcf123ac" class="outline-2"&gt;
+&lt;h2 id="orgcf123ac"&gt;&lt;span class="section-number-2"&gt;5.&lt;/span&gt; 了解流表&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-5"&gt;
+&lt;ol class="org-ol"&gt;
+&lt;li&gt;查看&lt;/li&gt;
+&lt;li&gt;增加删除修改&lt;/li&gt;
+&lt;li&gt;匹配项&lt;/li&gt;
+&lt;li&gt;动作&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id="outline-container-org20ae494" class="outline-2"&gt;
+&lt;h2 id="org20ae494"&gt;&lt;span class="section-number-2"&gt;6.&lt;/span&gt; RYU控制器初步&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-6"&gt;
+&lt;ol class="org-ol"&gt;
+&lt;li&gt;控制器框架&lt;/li&gt;
+&lt;li&gt;事件驱动&lt;/li&gt;
+&lt;li&gt;一个简单的APP（HUB）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id="outline-container-org32eac3e" class="outline-2"&gt;
+&lt;h2 id="org32eac3e"&gt;&lt;span class="section-number-2"&gt;7.&lt;/span&gt; 进阶应用&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-7"&gt;
+&lt;ol class="org-ol"&gt;
+&lt;li&gt;simpleswitch&lt;/li&gt;
+&lt;li&gt;arp proxy&lt;/li&gt;
+&lt;li&gt;security （自定义策略）
+&lt;ol class="org-ol"&gt;
+&lt;li&gt;Firewall&lt;/li&gt;
+&lt;li&gt;QOS&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;li&gt;RYU: Dijkstra 算法&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id="outline-container-org2173293" class="outline-2"&gt;
+&lt;h2 id="org2173293"&gt;&lt;span class="section-number-2"&gt;8.&lt;/span&gt; 实体交换机验证&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-8"&gt;
+&lt;ol class="org-ol"&gt;
+&lt;li&gt;在实体交换机上验证自己的APP&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</content><category term="实验"></category><category term="ryu"></category><category term="openflow"></category><category term="mininet"></category><category term="estinet"></category></entry></feed>

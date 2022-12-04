@@ -3,7 +3,8 @@
 <head>
         <meta charset="utf-8" />
         <title>SDN Hands ON! - p4</title>
-        <link rel="stylesheet" href="/theme/css/main.css" />
+        <link rel="stylesheet" href="https://bbill.github.io/theme/css/main.css" />
+        <link href="https://bbill.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="SDN Hands ON! Atom Feed" />
 
         <!--[if IE]>
             <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -12,137 +13,212 @@
 
 <body id="index" class="home">
         <header id="banner" class="body">
-                <h1><a href="/">SDN Hands ON! </a></h1>
+                <h1><a href="https://bbill.github.io/">SDN Hands ON! </a></h1>
                 <nav><ul>
-                    <li><a href="/category/chan-pin.html">产品</a></li>
-                    <li><a href="/category/lab.html">lab</a></li>
-                    <li><a href="/category/product.html">product</a></li>
-                    <li><a href="/category/shi-yan.html">实验</a></li>
-                    <li><a href="/category/troubleshooting.html">troubleshooting</a></li>
+                    <li><a href="https://bbill.github.io/category/chan-pin.html">产品</a></li>
+                    <li><a href="https://bbill.github.io/category/lab.html">lab</a></li>
+                    <li><a href="https://bbill.github.io/category/product.html">product</a></li>
+                    <li><a href="https://bbill.github.io/category/shi-yan.html">实验</a></li>
+                    <li><a href="https://bbill.github.io/category/troubleshooting.html">troubleshooting</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/product/barefoot.html">Barefoot P4 Switch</a></h1>
+                    <h1 class="entry-title"><a href="https://bbill.github.io/product/select_the_right_switch.html">科研机构怎么选购 p4 交换机</a></h1>
 <footer class="post-info">
-        <abbr class="published" title="2017-10-28T00:00:00+08:00">
-                Published: 六 28 十月 2017
+        <abbr class="published" title="2022-12-05T00:00:00+08:00">
+                Published: Mon 05 December 2022
         </abbr>
 
         <address class="vcard author">
-                By                         <a class="url fn" href="/author/bill.html">bill</a>
+                By                         <a class="url fn" href="https://bbill.github.io/author/bill.html">bill</a>
         </address>
-<p>In <a href="/category/chan-pin.html">产品</a>.</p>
-<p>tags: <a href="/tag/sdn.html">sdn</a> <a href="/tag/openflow.html">openflow</a> <a href="/tag/p4.html">p4</a> <a href="/tag/tofino.html">tofino</a> <a href="/tag/barefoot.html">barefoot</a> <a href="/tag/onie.html">onie</a> <a href="/tag/capilano.html">capilano</a> </p>
-</footer><!-- /.post-info --><div id="table-of-contents">
+<p>In <a href="https://bbill.github.io/category/chan-pin.html">产品</a>.</p>
+<p>tags: <a href="https://bbill.github.io/tag/sdn.html">sdn</a> <a href="https://bbill.github.io/tag/openflow.html">openflow</a> <a href="https://bbill.github.io/tag/p4.html">p4</a> <a href="https://bbill.github.io/tag/tofino.html">tofino</a> <a href="https://bbill.github.io/tag/barefoot.html">barefoot</a> <a href="https://bbill.github.io/tag/onie.html">onie</a> <a href="https://bbill.github.io/tag/openmesh.html">openmesh</a> <a href="https://bbill.github.io/tag/edgecore.html">edgecore</a> </p>
+</footer><!-- /.post-info --><div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org4a10e82">1. Barefoot Tofino™</a></li>
-<li><a href="#org715300f">2. Barefoot Capilano™ SDE</a></li>
-<li><a href="#org79a82e8">3. Wedge 100BF-32X</a></li>
-<li><a href="#org16f916e">4. CPU,BMC,Platform Software</a></li>
-<li><a href="#org531d978">5. Wedge 100B Series – A Summary</a></li>
+<li><a href="#org5c6d845">1. 选择CPU</a></li>
+<li><a href="#orgfe2d8f8">2. 交换芯片</a></li>
+<li><a href="#orgc002c38">3. 软件支持</a></li>
+<li><a href="#org3092ff6">4. 扩展能力</a></li>
 </ul>
 </div>
 </div>
 
-
-
-<div id="outline-container-org4a10e82" class="outline-2">
-<h2 id="org4a10e82"><span class="section-number-2">1</span> Barefoot Tofino™</h2>
+<div id="outline-container-org5c6d845" class="outline-2">
+<h2 id="org5c6d845"><span class="section-number-2">1.</span> 选择CPU</h2>
 <div class="outline-text-2" id="text-1">
-<ul class="org-ul">
-<li>6.5 Tb/s P4-programmable Ethernet Switch</li>
-<li>Port Configurations
-<ul class="org-ul">
-<li>65x100GE/40GE</li>
-<li>130x50GE</li>
-<li>260x10/25GE</li>
-</ul></li>
-<li>Programmable Packet Processing Pipeline
-<ul class="org-ul">
-<li>switch.p4 forwarding plane program</li>
-</ul></li>
-<li>CPU Interface
-<ul class="org-ul">
-<li>PCIe Gen3 x4</li>
-</ul></li>
-</ul>
+<p>
+CPU 分两类
+</p>
+
+<ol class="org-ol">
+<li>管理CPU
+包括 Intel D-1517，D-1527，C3558 C35xx等</li>
+</ol>
+
+
+<ol class="org-ol">
+<li><p>
+管理CPU + 流量处理
+主要有Intel  至强 Skylake ，Cascade Lake 等湖系列双至强方案
+</p>
+
+<p>
+在同一类CPU中，CPU之间的差异就不再是选择产品的决定因素了。
+</p></li>
+</ol>
 </div>
 </div>
 
-<div id="outline-container-org715300f" class="outline-2">
-<h2 id="org715300f"><span class="section-number-2">2</span> Barefoot Capilano™ SDE</h2>
+<div id="outline-container-orgfe2d8f8" class="outline-2">
+<h2 id="orgfe2d8f8"><span class="section-number-2">2.</span> 交换芯片</h2>
 <div class="outline-text-2" id="text-2">
-
-<div class="figure">
-<p><img src="../fig/capilano.png" alt="capilano.png" width="450;" />
+<p>
+Intel Tofino 系列芯片：
 </p>
+
+<ol class="org-ol">
+<li>一代</li>
+</ol>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">32D</td>
+<td class="org-left">32Q</td>
+<td class="org-left">64Q</td>
+</tr>
+
+<tr>
+<td class="org-left">pipeline</td>
+<td class="org-right">2</td>
+<td class="org-left">4</td>
+<td class="org-left">4</td>
+</tr>
+
+<tr>
+<td class="org-left">交换容量</td>
+<td class="org-right">3.2T</td>
+<td class="org-left">3.2T</td>
+<td class="org-left">6.4T</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+最核心的区别是容量和pipeline，更多的流水线意味着更多的资源，在一些应
+用里会采用折叠pipeline的方式实现更为复杂的处理逻辑。
+</p>
+
+
+<ol class="org-ol">
+<li>二代以后芯片
+二代芯片从12.8T容量起步，资源也略有增加，主要以400G接口为主，目前看性价比不高。</li>
+</ol>
 </div>
 </div>
-</div>
-<div id="outline-container-org79a82e8" class="outline-2">
-<h2 id="org79a82e8"><span class="section-number-2">3</span> Wedge 100BF-32X</h2>
+
+<div id="outline-container-orgc002c38" class="outline-2">
+<h2 id="orgc002c38"><span class="section-number-2">3.</span> 软件支持</h2>
 <div class="outline-text-2" id="text-3">
+<ol class="org-ol">
+<li><p>
+Sonic
+</p>
 
-<div class="figure">
-<p><img src="../fig/wedge_100bf-32x.png" alt="wedge_100bf-32x.png" width="450;" />
+<p>
+作为目前最为火热的开源NOS，基本所有交换机都支持，但是支持的好坏还
+是有区别。官方的仓库直接可以编译运行为佳，这样有新的版本，马上就可
+以尝试。
+</p></li>
+
+<li>Stratum NOS for the next generation of SDN，同样的理由，官方认证的
+平台为最佳，能不能站在巨人肩膀上再说，至少不要从填坑开始。</li>
+
+<li><p>
+论文的复现
+</p>
+
+<p>
+github 上的大牛开源出来的代码，能不能复现，大牛用什么平台也是一个
+重要的参考。尤其是研究方向已经非常确定的时候。
+</p></li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org3092ff6" class="outline-2">
+<h2 id="org3092ff6"><span class="section-number-2">4.</span> 扩展能力</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+Tofino作为交换芯片，受资源限制表项一般模糊匹配一万条左右，精确10万条
+左右，如果要实现大表项，或者对数据包做4层以上的处理，就要辅之以CPU，
+FGGA，智能网卡。这时需要考虑的是扩展能力，根据具体需求可以选择
+</p>
+
+<ol class="org-ol">
+<li>NP 扣卡扩展</li>
+<li>FGPA扩展</li>
+<li>标准PCI-e扩展支持</li>
+<li>正交背板扩展</li>
+</ol>
+
+
+<p>
+综合考虑了上述问题后，如果您还不知道要选择哪款设备。那么拿起电话
+</p>
+
+<p>
+<b>致电 021-52378166</b>
 </p>
 </div>
 </div>
-</div>
-
-<div id="outline-container-org16f916e" class="outline-2">
-<h2 id="org16f916e"><span class="section-number-2">4</span> CPU,BMC,Platform Software</h2>
-<div class="outline-text-2" id="text-4">
-<ul class="org-ul">
-<li>CPU
-<ul class="org-ul">
-<li>Modular COM Express Type 6</li>
-<li>PCIe Gen2/3 x4</li>
-<li>Intel Xeon D-1517
-<ul class="org-ul">
-<li>4 Core@2.2GHz</li>
-<li>8GB DDR4 SDRAM</li>
-<li>128GB M.2 SSD</li>
-</ul></li>
-</ul></li>
-<li>BMC
-<ul class="org-ul">
-<li>ASPEED AST1250A1-GP</li>
-<li>400MHz</li>
-</ul></li>
-<li>Platform Software
-<ul class="org-ul">
-<li>OpenBMC</li>
-<li>ONIE</li>
-<li>ONL</li>
-<li>Debian</li>
-</ul></li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-org531d978" class="outline-2">
-<h2 id="org531d978"><span class="section-number-2">5</span> Wedge 100B Series – A Summary</h2>
-<div class="outline-text-2" id="text-5">
-<ul class="org-ul">
-<li>Two platforms
-<ul class="org-ul">
-<li>Wedge  100BF-32X - 1RU 32x100GE</li>
-<li>Wedge  100BF-65X - 2RU 65x100GE</li>
-</ul></li>
-<li>Derived from Wedge 100</li>
-<li>Includes several cost and quality enhancements</li>
-<li>User-programmable forwarding plane using P4, Tofino &amp; Capilano</li>
-<li>Includes the World’s Fastest and Fully Programmable Ethernet Switch ASIC</li>
-</ul>
-</div>
-</div>
-<p>There are <a href="/product/barefoot.html#disqus_thread">comments</a>.</p>                </article>
+<p>There are <a href="https://bbill.github.io/product/select_the_right_switch.html#disqus_thread">comments</a>.</p>                </article>
             </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="https://bbill.github.io/product/barefoot.html" rel="bookmark"
+                           title="Permalink to Barefoot P4 Switch">Barefoot P4 Switch</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2017-10-28T00:00:00+08:00">
+                Published: Sat 28 October 2017
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="https://bbill.github.io/author/bill.html">bill</a>
+        </address>
+<p>In <a href="https://bbill.github.io/category/chan-pin.html">产品</a>.</p>
+<p>tags: <a href="https://bbill.github.io/tag/sdn.html">sdn</a> <a href="https://bbill.github.io/tag/openflow.html">openflow</a> <a href="https://bbill.github.io/tag/p4.html">p4</a> <a href="https://bbill.github.io/tag/tofino.html">tofino</a> <a href="https://bbill.github.io/tag/barefoot.html">barefoot</a> <a href="https://bbill.github.io/tag/onie.html">onie</a> <a href="https://bbill.github.io/tag/capilano.html">capilano</a> </p>
+</footer><!-- /.post-info -->                Barefoot P4 交换机概况
+                <a class="readmore" href="https://bbill.github.io/product/barefoot.html">read more</a>
+<p>There are <a href="https://bbill.github.io/product/barefoot.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
+            </article></li>
+                </ol><!-- /#posts-list -->
+                </section><!-- /#content -->
         <section id="extras" class="body">
                 <div class="blogroll">
                         <h2>blogroll</h2>
@@ -150,6 +226,13 @@
                             <li><a href="http://www.tooyum.com/">tooyum</a></li>
                         </ul>
                 </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+                            <li><a href="https://bbill.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+
+                        </ul>
+                </div><!-- /.social -->
         </section><!-- /#extras -->
 
         <footer id="contentinfo" class="body">

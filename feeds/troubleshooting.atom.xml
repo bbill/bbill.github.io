@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>SDN Hands ON! - troubleshooting</title><link href="https://bbill.github.io/" rel="alternate"></link><link href="https://bbill.github.io/feeds/troubleshooting.atom.xml" rel="self"></link><id>https://bbill.github.io/</id><updated>2018-11-10T00:00:00+08:00</updated><entry><title>正确的流表收不到包</title><link href="https://bbill.github.io/troubleshooting/no_rx_while_correct_rule.html" rel="alternate"></link><published>2018-11-10T00:00:00+08:00</published><updated>2018-11-10T00:00:00+08:00</updated><author><name>bill</name></author><id>tag:bbill.github.io,2018-11-10:/troubleshooting/no_rx_while_correct_rule.html</id><summary type="html">&lt;div id="table-of-contents" role="doc-toc"&gt;
+&lt;h2&gt;Table of Contents&lt;/h2&gt;
+&lt;div id="text-table-of-contents" role="doc-toc"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#org54adcd2"&gt;1. 流表配置如下&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id="outline-container-org54adcd2" class="outline-2"&gt;
+&lt;h2 id="org54adcd2"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; 流表配置如下&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-1"&gt;
+&lt;pre class="example"&gt;
+ovs-ofctl -O OpenFlow13 add-flow br0 table=0,in_port=50,actions=mod_vlan_vid:10,mod_dl_src:6c:59:79:33:44:55,mod_dl_dst:f8:bc:12:4d:e9:d8,goto_table:8
+ovs-ofctl -O OpenFlow13 add-flow br0 table=8,actions=output:49
+&lt;/pre&gt;
+
+&lt;p&gt;
+从50口发包，49口抓包无数据。
+&lt;/p&gt;
+
+
+&lt;p&gt;
+执行
+&lt;/p&gt;
+
+&lt;pre class="example"&gt;
+admin@PICOS-OVS …&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</summary><content type="html">&lt;div id="table-of-contents" role="doc-toc"&gt;
+&lt;h2&gt;Table of Contents&lt;/h2&gt;
+&lt;div id="text-table-of-contents" role="doc-toc"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#org54adcd2"&gt;1. 流表配置如下&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id="outline-container-org54adcd2" class="outline-2"&gt;
+&lt;h2 id="org54adcd2"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; 流表配置如下&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-1"&gt;
+&lt;pre class="example"&gt;
+ovs-ofctl -O OpenFlow13 add-flow br0 table=0,in_port=50,actions=mod_vlan_vid:10,mod_dl_src:6c:59:79:33:44:55,mod_dl_dst:f8:bc:12:4d:e9:d8,goto_table:8
+ovs-ofctl -O OpenFlow13 add-flow br0 table=8,actions=output:49
+&lt;/pre&gt;
+
+&lt;p&gt;
+从50口发包，49口抓包无数据。
+&lt;/p&gt;
+
+
+&lt;p&gt;
+执行
+&lt;/p&gt;
+
+&lt;pre class="example"&gt;
+admin@PICOS-OVS:~$ ovs-ofctl dump-ports br0 49                                                                                                          
+OFPST_PORT reply (OF1.4) (xid=0x2): 1 ports
+  port 49: rx pkts=1008, bytes=67912, drop=1008, errs=0, frame=0, over=0, crc=0
+	   tx pkts=1199, bytes=122946, drop=67348, errs=0, coll=0
+	   duration=74363.674s
+&lt;/pre&gt;
+
+
+&lt;p&gt;
+发现数据包 drop,查看端口状态。
+&lt;/p&gt;
+
+&lt;pre class="example"&gt;
+admin@PICOS-OVS:~$ ovs-vsctl list port te-1/1/49
+_uuid               : 3bb02a50-e4a1-4c9c-987d-59f11c181b64
+bond_downdelay      : 0
+bond_fake_iface     : false
+bond_mode           : []
+bond_updelay        : 0
+external_ids        : {}
+fake_bridge         : false
+interfaces          : [5dfff0ee-0fdd-4ed0-a713-ae68c39d2b1d]
+lacp                : []
+mac                 : []
+name                : "te-1/1/49"
+other_config        : {}
+qos                 : []
+statistics          : {}
+status              : {}
+tag                 : {}
+trunks              : []
+vlan_mode           : {}
+
+
+&lt;/pre&gt;
+
+&lt;p&gt;
+因为流表将出口数据包打tag 10.
+&lt;/p&gt;
+
+&lt;p&gt;
+如果设置出口为access 口则可以
+&lt;/p&gt;
+
+&lt;pre class="example"&gt;
+ovs-vsctl set port te-1/1/49 vlan_mode=access 
+ovs-vsctl set port te-1/1/49 tag=10
+&lt;/pre&gt;
+
+&lt;p&gt;
+如果设置出口为trunk 口则可以
+&lt;/p&gt;
+
+&lt;pre class="example"&gt;
+ovs-vsctl set port te-1/1/49 vlan_mode=access 
+ovs-vsctl set port te-1/1/49 trunks=10  
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</content><category term="troubleshooting"></category><category term="pica8"></category><category term="vlan"></category><category term="trunk"></category><category term="access"></category></entry><entry><title>XFS repair on failed SSD</title><link href="https://bbill.github.io/troubleshooting/xfs_on_crash_ssd.html" rel="alternate"></link><published>2018-03-18T00:00:00+08:00</published><updated>2018-03-18T00:00:00+08:00</updated><author><name>bill</name></author><id>tag:bbill.github.io,2018-03-18:/troubleshooting/xfs_on_crash_ssd.html</id><summary type="html">&lt;div id="table-of-contents" role="doc-toc"&gt;
+&lt;h2&gt;Table of Contents&lt;/h2&gt;
+&lt;div id="text-table-of-contents" role="doc-toc"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#orga987269"&gt;1. 先备份&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#orgcffcd9f"&gt;2. 恢复&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org9be6157"&gt;3. 重新启用该SSD&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;
+突然VPN无法登录了，本地登录服务器，悲摧了，一块盘不见了，尝试重新挂载
+失败.
+&lt;/p&gt;
+
+&lt;p&gt;
+尝试重启，再挂载,当然还是不行，因为是一块PCI-E SSD 卡，非常担心数据搞不出来。
+&lt;/p&gt;
+
+&lt;div id="outline-container-orga987269" class="outline-2"&gt;
+&lt;h2 id="orga987269"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; 先备份&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-1"&gt;
+&lt;p&gt;
+保险起见，先dd出来，因为本地没有足够大的空间，尝试将现有信息保存到另外一台主机，
+&lt;/p&gt;
+
+&lt;p&gt;
+在有空间的主机（192.168.1.2)运行：
+&lt;/p&gt;
+&lt;pre class="example" id="orgecc53a4"&gt;
+ssh root@192.168.1.1 "dd iflag=fullblock  conv=sync,noerror if=/dev/nvme0n1 |gzip …&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</summary><content type="html">&lt;div id="table-of-contents" role="doc-toc"&gt;
+&lt;h2&gt;Table of Contents&lt;/h2&gt;
+&lt;div id="text-table-of-contents" role="doc-toc"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#orga987269"&gt;1. 先备份&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#orgcffcd9f"&gt;2. 恢复&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org9be6157"&gt;3. 重新启用该SSD&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;
+突然VPN无法登录了，本地登录服务器，悲摧了，一块盘不见了，尝试重新挂载
+失败.
+&lt;/p&gt;
+
+&lt;p&gt;
+尝试重启，再挂载,当然还是不行，因为是一块PCI-E SSD 卡，非常担心数据搞不出来。
+&lt;/p&gt;
+
+&lt;div id="outline-container-orga987269" class="outline-2"&gt;
+&lt;h2 id="orga987269"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; 先备份&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-1"&gt;
+&lt;p&gt;
+保险起见，先dd出来，因为本地没有足够大的空间，尝试将现有信息保存到另外一台主机，
+&lt;/p&gt;
+
+&lt;p&gt;
+在有空间的主机（192.168.1.2)运行：
+&lt;/p&gt;
+&lt;pre class="example" id="orgecc53a4"&gt;
+ssh root@192.168.1.1 "dd iflag=fullblock  conv=sync,noerror if=/dev/nvme0n1 |gzip -1 -" |dd  of=/mnt/nvme.bak
+&lt;/pre&gt;
+
+&lt;p&gt;
+还好可以执行，庆幸SSD盘似乎没有挂的很彻底。没有高兴太久，发现800G的盘
+dd出来只有267G，看了下warning,似乎是因为中间有坏块读不出来，造成dd出来
+的后面的部分，覆盖了前面的内容。
+&lt;/p&gt;
+
+&lt;p&gt;
+按理dd应该有选项避免这种情况，但是没查到，感觉过于复杂，不友善放弃。换
+ddrescue，没看到可以支持管道到远端，放弃。换dd&lt;sub&gt;rescue&lt;/sub&gt;。是的 dd&lt;sub&gt;rescue&lt;/sub&gt;
+和ddrescue 是两个不同的软件。
+命令够简单：
+在故障磁盘(/dev/nvme0n1)所在主机执行
+&lt;/p&gt;
+&lt;pre class="example" id="org8a718a1"&gt;
+dd_rescue /dev/nvme0n1 - | ssh root@192.168.1.2 "cat - &amp;gt; /mnt/filename.img"
+&lt;/pre&gt;
+
+&lt;p&gt;
+执行效果不错，速度更是令人惊喜，千兆网络可以跑满。用dd只有一半速度。
+关键是文件大小基本靠谱。
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id="outline-container-orgcffcd9f" class="outline-2"&gt;
+&lt;h2 id="orgcffcd9f"&gt;&lt;span class="section-number-2"&gt;2.&lt;/span&gt; 恢复&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-2"&gt;
+&lt;p&gt;
+备份完成后在原始磁盘上尝试修复。
+直接上大招
+&lt;/p&gt;
+&lt;pre class="example" id="orgca1dc4a"&gt;
+xfs_repair -L  /dev/nvme0n1
+&lt;/pre&gt;
+&lt;p&gt;
+输出如下：
+&lt;/p&gt;
+
+&lt;pre class="example" id="org0a89158"&gt;
+xfs_repair -L /dev/nvme0n1                                                        
+Phase 1 - find and verify superblock...
+Phase 2 - using internal log
+	- zero log...
+ALERT: The filesystem has valuable metadata changes in a log which is being
+destroyed because the -L option was used.
+xfs_repair: libxfs_device_zero write failed: Input/output error
+&lt;/pre&gt;
+
+&lt;p&gt;
+没戏。
+&lt;/p&gt;
+
+&lt;p&gt;
+尝试从备份出来的文件进行恢复。
+&lt;/p&gt;
+&lt;pre class="example" id="org331ac7f"&gt;
+xfs_repair -Lf /mnt/filename.img 
+&lt;/pre&gt;
+
+&lt;p&gt;
+尝试挂载这个文件
+&lt;/p&gt;
+&lt;pre class="example" id="org2e0377c"&gt;
+mount /mnt/filename.img /media/
+ls /media
+&lt;/pre&gt;
+
+&lt;p&gt;
+运气不错，至少看起来大部分文件都在。
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id="outline-container-org9be6157" class="outline-2"&gt;
+&lt;h2 id="org9be6157"&gt;&lt;span class="section-number-2"&gt;3.&lt;/span&gt; 重新启用该SSD&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-3"&gt;
+&lt;p&gt;
+SSD还没有完全故障，还是要利用起来。看了下xfs似乎没有排除坏块的选项，用ext4重新格式化，再挂载。（当然，这次要定期做好备份）
+&lt;/p&gt;
+&lt;pre class="example" id="org6f09773"&gt;
+mkfs.ext4 -c -c /dev/nvme0n1
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</content><category term="troubleshooting"></category><category term="xfs"></category><category term="ssd"></category><category term="unreadable"></category></entry></feed>

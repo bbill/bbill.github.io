@@ -3,7 +3,8 @@
 <head>
         <meta charset="utf-8" />
         <title>Pica8 OVS 模式常用命令</title>
-        <link rel="stylesheet" href="/theme/css/main.css" />
+        <link rel="stylesheet" href="https://bbill.github.io/theme/css/main.css" />
+        <link href="https://bbill.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="SDN Hands ON! Atom Feed" />
 
         <!--[if IE]>
             <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -12,13 +13,13 @@
 
 <body id="index" class="home">
         <header id="banner" class="body">
-                <h1><a href="/">SDN Hands ON! </a></h1>
+                <h1><a href="https://bbill.github.io/">SDN Hands ON! </a></h1>
                 <nav><ul>
-                    <li><a href="/category/chan-pin.html">产品</a></li>
-                    <li class="active"><a href="/category/lab.html">lab</a></li>
-                    <li><a href="/category/product.html">product</a></li>
-                    <li><a href="/category/shi-yan.html">实验</a></li>
-                    <li><a href="/category/troubleshooting.html">troubleshooting</a></li>
+                    <li><a href="https://bbill.github.io/category/chan-pin.html">产品</a></li>
+                    <li class="active"><a href="https://bbill.github.io/category/lab.html">lab</a></li>
+                    <li><a href="https://bbill.github.io/category/product.html">product</a></li>
+                    <li><a href="https://bbill.github.io/category/shi-yan.html">实验</a></li>
+                    <li><a href="https://bbill.github.io/category/troubleshooting.html">troubleshooting</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -32,39 +33,39 @@
     <header>
 
       <h1 class="entry-title">
-        <a href="/lab/pica8_OVS_Command_Reference.html" rel="bookmark"
+        <a href="https://bbill.github.io/lab/pica8_OVS_Command_Reference.html" rel="bookmark"
            title="Permalink to Pica8 OVS 模式常用命令">Pica8 OVS 模式常用命令</a></h1>
     </header>
 
     <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2018-01-05T00:00:00+08:00">
-                Published: 五 05 一月 2018
+                Published: Fri 05 January 2018
         </abbr>
 
         <address class="vcard author">
-                By                         <a class="url fn" href="/author/bill.html">bill</a>
+                By                         <a class="url fn" href="https://bbill.github.io/author/bill.html">bill</a>
         </address>
-<p>In <a href="/category/lab.html">lab</a>.</p>
-<p>tags: <a href="/tag/pica.html">pica</a> <a href="/tag/white-box.html">white box</a> <a href="/tag/openflow.html">openflow</a> <a href="/tag/sdn.html">sdn</a> </p>
-</footer><!-- /.post-info -->      <div id="table-of-contents">
+<p>In <a href="https://bbill.github.io/category/lab.html">lab</a>.</p>
+<p>tags: <a href="https://bbill.github.io/tag/pica.html">pica</a> <a href="https://bbill.github.io/tag/white-box.html">white box</a> <a href="https://bbill.github.io/tag/openflow.html">openflow</a> <a href="https://bbill.github.io/tag/sdn.html">sdn</a> </p>
+</footer><!-- /.post-info -->      <div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org26372ca">1. 确认端口状态</a></li>
-<li><a href="#orgbe8ca9f">2. 确认硬件流表支持的最大条目</a></li>
+<li><a href="#orgf90f4cb">1. 确认端口状态</a></li>
+<li><a href="#org387789a">2. 确认硬件流表支持的最大条目</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org26372ca" class="outline-2">
-<h2 id="org26372ca"><span class="section-number-2">1</span> 确认端口状态</h2>
+<div id="outline-container-orgf90f4cb" class="outline-2">
+<h2 id="orgf90f4cb"><span class="section-number-2">1.</span> 确认端口状态</h2>
 <div class="outline-text-2" id="text-1">
 <ol class="org-ol">
 <li><p>
 端口计数器
 </p>
-<pre class="example">
+<pre class="example" id="orgec2350c">
 admin@PicOS-OVS$ovs-ofctl dump-ports  br0
 OFPST_PORT reply (OF1.3) (xid=0x2): 49 ports
   port  1: rx pkts=0, bytes=979551, drop=0, errs=518513, frame=0, over=0, crc=0
@@ -91,7 +92,7 @@ admin@PicOS-OVS$
 <li><p>
 端口链路状态
 </p>
-<pre class="example">
+<pre class="example" id="org942c2ee">
 
 admin@PicOS-OVS$ovs-ofctl dump-ports-desc  br0 
 OFPST_PORT_DESC reply (OF1.3) (xid=0x2):
@@ -139,8 +140,8 @@ OFPST_PORT_DESC reply (OF1.3) (xid=0x2):
 
 
 
-<div id="outline-container-orgbe8ca9f" class="outline-2">
-<h2 id="orgbe8ca9f"><span class="section-number-2">2</span> 确认硬件流表支持的最大条目</h2>
+<div id="outline-container-org387789a" class="outline-2">
+<h2 id="org387789a"><span class="section-number-2">2.</span> 确认硬件流表支持的最大条目</h2>
 <div class="outline-text-2" id="text-2">
 <pre class="example">
 admin@PICOS-OVS:~$ ovs-appctl pica/show tables
@@ -162,6 +163,24 @@ admin@PICOS-OVS:~$
 
 
 
+
+    <div class="comments">
+      <h2>Comments !</h2>
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+        var disqus_shortname = 'bbill';
+        var disqus_identifier = 'lab/pica8_OVS_Command_Reference.html';
+        var disqus_url = 'https://bbill.github.io/lab/pica8_OVS_Command_Reference.html';
+        (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//bbill.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+
+
+      <noscript>Please enable JavaScript to view the comments.</noscript>
+    </div>
     <section id="lg"></section>
   <section id="md"></section>
   <section id="sm"></section>
@@ -180,6 +199,13 @@ admin@PICOS-OVS:~$
                             <li><a href="http://www.tooyum.com/">tooyum</a></li>
                         </ul>
                 </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+                            <li><a href="https://bbill.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+
+                        </ul>
+                </div><!-- /.social -->
         </section><!-- /#extras -->
 
         <footer id="contentinfo" class="body">

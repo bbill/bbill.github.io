@@ -3,7 +3,8 @@
 <head>
         <meta charset="utf-8" />
         <title>SDN Hands ON! - mininet</title>
-        <link rel="stylesheet" href="/theme/css/main.css" />
+        <link rel="stylesheet" href="https://bbill.github.io/theme/css/main.css" />
+        <link href="https://bbill.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="SDN Hands ON! Atom Feed" />
 
         <!--[if IE]>
             <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -12,65 +13,65 @@
 
 <body id="index" class="home">
         <header id="banner" class="body">
-                <h1><a href="/">SDN Hands ON! </a></h1>
+                <h1><a href="https://bbill.github.io/">SDN Hands ON! </a></h1>
                 <nav><ul>
-                    <li><a href="/category/chan-pin.html">产品</a></li>
-                    <li><a href="/category/lab.html">lab</a></li>
-                    <li><a href="/category/product.html">product</a></li>
-                    <li><a href="/category/shi-yan.html">实验</a></li>
-                    <li><a href="/category/troubleshooting.html">troubleshooting</a></li>
+                    <li><a href="https://bbill.github.io/category/chan-pin.html">产品</a></li>
+                    <li><a href="https://bbill.github.io/category/lab.html">lab</a></li>
+                    <li><a href="https://bbill.github.io/category/product.html">product</a></li>
+                    <li><a href="https://bbill.github.io/category/shi-yan.html">实验</a></li>
+                    <li><a href="https://bbill.github.io/category/troubleshooting.html">troubleshooting</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/lab/jiaxuedagang.html">SDN 教学大纲</a></h1>
+                    <h1 class="entry-title"><a href="https://bbill.github.io/lab/jiaxuedagang.html">SDN 教学大纲</a></h1>
 <footer class="post-info">
         <abbr class="published" title="2017-10-21T00:00:00+08:00">
-                Published: 六 21 十月 2017
+                Published: Sat 21 October 2017
         </abbr>
 
         <address class="vcard author">
-                By                         <a class="url fn" href="/author/servicetooyumcom.html">service@tooyum.com</a>
+                By                         <a class="url fn" href="https://bbill.github.io/author/servicetooyumcom.html">service@tooyum.com</a>
         </address>
-<p>In <a href="/category/shi-yan.html">实验</a>.</p>
-<p>tags: <a href="/tag/ryu.html">ryu</a> <a href="/tag/openflow.html">openflow</a> <a href="/tag/mininet.html">mininet</a> <a href="/tag/estinet.html">estinet</a> </p>
-</footer><!-- /.post-info --><div id="table-of-contents">
+<p>In <a href="https://bbill.github.io/category/shi-yan.html">实验</a>.</p>
+<p>tags: <a href="https://bbill.github.io/tag/ryu.html">ryu</a> <a href="https://bbill.github.io/tag/openflow.html">openflow</a> <a href="https://bbill.github.io/tag/mininet.html">mininet</a> <a href="https://bbill.github.io/tag/estinet.html">estinet</a> </p>
+</footer><!-- /.post-info --><div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org72a4d28">1. 教学环境准备</a>
+<li><a href="#orgb06a3ca">1. 教学环境准备</a>
 <ul>
-<li><a href="#org99df60f">1.1. 仿真工具</a></li>
-<li><a href="#org24c0236">1.2. 常用工具</a></li>
+<li><a href="#org8540333">1.1. 仿真工具</a></li>
+<li><a href="#org6049915">1.2. 常用工具</a></li>
 </ul>
 </li>
-<li><a href="#org979c2af">2. 传统网络基础</a></li>
-<li><a href="#orged78fae">3. SDN 与 OpenFlow 技术基本概念</a></li>
-<li><a href="#orgbc29e82">4. SDN 网络入门实验</a></li>
-<li><a href="#org835fc66">5. 了解流表</a></li>
-<li><a href="#org5823540">6. RYU控制器初步</a></li>
-<li><a href="#orgbd203db">7. 进阶应用</a></li>
-<li><a href="#org63748c5">8. 实体交换机验证</a></li>
+<li><a href="#org0ade73b">2. 传统网络基础</a></li>
+<li><a href="#org3741d8b">3. SDN 与 OpenFlow 技术基本概念</a></li>
+<li><a href="#orgfd0e891">4. SDN 网络入门实验</a></li>
+<li><a href="#orgcf123ac">5. 了解流表</a></li>
+<li><a href="#org20ae494">6. RYU控制器初步</a></li>
+<li><a href="#org32eac3e">7. 进阶应用</a></li>
+<li><a href="#org2173293">8. 实体交换机验证</a></li>
 </ul>
 </div>
 </div>
 
 
-<div id="outline-container-org72a4d28" class="outline-2">
-<h2 id="org72a4d28"><span class="section-number-2">1</span> 教学环境准备</h2>
+<div id="outline-container-orgb06a3ca" class="outline-2">
+<h2 id="orgb06a3ca"><span class="section-number-2">1.</span> 教学环境准备</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org99df60f" class="outline-3">
-<h3 id="org99df60f"><span class="section-number-3">1.1</span> 仿真工具</h3>
+<div id="outline-container-org8540333" class="outline-3">
+<h3 id="org8540333"><span class="section-number-3">1.1.</span> 仿真工具</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 可选开源(mininet)，商用(estinet)仿真软件
 </p>
 </div>
 </div>
-<div id="outline-container-org24c0236" class="outline-3">
-<h3 id="org24c0236"><span class="section-number-3">1.2</span> 常用工具</h3>
+<div id="outline-container-org6049915" class="outline-3">
+<h3 id="org6049915"><span class="section-number-3">1.2.</span> 常用工具</h3>
 <div class="outline-text-3" id="text-1-2">
 <ol class="org-ol">
 <li>Wireshark 网路抓包工具</li>
@@ -85,8 +86,8 @@
 </div>
 
 
-<div id="outline-container-org979c2af" class="outline-2">
-<h2 id="org979c2af"><span class="section-number-2">2</span> 传统网络基础</h2>
+<div id="outline-container-org0ade73b" class="outline-2">
+<h2 id="org0ade73b"><span class="section-number-2">2.</span> 传统网络基础</h2>
 <div class="outline-text-2" id="text-2">
 <ol class="org-ol">
 <li>NAT 网路地址址转换（Network Address Translation）</li>
@@ -96,8 +97,8 @@
 </div>
 </div>
 
-<div id="outline-container-orged78fae" class="outline-2">
-<h2 id="orged78fae"><span class="section-number-2">3</span> SDN 与 OpenFlow 技术基本概念</h2>
+<div id="outline-container-org3741d8b" class="outline-2">
+<h2 id="org3741d8b"><span class="section-number-2">3.</span> SDN 与 OpenFlow 技术基本概念</h2>
 <div class="outline-text-2" id="text-3">
 <ol class="org-ol">
 <li>软体定义网路（Software-Defined Networking）</li>
@@ -119,8 +120,8 @@
 </div>
 
 
-<div id="outline-container-orgbc29e82" class="outline-2">
-<h2 id="orgbc29e82"><span class="section-number-2">4</span> SDN 网络入门实验</h2>
+<div id="outline-container-orgfd0e891" class="outline-2">
+<h2 id="orgfd0e891"><span class="section-number-2">4.</span> SDN 网络入门实验</h2>
 <div class="outline-text-2" id="text-4">
 <ol class="org-ol">
 <li>RYU 控制器安装启动</li>
@@ -132,8 +133,8 @@
 </div>
 
 
-<div id="outline-container-org835fc66" class="outline-2">
-<h2 id="org835fc66"><span class="section-number-2">5</span> 了解流表</h2>
+<div id="outline-container-orgcf123ac" class="outline-2">
+<h2 id="orgcf123ac"><span class="section-number-2">5.</span> 了解流表</h2>
 <div class="outline-text-2" id="text-5">
 <ol class="org-ol">
 <li>查看</li>
@@ -144,8 +145,8 @@
 </div>
 </div>
 
-<div id="outline-container-org5823540" class="outline-2">
-<h2 id="org5823540"><span class="section-number-2">6</span> RYU控制器初步</h2>
+<div id="outline-container-org20ae494" class="outline-2">
+<h2 id="org20ae494"><span class="section-number-2">6.</span> RYU控制器初步</h2>
 <div class="outline-text-2" id="text-6">
 <ol class="org-ol">
 <li>控制器框架</li>
@@ -155,8 +156,8 @@
 </div>
 </div>
 
-<div id="outline-container-orgbd203db" class="outline-2">
-<h2 id="orgbd203db"><span class="section-number-2">7</span> 进阶应用</h2>
+<div id="outline-container-org32eac3e" class="outline-2">
+<h2 id="org32eac3e"><span class="section-number-2">7.</span> 进阶应用</h2>
 <div class="outline-text-2" id="text-7">
 <ol class="org-ol">
 <li>simpleswitch</li>
@@ -171,15 +172,15 @@
 </div>
 </div>
 
-<div id="outline-container-org63748c5" class="outline-2">
-<h2 id="org63748c5"><span class="section-number-2">8</span> 实体交换机验证</h2>
+<div id="outline-container-org2173293" class="outline-2">
+<h2 id="org2173293"><span class="section-number-2">8.</span> 实体交换机验证</h2>
 <div class="outline-text-2" id="text-8">
 <ol class="org-ol">
 <li>在实体交换机上验证自己的APP</li>
 </ol>
 </div>
 </div>
-<p>There are <a href="/lab/jiaxuedagang.html#disqus_thread">comments</a>.</p>                </article>
+<p>There are <a href="https://bbill.github.io/lab/jiaxuedagang.html#disqus_thread">comments</a>.</p>                </article>
             </aside><!-- /#featured -->
                 <section id="content" class="body">
                     <h1>Other articles</h1>
@@ -188,24 +189,24 @@
 
             <li><article class="hentry">
                 <header>
-                    <h1><a href="/lab/ryu_lab1.html" rel="bookmark"
+                    <h1><a href="https://bbill.github.io/lab/ryu_lab1.html" rel="bookmark"
                            title="Permalink to Ryu 控制器的安装及基本操作">Ryu 控制器的安装及基本操作</a></h1>
                 </header>
 
                 <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2017-09-24T00:00:00+08:00">
-                Published: 日 24 九月 2017
+                Published: Sun 24 September 2017
         </abbr>
 
         <address class="vcard author">
-                By                         <a class="url fn" href="/author/bill.html">bill</a>
+                By                         <a class="url fn" href="https://bbill.github.io/author/bill.html">bill</a>
         </address>
-<p>In <a href="/category/lab.html">lab</a>.</p>
-<p>tags: <a href="/tag/ryu.html">ryu</a> <a href="/tag/openflow.html">openflow</a> <a href="/tag/mininet.html">mininet</a> </p>
+<p>In <a href="https://bbill.github.io/category/lab.html">lab</a>.</p>
+<p>tags: <a href="https://bbill.github.io/tag/ryu.html">ryu</a> <a href="https://bbill.github.io/tag/openflow.html">openflow</a> <a href="https://bbill.github.io/tag/mininet.html">mininet</a> </p>
 </footer><!-- /.post-info -->                RYU 安装操作
-                <a class="readmore" href="/lab/ryu_lab1.html">read more</a>
-<p>There are <a href="/lab/ryu_lab1.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
+                <a class="readmore" href="https://bbill.github.io/lab/ryu_lab1.html">read more</a>
+<p>There are <a href="https://bbill.github.io/lab/ryu_lab1.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
             </article></li>
                 </ol><!-- /#posts-list -->
                 </section><!-- /#content -->
@@ -216,6 +217,13 @@
                             <li><a href="http://www.tooyum.com/">tooyum</a></li>
                         </ul>
                 </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+                            <li><a href="https://bbill.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+
+                        </ul>
+                </div><!-- /.social -->
         </section><!-- /#extras -->
 
         <footer id="contentinfo" class="body">

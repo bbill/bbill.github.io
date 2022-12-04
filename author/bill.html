@@ -3,7 +3,8 @@
 <head>
         <meta charset="utf-8" />
         <title>SDN Hands ON! - bill</title>
-        <link rel="stylesheet" href="/theme/css/main.css" />
+        <link rel="stylesheet" href="https://bbill.github.io/theme/css/main.css" />
+        <link href="https://bbill.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="SDN Hands ON! Atom Feed" />
 
         <!--[if IE]>
             <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -12,711 +13,183 @@
 
 <body id="index" class="home">
         <header id="banner" class="body">
-                <h1><a href="/">SDN Hands ON! </a></h1>
+                <h1><a href="https://bbill.github.io/">SDN Hands ON! </a></h1>
                 <nav><ul>
-                    <li><a href="/category/chan-pin.html">产品</a></li>
-                    <li><a href="/category/lab.html">lab</a></li>
-                    <li><a href="/category/product.html">product</a></li>
-                    <li><a href="/category/shi-yan.html">实验</a></li>
-                    <li><a href="/category/troubleshooting.html">troubleshooting</a></li>
+                    <li><a href="https://bbill.github.io/category/chan-pin.html">产品</a></li>
+                    <li><a href="https://bbill.github.io/category/lab.html">lab</a></li>
+                    <li><a href="https://bbill.github.io/category/product.html">product</a></li>
+                    <li><a href="https://bbill.github.io/category/shi-yan.html">实验</a></li>
+                    <li><a href="https://bbill.github.io/category/troubleshooting.html">troubleshooting</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/lab/pica8_quick_start.html">Pica8 白盒交换机快速上手</a></h1>
+                    <h1 class="entry-title"><a href="https://bbill.github.io/product/select_the_right_switch.html">科研机构怎么选购 p4 交换机</a></h1>
 <footer class="post-info">
-        <abbr class="published" title="2020-09-03T00:00:00+08:00">
-                Published: 四 03 九月 2020
+        <abbr class="published" title="2022-12-05T00:00:00+08:00">
+                Published: Mon 05 December 2022
         </abbr>
 
         <address class="vcard author">
-                By                         <a class="url fn" href="/author/bill.html">bill</a>
+                By                         <a class="url fn" href="https://bbill.github.io/author/bill.html">bill</a>
         </address>
-<p>In <a href="/category/lab.html">lab</a>.</p>
-<p>tags: <a href="/tag/pica.html">pica</a> <a href="/tag/white-box.html">white box</a> <a href="/tag/openflow.html">openflow</a> <a href="/tag/sdn.html">sdn</a> </p>
-</footer><!-- /.post-info --><div id="table-of-contents">
+<p>In <a href="https://bbill.github.io/category/chan-pin.html">产品</a>.</p>
+<p>tags: <a href="https://bbill.github.io/tag/sdn.html">sdn</a> <a href="https://bbill.github.io/tag/openflow.html">openflow</a> <a href="https://bbill.github.io/tag/p4.html">p4</a> <a href="https://bbill.github.io/tag/tofino.html">tofino</a> <a href="https://bbill.github.io/tag/barefoot.html">barefoot</a> <a href="https://bbill.github.io/tag/onie.html">onie</a> <a href="https://bbill.github.io/tag/openmesh.html">openmesh</a> <a href="https://bbill.github.io/tag/edgecore.html">edgecore</a> </p>
+</footer><!-- /.post-info --><div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org9d848f1">1. 初始设置和访问</a>
-<ul>
-<li><a href="#org850c379">1.1. 登陆交换机</a></li>
-<li><a href="#orgf7fc3ea">1.2. 设定默认启动模式</a></li>
-<li><a href="#orgb04d15c">1.3. 设置 Openflow SDN网络</a></li>
-</ul>
-</li>
-<li><a href="#org6d70272">2. TAP简单上手</a></li>
-<li><a href="#org6ba5cab">3. CrossFlow 配置</a></li>
-<li><a href="#org912572d">4. 软件版本升级</a></li>
-<li><a href="#orgb12cf38">5. 手册及参考</a></li>
+<li><a href="#org5c6d845">1. 选择CPU</a></li>
+<li><a href="#orgfe2d8f8">2. 交换芯片</a></li>
+<li><a href="#orgc002c38">3. 软件支持</a></li>
+<li><a href="#org3092ff6">4. 扩展能力</a></li>
 </ul>
 </div>
 </div>
 
-
-<div id="outline-container-org9d848f1" class="outline-2">
-<h2 id="org9d848f1"><span class="section-number-2">1</span> 初始设置和访问</h2>
+<div id="outline-container-org5c6d845" class="outline-2">
+<h2 id="org5c6d845"><span class="section-number-2">1.</span> 选择CPU</h2>
 <div class="outline-text-2" id="text-1">
-</div>
-<div id="outline-container-org850c379" class="outline-3">
-<h3 id="org850c379"><span class="section-number-3">1.1</span> 登陆交换机</h3>
-<div class="outline-text-3" id="text-1-1">
 <p>
-交换机开箱后的初始登录，可以通过 串口(RJ45)来进行。 找到交换机 的console
-口(一般会标有Con)。通过windows 主机上的超级终端工具，或者putty,
-securecrt 等 终端工具，配置串口参数为 115200,
-8/N/1,硬件流控设为没有（关闭）.后即可 登录。默认用户名 admin ，密码
-<b>pica8</b> 。
+CPU 分两类
 </p>
-
-
-<div class="figure">
-<p><img src="http://www.tooyum.com/images/rs232.png" alt="rs232.png" width="300px" />
-</p>
-</div>
-
-<pre class="example">
-PicOS-OVS login: admin
-Password:
-
-admin@XorPlus$
-</pre>
-</div>
-</div>
-
-<div id="outline-container-orgf7fc3ea" class="outline-3">
-<h3 id="orgf7fc3ea"><span class="section-number-3">1.2</span> 设定默认启动模式</h3>
-<div class="outline-text-3" id="text-1-2">
-<ol class="org-ol">
-<li><p>
-验证当前Pica8模式 
-</p>
-
-<p>
-通过发出下面的命令检查PICOS交换机 的当前模式。
-</p>
-
-<pre class="example">
-admin@XorPlus$ps -ef | grep xorp | grep -v grep
-admin@XorPlus$ps -ef | grep ovs | grep -v grep
-admin@XorPlus$
-admin@XorPlus$
-</pre>
-
-<p>
-如果有xorp 进程输出表明目前处于传统模式（可通过crossflow
-支持混杂），如 果有ovs 输出则为纯 SDN模式。
-</p>
-
-<p>
-默认启动模式可以通过如下命令向导进行切换，以切换到 SDN模式为例：
-</p></li>
-
-<li><p>
-运行Pica8模式切换程序
-</p>
-
-<p>
-由于我们建立Pica8交换机的SDN应用程序，我们将把交换机设为
-OVS模式以支持 OpenFlow。要做到这一点，我们将运行Pica8模式切换程序。
-</p>
-
-<p>
-在命令行中输入'sudo picos_boot' ，当系统提示时输入' 2 '
-选择OVS模式。
-</p>
-
-<pre class="example">
-admin@XorPlus$sudo picos_boot
-Please configure the default system start-up options:
- (Press other key if no change)
-    [1]  PicOS L2/L3
-    [2]  PicOS Open vSwitch/OpenFlow
-    [3]  No start-up options   * default
-Enter your choice (1,2,3):2
-</pre>
-
-<p>
-接下来的一系列提示将设置 eth0接口 IP地址
-。OpenFlow的包和SSH通信将使用
-这个IP地址。输入IP地址，子网掩码和默认网关。
-</p>
-
-<pre class="example">
-
-PicOS Open vSwitch/OpenFlow is selected.
-
-Note: Defaultly, the OVS server is runned with static local management IP and port 6640.
-The default way of vswitch connecting to server is PTCP.
-
-Please set a static IP and netmask for the switch (e.g. 128.0.0.10/24) : 192.168.16.101/24
-
-Please set the gateway IP (e.g 172.168.1.2):192.168.16.1
-
-admin@XorPlus$
-</pre></li>
-
-<li><p>
-启动PicOS 服务
-</p>
-
-<p>
-验证PICOS模式的改变。启动PICOS服务 'sudo service picos start'
-来应用这 个改变
-</p>
-
-<pre class="example">
-admin@XorPlus$sudo service picos start
-[....] Stopping enhanced syslogd: rsyslogd.
-[....] Starting enhanced syslogd: rsyslogd.
-[....] Stopping internet superserver: xinetd.
-[....] Restarting OpenBSD Secure Shell server: sshd.
-[....] Create OVS database file.
-RTNETLINK answers: No such process
-[....] Starting: PicOS Open vSwitch/OpenFlow.
-[....] Starting web server: lighttpd.
-</pre></li>
-
-<li><p>
-验证 PicOS 模式
-</p>
-
-<p>
-验证对 'picos_start.conf' 文件的改变。
-</p>
-
-<pre class="example">
-admin@XorPlus$more /etc/picos/picos_start.conf
-# configuration file for PicOS
-
-[PICOS]
-picos_start=ovs
-
-[XORPPLUS]
-xorpplus_rtrmgr_verbose=
-xorpplus_log_facility=local0
-xorpplus_finder_client_address=127.0.0.1
-xorpplis_finder_server_address=127.0.0.1
-
-[OVS]
-ovs_database_file=/ovs/ovs-vswitchd.conf.db
-ovs_db_sock_file=/ovs/var/run/openvswitch/db.sock
-ovs_switch_ip_address=192.168.16.101
-ovs_switch_ip_netmask=255.255.255.0
-ovs_switch_gateway_ip=192.168.16.1
-ovs_switch_tcp_port=6633
-ovs_host_name=PicOS-OVS
-
-[ZTP]
-ztp_disable=false
-</pre>
-
-<p>
-验证OVS进程正在运行:
-</p>
-
-<p>
-如果进程输出如下，则Pica8 交换机运行在 OVS/Openflow 模式下。
-</p>
-
-<pre class="example">
-admin@XorPlus$ps -ef | grep ovs | grep -v grep
-root      3182     1  0 05:26 ttyS0    00:00:00 ovsdb-server /ovs/ovs-vswitchd.conf.db --remote=ptcp:6633:192.168.16.101 --remote=punix:/ovs/var/run/openvswitch/db.sock
-root      3184     1  0 05:26 ttyS0    00:00:00 ovs-vswitchd --pidfile=ovs-vswitchd.pid --overwrite-pidfile
-</pre>
-
-<p>
-现在重新启动交换机，以确保配置是持久的。这可能需要几分钟的时间才能完成。(如果确认 /etc/picos/picos_start.conf 已经成功修改，则此步骤可以省略）
-</p>
-
-<pre class="example">
-admin@XorPlus$sudo reboot
-
-Broadcast message from root@PicOS-OVS (ttyS0) (Tue Oct 21 05:47:19 2014):
-
-The system is going down for reboot NOW!
-</pre></li>
-
-<li><p>
-验证 Pica8 网络连通性 
-</p>
-
-<p>
-一旦重启完成后，作为管理员重新登录，检查和验证eth0接口到默认
-网关的网络连接。需要注意的是主机名已经按照‘ picos_start.conf
-“文件更改。
-</p>
-
-<pre class="example">
-admin@PicOS-OVS$ifconfig eth0
-eth0      Link encap:Ethernet  HWaddr 48:6e:73:02:00:22
-          inet addr:192.168.16.101  Bcast:192.168.16.255  Mask:255.255.255.0
-          inet6 addr: fe80::4a6e:73ff:fe02:22/64 Scope:Link
-          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
-          RX packets:8 errors:0 dropped:0 overruns:0 frame:0
-          TX packets:15 errors:0 dropped:0 overruns:0 carrier:0
-          collisions:0 txqueuelen:1000
-          RX bytes:608 (608.0 B)  TX bytes:3082 (3.0 KiB)
-          Base address:0x2000
-
-admin@PicOS-OVS$
-admin@PicOS-OVS$ping 192.168.16.1
-PING 192.168.16.1 (192.168.16.1) 56(84) bytes of data.
-64 bytes from 192.168.16.1: icmp_req=1 ttl=64 time=32.7 ms
-64 bytes from 192.168.16.1: icmp_req=2 ttl=64 time=2.00 ms
-64 bytes from 192.168.16.1: icmp_req=3 ttl=64 time=0.939 ms
-^C
---- 192.168.16.1 ping statistics ---
-3 packets transmitted, 3 received, 0% packet loss, time 2002ms
-rtt min/avg/max/mdev = 0.939/11.900/32.754/14.752 ms
-</pre></li>
-</ol>
-</div>
-</div>
-
-<div id="outline-container-orgb04d15c" class="outline-3">
-<h3 id="orgb04d15c"><span class="section-number-3">1.3</span> 设置 Openflow SDN网络</h3>
-<div class="outline-text-3" id="text-1-3">
-<ol class="org-ol">
-<li><p>
-创建虚拟交换机 
-</p>
-
-<p>
-接下来的步骤将指导如何创建使用OpenFlow的一个基本的桥(虚拟交换机)。
-</p>
-<ol class="org-ol">
-<li><p>
-license 检查
-</p>
-
-<p>
-在开始设定之前需要确认交换机的license
-是否激活，在交换机的命令行界面里执行
-</p>
-
-<pre class="example">
-license -s
-</pre>
-
-<p>
-如果显示：
-</p>
-
-<pre class="example">
-No license installed.Use below information to create a license
-</pre>
-
-<p>
-&#x2026;
-</p>
-
-<p>
-请将输出的Hardware ID，发邮件到 service@tooyum.com,我们会帮助申
-请license，并发回。 您收到 file.lic文件后将该文件复制到交换机的
-/etc 目录下。或者创建一个新的文件并将file.lic 文件的内容复制到
-该文件中。 然后在交换机上执行
-</p>
-
-<pre class="example">
-sudo license -i /etc/file.lic
-</pre>
-
-<p>
-并再次执行
-</p>
-
-<pre class="example">
-license -s
-</pre>
-
-<p>
-以确认 license 成功导入。
-</p></li>
-
-<li><p>
-创建虚拟交换机
-</p>
-
-<p>
-在成功激活所有端口后，可以使用如下 open vSwitch
-命令,创建一个虚拟交换机br0。以命令行为例：
-</p>
-
-<pre class="example">
-admin@PicOS-OVS$ovs-vsctl add-br br0 -- set bridge br0 datapath_type=pica8
-
-device ovs-pica8 entered promiscuous mode
-device br0 entered promiscuous mode
-admin@PicOS-OVS$
-</pre></li>
-</ol></li>
-
-<li><p>
-验证虚拟交换机
-</p>
-
-<p>
-下一步验证桥已成功创建。
-</p>
-
-<pre class="example">
-
-admin@PicOS-OVS$ovs-ofctl show br0
-OFPT_FEATURES_REPLY (OF1.4) (xid=0x2): dpid:5e3ea67edf6c5f60
-n_tables:254, n_buffers:256
-capabilities: FLOW_STATS TABLE_STATS PORT_STATS GROUP_STATS
-OFPST_PORT_DESC reply (OF1.4) (xid=0x4):
- LOCAL(br0): addr:a6:7e:df:6c:5f:60
-     config:     0
-     state:      LINK_UP
-     current:    10MB-FD COPPER
-     supported:  10MB-FD COPPER
-     speed: 10 Mbps now, 10 Mbps max
-OFPT_GET_CONFIG_REPLY (OF1.4) (xid=0x6): frags=normal miss_send_len=0
-</pre>
-
-<p>
-问：br0 包含物理接口吗？
-</p>
-
-<p>
-回答：不包含。虽然虚拟交换机已经创建，物理接口需要被添加到虚拟交换机。
-</p></li>
-
-<li><p>
-给虚拟交换机加入接口
-</p>
-
-<p>
-接下来，我们将添加物理接口给虚拟交换机br0。实验拓扑结构，我们将加入
-GE-1/1/1 ， GE-1/1/2 ，和GE-1/1/48,请注意，务必正确输入下面命令。
-</p>
-
-<pre class="example">
-admin@PicOS-OVS$ovs-vsctl add-port br0 ge-1/1/1 vlan_mode=trunk tag=1 -- set interface ge-1/1/1 type=pica8
-admin@PicOS-OVS$ovs-vsctl add-port br0 ge-1/1/2 vlan_mode=trunk tag=1 -- set interface ge-1/1/2 type=pica8
-admin@PicOS-OVS$ovs-vsctl add-port br0 ge-1/1/48 vlan_mode=trunk tag=1 -- set interface ge-1/1/48 type=pica8
-admin@PicOS-OVS$
-</pre>
-
-<p>
-如果您需要连续的加入每个千兆端口则可以用一个 for 循环来简化输入,以24口千兆+4口万兆交换机为例：
-</p>
-
-<p>
-添加千兆端口<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup>
-</p>
-
-<pre class="example">
-for i in $(seq 1 24);do ovs-vsctl add-port br0 ge-1/1/$i vlan_mode=trunk tag=1 -- set interface ge-1/1/$i type=pica8;done
-</pre>
-
-<p>
-添加万兆端口，万兆端口的编号视不同平台不同，可能是 （25~28，49~52等请根据实际情况调整）。
-</p>
-
-<pre class="example">
-for i in $(seq 25 28);do ovs-vsctl add-port br0 te-1/1/$i vlan_mode=trunk tag=1 -- set interface te-1/1/$i type=pica8;done
-</pre>
-
-<p>
-5101 添加所有端口可以采用如下命令：
-</p>
-
-<pre class="example">
-for i in $(seq 1 40);do ovs-vsctl add-port br0 te-1/1/$i vlan_mode=trunk tag=1 -- set interface te-1/1/$i type=pica8;done
-for i in $(seq 41 48);do ovs-vsctl add-port br0 qe-1/1/$i vlan_mode=trunk tag=1 -- set interface qe-1/1/$i type=pica8;done
-</pre>
-
-<p>
-一般来说采用outband模式进行SDN网络管理无须额外设定，但是如果测试时
-为了方便将SDN交换机的数据端口和管理端口挂接在相同的二层网络里可能
-会导致交换机触发inband相关配置（因为在PicOS 2.4 以后默认的连接方式
-为 in-band），为了规避可能的问题，可以用如下命令禁用：
-</p>
-
-<pre class="example">
-ovs-vsctl set bridge br0 other_config=disable-in-band=true
-</pre>
 
 <ol class="org-ol">
-<li><p>
-快速创建多个br的脚本
-</p>
-
-<p>
-以48口千兆交换机建8个br，每个br依次分配6个端口为例。
-</p>
-
-<div class="org-src-container">
-<pre class="src src-bash"><span style="font-weight: bold; font-style: italic;">#</span><span style="font-weight: bold; font-style: italic;">!/bin/</span><span style="font-weight: bold;">bash</span>
-<span style="font-weight: bold;">for</span> i<span style="font-weight: bold;"> in</span> $(<span style="font-weight: bold;">seq</span> 1 8); <span style="font-weight: bold;">do</span>
-
-     ovs-vsctl add-br br$<span style="font-weight: bold; font-style: italic;">i</span>
-
-    <span style="font-weight: bold;">for</span> j<span style="font-weight: bold;"> in</span> $(<span style="font-weight: bold;">seq</span> 0 5)
-
-    <span style="font-weight: bold;">do</span>  ovs-vsctl add-port br$<span style="font-weight: bold; font-style: italic;">i</span> ge-1/1/$(($<span style="font-weight: bold; font-style: italic;">i</span>*6+$<span style="font-weight: bold; font-style: italic;">j</span>)) <span style="font-weight: bold; font-style: italic;">vlan_mode</span>=trunk <span style="font-weight: bold; font-style: italic;">tag</span>=1 -- set interface ge-1/1/$(($<span style="font-weight: bold; font-style: italic;">i</span>*6+$<span style="font-weight: bold; font-style: italic;">j</span>)) <span style="font-weight: bold; font-style: italic;">type</span>=pica8&#8221;
-
-    <span style="font-weight: bold;">done</span>
-<span style="font-weight: bold;">done</span>
-</pre>
-</div></li>
-</ol></li>
-</ol>
-
-
-
-<ol class="org-ol">
-<li><p>
-验证虚拟交换机连接
-</p>
-
-<p>
-我们可以使用相同的命令验证对br0的修改。
-</p>
-
-<pre class="example">
-admin@PicOS-OVS$ovs-ofctl show br0
-OFPT_FEATURES_REPLY (OF1.4) (xid=0x2): dpid:5e3e486e73020023
-n_tables:254, n_buffers:256
-capabilities: FLOW_STATS TABLE_STATS PORT_STATS GROUP_STATS
-OFPST_PORT_DESC reply (OF1.4) (xid=0x4):
- 1(ge-1/1/1): addr:48:6e:73:02:00:23
-     config:     0
-     state:      LINK_UP
-     current:    1GB-FD COPPER AUTO_NEG
-     advertised: 10MB-HD 10MB-FD 100MB-HD 100MB-FD 1GB-FD COPPER AUTO_NEG
-     supported:  10MB-HD 10MB-FD 100MB-HD 100MB-FD 1GB-FD COPPER AUTO_NEG
-     peer:       10MB-HD 10MB-FD 100MB-HD 100MB-FD 1GB-FD COPPER
-     speed: 1000 Mbps now, 1000 Mbps max
- 2(ge-1/1/2): addr:48:6e:73:02:00:23
-     config:     0
-     state:      LINK_UP
-     current:    1GB-FD COPPER AUTO_NEG
-     advertised: 10MB-HD 10MB-FD 100MB-HD 100MB-FD 1GB-FD COPPER AUTO_NEG
-     supported:  10MB-HD 10MB-FD 100MB-HD 100MB-FD 1GB-FD COPPER AUTO_NEG
-     peer:       10MB-HD 10MB-FD 100MB-HD 100MB-FD 1GB-FD COPPER
-     speed: 1000 Mbps now, 1000 Mbps max
- 48(ge-1/1/48): addr:48:6e:73:02:00:23
-     config:     0
-     state:      LINK_UP
-     current:    1GB-FD COPPER AUTO_NEG
-     advertised: 10MB-HD 10MB-FD 100MB-HD 100MB-FD 1GB-FD COPPER AUTO_NEG
-     supported:  10MB-HD 10MB-FD 100MB-HD 100MB-FD 1GB-FD COPPER AUTO_NEG
-     peer:       10MB-HD 10MB-FD 100MB-HD 100MB-FD 1GB-FD COPPER
-     speed: 1000 Mbps now, 1000 Mbps max
- LOCAL(br0): addr:48:6e:73:02:00:23
-     config:     0
-     state:      LINK_UP
-     current:    10MB-FD COPPER
-     supported:  10MB-FD COPPER
-     speed: 10 Mbps now, 10 Mbps max
-OFPT_GET_CONFIG_REPLY (OF1.4) (xid=0x6): frags=normal miss_send_len=0
-admin@PicOS-OVS$
-</pre>
-
-<p>
-问：在交换机上运行什么版本的OpenFlow？
-</p>
-
-<p>
-答：如OFPT_GET_CONFIG_REPLY 所示，PicOS
-2.4.1交换机默认运行OF1.4。
-</p></li>
+<li>管理CPU
+包括 Intel D-1517，D-1527，C3558 C35xx等</li>
 </ol>
 
 
 <ol class="org-ol">
 <li><p>
-测试主机连接
+管理CPU + 流量处理
+主要有Intel  至强 Skylake ，Cascade Lake 等湖系列双至强方案
 </p>
 
 <p>
-vBridge添加物理端口后，我们将试图通过Pica8交换机转发一些数据包。从连接在1口上的主机ping
-2口上连接的主机。
-</p>
-
-<pre class="example">
-pica8@of-dev01-traff01:~$ ping 10.10.11.3
-PING 10.10.11.3 (10.10.11.3) 56(84) bytes of data.
-^C
---- 10.10.11.3 ping statistics ---
-3 packets transmitted, 0 received, +1 errors, 100% packet loss, time 2000ms
-</pre>
-
-<p>
-ping失败，是因为Pica8交换机尚未连接到OpenFlow控制器。由
-于Pica8遵循OpenFlow的标准，不匹配任何流规则的流量包，应首先通 过
-OFPT_PACKET_OUT 消息重定向到控制器。
-</p></li>
-
-<li><p>
-验证控制器可达
-</p>
-
-<p>
-我们必须配置交换机连接到通过OpenFlow的控制器。
-</p>
-
-<pre class="example">
-admin@PicOS-OVS$ping 192.168.16.82 -c 3
-PING 192.168.16.82 (192.168.16.82) 56(84) bytes of data.
-64 bytes from 192.168.16.82: icmp_req=1 ttl=64 time=3.28 ms
-64 bytes from 192.168.16.82: icmp_req=2 ttl=64 time=0.393 ms
-64 bytes from 192.168.16.82: icmp_req=3 ttl=64 time=0.458 ms
-
---- 192.168.16.82 ping statistics ---
-3 packets transmitted, 3 received, 0% packet loss, time 2001ms
-rtt min/avg/max/mdev = 0.393/1.378/3.284/1.348 ms
-</pre></li>
-
-<li><p>
-配置Pica8交换机连接到Ryu Openflow 控制器。
-</p>
-
-<p>
-配置Pica8交换机连接到通过对应的 Ryu 控制器。
-</p>
-
-<pre class="example">
-admin@PicOS-OVS$
-admin@PicOS-OVS$ovs-vsctl set-controller br0 tcp:192.168.16.82:6633
-admin@PicOS-OVS$
-</pre></li>
-
-<li><p>
-验证OpenFlow的连接
-</p>
-
-<p>
-验证Pica8 交换机 有一个到端口6633的连接 。
-</p>
-
-<pre class="example">
-admin@PicOS-OVS$
-admin@PicOS-OVS$netstat -n | grep 6633
-admin@PicOS-OVS$
-</pre>
-
-<p>
-问：交换机和控制器是否打开了一个会话？
-</p>
-
-<p>
-答：不可以，要搞清楚OpenFlow的各种设备支持哪些版本。回想一下我们以前的步骤，
-所述交换机默认为OF1.4
-。也许我们的应用程序不支持默认版本。请注意，您还
-可以看到会话状态处于TIME_WAIT或FIN_WAIT2 状态。
-</p></li>
-
-<li><p>
-设置 OpenFlow 版本 
-</p>
-
-<p>
-我们将试图通过设置交换机的OpenFlow的版本为1.3来解决交换机和控制器之间的问题：
-。在交换机上使用下面的命令进行此更改。
-</p>
-
-<pre class="example">
-admin@PicOS-OVS$
-admin@PicOS-OVS$ovs-vsctl set Bridge br0 protocols=OpenFlow13
-admin@PicOS-OVS$
-</pre></li>
-
-<li><p>
-验证OpenFlow的连接
-</p>
-
-<p>
-运行'netstat -n | grep 6633'命令，看看是否已经解决了问题。
-</p>
-
-<pre class="example">
-admin@PicOS-OVS$netstat -n | grep 6633
-tcp        0      0 192.168.16.101:56974    192.168.16.82:6633      ESTABLISHED
-admin@PicOS-OVS$
-</pre>
-
-<p>
-问：交换机打开了和控制器的会话吗？
-</p>
-
-<p>
-答：是的！成功，我们已经通过OpenFlow的控制器连接到Pica8交换机。
+在同一类CPU中，CPU之间的差异就不再是选择产品的决定因素了。
 </p></li>
 </ol>
 </div>
 </div>
-</div>
 
-<div id="outline-container-org6d70272" class="outline-2">
-<h2 id="org6d70272"><span class="section-number-2">2</span> TAP简单上手</h2>
+<div id="outline-container-orgfe2d8f8" class="outline-2">
+<h2 id="orgfe2d8f8"><span class="section-number-2">2.</span> 交换芯片</h2>
 <div class="outline-text-2" id="text-2">
 <p>
-系统启动后，将需要设定的流表命令追加到/etc/rc3.d/S06tap，如果要确认效果，可以执行
+Intel Tofino 系列芯片：
 </p>
 
-<pre class="example">
-source /etc/rc3.d/S06tap
-</pre>
+<ol class="org-ol">
+<li>一代</li>
+</ol>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">32D</td>
+<td class="org-left">32Q</td>
+<td class="org-left">64Q</td>
+</tr>
+
+<tr>
+<td class="org-left">pipeline</td>
+<td class="org-right">2</td>
+<td class="org-left">4</td>
+<td class="org-left">4</td>
+</tr>
+
+<tr>
+<td class="org-left">交换容量</td>
+<td class="org-right">3.2T</td>
+<td class="org-left">3.2T</td>
+<td class="org-left">6.4T</td>
+</tr>
+</tbody>
+</table>
 
 <p>
-用类似如下命令查看生效的流表：
+最核心的区别是容量和pipeline，更多的流水线意味着更多的资源，在一些应
+用里会采用折叠pipeline的方式实现更为复杂的处理逻辑。
 </p>
 
-<pre class="example">
 
-ovs-ofctl dump-flows br0
-
-</pre>
+<ol class="org-ol">
+<li>二代以后芯片
+二代芯片从12.8T容量起步，资源也略有增加，主要以400G接口为主，目前看性价比不高。</li>
+</ol>
 </div>
 </div>
 
-<div id="outline-container-org6ba5cab" class="outline-2">
-<h2 id="org6ba5cab"><span class="section-number-2">3</span> CrossFlow 配置</h2>
-</div>
-
-<div id="outline-container-org912572d" class="outline-2">
-<h2 id="org912572d"><span class="section-number-2">4</span> 软件版本升级</h2>
-</div>
-
-<div id="outline-container-orgb12cf38" class="outline-2">
-<h2 id="orgb12cf38"><span class="section-number-2">5</span> 手册及参考</h2>
-<div class="outline-text-2" id="text-5">
-<p>
-由于产品版本更新较快，随机并没有附操作手册。
+<div id="outline-container-orgc002c38" class="outline-2">
+<h2 id="orgc002c38"><span class="section-number-2">3.</span> 软件支持</h2>
+<div class="outline-text-2" id="text-3">
+<ol class="org-ol">
+<li><p>
+Sonic
 </p>
 
 <p>
-Pica8 交换机的配置文档主要有:
+作为目前最为火热的开源NOS，基本所有交换机都支持，但是支持的好坏还
+是有区别。官方的仓库直接可以编译运行为佳，这样有新的版本，马上就可
+以尝试。
+</p></li>
+
+<li>Stratum NOS for the next generation of SDN，同样的理由，官方认证的
+平台为最佳，能不能站在巨人肩膀上再说，至少不要从填坑开始。</li>
+
+<li><p>
+论文的复现
 </p>
 
 <p>
-在OVS模式下的纯OpenFlow配置手册及传统交换机（二、三层）配置手册请访问
-<a href="https://pan.baidu.com/s/1c2zpZeK">https://pan.baidu.com/s/1c2zpZeK</a>
+github 上的大牛开源出来的代码，能不能复现，大牛用什么平台也是一个
+重要的参考。尤其是研究方向已经非常确定的时候。
+</p></li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org3092ff6" class="outline-2">
+<h2 id="org3092ff6"><span class="section-number-2">4.</span> 扩展能力</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+Tofino作为交换芯片，受资源限制表项一般模糊匹配一万条左右，精确10万条
+左右，如果要实现大表项，或者对数据包做4层以上的处理，就要辅之以CPU，
+FGGA，智能网卡。这时需要考虑的是扩展能力，根据具体需求可以选择
+</p>
+
+<ol class="org-ol">
+<li>NP 扣卡扩展</li>
+<li>FGPA扩展</li>
+<li>标准PCI-e扩展支持</li>
+<li>正交背板扩展</li>
+</ol>
+
+
+<p>
+综合考虑了上述问题后，如果您还不知道要选择哪款设备。那么拿起电话
 </p>
 
 <p>
-如果要查找最新的文档请参考
-<a href="http://www.pica8.com/support/documentation/">Pica8 文档</a>.
+<b>致电 021-52378166</b>
 </p>
 </div>
 </div>
-<div id="footnotes">
-<h2 class="footnotes">Footnotes: </h2>
-<div id="text-footnotes">
-
-<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara"><p class="footpara">
-可以使用命令 ovs-appctl pica/show 列出当前交换机所有端口，及对应的端口名。 
-</p></div></div>
-
-
-</div>
-</div><p>There are <a href="/lab/pica8_quick_start.html#disqus_thread">comments</a>.</p>                </article>
+<p>There are <a href="https://bbill.github.io/product/select_the_right_switch.html#disqus_thread">comments</a>.</p>                </article>
             </aside><!-- /#featured -->
                 <section id="content" class="body">
                     <h1>Other articles</h1>
@@ -725,186 +198,92 @@ Pica8 交换机的配置文档主要有:
 
             <li><article class="hentry">
                 <header>
-                    <h1><a href="/product/OpenFlow_on_Tofino.html" rel="bookmark"
-                           title="Permalink to OpenFlow on OpenMesh P4 交换机">OpenFlow on OpenMesh P4 交换机</a></h1>
+                    <h1><a href="https://bbill.github.io/lab/pica8_quick_start.html" rel="bookmark"
+                           title="Permalink to Pica8 白盒交换机快速上手">Pica8 白盒交换机快速上手</a></h1>
                 </header>
 
                 <div class="entry-content">
 <footer class="post-info">
-        <abbr class="published" title="2019-12-14T00:00:00+08:00">
-                Published: 六 14 十二月 2019
+        <abbr class="published" title="2022-12-04T00:00:00+08:00">
+                Published: Sun 04 December 2022
         </abbr>
 
         <address class="vcard author">
-                By                         <a class="url fn" href="/author/bill.html">bill</a>
+                By                         <a class="url fn" href="https://bbill.github.io/author/bill.html">bill</a>
         </address>
-<p>In <a href="/category/product.html">product</a>.</p>
-<p>tags: <a href="/tag/openflowp4sdntofinoopenmesh.html">OpenFlow，P4，SDN，Tofino，OpenMesh</a> </p>
-</footer><!-- /.post-info -->                <div id="table-of-contents">
+<p>In <a href="https://bbill.github.io/category/lab.html">lab</a>.</p>
+<p>tags: <a href="https://bbill.github.io/tag/pica.html">pica</a> <a href="https://bbill.github.io/tag/white-box.html">white box</a> <a href="https://bbill.github.io/tag/openflow.html">openflow</a> <a href="https://bbill.github.io/tag/sdn.html">sdn</a> </p>
+</footer><!-- /.post-info -->                <div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org3022ed5">1. 基本可以工作</a></li>
+<li><a href="#org073984c">1. 初始设置和访问</a>
+<ul>
+<li><a href="#orge0d75bf">1.1. 登陆交换机</a></li>
+<li><a href="#org7001f53">1.2. 设定默认启动模式</a></li>
+<li><a href="#orgf45ab38">1.3. 设置 Openflow SDN网络</a></li>
+</ul>
+</li>
+<li><a href="#org6e772ce">2. TAP简单上手</a></li>
+<li><a href="#org4bae0bf">3. CrossFlow 配置</a></li>
+<li><a href="#org4326f3d">4. 软件版本升级</a></li>
+<li><a href="#orge9814d1">5. 手册及参考</a></li>
 </ul>
 </div>
 </div>
 
 
-<div id="outline-container-org3022ed5" class="outline-2">
-<h2 id="org3022ed5"><span class="section-number-2">1</span> 基本可以工作</h2>
+<div id="outline-container-org073984c" class="outline-2">
+<h2 id="org073984c"><span class="section-number-2">1.</span> 初始设置和访问</h2>
 <div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-orge0d75bf" class="outline-3">
+<h3 id="orge0d75bf"><span class="section-number-3">1.1.</span> 登陆交换机</h3>
+<div class="outline-text-3" id="text-1-1">
 <p>
-后续补充
-</p>
-</div>
-</div>
-
-                <a class="readmore" href="/product/OpenFlow_on_Tofino.html">read more</a>
-<p>There are <a href="/product/OpenFlow_on_Tofino.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
+交换机开箱后的初始登录，可以通过 串口(RJ45)来进行。 找到交换机 的console
+口(一般会标有Con)。通过windows 主机上的超级终端工具，或者putty,
+securecrt 等 终端工具，配置串口参数为 115200,
+8/N/1 …</p></div></div></div>
+                <a class="readmore" href="https://bbill.github.io/lab/pica8_quick_start.html">read more</a>
+<p>There are <a href="https://bbill.github.io/lab/pica8_quick_start.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
             </article></li>
 
             <li><article class="hentry">
                 <header>
-                    <h1><a href="/lab/install_ryu_on_switch.html" rel="bookmark"
-                           title="Permalink to 在交换机上安装运行ryu">在交换机上安装运行ryu</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2019-07-14T00:00:00+08:00">
-                Published: 日 14 七月 2019
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/bill.html">bill</a>
-        </address>
-<p>In <a href="/category/lab.html">lab</a>.</p>
-<p>tags: <a href="/tag/openmesh.html">OpenMesh</a> <a href="/tag/openflow.html">OpenFlow</a> <a href="/tag/ryu.html">ryu</a> <a href="/tag/arm.html">arm</a> <a href="/tag/ovs.html">ovs</a> </p>
-</footer><!-- /.post-info -->                <div id="table-of-contents">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents">
-<ul>
-<li><a href="#org2a8be0d">1. 在OpenMesh OpenFlow 交换机上安装 ryu</a></li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-org2a8be0d" class="outline-2">
-<h2 id="org2a8be0d"><span class="section-number-2">1</span> 在OpenMesh OpenFlow 交换机上安装 ryu</h2>
-<div class="outline-text-2" id="text-1">
-<p>
-执行如下命令
-</p>
-
-<pre class="example">
-pip install ryu==4.32
-pip install PyYAML==3.12
-pip install six==3.5
-pip install six==1.12.0
-pip install requests==2.18.0
-pip install  debtcollector==1.2.0
-pip install  rfc3986 …</pre></div></div>
-                <a class="readmore" href="/lab/install_ryu_on_switch.html">read more</a>
-<p>There are <a href="/lab/install_ryu_on_switch.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/lab/automatic_boring_web_staff.html" rel="bookmark"
-                           title="Permalink to 用autohotkey减少烦人的网页重复操作">用autohotkey减少烦人的网页重复操作</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2019-06-14T00:00:00+08:00">
-                Published: 五 14 六月 2019
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/bill.html">bill</a>
-        </address>
-<p>In <a href="/category/lab.html">lab</a>.</p>
-<p>tags: <a href="/tag/automatic.html">automatic</a> <a href="/tag/autohotkey.html">autohotkey</a> <a href="/tag/ahk.html">ahk</a> <a href="/tag/web.html">web</a> <a href="/tag/gui.html">gui</a> <a href="/tag/in-turn.html">in turn</a> <a href="/tag/zhong-fu.html">重复</a> </p>
-</footer><!-- /.post-info -->                <div id="table-of-contents">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents">
-<ul>
-<li><a href="#orgd1f3082">1. 问题</a></li>
-<li><a href="#orgfda0065">2. 工具选择</a></li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-orgd1f3082" class="outline-2">
-<h2 id="orgd1f3082"><span class="section-number-2">1</span> 问题</h2>
-<div class="outline-text-2" id="text-1">
-<p>
-变态的网页应用，只支持IE 7，要重复做点击，输入文件名，保存。关键是
-要做很多次,忍无可忍。
-</p>
-</div>
-</div>
-
-<div id="outline-container-orgfda0065" class="outline-2">
-<h2 id="orgfda0065"><span class="section-number-2">2</span> 工具选择</h2>
-<div class="outline-text-2" id="text-2">
-<p>
-本来打算用sikuli,之前用的很爽，可以做类似录制宏的操作，可是最新的版
-本要 win7, windows 虚机里面一跑就死。放弃。
-</p>
-
-<p>
-然后看了web 自动化测试工具，太重，只有试用版，放弃。直到找到
-autohotkey ，发现正是自己要的。
-</p>
-
-<p>
-可以简单的解决我的问题，无需编程知识。可以把鼠标及键盘操作，存入一
-个脚本，然后执行。鼠标的操作可以通过，相对位置来定，程序可以提示光标位置。
-</p>
-
-<p>
-因为要依次点击，在弹出的会话框改文件名，理论上应该有个循环什么的。
-那个已经超出我的能力范围了 …</p></div></div>
-                <a class="readmore" href="/lab/automatic_boring_web_staff.html">read more</a>
-<p>There are <a href="/lab/automatic_boring_web_staff.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/lab/install_picos_on_dell.html" rel="bookmark"
+                    <h1><a href="https://bbill.github.io/lab/install_picos_on_dell.html" rel="bookmark"
                            title="Permalink to 在Dell N3048/24 上安装 PicOS">在Dell N3048/24 上安装 PicOS</a></h1>
                 </header>
 
                 <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2019-06-04T00:00:00+08:00">
-                Published: 二 04 六月 2019
+                Published: Tue 04 June 2019
         </abbr>
 
         <address class="vcard author">
-                By                         <a class="url fn" href="/author/bill.html">bill</a>
+                By                         <a class="url fn" href="https://bbill.github.io/author/bill.html">bill</a>
         </address>
-<p>In <a href="/category/lab.html">lab</a>.</p>
-<p>tags: <a href="/tag/lab.html">lab</a> <a href="/tag/install.html">install</a> <a href="/tag/onie.html">onie</a> <a href="/tag/picos.html">picos</a> <a href="/tag/dell.html">dell</a> <a href="/tag/n3048.html">n3048</a> <a href="/tag/n3024.html">n3024</a> <a href="/tag/uboot.html">uboot</a> </p>
-</footer><!-- /.post-info -->                <div id="table-of-contents">
+<p>In <a href="https://bbill.github.io/category/lab.html">lab</a>.</p>
+<p>tags: <a href="https://bbill.github.io/tag/lab.html">lab</a> <a href="https://bbill.github.io/tag/install.html">install</a> <a href="https://bbill.github.io/tag/onie.html">onie</a> <a href="https://bbill.github.io/tag/picos.html">picos</a> <a href="https://bbill.github.io/tag/dell.html">dell</a> <a href="https://bbill.github.io/tag/n3048.html">n3048</a> <a href="https://bbill.github.io/tag/n3024.html">n3024</a> <a href="https://bbill.github.io/tag/uboot.html">uboot</a> </p>
+</footer><!-- /.post-info -->                <div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgfc85fd6">1. <b>首次安装PICOS</b></a>
+<li><a href="#orge8271fc">1. <b>首次安装PICOS</b></a>
 <ul>
-<li><a href="#org01ab76a">1.1. 确保已经下载了正确的安装文件</a></li>
-<li><a href="#org515a396">1.2. 进入Boot Main Menu。</a></li>
-<li><a href="#orgd725049">1.3. 进入ONIE救援模式</a></li>
-<li><a href="#org7ed8436">1.4. 安装PicOS</a></li>
+<li><a href="#orga264900">1.1. 确保已经下载了正确的安装文件</a></li>
+<li><a href="#org0f3a709">1.2. 进入Boot Main Menu。</a></li>
+<li><a href="#org6bc3b59">1.3. 进入ONIE救援模式</a></li>
+<li><a href="#org384f06f">1.4. 安装PicOS</a></li>
 </ul>
 </li>
-<li><a href="#orgef97a78">2. <b>传统安装流程</b></a>
+<li><a href="#org0e475c7">2. <b>传统安装流程</b></a>
 <ul>
-<li><a href="#orgf58dc3d">2.1. 文件准备</a></li>
-<li><a href="#orgd79996b">2.2. 进入救援模式</a>
+<li><a href="#org8865aef">2.1. 文件准备</a></li>
+<li><a href="#org767a37f">2.2. 进入救援模式</a>
 <ul>
-<li><a href="#org57ed218">2.2.1. 在ONIE提示符下，运行 <b>onie-nos-install</b> 命令安装PICOS。</a></li>
+<li><a href="#orgb93c612">2.2.1. 在ONIE提示符下，运行 <b>onie-nos-install</b> 命令安装PICOS。</a></li>
 </ul>
 </li>
 </ul>
@@ -916,8 +295,8 @@ autohotkey ，发现正是自己要的。
 使用google translate 翻译自 <a href="https://docs.pica8.com/display/PicOS21118sp/Installing+PICOS+on+Bare+Metal+Switches+for+N3048EP-ON">here</a>.
 </p>
 
-<div id="outline-container-orgfc85fd6" class="outline-2">
-<h2 id="orgfc85fd6"><span class="section-number-2">1</span> <b>首次安装PICOS</b></h2>
+<div id="outline-container-orge8271fc" class="outline-2">
+<h2 id="orge8271fc"><span class="section-number-2">1.</span> <b>首次安装PICOS</b></h2>
 <div class="outline-text-2" id="text-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -938,77 +317,43 @@ autohotkey ，发现正是自己要的。
 </div>
 
 
-<div id="outline-container-org01ab76a" class="outline-3">
-<h3 id="org01ab76a"><span class="section-number-3">1.1</span> 确保已经下载了正确的安装文件</h3>
+<div id="outline-container-orga264900" class="outline-3">
+<h3 id="orga264900"><span class="section-number-3">1.1.</span> 确保已经下载了正确的安装文件</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 设定服务器将将该.bin 文件的安装包通过（HTTP …</p></div></div></div>
-                <a class="readmore" href="/lab/install_picos_on_dell.html">read more</a>
-<p>There are <a href="/lab/install_picos_on_dell.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
+                <a class="readmore" href="https://bbill.github.io/lab/install_picos_on_dell.html">read more</a>
+<p>There are <a href="https://bbill.github.io/lab/install_picos_on_dell.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
             </article></li>
 
             <li><article class="hentry">
                 <header>
-                    <h1><a href="/product/Network_Simulator.html" rel="bookmark"
-                           title="Permalink to EstiNet 网络仿真">EstiNet 网络仿真</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2018-11-18T00:00:00+08:00">
-                Published: 日 18 十一月 2018
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/bill.html">bill</a>
-        </address>
-<p>In <a href="/category/product.html">product</a>.</p>
-<p>tags: <a href="/tag/simulator.html">simulator</a> <a href="/tag/network.html">network</a> <a href="/tag/sdn.html">sdn</a> <a href="/tag/wifi.html">wifi</a> <a href="/tag/iot.html">IOT</a> </p>
-</footer><!-- /.post-info -->                <p>
-EstiNet 网络仿真器是一套可以仿真整个网络的软件,它可仿真多种网络设备之
-间的通讯协议机制,也可仿真每个网络设备收送与处理数据包的行为。
-</p>
-
-<p>
-网络仿真器的主要用途在于网络教学与培训方面,也可用于科研用途,研发新型的
-网络通讯协议或验证新创网络解决方案的效能。EstiNet 的设计架构将整个
-Linux 操作系统环境作为其仿真环境,因此,它的主要特色就是整合了 Linux 环
-境里所有与网络相关的核心模块与应用软件,使它的仿真环境接近真实网络环境,
-可让网络教学更有实用成效,也可让科研结果更贴近真实网络的情况。
-</p>
-
-                <a class="readmore" href="/product/Network_Simulator.html">read more</a>
-<p>There are <a href="/product/Network_Simulator.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/troubleshooting/no_rx_while_correct_rule.html" rel="bookmark"
+                    <h1><a href="https://bbill.github.io/troubleshooting/no_rx_while_correct_rule.html" rel="bookmark"
                            title="Permalink to 正确的流表收不到包">正确的流表收不到包</a></h1>
                 </header>
 
                 <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2018-11-10T00:00:00+08:00">
-                Published: 六 10 十一月 2018
+                Published: Sat 10 November 2018
         </abbr>
 
         <address class="vcard author">
-                By                         <a class="url fn" href="/author/bill.html">bill</a>
+                By                         <a class="url fn" href="https://bbill.github.io/author/bill.html">bill</a>
         </address>
-<p>In <a href="/category/troubleshooting.html">troubleshooting</a>.</p>
-<p>tags: <a href="/tag/pica8.html">pica8</a> <a href="/tag/vlan.html">vlan</a> <a href="/tag/trunk.html">trunk</a> <a href="/tag/access.html">access</a> </p>
-</footer><!-- /.post-info -->                <div id="table-of-contents">
+<p>In <a href="https://bbill.github.io/category/troubleshooting.html">troubleshooting</a>.</p>
+<p>tags: <a href="https://bbill.github.io/tag/pica8.html">pica8</a> <a href="https://bbill.github.io/tag/vlan.html">vlan</a> <a href="https://bbill.github.io/tag/trunk.html">trunk</a> <a href="https://bbill.github.io/tag/access.html">access</a> </p>
+</footer><!-- /.post-info -->                <div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org79e240e">1. 流表配置如下</a></li>
+<li><a href="#org54adcd2">1. 流表配置如下</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org79e240e" class="outline-2">
-<h2 id="org79e240e"><span class="section-number-2">1</span> 流表配置如下</h2>
+<div id="outline-container-org54adcd2" class="outline-2">
+<h2 id="org54adcd2"><span class="section-number-2">1.</span> 流表配置如下</h2>
 <div class="outline-text-2" id="text-1">
 <pre class="example">
 ovs-ofctl -O OpenFlow13 add-flow br0 table=0,in_port=50,actions=mod_vlan_vid:10,mod_dl_src:6c:59:79:33:44:55,mod_dl_dst:f8:bc:12:4d:e9:d8,goto_table:8
@@ -1026,34 +371,34 @@ ovs-ofctl -O OpenFlow13 add-flow br0 table=8,actions=output:49
 
 <pre class="example">
 admin@PICOS-OVS …</pre></div></div>
-                <a class="readmore" href="/troubleshooting/no_rx_while_correct_rule.html">read more</a>
-<p>There are <a href="/troubleshooting/no_rx_while_correct_rule.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
+                <a class="readmore" href="https://bbill.github.io/troubleshooting/no_rx_while_correct_rule.html">read more</a>
+<p>There are <a href="https://bbill.github.io/troubleshooting/no_rx_while_correct_rule.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
             </article></li>
 
             <li><article class="hentry">
                 <header>
-                    <h1><a href="/lab/barefoot_quick_start.html" rel="bookmark"
+                    <h1><a href="https://bbill.github.io/lab/barefoot_quick_start.html" rel="bookmark"
                            title="Permalink to barefoot硬件可编程交换机（OpenMesh）快速上手">barefoot硬件可编程交换机（OpenMesh）快速上手</a></h1>
                 </header>
 
                 <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2018-11-08T00:00:00+08:00">
-                Published: 四 08 十一月 2018
+                Published: Thu 08 November 2018
         </abbr>
 
         <address class="vcard author">
-                By                         <a class="url fn" href="/author/bill.html">bill</a>
+                By                         <a class="url fn" href="https://bbill.github.io/author/bill.html">bill</a>
         </address>
-<p>In <a href="/category/lab.html">lab</a>.</p>
-<p>tags: <a href="/tag/openflow.html">openflow</a> <a href="/tag/sdn.html">sdn</a> <a href="/tag/barefoot.html">barefoot</a> <a href="/tag/tofino.html">tofino</a> </p>
-</footer><!-- /.post-info -->                <div id="table-of-contents">
+<p>In <a href="https://bbill.github.io/category/lab.html">lab</a>.</p>
+<p>tags: <a href="https://bbill.github.io/tag/openflow.html">openflow</a> <a href="https://bbill.github.io/tag/sdn.html">sdn</a> <a href="https://bbill.github.io/tag/barefoot.html">barefoot</a> <a href="https://bbill.github.io/tag/tofino.html">tofino</a> </p>
+</footer><!-- /.post-info -->                <div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgac7f8d6">1. 初始设置和访问</a>
+<li><a href="#org31c4f5e">1. 初始设置和访问</a>
 <ul>
-<li><a href="#orgafde22b">1.1. 登陆交换机</a></li>
+<li><a href="#orgd330cdc">1.1. 登陆交换机</a></li>
 </ul>
 </li>
 </ul>
@@ -1062,12 +407,12 @@ admin@PICOS-OVS …</pre></div></div>
 
 
 
-<div id="outline-container-orgac7f8d6" class="outline-2">
-<h2 id="orgac7f8d6"><span class="section-number-2">1</span> 初始设置和访问</h2>
+<div id="outline-container-org31c4f5e" class="outline-2">
+<h2 id="org31c4f5e"><span class="section-number-2">1.</span> 初始设置和访问</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-orgafde22b" class="outline-3">
-<h3 id="orgafde22b"><span class="section-number-3">1.1</span> 登陆交换机</h3>
+<div id="outline-container-orgd330cdc" class="outline-3">
+<h3 id="orgd330cdc"><span class="section-number-3">1.1.</span> 登陆交换机</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 交换机开箱后的初始登录，可以通过 串口(RJ45)来进行。 找到交换机 的console
@@ -1078,7 +423,7 @@ securecrt 等 终端工具，配置串口参数为 115200,
 </p>
 
 
-<div class="figure">
+<div id="org0393079" class="figure">
 <p><img src="http://www.tooyum.com/images/rs232.png" alt="rs232.png" width="300px" />
 </p>
 </div>
@@ -1086,34 +431,34 @@ securecrt 等 终端工具，配置串口参数为 115200,
 </div>
 </div>
 
-                <a class="readmore" href="/lab/barefoot_quick_start.html">read more</a>
-<p>There are <a href="/lab/barefoot_quick_start.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
+                <a class="readmore" href="https://bbill.github.io/lab/barefoot_quick_start.html">read more</a>
+<p>There are <a href="https://bbill.github.io/lab/barefoot_quick_start.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
             </article></li>
 
             <li><article class="hentry">
                 <header>
-                    <h1><a href="/troubleshooting/xfs_on_crash_ssd.html" rel="bookmark"
+                    <h1><a href="https://bbill.github.io/troubleshooting/xfs_on_crash_ssd.html" rel="bookmark"
                            title="Permalink to XFS repair on failed SSD">XFS repair on failed SSD</a></h1>
                 </header>
 
                 <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2018-03-18T00:00:00+08:00">
-                Published: 日 18 三月 2018
+                Published: Sun 18 March 2018
         </abbr>
 
         <address class="vcard author">
-                By                         <a class="url fn" href="/author/bill.html">bill</a>
+                By                         <a class="url fn" href="https://bbill.github.io/author/bill.html">bill</a>
         </address>
-<p>In <a href="/category/troubleshooting.html">troubleshooting</a>.</p>
-<p>tags: <a href="/tag/xfs.html">xfs</a> <a href="/tag/ssd.html">ssd</a> <a href="/tag/unreadable.html">unreadable</a> </p>
-</footer><!-- /.post-info -->                <div id="table-of-contents">
+<p>In <a href="https://bbill.github.io/category/troubleshooting.html">troubleshooting</a>.</p>
+<p>tags: <a href="https://bbill.github.io/tag/xfs.html">xfs</a> <a href="https://bbill.github.io/tag/ssd.html">ssd</a> <a href="https://bbill.github.io/tag/unreadable.html">unreadable</a> </p>
+</footer><!-- /.post-info -->                <div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org85942f2">1. 先备份</a></li>
-<li><a href="#org71b9dc7">2. 恢复</a></li>
-<li><a href="#org5dcc89e">3. 重新启用该SSD</a></li>
+<li><a href="#orga987269">1. 先备份</a></li>
+<li><a href="#orgcffcd9f">2. 恢复</a></li>
+<li><a href="#org9be6157">3. 重新启用该SSD</a></li>
 </ul>
 </div>
 </div>
@@ -1126,8 +471,8 @@ securecrt 等 终端工具，配置串口参数为 115200,
 尝试重启，再挂载,当然还是不行，因为是一块PCI-E SSD 卡，非常担心数据搞不出来。
 </p>
 
-<div id="outline-container-org85942f2" class="outline-2">
-<h2 id="org85942f2"><span class="section-number-2">1</span> 先备份</h2>
+<div id="outline-container-orga987269" class="outline-2">
+<h2 id="orga987269"><span class="section-number-2">1.</span> 先备份</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 保险起见，先dd出来，因为本地没有足够大的空间，尝试将现有信息保存到另外一台主机，
@@ -1136,85 +481,228 @@ securecrt 等 终端工具，配置串口参数为 115200,
 <p>
 在有空间的主机（192.168.1.2)运行：
 </p>
-<pre class="example">
+<pre class="example" id="orgecc53a4">
 ssh root@192.168.1.1 "dd iflag=fullblock  conv=sync,noerror if=/dev/nvme0n1 |gzip …</pre></div></div>
-                <a class="readmore" href="/troubleshooting/xfs_on_crash_ssd.html">read more</a>
-<p>There are <a href="/troubleshooting/xfs_on_crash_ssd.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
+                <a class="readmore" href="https://bbill.github.io/troubleshooting/xfs_on_crash_ssd.html">read more</a>
+<p>There are <a href="https://bbill.github.io/troubleshooting/xfs_on_crash_ssd.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
             </article></li>
 
             <li><article class="hentry">
                 <header>
-                    <h1><a href="/lab/try_ryu_nat.html" rel="bookmark"
-                           title="Permalink to 试用 RYU NAT">试用 RYU NAT</a></h1>
+                    <h1><a href="https://bbill.github.io/product/Spice_over_Ubuntu_16.04.html" rel="bookmark"
+                           title="Permalink to The SPICE support in KVM Ubunt 16.04 guest">The SPICE support in KVM Ubunt 16.04 guest</a></h1>
                 </header>
 
                 <div class="entry-content">
 <footer class="post-info">
-        <abbr class="published" title="2018-01-24T00:00:00+08:00">
-                Published: 三 24 一月 2018
+        <abbr class="published" title="2018-01-23T00:00:00+08:00">
+                Published: Tue 23 January 2018
         </abbr>
 
         <address class="vcard author">
-                By                         <a class="url fn" href="/author/bill.html">bill</a>
+                By                         <a class="url fn" href="https://bbill.github.io/author/bill.html">bill</a>
         </address>
-<p>In <a href="/category/lab.html">lab</a>.</p>
-<p>tags: <a href="/tag/ryu.html">ryu</a> <a href="/tag/nat.html">nat</a> <a href="/tag/dhcp.html">dhcp</a> <a href="/tag/agent.html">agent</a> <a href="/tag/sdn.html">sdn</a> <a href="/tag/openflow.html">OpenFlow</a> </p>
-</footer><!-- /.post-info -->                <div id="table-of-contents">
+<p>In <a href="https://bbill.github.io/category/product.html">product</a>.</p>
+<p>tags: <a href="https://bbill.github.io/tag/kvm.html">kvm</a> <a href="https://bbill.github.io/tag/ovirt.html">ovirt</a> <a href="https://bbill.github.io/tag/spice.html">spice</a> <a href="https://bbill.github.io/tag/qxl.html">qxl</a> <a href="https://bbill.github.io/tag/ubuntu-1604.html">ubuntu 16.04</a> </p>
+</footer><!-- /.post-info -->                <div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgca65bda">1. 安装RYU</a></li>
-<li><a href="#org22e24d4">2. 安装</a></li>
-<li><a href="#org007b7da">3. 运行</a></li>
-<li><a href="#orgef1c127">4. 验证</a></li>
+<li><a href="#orga321c72">1. Problem</a></li>
+<li><a href="#org9a6ebda">2. Solution</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgca65bda" class="outline-2">
-<h2 id="orgca65bda"><span class="section-number-2">1</span> 安装RYU</h2>
+<div id="outline-container-orga321c72" class="outline-2">
+<h2 id="orga321c72"><span class="section-number-2">1.</span> Problem</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-略，不清楚可以参考 <a href="https://bbill.github.io/lab/ryu_lab1.org">这里</a>
+The OS can't detect the qxl video driver. The display resolution
+can't be changed not to mention adjust automatically.
 </p>
-</div>
-</div>
-<div id="outline-container-org22e24d4" class="outline-2">
-<h2 id="org22e24d4"><span class="section-number-2">2</span> 安装</h2>
-<div class="outline-text-2" id="text-2">
-<pre class="example">
-cd 
-git clone https://github.com/bbill/nat.git ryu/ryu/app/nat
-</pre>
-</div>
-</div>
-<div id="outline-container-org007b7da" class="outline-2">
-<h2 id="org007b7da"><span class="section-number-2">3</span> 运行</h2>
-<div class="outline-text-2" id="text-3">
-<pre class="example">
 
+<p>
+Try to solve it by kill X,then reconfigure it.
+</p>
+<pre class="example" id="org280716e">
+init 3
 </pre>
+<p>
+after relogin
+</p>
+
+<pre class="example" id="org1a4485b">
+X -configure
+</pre>
+
+<p>
+It keep complains 
+</p>
+
+<pre class="example" id="orgb075db9">
+X.Org X …</pre></div></div>
+                <a class="readmore" href="https://bbill.github.io/product/Spice_over_Ubuntu_16.04.html">read more</a>
+<p>There are <a href="https://bbill.github.io/product/Spice_over_Ubuntu_16.04.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="https://bbill.github.io/lab/libvirt_dnsmasq_conflict.html" rel="bookmark"
+                           title="Permalink to libvirtd 导致的dnsmasq 冲突问题">libvirtd 导致的dnsmasq 冲突问题</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2018-01-20T00:00:00+08:00">
+                Published: Sat 20 January 2018
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="https://bbill.github.io/author/bill.html">bill</a>
+        </address>
+<p>In <a href="https://bbill.github.io/category/lab.html">lab</a>.</p>
+<p>tags: <a href="https://bbill.github.io/tag/libvirtd.html">libvirtd</a> <a href="https://bbill.github.io/tag/dasmasq.html">dasmasq</a> <a href="https://bbill.github.io/tag/conflict.html">conflict</a> </p>
+</footer><!-- /.post-info -->                <p>
+在一台机器上用dnsmasq 做dhcp server，报错
+</p>
+
+<pre class="example" id="org7abade0">
+failed to bind dhcp server socket: Address already in use.
+</pre>
+<p>
+查看后发现系统内已经由libvirtd 启动了一个dnsmasq，对virtbr0提供服务。<a href="https://wiki.libvirt.org/page/Libvirtd_and_dnsmasq">这里</a>提供了解决方案。
+关键是取消  bind-interfaces这一行的注释。并且指定需要监听的interface或者IP。
+</p>
+
+<pre class="example" id="org3248fca">
+bind-interfaces
+interface=eth0
+listen-address=192.168.0.1
+</pre>
+
+                <a class="readmore" href="https://bbill.github.io/lab/libvirt_dnsmasq_conflict.html">read more</a>
+<p>There are <a href="https://bbill.github.io/lab/libvirt_dnsmasq_conflict.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="https://bbill.github.io/lab/pica8_OVS_Command_Reference.html" rel="bookmark"
+                           title="Permalink to Pica8 OVS 模式常用命令">Pica8 OVS 模式常用命令</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2018-01-05T00:00:00+08:00">
+                Published: Fri 05 January 2018
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="https://bbill.github.io/author/bill.html">bill</a>
+        </address>
+<p>In <a href="https://bbill.github.io/category/lab.html">lab</a>.</p>
+<p>tags: <a href="https://bbill.github.io/tag/pica.html">pica</a> <a href="https://bbill.github.io/tag/white-box.html">white box</a> <a href="https://bbill.github.io/tag/openflow.html">openflow</a> <a href="https://bbill.github.io/tag/sdn.html">sdn</a> </p>
+</footer><!-- /.post-info -->                <div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orgf90f4cb">1. 确认端口状态</a></li>
+<li><a href="#org387789a">2. 确认硬件流表支持的最大条目</a></li>
+</ul>
 </div>
 </div>
 
-<div id="outline-container-orgef1c127" class="outline-2">
-<h2 id="orgef1c127"><span class="section-number-2">4</span> 验证</h2>
-<div class="outline-text-2" id="text-4">
+<div id="outline-container-orgf90f4cb" class="outline-2">
+<h2 id="orgf90f4cb"><span class="section-number-2">1.</span> 确认端口状态</h2>
+<div class="outline-text-2" id="text-1">
 <ol class="org-ol">
 <li><p>
-如果没有实体SDN交换机，请安装 mininet
+端口计数器
 </p>
-<pre class="example">
-cd 
-git clone https://github.com/mininet/mininet.git
-./mininet/util/install …</pre></li></ol></div></div>
-                <a class="readmore" href="/lab/try_ryu_nat.html">read more</a>
-<p>There are <a href="/lab/try_ryu_nat.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
+<pre class="example" id="orgec2350c">
+admin@PicOS-OVS$ovs-ofctl dump-ports  br0
+OFPST_PORT reply (OF1.3) (xid=0x2): 49 ports
+  port  1: rx pkts=0, bytes=979551, drop=0, errs=518513, frame=0, over=0, crc=0
+           tx pkts=457981, bytes=34858800, drop=0, errs=0, coll …</pre></li></ol></div></div>
+                <a class="readmore" href="https://bbill.github.io/lab/pica8_OVS_Command_Reference.html">read more</a>
+<p>There are <a href="https://bbill.github.io/lab/pica8_OVS_Command_Reference.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="https://bbill.github.io/product/openmesh_static_flow.html" rel="bookmark"
+                           title="Permalink to OpenMesh SDN 交换机的静态流表配置">OpenMesh SDN 交换机的静态流表配置</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2018-01-03T00:00:00+08:00">
+                Published: Wed 03 January 2018
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="https://bbill.github.io/author/bill.html">bill</a>
+        </address>
+<p>In <a href="https://bbill.github.io/category/chan-pin.html">产品</a>.</p>
+<p>tags: <a href="https://bbill.github.io/tag/sdn.html">sdn</a> <a href="https://bbill.github.io/tag/openflow.html">openflow</a> <a href="https://bbill.github.io/tag/ovs-vsctl.html">ovs-vsctl</a> <a href="https://bbill.github.io/tag/static.html">static</a> <a href="https://bbill.github.io/tag/flow.html">flow</a> </p>
+</footer><!-- /.post-info -->                <div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orgc28be64">1. OpenMesh SDN交换机设置静态流表的"正确"方法</a>
+<ul>
+<li><a href="#org1a17c45">1.1. 系统初始设置</a></li>
+<li><a href="#orga532dff">1.2. 添加静态流配置命令</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgc28be64" class="outline-2">
+<h2 id="orgc28be64"><span class="section-number-2">1.</span> OpenMesh SDN交换机设置静态流表的"正确"方法</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org1a17c45" class="outline-3">
+<h3 id="org1a17c45"><span class="section-number-3">1.1.</span> 系统初始设置</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+参见 <a href="../lab/pica8_quick_start.html">快速上手</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga532dff" class="outline-3">
+<h3 id="orga532dff"><span class="section-number-3">1.2.</span> 添加静态流配置命令</h3>
+<div class="outline-text-3" id="text-1-2">
+<pre class="example" id="org12daf75">
+admin@PICOS-OVS$sudo mkdir /cftmp/
+</pre>
+
+<p>
+创建规则脚本
+</p>
+
+<pre class="example" id="org38088e7">
+admin@PICOS-OVS$sudo vi /cftmp/auto/post-ovs
+
+</pre>
+
+<p>
+在规则脚本 /cftmp/auto/post-ovs 中写入如下内容
+</p>
+
+<pre class="example" id="org89ea61e">
+#!/bin/bash                                                                                                                                                   
+export PATH=/ovs …</pre></div></div></div>
+                <a class="readmore" href="https://bbill.github.io/product/openmesh_static_flow.html">read more</a>
+<p>There are <a href="https://bbill.github.io/product/openmesh_static_flow.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
             </article></li>
                 </ol><!-- /#posts-list -->
 <p class="paginator">
     Page 1 / 2
-        <a href="/author/bill2.html">&raquo;</a>
+        <a href="https://bbill.github.io/author/bill2.html">&raquo;</a>
+        <a href="https://bbill.github.io/author/bill2.html">&#8649;</a>
 </p>
                 </section><!-- /#content -->
         <section id="extras" class="body">
@@ -1224,6 +712,13 @@ git clone https://github.com/mininet/mininet.git
                             <li><a href="http://www.tooyum.com/">tooyum</a></li>
                         </ul>
                 </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+                            <li><a href="https://bbill.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+
+                        </ul>
+                </div><!-- /.social -->
         </section><!-- /#extras -->
 
         <footer id="contentinfo" class="body">

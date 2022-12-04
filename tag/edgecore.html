@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>SDN Hands ON! - edgecore</title>
+        <link rel="stylesheet" href="https://bbill.github.io/theme/css/main.css" />
+        <link href="https://bbill.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="SDN Hands ON! Atom Feed" />
+
+        <!--[if IE]>
+            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="https://bbill.github.io/">SDN Hands ON! </a></h1>
+                <nav><ul>
+                    <li><a href="https://bbill.github.io/category/chan-pin.html">产品</a></li>
+                    <li><a href="https://bbill.github.io/category/lab.html">lab</a></li>
+                    <li><a href="https://bbill.github.io/category/product.html">product</a></li>
+                    <li><a href="https://bbill.github.io/category/shi-yan.html">实验</a></li>
+                    <li><a href="https://bbill.github.io/category/troubleshooting.html">troubleshooting</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="https://bbill.github.io/product/select_the_right_switch.html">科研机构怎么选购 p4 交换机</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2022-12-05T00:00:00+08:00">
+                Published: Mon 05 December 2022
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="https://bbill.github.io/author/bill.html">bill</a>
+        </address>
+<p>In <a href="https://bbill.github.io/category/chan-pin.html">产品</a>.</p>
+<p>tags: <a href="https://bbill.github.io/tag/sdn.html">sdn</a> <a href="https://bbill.github.io/tag/openflow.html">openflow</a> <a href="https://bbill.github.io/tag/p4.html">p4</a> <a href="https://bbill.github.io/tag/tofino.html">tofino</a> <a href="https://bbill.github.io/tag/barefoot.html">barefoot</a> <a href="https://bbill.github.io/tag/onie.html">onie</a> <a href="https://bbill.github.io/tag/openmesh.html">openmesh</a> <a href="https://bbill.github.io/tag/edgecore.html">edgecore</a> </p>
+</footer><!-- /.post-info --><div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org5c6d845">1. 选择CPU</a></li>
+<li><a href="#orgfe2d8f8">2. 交换芯片</a></li>
+<li><a href="#orgc002c38">3. 软件支持</a></li>
+<li><a href="#org3092ff6">4. 扩展能力</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org5c6d845" class="outline-2">
+<h2 id="org5c6d845"><span class="section-number-2">1.</span> 选择CPU</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+CPU 分两类
+</p>
+
+<ol class="org-ol">
+<li>管理CPU
+包括 Intel D-1517，D-1527，C3558 C35xx等</li>
+</ol>
+
+
+<ol class="org-ol">
+<li><p>
+管理CPU + 流量处理
+主要有Intel  至强 Skylake ，Cascade Lake 等湖系列双至强方案
+</p>
+
+<p>
+在同一类CPU中，CPU之间的差异就不再是选择产品的决定因素了。
+</p></li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orgfe2d8f8" class="outline-2">
+<h2 id="orgfe2d8f8"><span class="section-number-2">2.</span> 交换芯片</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Intel Tofino 系列芯片：
+</p>
+
+<ol class="org-ol">
+<li>一代</li>
+</ol>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">32D</td>
+<td class="org-left">32Q</td>
+<td class="org-left">64Q</td>
+</tr>
+
+<tr>
+<td class="org-left">pipeline</td>
+<td class="org-right">2</td>
+<td class="org-left">4</td>
+<td class="org-left">4</td>
+</tr>
+
+<tr>
+<td class="org-left">交换容量</td>
+<td class="org-right">3.2T</td>
+<td class="org-left">3.2T</td>
+<td class="org-left">6.4T</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+最核心的区别是容量和pipeline，更多的流水线意味着更多的资源，在一些应
+用里会采用折叠pipeline的方式实现更为复杂的处理逻辑。
+</p>
+
+
+<ol class="org-ol">
+<li>二代以后芯片
+二代芯片从12.8T容量起步，资源也略有增加，主要以400G接口为主，目前看性价比不高。</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orgc002c38" class="outline-2">
+<h2 id="orgc002c38"><span class="section-number-2">3.</span> 软件支持</h2>
+<div class="outline-text-2" id="text-3">
+<ol class="org-ol">
+<li><p>
+Sonic
+</p>
+
+<p>
+作为目前最为火热的开源NOS，基本所有交换机都支持，但是支持的好坏还
+是有区别。官方的仓库直接可以编译运行为佳，这样有新的版本，马上就可
+以尝试。
+</p></li>
+
+<li>Stratum NOS for the next generation of SDN，同样的理由，官方认证的
+平台为最佳，能不能站在巨人肩膀上再说，至少不要从填坑开始。</li>
+
+<li><p>
+论文的复现
+</p>
+
+<p>
+github 上的大牛开源出来的代码，能不能复现，大牛用什么平台也是一个
+重要的参考。尤其是研究方向已经非常确定的时候。
+</p></li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org3092ff6" class="outline-2">
+<h2 id="org3092ff6"><span class="section-number-2">4.</span> 扩展能力</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+Tofino作为交换芯片，受资源限制表项一般模糊匹配一万条左右，精确10万条
+左右，如果要实现大表项，或者对数据包做4层以上的处理，就要辅之以CPU，
+FGGA，智能网卡。这时需要考虑的是扩展能力，根据具体需求可以选择
+</p>
+
+<ol class="org-ol">
+<li>NP 扣卡扩展</li>
+<li>FGPA扩展</li>
+<li>标准PCI-e扩展支持</li>
+<li>正交背板扩展</li>
+</ol>
+
+
+<p>
+综合考虑了上述问题后，如果您还不知道要选择哪款设备。那么拿起电话
+</p>
+
+<p>
+<b>致电 021-52378166</b>
+</p>
+</div>
+</div>
+<p>There are <a href="https://bbill.github.io/product/select_the_right_switch.html#disqus_thread">comments</a>.</p>                </article>
+            </aside><!-- /#featured -->
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://www.tooyum.com/">tooyum</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+                            <li><a href="https://bbill.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'bbill';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = 'https://' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+</body>
+</html>

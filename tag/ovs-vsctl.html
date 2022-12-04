@@ -3,7 +3,8 @@
 <head>
         <meta charset="utf-8" />
         <title>SDN Hands ON! - ovs-vsctl</title>
-        <link rel="stylesheet" href="/theme/css/main.css" />
+        <link rel="stylesheet" href="https://bbill.github.io/theme/css/main.css" />
+        <link href="https://bbill.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="SDN Hands ON! Atom Feed" />
 
         <!--[if IE]>
             <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -12,49 +13,49 @@
 
 <body id="index" class="home">
         <header id="banner" class="body">
-                <h1><a href="/">SDN Hands ON! </a></h1>
+                <h1><a href="https://bbill.github.io/">SDN Hands ON! </a></h1>
                 <nav><ul>
-                    <li><a href="/category/chan-pin.html">产品</a></li>
-                    <li><a href="/category/lab.html">lab</a></li>
-                    <li><a href="/category/product.html">product</a></li>
-                    <li><a href="/category/shi-yan.html">实验</a></li>
-                    <li><a href="/category/troubleshooting.html">troubleshooting</a></li>
+                    <li><a href="https://bbill.github.io/category/chan-pin.html">产品</a></li>
+                    <li><a href="https://bbill.github.io/category/lab.html">lab</a></li>
+                    <li><a href="https://bbill.github.io/category/product.html">product</a></li>
+                    <li><a href="https://bbill.github.io/category/shi-yan.html">实验</a></li>
+                    <li><a href="https://bbill.github.io/category/troubleshooting.html">troubleshooting</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/product/openmesh_static_flow.html">OpenMesh SDN 交换机的静态流表配置</a></h1>
+                    <h1 class="entry-title"><a href="https://bbill.github.io/product/openmesh_static_flow.html">OpenMesh SDN 交换机的静态流表配置</a></h1>
 <footer class="post-info">
         <abbr class="published" title="2018-01-03T00:00:00+08:00">
-                Published: 三 03 一月 2018
+                Published: Wed 03 January 2018
         </abbr>
 
         <address class="vcard author">
-                By                         <a class="url fn" href="/author/bill.html">bill</a>
+                By                         <a class="url fn" href="https://bbill.github.io/author/bill.html">bill</a>
         </address>
-<p>In <a href="/category/chan-pin.html">产品</a>.</p>
-<p>tags: <a href="/tag/sdn.html">sdn</a> <a href="/tag/openflow.html">openflow</a> <a href="/tag/ovs-vsctl.html">ovs-vsctl</a> <a href="/tag/static.html">static</a> <a href="/tag/flow.html">flow</a> </p>
-</footer><!-- /.post-info --><div id="table-of-contents">
+<p>In <a href="https://bbill.github.io/category/chan-pin.html">产品</a>.</p>
+<p>tags: <a href="https://bbill.github.io/tag/sdn.html">sdn</a> <a href="https://bbill.github.io/tag/openflow.html">openflow</a> <a href="https://bbill.github.io/tag/ovs-vsctl.html">ovs-vsctl</a> <a href="https://bbill.github.io/tag/static.html">static</a> <a href="https://bbill.github.io/tag/flow.html">flow</a> </p>
+</footer><!-- /.post-info --><div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org213f574">1. OpenMesh SDN交换机设置静态流表的"正确"方法</a>
+<li><a href="#orgc28be64">1. OpenMesh SDN交换机设置静态流表的"正确"方法</a>
 <ul>
-<li><a href="#org719058b">1.1. 系统初始设置</a></li>
-<li><a href="#org2d299da">1.2. 添加静态流配置命令</a></li>
+<li><a href="#org1a17c45">1.1. 系统初始设置</a></li>
+<li><a href="#orga532dff">1.2. 添加静态流配置命令</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org213f574" class="outline-2">
-<h2 id="org213f574"><span class="section-number-2">1</span> OpenMesh SDN交换机设置静态流表的"正确"方法</h2>
+<div id="outline-container-orgc28be64" class="outline-2">
+<h2 id="orgc28be64"><span class="section-number-2">1.</span> OpenMesh SDN交换机设置静态流表的"正确"方法</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org719058b" class="outline-3">
-<h3 id="org719058b"><span class="section-number-3">1.1</span> 系统初始设置</h3>
+<div id="outline-container-org1a17c45" class="outline-3">
+<h3 id="org1a17c45"><span class="section-number-3">1.1.</span> 系统初始设置</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 参见 <a href="../lab/pica8_quick_start.html">快速上手</a>
@@ -62,10 +63,10 @@
 </div>
 </div>
 
-<div id="outline-container-org2d299da" class="outline-3">
-<h3 id="org2d299da"><span class="section-number-3">1.2</span> 添加静态流配置命令</h3>
+<div id="outline-container-orga532dff" class="outline-3">
+<h3 id="orga532dff"><span class="section-number-3">1.2.</span> 添加静态流配置命令</h3>
 <div class="outline-text-3" id="text-1-2">
-<pre class="example">
+<pre class="example" id="org12daf75">
 admin@PICOS-OVS$sudo mkdir /cftmp/
 </pre>
 
@@ -73,7 +74,7 @@ admin@PICOS-OVS$sudo mkdir /cftmp/
 创建规则脚本
 </p>
 
-<pre class="example">
+<pre class="example" id="org38088e7">
 admin@PICOS-OVS$sudo vi /cftmp/auto/post-ovs
 
 </pre>
@@ -82,7 +83,7 @@ admin@PICOS-OVS$sudo vi /cftmp/auto/post-ovs
 在规则脚本 /cftmp/auto/post-ovs 中写入如下内容
 </p>
 
-<pre class="example">
+<pre class="example" id="org89ea61e">
 #!/bin/bash                                                                                                                                                   
 export PATH=/ovs/bin:$PATH                                                                                                                                    
 while [ 1 ]; do                                                                                                                                               
@@ -113,7 +114,7 @@ ovs-ofctl 为流表设置命令，本文中的例子比较简单，不做过多�
 在文件创建好后，别忘了赋予可执行权限。
 </p>
 
-<pre class="example">
+<pre class="example" id="orgb4d7a75">
 admin@PICOS-OVS$sudo chmod +x /cftmp/auto/post-ovs
 </pre>
 
@@ -127,7 +128,7 @@ admin@PICOS-OVS$sudo chmod +x /cftmp/auto/post-ovs
 </div>
 </div>
 </div>
-<p>There are <a href="/product/openmesh_static_flow.html#disqus_thread">comments</a>.</p>                </article>
+<p>There are <a href="https://bbill.github.io/product/openmesh_static_flow.html#disqus_thread">comments</a>.</p>                </article>
             </aside><!-- /#featured -->
         <section id="extras" class="body">
                 <div class="blogroll">
@@ -136,6 +137,13 @@ admin@PICOS-OVS$sudo chmod +x /cftmp/auto/post-ovs
                             <li><a href="http://www.tooyum.com/">tooyum</a></li>
                         </ul>
                 </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+                            <li><a href="https://bbill.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+
+                        </ul>
+                </div><!-- /.social -->
         </section><!-- /#extras -->
 
         <footer id="contentinfo" class="body">

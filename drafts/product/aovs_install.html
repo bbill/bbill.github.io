@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>Netronome AOVS 安装</title>
+        <link rel="stylesheet" href="https://bbill.github.io/theme/css/main.css" />
+        <link href="https://bbill.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="SDN Hands ON! Atom Feed" />
+
+        <!--[if IE]>
+            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="https://bbill.github.io/">SDN Hands ON! </a></h1>
+                <nav><ul>
+                    <li><a href="https://bbill.github.io/category/chan-pin.html">产品</a></li>
+                    <li><a href="https://bbill.github.io/category/lab.html">lab</a></li>
+                    <li class="active"><a href="https://bbill.github.io/category/product.html">product</a></li>
+                    <li><a href="https://bbill.github.io/category/shi-yan.html">实验</a></li>
+                    <li><a href="https://bbill.github.io/category/troubleshooting.html">troubleshooting</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="https://bbill.github.io/social-share/dist/social-share.min.css">
+<script src="https://bbill.github.io/social-share/dist/social-share.min.js"></script>
+
+      <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<section id="content" class="body">
+  <article>
+    <header>
+
+      <h1 class="entry-title">
+        <a href="https://bbill.github.io/drafts/product/aovs_install.html" rel="bookmark"
+           title="Permalink to Netronome AOVS 安装">Netronome AOVS 安装</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2018-04-22T00:00:00+08:00">
+                Published: Sun 22 April 2018
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="https://bbill.github.io/author/bill.html">bill</a>
+        </address>
+<p>In <a href="https://bbill.github.io/category/product.html">product</a>.</p>
+<p>tags: <a href="https://bbill.github.io/tag/aovs.html">aovs</a> <a href="https://bbill.github.io/tag/netronome.html">netronome</a> </p>
+</footer><!-- /.post-info -->      <div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org4d5056a">1. 准备工作</a></li>
+<li><a href="#org292411d">2. 更新内核</a></li>
+<li><a href="#org13a0b09">3. 安装AOVS</a></li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org4d5056a" class="outline-2">
+<h2 id="org4d5056a"><span class="section-number-2">1.</span> 准备工作</h2>
+<div class="outline-text-2" id="text-1">
+<ol class="org-ol">
+<li>确保服务器打开SR-IOV，（BIOS 设置）</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org292411d" class="outline-2">
+<h2 id="org292411d"><span class="section-number-2">2.</span> 更新内核</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Centos/RHEL 操作系统可以从我们提供的网盘下载
+链接:<a href="https://pan.baidu.com/s/1geZ2kev">https://pan.baidu.com/s/1geZ2kev</a> 密码:76hp
+</p>
+
+<p>
+rhel-3.10.0-493.el7.tar.gz 解压后安装所有包
+</p>
+<pre class="example" id="org43186ad">
+cd "extract path"
+yum localinstall *.rpm
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org13a0b09" class="outline-2">
+<h2 id="org13a0b09"><span class="section-number-2">3.</span> 安装AOVS</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+下载 
+</p>
+
+
+
+
+<pre class="example" id="org482b3ad">
+rpm -i kernel*.rpm
+yum -y install epel-release
+yum -y install make autoconf automake libtool gcc gcc-c++ libpcap-devel \
+readline-devel jansson-devel libevent libevent-devel libtool openssl-devel \
+bison flex gawk hwloc gettext texinfo rpm-build \
+redhat-rpm-config graphviz python-devel python python-devel tcl-devel \
+tk-devel texinfo dkms zip unzip pkgconfig wget patch minicom libusb \
+libusb-devel psmisc libnl3-devel libftdi pciutils \
+zeromq3 zeromq3-devel protobuf-c-compiler protobuf-compiler protobuf-python \
+protobuf-c-devel python-six numactl-libs python-ethtool kvm qemu-kvm \
+virt-install libvirt libvirt-python virt-manager libguestfs-tools \
+cloud-utils virt-install lvm2 wget git net-tools libguestfs-tools
+</pre>
+</div>
+</div>
+
+
+
+    <section id="lg"></section>
+  <section id="md"></section>
+  <section id="sm"></section>
+  <section id="xs"></section>
+
+        <script src="https://bbill.github.io/js/social.js"></script>
+
+
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://www.tooyum.com/">tooyum</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+                            <li><a href="https://bbill.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'bbill';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = 'https://' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+</body>
+</html>

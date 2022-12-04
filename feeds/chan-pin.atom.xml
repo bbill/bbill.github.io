@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>SDN Hands ON! - 产品</title><link href="https://bbill.github.io/" rel="alternate"></link><link href="https://bbill.github.io/feeds/chan-pin.atom.xml" rel="self"></link><id>https://bbill.github.io/</id><updated>2022-12-05T00:00:00+08:00</updated><entry><title>科研机构怎么选购 p4 交换机</title><link href="https://bbill.github.io/product/select_the_right_switch.html" rel="alternate"></link><published>2022-12-05T00:00:00+08:00</published><updated>2022-12-05T00:00:00+08:00</updated><author><name>bill</name></author><id>tag:bbill.github.io,2022-12-05:/product/select_the_right_switch.html</id><summary type="html">不再纠结</summary><content type="html">&lt;div id="table-of-contents" role="doc-toc"&gt;
+&lt;h2&gt;Table of Contents&lt;/h2&gt;
+&lt;div id="text-table-of-contents" role="doc-toc"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#org5c6d845"&gt;1. 选择CPU&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#orgfe2d8f8"&gt;2. 交换芯片&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#orgc002c38"&gt;3. 软件支持&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org3092ff6"&gt;4. 扩展能力&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id="outline-container-org5c6d845" class="outline-2"&gt;
+&lt;h2 id="org5c6d845"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; 选择CPU&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-1"&gt;
+&lt;p&gt;
+CPU 分两类
+&lt;/p&gt;
+
+&lt;ol class="org-ol"&gt;
+&lt;li&gt;管理CPU
+包括 Intel D-1517，D-1527，C3558 C35xx等&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;ol class="org-ol"&gt;
+&lt;li&gt;&lt;p&gt;
+管理CPU + 流量处理
+主要有Intel  至强 Skylake ，Cascade Lake 等湖系列双至强方案
+&lt;/p&gt;
+
+&lt;p&gt;
+在同一类CPU中，CPU之间的差异就不再是选择产品的决定因素了。
+&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id="outline-container-orgfe2d8f8" class="outline-2"&gt;
+&lt;h2 id="orgfe2d8f8"&gt;&lt;span class="section-number-2"&gt;2.&lt;/span&gt; 交换芯片&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-2"&gt;
+&lt;p&gt;
+Intel Tofino 系列芯片：
+&lt;/p&gt;
+
+&lt;ol class="org-ol"&gt;
+&lt;li&gt;一代&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides"&gt;
+
+
+&lt;colgroup&gt;
+&lt;col  class="org-left" /&gt;
+
+&lt;col  class="org-right" /&gt;
+
+&lt;col  class="org-left" /&gt;
+
+&lt;col  class="org-left" /&gt;
+&lt;/colgroup&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td class="org-left"&gt;&amp;#xa0;&lt;/td&gt;
+&lt;td class="org-right"&gt;32D&lt;/td&gt;
+&lt;td class="org-left"&gt;32Q&lt;/td&gt;
+&lt;td class="org-left"&gt;64Q&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;pipeline&lt;/td&gt;
+&lt;td class="org-right"&gt;2&lt;/td&gt;
+&lt;td class="org-left"&gt;4&lt;/td&gt;
+&lt;td class="org-left"&gt;4&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;交换容量&lt;/td&gt;
+&lt;td class="org-right"&gt;3.2T&lt;/td&gt;
+&lt;td class="org-left"&gt;3.2T&lt;/td&gt;
+&lt;td class="org-left"&gt;6.4T&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;
+最核心的区别是容量和pipeline，更多的流水线意味着更多的资源，在一些应
+用里会采用折叠pipeline的方式实现更为复杂的处理逻辑。
+&lt;/p&gt;
+
+
+&lt;ol class="org-ol"&gt;
+&lt;li&gt;二代以后芯片
+二代芯片从12.8T容量起步，资源也略有增加，主要以400G接口为主，目前看性价比不高。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id="outline-container-orgc002c38" class="outline-2"&gt;
+&lt;h2 id="orgc002c38"&gt;&lt;span class="section-number-2"&gt;3.&lt;/span&gt; 软件支持&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-3"&gt;
+&lt;ol class="org-ol"&gt;
+&lt;li&gt;&lt;p&gt;
+Sonic
+&lt;/p&gt;
+
+&lt;p&gt;
+作为目前最为火热的开源NOS，基本所有交换机都支持，但是支持的好坏还
+是有区别。官方的仓库直接可以编译运行为佳，这样有新的版本，马上就可
+以尝试。
+&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;Stratum NOS for the next generation of SDN，同样的理由，官方认证的
+平台为最佳，能不能站在巨人肩膀上再说，至少不要从填坑开始。&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;
+论文的复现
+&lt;/p&gt;
+
+&lt;p&gt;
+github 上的大牛开源出来的代码，能不能复现，大牛用什么平台也是一个
+重要的参考。尤其是研究方向已经非常确定的时候。
+&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id="outline-container-org3092ff6" class="outline-2"&gt;
+&lt;h2 id="org3092ff6"&gt;&lt;span class="section-number-2"&gt;4.&lt;/span&gt; 扩展能力&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-4"&gt;
+&lt;p&gt;
+Tofino作为交换芯片，受资源限制表项一般模糊匹配一万条左右，精确10万条
+左右，如果要实现大表项，或者对数据包做4层以上的处理，就要辅之以CPU，
+FGGA，智能网卡。这时需要考虑的是扩展能力，根据具体需求可以选择
+&lt;/p&gt;
+
+&lt;ol class="org-ol"&gt;
+&lt;li&gt;NP 扣卡扩展&lt;/li&gt;
+&lt;li&gt;FGPA扩展&lt;/li&gt;
+&lt;li&gt;标准PCI-e扩展支持&lt;/li&gt;
+&lt;li&gt;正交背板扩展&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;p&gt;
+综合考虑了上述问题后，如果您还不知道要选择哪款设备。那么拿起电话
+&lt;/p&gt;
+
+&lt;p&gt;
+&lt;b&gt;致电 021-52378166&lt;/b&gt;
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</content><category term="产品"></category><category term="sdn"></category><category term="openflow"></category><category term="p4"></category><category term="tofino"></category><category term="barefoot"></category><category term="onie"></category><category term="openmesh"></category><category term="edgecore"></category></entry><entry><title>OpenMesh SDN 交换机的静态流表配置</title><link href="https://bbill.github.io/product/openmesh_static_flow.html" rel="alternate"></link><published>2018-01-03T00:00:00+08:00</published><updated>2018-01-03T00:00:00+08:00</updated><author><name>bill</name></author><id>tag:bbill.github.io,2018-01-03:/product/openmesh_static_flow.html</id><summary type="html">&lt;div id="table-of-contents" role="doc-toc"&gt;
+&lt;h2&gt;Table of Contents&lt;/h2&gt;
+&lt;div id="text-table-of-contents" role="doc-toc"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#orgc28be64"&gt;1. OpenMesh SDN交换机设置静态流表的"正确"方法&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#org1a17c45"&gt;1.1. 系统初始设置&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#orga532dff"&gt;1.2. 添加静态流配置命令&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id="outline-container-orgc28be64" class="outline-2"&gt;
+&lt;h2 id="orgc28be64"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; OpenMesh SDN交换机设置静态流表的"正确"方法&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-1"&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-org1a17c45" class="outline-3"&gt;
+&lt;h3 id="org1a17c45"&gt;&lt;span class="section-number-3"&gt;1.1.&lt;/span&gt; 系统初始设置&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-1-1"&gt;
+&lt;p&gt;
+参见 &lt;a href="../lab/pica8_quick_start.html"&gt;快速上手&lt;/a&gt;
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id="outline-container-orga532dff" class="outline-3"&gt;
+&lt;h3 id="orga532dff"&gt;&lt;span class="section-number-3"&gt;1.2.&lt;/span&gt; 添加静态流配置命令&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-1-2"&gt;
+&lt;pre class="example" id="org12daf75"&gt;
+admin@PICOS-OVS$sudo mkdir /cftmp/
+&lt;/pre&gt;
+
+&lt;p&gt;
+创建规则脚本
+&lt;/p&gt;
+
+&lt;pre class="example" id="org38088e7"&gt;
+admin@PICOS-OVS$sudo vi /cftmp/auto/post-ovs
+
+&lt;/pre&gt;
+
+&lt;p&gt;
+在规则脚本 /cftmp/auto/post-ovs 中写入如下内容
+&lt;/p&gt;
+
+&lt;pre class="example" id="org89ea61e"&gt;
+#!/bin/bash                                                                                                                                                   
+export PATH=/ovs …&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</summary><content type="html">&lt;div id="table-of-contents" role="doc-toc"&gt;
+&lt;h2&gt;Table of Contents&lt;/h2&gt;
+&lt;div id="text-table-of-contents" role="doc-toc"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#orgc28be64"&gt;1. OpenMesh SDN交换机设置静态流表的"正确"方法&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#org1a17c45"&gt;1.1. 系统初始设置&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#orga532dff"&gt;1.2. 添加静态流配置命令&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id="outline-container-orgc28be64" class="outline-2"&gt;
+&lt;h2 id="orgc28be64"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; OpenMesh SDN交换机设置静态流表的"正确"方法&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-1"&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-org1a17c45" class="outline-3"&gt;
+&lt;h3 id="org1a17c45"&gt;&lt;span class="section-number-3"&gt;1.1.&lt;/span&gt; 系统初始设置&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-1-1"&gt;
+&lt;p&gt;
+参见 &lt;a href="../lab/pica8_quick_start.html"&gt;快速上手&lt;/a&gt;
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id="outline-container-orga532dff" class="outline-3"&gt;
+&lt;h3 id="orga532dff"&gt;&lt;span class="section-number-3"&gt;1.2.&lt;/span&gt; 添加静态流配置命令&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-1-2"&gt;
+&lt;pre class="example" id="org12daf75"&gt;
+admin@PICOS-OVS$sudo mkdir /cftmp/
+&lt;/pre&gt;
+
+&lt;p&gt;
+创建规则脚本
+&lt;/p&gt;
+
+&lt;pre class="example" id="org38088e7"&gt;
+admin@PICOS-OVS$sudo vi /cftmp/auto/post-ovs
+
+&lt;/pre&gt;
+
+&lt;p&gt;
+在规则脚本 /cftmp/auto/post-ovs 中写入如下内容
+&lt;/p&gt;
+
+&lt;pre class="example" id="org89ea61e"&gt;
+#!/bin/bash                                                                                                                                                   
+export PATH=/ovs/bin:$PATH                                                                                                                                    
+while [ 1 ]; do                                                                                                                                               
+    ret=`/ovs/bin/ovs-ofctl show br0 | grep dpid | wc -l`                                                                                                     
+    if [ $ret -eq 1 ]; then                                                                                                                                   
+        break                                                                                                                                                 
+    else                                                                                                                                                      
+        sleep 5                                                                                                                                               
+    fi                                                                                                                                                        
+done                                                                                                                                                          
+
+ovs-ofctl add-flow br0 in_port=1,actions=5,9,13                                                                                                               
+ovs-ofctl add-flow br0 in_port=2,actions=6,10,14                                                                                                              
+ovs-ofctl add-flow br0 in_port=3,actions=7,11,15                                                                                                              
+ovs-ofctl add-flow br0 in_port=4,actions=8,12,16
+ovs-ofctl add-flow br0 tcp,in_port=13,tp_dst=53 actions=output:16                                                                                             
+ovs-ofctl add-flow br0 udp,in_port=13,tp_dst=53 actions=output:16 
+ovs-ofctl add-flow br0 ip,in_port=11,nw_src=10.1.0.0/16 actions=output:15                                                                                     
+ovs-ofctl add-flow br0 ip,in_port=11,nw_dst=10.1.0.0/16 actions=output:15 
+&lt;/pre&gt;
+
+&lt;p&gt;
+ovs-ofctl 为流表设置命令，本文中的例子比较简单，不做过多解释。更多
+的选项（匹配规则），可以参考OVS手册。
+&lt;/p&gt;
+
+&lt;p&gt;
+在文件创建好后，别忘了赋予可执行权限。
+&lt;/p&gt;
+
+&lt;pre class="example" id="orgb4d7a75"&gt;
+admin@PICOS-OVS$sudo chmod +x /cftmp/auto/post-ovs
+&lt;/pre&gt;
+
+&lt;p&gt;
+接下来重启验证一下，不出意外重启后脚本会正常执行。
+&lt;/p&gt;
+
+&lt;p&gt;
+为什么说这是“正确”的方法呢，因为将启动文件放在这里，即便系统升级依然可以保留配置。
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</content><category term="产品"></category><category term="sdn"></category><category term="openflow"></category><category term="ovs-vsctl"></category><category term="static"></category><category term="flow"></category></entry><entry><title>Barefoot P4 Switch</title><link href="https://bbill.github.io/product/barefoot.html" rel="alternate"></link><published>2017-10-28T00:00:00+08:00</published><updated>2017-10-28T00:00:00+08:00</updated><author><name>bill</name></author><id>tag:bbill.github.io,2017-10-28:/product/barefoot.html</id><summary type="html">Barefoot P4 交换机概况</summary><content type="html">&lt;div id="table-of-contents" role="doc-toc"&gt;
+&lt;h2&gt;Table of Contents&lt;/h2&gt;
+&lt;div id="text-table-of-contents" role="doc-toc"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#org639fced"&gt;1. Barefoot Tofino™&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#orgc257d29"&gt;2. Barefoot Capilano™ SDE&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#orgc83d998"&gt;3. Wedge 100BF-32X&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#orgc6858c7"&gt;4. CPU,BMC,Platform Software&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org2c4c362"&gt;5. Wedge 100B Series – A Summary&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+
+
+&lt;div id="outline-container-org639fced" class="outline-2"&gt;
+&lt;h2 id="org639fced"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; Barefoot Tofino™&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-1"&gt;
+&lt;ul class="org-ul"&gt;
+&lt;li&gt;6.5 Tb/s P4-programmable Ethernet Switch&lt;/li&gt;
+&lt;li&gt;Port Configurations
+&lt;ul class="org-ul"&gt;
+&lt;li&gt;65x100GE/40GE&lt;/li&gt;
+&lt;li&gt;130x50GE&lt;/li&gt;
+&lt;li&gt;260x10/25GE&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Programmable Packet Processing Pipeline
+&lt;ul class="org-ul"&gt;
+&lt;li&gt;switch.p4 forwarding plane program&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;CPU Interface
+&lt;ul class="org-ul"&gt;
+&lt;li&gt;PCIe Gen3 x4&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id="outline-container-orgc257d29" class="outline-2"&gt;
+&lt;h2 id="orgc257d29"&gt;&lt;span class="section-number-2"&gt;2.&lt;/span&gt; Barefoot Capilano™ SDE&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-2"&gt;
+
+&lt;div id="orgefd4bff" class="figure"&gt;
+&lt;p&gt;&lt;img src="../fig/capilano.png" alt="capilano.png" width="450;" /&gt;
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-orgc83d998" class="outline-2"&gt;
+&lt;h2 id="orgc83d998"&gt;&lt;span class="section-number-2"&gt;3.&lt;/span&gt; Wedge 100BF-32X&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-3"&gt;
+
+&lt;div id="orgcbb2796" class="figure"&gt;
+&lt;p&gt;&lt;img src="../fig/wedge_100bf-32x.png" alt="wedge_100bf-32x.png" width="450;" /&gt;
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id="outline-container-orgc6858c7" class="outline-2"&gt;
+&lt;h2 id="orgc6858c7"&gt;&lt;span class="section-number-2"&gt;4.&lt;/span&gt; CPU,BMC,Platform Software&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-4"&gt;
+&lt;ul class="org-ul"&gt;
+&lt;li&gt;CPU
+&lt;ul class="org-ul"&gt;
+&lt;li&gt;Modular COM Express Type 6&lt;/li&gt;
+&lt;li&gt;PCIe Gen2/3 x4&lt;/li&gt;
+&lt;li&gt;Intel Xeon D-1517
+&lt;ul class="org-ul"&gt;
+&lt;li&gt;4 Core@2.2GHz&lt;/li&gt;
+&lt;li&gt;8GB DDR4 SDRAM&lt;/li&gt;
+&lt;li&gt;128GB M.2 SSD&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;BMC
+&lt;ul class="org-ul"&gt;
+&lt;li&gt;ASPEED AST1250A1-GP&lt;/li&gt;
+&lt;li&gt;400MHz&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Platform Software
+&lt;ul class="org-ul"&gt;
+&lt;li&gt;OpenBMC&lt;/li&gt;
+&lt;li&gt;ONIE&lt;/li&gt;
+&lt;li&gt;ONL&lt;/li&gt;
+&lt;li&gt;Debian&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id="outline-container-org2c4c362" class="outline-2"&gt;
+&lt;h2 id="org2c4c362"&gt;&lt;span class="section-number-2"&gt;5.&lt;/span&gt; Wedge 100B Series – A Summary&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-5"&gt;
+&lt;ul class="org-ul"&gt;
+&lt;li&gt;Two platforms
+&lt;ul class="org-ul"&gt;
+&lt;li&gt;Wedge  100BF-32X - 1RU 32x100GE&lt;/li&gt;
+&lt;li&gt;Wedge  100BF-65X - 2RU 65x100GE&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Derived from Wedge 100&lt;/li&gt;
+&lt;li&gt;Includes several cost and quality enhancements&lt;/li&gt;
+&lt;li&gt;User-programmable forwarding plane using P4, Tofino &amp;amp; Capilano&lt;/li&gt;
+&lt;li&gt;Includes the World’s Fastest and Fully Programmable Ethernet Switch ASIC&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</content><category term="产品"></category><category term="sdn"></category><category term="openflow"></category><category term="p4"></category><category term="tofino"></category><category term="barefoot"></category><category term="onie"></category><category term="capilano"></category></entry></feed>

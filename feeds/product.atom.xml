@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>SDN Hands ON! - product</title><link href="https://bbill.github.io/" rel="alternate"></link><link href="https://bbill.github.io/feeds/product.atom.xml" rel="self"></link><id>https://bbill.github.io/</id><updated>2018-01-23T00:00:00+08:00</updated><entry><title>The SPICE support in KVM Ubunt 16.04 guest</title><link href="https://bbill.github.io/product/Spice_over_Ubuntu_16.04.html" rel="alternate"></link><published>2018-01-23T00:00:00+08:00</published><updated>2018-01-23T00:00:00+08:00</updated><author><name>bill</name></author><id>tag:bbill.github.io,2018-01-23:/product/Spice_over_Ubuntu_16.04.html</id><summary type="html">&lt;div id="table-of-contents" role="doc-toc"&gt;
+&lt;h2&gt;Table of Contents&lt;/h2&gt;
+&lt;div id="text-table-of-contents" role="doc-toc"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#orga321c72"&gt;1. Problem&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org9a6ebda"&gt;2. Solution&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id="outline-container-orga321c72" class="outline-2"&gt;
+&lt;h2 id="orga321c72"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; Problem&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-1"&gt;
+&lt;p&gt;
+The OS can't detect the qxl video driver. The display resolution
+can't be changed not to mention adjust automatically.
+&lt;/p&gt;
+
+&lt;p&gt;
+Try to solve it by kill X,then reconfigure it.
+&lt;/p&gt;
+&lt;pre class="example" id="org280716e"&gt;
+init 3
+&lt;/pre&gt;
+&lt;p&gt;
+after relogin
+&lt;/p&gt;
+
+&lt;pre class="example" id="org1a4485b"&gt;
+X -configure
+&lt;/pre&gt;
+
+&lt;p&gt;
+It keep complains 
+&lt;/p&gt;
+
+&lt;pre class="example" id="orgb075db9"&gt;
+X.Org X …&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</summary><content type="html">&lt;div id="table-of-contents" role="doc-toc"&gt;
+&lt;h2&gt;Table of Contents&lt;/h2&gt;
+&lt;div id="text-table-of-contents" role="doc-toc"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#orga321c72"&gt;1. Problem&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org9a6ebda"&gt;2. Solution&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id="outline-container-orga321c72" class="outline-2"&gt;
+&lt;h2 id="orga321c72"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; Problem&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-1"&gt;
+&lt;p&gt;
+The OS can't detect the qxl video driver. The display resolution
+can't be changed not to mention adjust automatically.
+&lt;/p&gt;
+
+&lt;p&gt;
+Try to solve it by kill X,then reconfigure it.
+&lt;/p&gt;
+&lt;pre class="example" id="org280716e"&gt;
+init 3
+&lt;/pre&gt;
+&lt;p&gt;
+after relogin
+&lt;/p&gt;
+
+&lt;pre class="example" id="org1a4485b"&gt;
+X -configure
+&lt;/pre&gt;
+
+&lt;p&gt;
+It keep complains 
+&lt;/p&gt;
+
+&lt;pre class="example" id="orgb075db9"&gt;
+X.Org X Server 1.18.4
+Release Date: 2016-07-19
+X Protocol Version 11, Revision 0
+Build Operating System: Linux 4.4.0-97-generic x86_64 Ubuntu
+Current Operating System: Linux station167 4.4.0-62-generic #83-Ubuntu SMP Wed Jan 18 14:10:15 UTC 2017 x86_64
+Kernel command line: BOOT_IMAGE=/boot/vmlinuz-4.4.0-62-generic root=UUID=355663b7-9481-4414-bcb9-4ee9b76c4a6b ro
+Build Date: 13 October 2017  01:57:05PM
+xorg-server 2:1.18.4-0ubuntu0.7 (For technical support please see http://www.ubuntu.com/support) 
+Current version of pixman: 0.33.6
+      Before reporting problems, check http://wiki.x.org
+      to make sure that you have the latest version.
+Markers: (--) probed, (**) from config file, (==) default setting,
+      (++) from command line, (!!) notice, (II) informational,
+      (WW) warning, (EE) error, (NI) not implemented, (??) unknown.
+(==) Log file: "/var/log/Xorg.0.log", Time: Sat Jan 20 09:50:48 2018
+List of video drivers:
+      amdgpu
+      ati
+      intel
+      nouveau
+      qxl
+      radeon
+      vmware
+      modesetting
+      vesa
+      fbdev
+(II) [KMS] Kernel modesetting enabled.
+No devices to configure.  Configuration failed.
+(EE) Server terminated with error (2). Closing log file.
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id="outline-container-org9a6ebda" class="outline-2"&gt;
+&lt;h2 id="org9a6ebda"&gt;&lt;span class="section-number-2"&gt;2.&lt;/span&gt; Solution&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-2"&gt;
+&lt;ol class="org-ol"&gt;
+&lt;li&gt;&lt;p&gt;
+Turn off Xserver used
+&lt;/p&gt;
+&lt;pre class="example" id="org2aad8e7"&gt;
+sudo init 3
+&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;
+Remove xserver-xorg-core
+&lt;/p&gt;
+&lt;pre class="example" id="org4e16571"&gt;
+sudo apt-get remove  xserver-xorg-core -y
+&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;
+Install the driver or so
+&lt;/p&gt;
+&lt;pre class="example" id="orgf7fe66c"&gt;
+sudo apt-get install  spice-vdagent gdm xserver-xorg-video-qxl-hwe-16.04 
+&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;
+Create the xorg.conf we needed
+&lt;/p&gt;
+&lt;pre class="example" id="org5205a6d"&gt;
+sudo X -configure
+sudo cp ./xorg.conf.new /etc/X11/xorg.conf
+
+&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;
+Get X Back
+&lt;/p&gt;
+&lt;pre class="example" id="orgd409ea4"&gt;
+sudo apt-get install   xserver-xorg-core xserver-xorg-input-all -y
+&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;
+Make sure spice-vdagent start automatically
+&lt;/p&gt;
+&lt;pre class="example" id="orgb74db6e"&gt;
+sudo systemctl enable spice-vdagentd
+sudo systemctl start spice-vdagentd
+&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;
+Time to cross your fingers
+&lt;/p&gt;
+&lt;pre class="example" id="org43cbb88"&gt;
+sudo init 5
+&lt;/pre&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;
+If everything goes smoothly, your screen resolution will change automatically. 
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</content><category term="product"></category><category term="kvm"></category><category term="ovirt"></category><category term="spice"></category><category term="qxl"></category><category term="ubuntu 16.04"></category></entry></feed>

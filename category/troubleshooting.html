@@ -3,7 +3,8 @@
 <head>
         <meta charset="utf-8" />
         <title>SDN Hands ON! - troubleshooting</title>
-        <link rel="stylesheet" href="/theme/css/main.css" />
+        <link rel="stylesheet" href="https://bbill.github.io/theme/css/main.css" />
+        <link href="https://bbill.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="SDN Hands ON! Atom Feed" />
 
         <!--[if IE]>
             <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -12,40 +13,40 @@
 
 <body id="index" class="home">
         <header id="banner" class="body">
-                <h1><a href="/">SDN Hands ON! </a></h1>
+                <h1><a href="https://bbill.github.io/">SDN Hands ON! </a></h1>
                 <nav><ul>
-                    <li><a href="/category/chan-pin.html">产品</a></li>
-                    <li><a href="/category/lab.html">lab</a></li>
-                    <li><a href="/category/product.html">product</a></li>
-                    <li><a href="/category/shi-yan.html">实验</a></li>
-                    <li class="active"><a href="/category/troubleshooting.html">troubleshooting</a></li>
+                    <li><a href="https://bbill.github.io/category/chan-pin.html">产品</a></li>
+                    <li><a href="https://bbill.github.io/category/lab.html">lab</a></li>
+                    <li><a href="https://bbill.github.io/category/product.html">product</a></li>
+                    <li><a href="https://bbill.github.io/category/shi-yan.html">实验</a></li>
+                    <li class="active"><a href="https://bbill.github.io/category/troubleshooting.html">troubleshooting</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/troubleshooting/no_rx_while_correct_rule.html">正确的流表收不到包</a></h1>
+                    <h1 class="entry-title"><a href="https://bbill.github.io/troubleshooting/no_rx_while_correct_rule.html">正确的流表收不到包</a></h1>
 <footer class="post-info">
         <abbr class="published" title="2018-11-10T00:00:00+08:00">
-                Published: 六 10 十一月 2018
+                Published: Sat 10 November 2018
         </abbr>
 
         <address class="vcard author">
-                By                         <a class="url fn" href="/author/bill.html">bill</a>
+                By                         <a class="url fn" href="https://bbill.github.io/author/bill.html">bill</a>
         </address>
-<p>In <a href="/category/troubleshooting.html">troubleshooting</a>.</p>
-<p>tags: <a href="/tag/pica8.html">pica8</a> <a href="/tag/vlan.html">vlan</a> <a href="/tag/trunk.html">trunk</a> <a href="/tag/access.html">access</a> </p>
-</footer><!-- /.post-info --><div id="table-of-contents">
+<p>In <a href="https://bbill.github.io/category/troubleshooting.html">troubleshooting</a>.</p>
+<p>tags: <a href="https://bbill.github.io/tag/pica8.html">pica8</a> <a href="https://bbill.github.io/tag/vlan.html">vlan</a> <a href="https://bbill.github.io/tag/trunk.html">trunk</a> <a href="https://bbill.github.io/tag/access.html">access</a> </p>
+</footer><!-- /.post-info --><div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org79e240e">1. 流表配置如下</a></li>
+<li><a href="#org54adcd2">1. 流表配置如下</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org79e240e" class="outline-2">
-<h2 id="org79e240e"><span class="section-number-2">1</span> 流表配置如下</h2>
+<div id="outline-container-org54adcd2" class="outline-2">
+<h2 id="org54adcd2"><span class="section-number-2">1.</span> 流表配置如下</h2>
 <div class="outline-text-2" id="text-1">
 <pre class="example">
 ovs-ofctl -O OpenFlow13 add-flow br0 table=0,in_port=50,actions=mod_vlan_vid:10,mod_dl_src:6c:59:79:33:44:55,mod_dl_dst:f8:bc:12:4d:e9:d8,goto_table:8
@@ -121,7 +122,7 @@ ovs-vsctl set port te-1/1/49 trunks=10
 </pre>
 </div>
 </div>
-<p>There are <a href="/troubleshooting/no_rx_while_correct_rule.html#disqus_thread">comments</a>.</p>                </article>
+<p>There are <a href="https://bbill.github.io/troubleshooting/no_rx_while_correct_rule.html#disqus_thread">comments</a>.</p>                </article>
             </aside><!-- /#featured -->
                 <section id="content" class="body">
                     <h1>Other articles</h1>
@@ -130,28 +131,28 @@ ovs-vsctl set port te-1/1/49 trunks=10
 
             <li><article class="hentry">
                 <header>
-                    <h1><a href="/troubleshooting/xfs_on_crash_ssd.html" rel="bookmark"
+                    <h1><a href="https://bbill.github.io/troubleshooting/xfs_on_crash_ssd.html" rel="bookmark"
                            title="Permalink to XFS repair on failed SSD">XFS repair on failed SSD</a></h1>
                 </header>
 
                 <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2018-03-18T00:00:00+08:00">
-                Published: 日 18 三月 2018
+                Published: Sun 18 March 2018
         </abbr>
 
         <address class="vcard author">
-                By                         <a class="url fn" href="/author/bill.html">bill</a>
+                By                         <a class="url fn" href="https://bbill.github.io/author/bill.html">bill</a>
         </address>
-<p>In <a href="/category/troubleshooting.html">troubleshooting</a>.</p>
-<p>tags: <a href="/tag/xfs.html">xfs</a> <a href="/tag/ssd.html">ssd</a> <a href="/tag/unreadable.html">unreadable</a> </p>
-</footer><!-- /.post-info -->                <div id="table-of-contents">
+<p>In <a href="https://bbill.github.io/category/troubleshooting.html">troubleshooting</a>.</p>
+<p>tags: <a href="https://bbill.github.io/tag/xfs.html">xfs</a> <a href="https://bbill.github.io/tag/ssd.html">ssd</a> <a href="https://bbill.github.io/tag/unreadable.html">unreadable</a> </p>
+</footer><!-- /.post-info -->                <div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org85942f2">1. 先备份</a></li>
-<li><a href="#org71b9dc7">2. 恢复</a></li>
-<li><a href="#org5dcc89e">3. 重新启用该SSD</a></li>
+<li><a href="#orga987269">1. 先备份</a></li>
+<li><a href="#orgcffcd9f">2. 恢复</a></li>
+<li><a href="#org9be6157">3. 重新启用该SSD</a></li>
 </ul>
 </div>
 </div>
@@ -164,8 +165,8 @@ ovs-vsctl set port te-1/1/49 trunks=10
 尝试重启，再挂载,当然还是不行，因为是一块PCI-E SSD 卡，非常担心数据搞不出来。
 </p>
 
-<div id="outline-container-org85942f2" class="outline-2">
-<h2 id="org85942f2"><span class="section-number-2">1</span> 先备份</h2>
+<div id="outline-container-orga987269" class="outline-2">
+<h2 id="orga987269"><span class="section-number-2">1.</span> 先备份</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 保险起见，先dd出来，因为本地没有足够大的空间，尝试将现有信息保存到另外一台主机，
@@ -174,10 +175,10 @@ ovs-vsctl set port te-1/1/49 trunks=10
 <p>
 在有空间的主机（192.168.1.2)运行：
 </p>
-<pre class="example">
+<pre class="example" id="orgecc53a4">
 ssh root@192.168.1.1 "dd iflag=fullblock  conv=sync,noerror if=/dev/nvme0n1 |gzip …</pre></div></div>
-                <a class="readmore" href="/troubleshooting/xfs_on_crash_ssd.html">read more</a>
-<p>There are <a href="/troubleshooting/xfs_on_crash_ssd.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
+                <a class="readmore" href="https://bbill.github.io/troubleshooting/xfs_on_crash_ssd.html">read more</a>
+<p>There are <a href="https://bbill.github.io/troubleshooting/xfs_on_crash_ssd.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
             </article></li>
                 </ol><!-- /#posts-list -->
                 </section><!-- /#content -->
@@ -188,6 +189,13 @@ ssh root@192.168.1.1 "dd iflag=fullblock  conv=sync,noerror if=/dev/nvme0n1 |gzi
                             <li><a href="http://www.tooyum.com/">tooyum</a></li>
                         </ul>
                 </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+                            <li><a href="https://bbill.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+
+                        </ul>
+                </div><!-- /.social -->
         </section><!-- /#extras -->
 
         <footer id="contentinfo" class="body">

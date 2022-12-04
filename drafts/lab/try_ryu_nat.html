@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>试用 RYU NAT</title>
+        <link rel="stylesheet" href="https://bbill.github.io/theme/css/main.css" />
+        <link href="https://bbill.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="SDN Hands ON! Atom Feed" />
+
+        <!--[if IE]>
+            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="https://bbill.github.io/">SDN Hands ON! </a></h1>
+                <nav><ul>
+                    <li><a href="https://bbill.github.io/category/chan-pin.html">产品</a></li>
+                    <li class="active"><a href="https://bbill.github.io/category/lab.html">lab</a></li>
+                    <li><a href="https://bbill.github.io/category/product.html">product</a></li>
+                    <li><a href="https://bbill.github.io/category/shi-yan.html">实验</a></li>
+                    <li><a href="https://bbill.github.io/category/troubleshooting.html">troubleshooting</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="https://bbill.github.io/social-share/dist/social-share.min.css">
+<script src="https://bbill.github.io/social-share/dist/social-share.min.js"></script>
+
+      <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<section id="content" class="body">
+  <article>
+    <header>
+
+      <h1 class="entry-title">
+        <a href="https://bbill.github.io/drafts/lab/try_ryu_nat.html" rel="bookmark"
+           title="Permalink to 试用 RYU NAT">试用 RYU NAT</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2018-01-24T00:00:00+08:00">
+                Published: Wed 24 January 2018
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="https://bbill.github.io/author/bill.html">bill</a>
+        </address>
+<p>In <a href="https://bbill.github.io/category/lab.html">lab</a>.</p>
+<p>tags: <a href="https://bbill.github.io/tag/ryu.html">ryu</a> <a href="https://bbill.github.io/tag/nat.html">nat</a> <a href="https://bbill.github.io/tag/dhcp.html">dhcp</a> <a href="https://bbill.github.io/tag/agent.html">agent</a> <a href="https://bbill.github.io/tag/sdn.html">sdn</a> <a href="https://bbill.github.io/tag/openflow.html">OpenFlow</a> </p>
+</footer><!-- /.post-info -->      <div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org1747df4">1. 安装RYU</a></li>
+<li><a href="#org5aa3357">2. 安装</a></li>
+<li><a href="#orgfe5de31">3. 运行</a></li>
+<li><a href="#org428b10c">4. 验证</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org1747df4" class="outline-2">
+<h2 id="org1747df4"><span class="section-number-2">1.</span> 安装RYU</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+略，不清楚可以参考 <a href="https://bbill.github.io/lab/ryu_lab1.org">这里</a>
+</p>
+</div>
+</div>
+<div id="outline-container-org5aa3357" class="outline-2">
+<h2 id="org5aa3357"><span class="section-number-2">2.</span> 安装</h2>
+<div class="outline-text-2" id="text-2">
+<pre class="example" id="orgeb7d537">
+cd 
+git clone https://github.com/bbill/nat.git ryu/ryu/app/nat
+</pre>
+</div>
+</div>
+<div id="outline-container-orgfe5de31" class="outline-2">
+<h2 id="orgfe5de31"><span class="section-number-2">3.</span> 运行</h2>
+<div class="outline-text-2" id="text-3">
+<pre class="example" id="org393b7b5">
+
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org428b10c" class="outline-2">
+<h2 id="org428b10c"><span class="section-number-2">4.</span> 验证</h2>
+<div class="outline-text-2" id="text-4">
+<ol class="org-ol">
+<li><p>
+如果没有实体SDN交换机，请安装 mininet
+</p>
+<pre class="example" id="org180da9c">
+cd 
+git clone https://github.com/mininet/mininet.git
+./mininet/util/install.sh -fnv
+</pre>
+<p>
+因为我们使用RYU控制器，禁用mininet 自带控制器。
+</p>
+<pre class="example" id="org01a5e0a">
+sudo systemctl disable openvswitch-testcontroller
+sudo systemctl stop openvswitch-testcontroller
+</pre></li>
+<li><p>
+启动一个简单SDN交换机连接三个主机并指向控制器
+</p>
+<pre class="example" id="org21b7daa">
+
+</pre></li>
+<li><p>
+观察现有环境
+</p>
+
+<p>
+依次查看主机1到3的(h1~h3)网络配置
+</p>
+<pre class="example" id="orgf6eff11">
+mininet&gt; h1 ifconfig
+h1-eth0   Link encap:Ethernet  HWaddr 00:00:00:00:00:01
+          inet addr:10.0.0.1  Bcast:10.255.255.255  Mask:255.0.0.0
+          inet6 addr: fe80::200:ff:fe00:1/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:57 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:35 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:6604 (6.6 KB)  TX bytes:1942 (1.9 KB)
+
+lo        Link encap:Local Loopback
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          inet6 addr: ::1/128 Scope:Host
+          UP LOOPBACK RUNNING  MTU:65536  Metric:1
+          RX packets:2 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:2 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1
+	  RX bytes:224 (224.0 B)  TX bytes:224 (224.0 B)
+</pre>
+
+<p>
+目前所有主机均为静态IP，地址分别为10.0.0.1~3
+</p>
+
+<p>
+现在保持1端口，（NAT 程序默认的WAN端口）所连接主机IP10.0.0.1不变，该地址为外网网关）
+其余两台主机（h2,h3), 通过RYU控制器，NAT应用程序了（提供了DHCP代答）来动态获得IP地址。
+</p>
+
+<p>
+SDN交换机
+在h2 主机上尝试动态获得IP，
+</p>
+<pre class="example" id="orga3c0d7d">
+mininet&gt; h2 ifconfig h2-eth0 0.0.0.0
+mininet&gt; h2 dhclient h2-eth0
+</pre>
+<p>
+可以看到主机h2的网卡已经自动获得了一个IP地址,我这里是 192.168.8.254.
+</p>
+
+<p>
+可以看到DHCP的功能可以正常工作。
+</p>
+
+<p>
+SNAT还有带验证。
+</p>
+
+<p>
+另外可以参考  <a href="https://sites.google.com/site/sdnruantidingyiwanglu/xing-dong-kuan-pin-jian-duan-ji-shu-tui-guang-ji-hua/ryu-nat">here</a> 得到一些有用的信息。
+</p></li>
+</ol>
+</div>
+</div>
+
+
+
+    <section id="lg"></section>
+  <section id="md"></section>
+  <section id="sm"></section>
+  <section id="xs"></section>
+
+        <script src="https://bbill.github.io/js/social.js"></script>
+
+
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://www.tooyum.com/">tooyum</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+                            <li><a href="https://bbill.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'bbill';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = 'https://' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+</body>
+</html>

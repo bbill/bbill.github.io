@@ -3,7 +3,8 @@
 <head>
         <meta charset="utf-8" />
         <title>SDN Hands ON! - xfs</title>
-        <link rel="stylesheet" href="/theme/css/main.css" />
+        <link rel="stylesheet" href="https://bbill.github.io/theme/css/main.css" />
+        <link href="https://bbill.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="SDN Hands ON! Atom Feed" />
 
         <!--[if IE]>
             <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -12,36 +13,36 @@
 
 <body id="index" class="home">
         <header id="banner" class="body">
-                <h1><a href="/">SDN Hands ON! </a></h1>
+                <h1><a href="https://bbill.github.io/">SDN Hands ON! </a></h1>
                 <nav><ul>
-                    <li><a href="/category/chan-pin.html">产品</a></li>
-                    <li><a href="/category/lab.html">lab</a></li>
-                    <li><a href="/category/product.html">product</a></li>
-                    <li><a href="/category/shi-yan.html">实验</a></li>
-                    <li><a href="/category/troubleshooting.html">troubleshooting</a></li>
+                    <li><a href="https://bbill.github.io/category/chan-pin.html">产品</a></li>
+                    <li><a href="https://bbill.github.io/category/lab.html">lab</a></li>
+                    <li><a href="https://bbill.github.io/category/product.html">product</a></li>
+                    <li><a href="https://bbill.github.io/category/shi-yan.html">实验</a></li>
+                    <li><a href="https://bbill.github.io/category/troubleshooting.html">troubleshooting</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/troubleshooting/xfs_on_crash_ssd.html">XFS repair on failed SSD</a></h1>
+                    <h1 class="entry-title"><a href="https://bbill.github.io/troubleshooting/xfs_on_crash_ssd.html">XFS repair on failed SSD</a></h1>
 <footer class="post-info">
         <abbr class="published" title="2018-03-18T00:00:00+08:00">
-                Published: 日 18 三月 2018
+                Published: Sun 18 March 2018
         </abbr>
 
         <address class="vcard author">
-                By                         <a class="url fn" href="/author/bill.html">bill</a>
+                By                         <a class="url fn" href="https://bbill.github.io/author/bill.html">bill</a>
         </address>
-<p>In <a href="/category/troubleshooting.html">troubleshooting</a>.</p>
-<p>tags: <a href="/tag/xfs.html">xfs</a> <a href="/tag/ssd.html">ssd</a> <a href="/tag/unreadable.html">unreadable</a> </p>
-</footer><!-- /.post-info --><div id="table-of-contents">
+<p>In <a href="https://bbill.github.io/category/troubleshooting.html">troubleshooting</a>.</p>
+<p>tags: <a href="https://bbill.github.io/tag/xfs.html">xfs</a> <a href="https://bbill.github.io/tag/ssd.html">ssd</a> <a href="https://bbill.github.io/tag/unreadable.html">unreadable</a> </p>
+</footer><!-- /.post-info --><div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org85942f2">1. 先备份</a></li>
-<li><a href="#org71b9dc7">2. 恢复</a></li>
-<li><a href="#org5dcc89e">3. 重新启用该SSD</a></li>
+<li><a href="#orga987269">1. 先备份</a></li>
+<li><a href="#orgcffcd9f">2. 恢复</a></li>
+<li><a href="#org9be6157">3. 重新启用该SSD</a></li>
 </ul>
 </div>
 </div>
@@ -54,8 +55,8 @@
 尝试重启，再挂载,当然还是不行，因为是一块PCI-E SSD 卡，非常担心数据搞不出来。
 </p>
 
-<div id="outline-container-org85942f2" class="outline-2">
-<h2 id="org85942f2"><span class="section-number-2">1</span> 先备份</h2>
+<div id="outline-container-orga987269" class="outline-2">
+<h2 id="orga987269"><span class="section-number-2">1.</span> 先备份</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 保险起见，先dd出来，因为本地没有足够大的空间，尝试将现有信息保存到另外一台主机，
@@ -64,7 +65,7 @@
 <p>
 在有空间的主机（192.168.1.2)运行：
 </p>
-<pre class="example">
+<pre class="example" id="orgecc53a4">
 ssh root@192.168.1.1 "dd iflag=fullblock  conv=sync,noerror if=/dev/nvme0n1 |gzip -1 -" |dd  of=/mnt/nvme.bak
 </pre>
 
@@ -81,7 +82,7 @@ ddrescue，没看到可以支持管道到远端，放弃。换dd<sub>rescue</sub
 命令够简单：
 在故障磁盘(/dev/nvme0n1)所在主机执行
 </p>
-<pre class="example">
+<pre class="example" id="org8a718a1">
 dd_rescue /dev/nvme0n1 - | ssh root@192.168.1.2 "cat - &gt; /mnt/filename.img"
 </pre>
 
@@ -92,21 +93,21 @@ dd_rescue /dev/nvme0n1 - | ssh root@192.168.1.2 "cat - &gt; /mnt/filename.img"
 </div>
 </div>
 
-<div id="outline-container-org71b9dc7" class="outline-2">
-<h2 id="org71b9dc7"><span class="section-number-2">2</span> 恢复</h2>
+<div id="outline-container-orgcffcd9f" class="outline-2">
+<h2 id="orgcffcd9f"><span class="section-number-2">2.</span> 恢复</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 备份完成后在原始磁盘上尝试修复。
 直接上大招
 </p>
-<pre class="example">
+<pre class="example" id="orgca1dc4a">
 xfs_repair -L  /dev/nvme0n1
 </pre>
 <p>
 输出如下：
 </p>
 
-<pre class="example">
+<pre class="example" id="org0a89158">
 xfs_repair -L /dev/nvme0n1                                                        
 Phase 1 - find and verify superblock...
 Phase 2 - using internal log
@@ -123,14 +124,14 @@ xfs_repair: libxfs_device_zero write failed: Input/output error
 <p>
 尝试从备份出来的文件进行恢复。
 </p>
-<pre class="example">
+<pre class="example" id="org331ac7f">
 xfs_repair -Lf /mnt/filename.img 
 </pre>
 
 <p>
 尝试挂载这个文件
 </p>
-<pre class="example">
+<pre class="example" id="org2e0377c">
 mount /mnt/filename.img /media/
 ls /media
 </pre>
@@ -141,18 +142,18 @@ ls /media
 </div>
 </div>
 
-<div id="outline-container-org5dcc89e" class="outline-2">
-<h2 id="org5dcc89e"><span class="section-number-2">3</span> 重新启用该SSD</h2>
+<div id="outline-container-org9be6157" class="outline-2">
+<h2 id="org9be6157"><span class="section-number-2">3.</span> 重新启用该SSD</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 SSD还没有完全故障，还是要利用起来。看了下xfs似乎没有排除坏块的选项，用ext4重新格式化，再挂载。（当然，这次要定期做好备份）
 </p>
-<pre class="example">
+<pre class="example" id="org6f09773">
 mkfs.ext4 -c -c /dev/nvme0n1
 </pre>
 </div>
 </div>
-<p>There are <a href="/troubleshooting/xfs_on_crash_ssd.html#disqus_thread">comments</a>.</p>                </article>
+<p>There are <a href="https://bbill.github.io/troubleshooting/xfs_on_crash_ssd.html#disqus_thread">comments</a>.</p>                </article>
             </aside><!-- /#featured -->
         <section id="extras" class="body">
                 <div class="blogroll">
@@ -161,6 +162,13 @@ mkfs.ext4 -c -c /dev/nvme0n1
                             <li><a href="http://www.tooyum.com/">tooyum</a></li>
                         </ul>
                 </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+                            <li><a href="https://bbill.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+
+                        </ul>
+                </div><!-- /.social -->
         </section><!-- /#extras -->
 
         <footer id="contentinfo" class="body">

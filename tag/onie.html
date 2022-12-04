@@ -3,7 +3,8 @@
 <head>
         <meta charset="utf-8" />
         <title>SDN Hands ON! - onie</title>
-        <link rel="stylesheet" href="/theme/css/main.css" />
+        <link rel="stylesheet" href="https://bbill.github.io/theme/css/main.css" />
+        <link href="https://bbill.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="SDN Hands ON! Atom Feed" />
 
         <!--[if IE]>
             <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -12,47 +13,224 @@
 
 <body id="index" class="home">
         <header id="banner" class="body">
-                <h1><a href="/">SDN Hands ON! </a></h1>
+                <h1><a href="https://bbill.github.io/">SDN Hands ON! </a></h1>
                 <nav><ul>
-                    <li><a href="/category/chan-pin.html">产品</a></li>
-                    <li><a href="/category/lab.html">lab</a></li>
-                    <li><a href="/category/product.html">product</a></li>
-                    <li><a href="/category/shi-yan.html">实验</a></li>
-                    <li><a href="/category/troubleshooting.html">troubleshooting</a></li>
+                    <li><a href="https://bbill.github.io/category/chan-pin.html">产品</a></li>
+                    <li><a href="https://bbill.github.io/category/lab.html">lab</a></li>
+                    <li><a href="https://bbill.github.io/category/product.html">product</a></li>
+                    <li><a href="https://bbill.github.io/category/shi-yan.html">实验</a></li>
+                    <li><a href="https://bbill.github.io/category/troubleshooting.html">troubleshooting</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/lab/install_picos_on_dell.html">在Dell N3048/24 上安装 PicOS</a></h1>
+                    <h1 class="entry-title"><a href="https://bbill.github.io/product/select_the_right_switch.html">科研机构怎么选购 p4 交换机</a></h1>
 <footer class="post-info">
-        <abbr class="published" title="2019-06-04T00:00:00+08:00">
-                Published: 二 04 六月 2019
+        <abbr class="published" title="2022-12-05T00:00:00+08:00">
+                Published: Mon 05 December 2022
         </abbr>
 
         <address class="vcard author">
-                By                         <a class="url fn" href="/author/bill.html">bill</a>
+                By                         <a class="url fn" href="https://bbill.github.io/author/bill.html">bill</a>
         </address>
-<p>In <a href="/category/lab.html">lab</a>.</p>
-<p>tags: <a href="/tag/lab.html">lab</a> <a href="/tag/install.html">install</a> <a href="/tag/onie.html">onie</a> <a href="/tag/picos.html">picos</a> <a href="/tag/dell.html">dell</a> <a href="/tag/n3048.html">n3048</a> <a href="/tag/n3024.html">n3024</a> <a href="/tag/uboot.html">uboot</a> </p>
-</footer><!-- /.post-info --><div id="table-of-contents">
+<p>In <a href="https://bbill.github.io/category/chan-pin.html">产品</a>.</p>
+<p>tags: <a href="https://bbill.github.io/tag/sdn.html">sdn</a> <a href="https://bbill.github.io/tag/openflow.html">openflow</a> <a href="https://bbill.github.io/tag/p4.html">p4</a> <a href="https://bbill.github.io/tag/tofino.html">tofino</a> <a href="https://bbill.github.io/tag/barefoot.html">barefoot</a> <a href="https://bbill.github.io/tag/onie.html">onie</a> <a href="https://bbill.github.io/tag/openmesh.html">openmesh</a> <a href="https://bbill.github.io/tag/edgecore.html">edgecore</a> </p>
+</footer><!-- /.post-info --><div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgfc85fd6">1. <b>首次安装PICOS</b></a>
+<li><a href="#org5c6d845">1. 选择CPU</a></li>
+<li><a href="#orgfe2d8f8">2. 交换芯片</a></li>
+<li><a href="#orgc002c38">3. 软件支持</a></li>
+<li><a href="#org3092ff6">4. 扩展能力</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org5c6d845" class="outline-2">
+<h2 id="org5c6d845"><span class="section-number-2">1.</span> 选择CPU</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+CPU 分两类
+</p>
+
+<ol class="org-ol">
+<li>管理CPU
+包括 Intel D-1517，D-1527，C3558 C35xx等</li>
+</ol>
+
+
+<ol class="org-ol">
+<li><p>
+管理CPU + 流量处理
+主要有Intel  至强 Skylake ，Cascade Lake 等湖系列双至强方案
+</p>
+
+<p>
+在同一类CPU中，CPU之间的差异就不再是选择产品的决定因素了。
+</p></li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orgfe2d8f8" class="outline-2">
+<h2 id="orgfe2d8f8"><span class="section-number-2">2.</span> 交换芯片</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Intel Tofino 系列芯片：
+</p>
+
+<ol class="org-ol">
+<li>一代</li>
+</ol>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">32D</td>
+<td class="org-left">32Q</td>
+<td class="org-left">64Q</td>
+</tr>
+
+<tr>
+<td class="org-left">pipeline</td>
+<td class="org-right">2</td>
+<td class="org-left">4</td>
+<td class="org-left">4</td>
+</tr>
+
+<tr>
+<td class="org-left">交换容量</td>
+<td class="org-right">3.2T</td>
+<td class="org-left">3.2T</td>
+<td class="org-left">6.4T</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+最核心的区别是容量和pipeline，更多的流水线意味着更多的资源，在一些应
+用里会采用折叠pipeline的方式实现更为复杂的处理逻辑。
+</p>
+
+
+<ol class="org-ol">
+<li>二代以后芯片
+二代芯片从12.8T容量起步，资源也略有增加，主要以400G接口为主，目前看性价比不高。</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orgc002c38" class="outline-2">
+<h2 id="orgc002c38"><span class="section-number-2">3.</span> 软件支持</h2>
+<div class="outline-text-2" id="text-3">
+<ol class="org-ol">
+<li><p>
+Sonic
+</p>
+
+<p>
+作为目前最为火热的开源NOS，基本所有交换机都支持，但是支持的好坏还
+是有区别。官方的仓库直接可以编译运行为佳，这样有新的版本，马上就可
+以尝试。
+</p></li>
+
+<li>Stratum NOS for the next generation of SDN，同样的理由，官方认证的
+平台为最佳，能不能站在巨人肩膀上再说，至少不要从填坑开始。</li>
+
+<li><p>
+论文的复现
+</p>
+
+<p>
+github 上的大牛开源出来的代码，能不能复现，大牛用什么平台也是一个
+重要的参考。尤其是研究方向已经非常确定的时候。
+</p></li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org3092ff6" class="outline-2">
+<h2 id="org3092ff6"><span class="section-number-2">4.</span> 扩展能力</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+Tofino作为交换芯片，受资源限制表项一般模糊匹配一万条左右，精确10万条
+左右，如果要实现大表项，或者对数据包做4层以上的处理，就要辅之以CPU，
+FGGA，智能网卡。这时需要考虑的是扩展能力，根据具体需求可以选择
+</p>
+
+<ol class="org-ol">
+<li>NP 扣卡扩展</li>
+<li>FGPA扩展</li>
+<li>标准PCI-e扩展支持</li>
+<li>正交背板扩展</li>
+</ol>
+
+
+<p>
+综合考虑了上述问题后，如果您还不知道要选择哪款设备。那么拿起电话
+</p>
+
+<p>
+<b>致电 021-52378166</b>
+</p>
+</div>
+</div>
+<p>There are <a href="https://bbill.github.io/product/select_the_right_switch.html#disqus_thread">comments</a>.</p>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="https://bbill.github.io/lab/install_picos_on_dell.html" rel="bookmark"
+                           title="Permalink to 在Dell N3048/24 上安装 PicOS">在Dell N3048/24 上安装 PicOS</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2019-06-04T00:00:00+08:00">
+                Published: Tue 04 June 2019
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="https://bbill.github.io/author/bill.html">bill</a>
+        </address>
+<p>In <a href="https://bbill.github.io/category/lab.html">lab</a>.</p>
+<p>tags: <a href="https://bbill.github.io/tag/lab.html">lab</a> <a href="https://bbill.github.io/tag/install.html">install</a> <a href="https://bbill.github.io/tag/onie.html">onie</a> <a href="https://bbill.github.io/tag/picos.html">picos</a> <a href="https://bbill.github.io/tag/dell.html">dell</a> <a href="https://bbill.github.io/tag/n3048.html">n3048</a> <a href="https://bbill.github.io/tag/n3024.html">n3024</a> <a href="https://bbill.github.io/tag/uboot.html">uboot</a> </p>
+</footer><!-- /.post-info -->                <div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org01ab76a">1.1. 确保已经下载了正确的安装文件</a></li>
-<li><a href="#org515a396">1.2. 进入Boot Main Menu。</a></li>
-<li><a href="#orgd725049">1.3. 进入ONIE救援模式</a></li>
-<li><a href="#org7ed8436">1.4. 安装PicOS</a></li>
+<li><a href="#orge8271fc">1. <b>首次安装PICOS</b></a>
+<ul>
+<li><a href="#orga264900">1.1. 确保已经下载了正确的安装文件</a></li>
+<li><a href="#org0f3a709">1.2. 进入Boot Main Menu。</a></li>
+<li><a href="#org6bc3b59">1.3. 进入ONIE救援模式</a></li>
+<li><a href="#org384f06f">1.4. 安装PicOS</a></li>
 </ul>
 </li>
-<li><a href="#orgef97a78">2. <b>传统安装流程</b></a>
+<li><a href="#org0e475c7">2. <b>传统安装流程</b></a>
 <ul>
-<li><a href="#orgf58dc3d">2.1. 文件准备</a></li>
-<li><a href="#orgd79996b">2.2. 进入救援模式</a>
+<li><a href="#org8865aef">2.1. 文件准备</a></li>
+<li><a href="#org767a37f">2.2. 进入救援模式</a>
 <ul>
-<li><a href="#org57ed218">2.2.1. 在ONIE提示符下，运行 <b>onie-nos-install</b> 命令安装PICOS。</a></li>
+<li><a href="#orgb93c612">2.2.1. 在ONIE提示符下，运行 <b>onie-nos-install</b> 命令安装PICOS。</a></li>
 </ul>
 </li>
 </ul>
@@ -64,8 +242,8 @@
 使用google translate 翻译自 <a href="https://docs.pica8.com/display/PicOS21118sp/Installing+PICOS+on+Bare+Metal+Switches+for+N3048EP-ON">here</a>.
 </p>
 
-<div id="outline-container-orgfc85fd6" class="outline-2">
-<h2 id="orgfc85fd6"><span class="section-number-2">1</span> <b>首次安装PICOS</b></h2>
+<div id="outline-container-orge8271fc" class="outline-2">
+<h2 id="orge8271fc"><span class="section-number-2">1.</span> <b>首次安装PICOS</b></h2>
 <div class="outline-text-2" id="text-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -86,386 +264,35 @@
 </div>
 
 
-<div id="outline-container-org01ab76a" class="outline-3">
-<h3 id="org01ab76a"><span class="section-number-3">1.1</span> 确保已经下载了正确的安装文件</h3>
+<div id="outline-container-orga264900" class="outline-3">
+<h3 id="orga264900"><span class="section-number-3">1.1.</span> 确保已经下载了正确的安装文件</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
-设定服务器将将该.bin 文件的安装包通过（HTTP，TFTP，FTP或交换机本
-地目录可访问，根据实际情况而定）。
-</p>
-</div>
-</div>
-
-<div id="outline-container-org515a396" class="outline-3">
-<h3 id="org515a396"><span class="section-number-3">1.2</span> 进入Boot Main Menu。</h3>
-<div class="outline-text-3" id="text-1-2">
-<p>
-当开关打开电源时   <b>出现Dell EMC Networking Boot Options</b> 菜单，选择选项“2”
-进入Boot Main Menu。
-</p>
-
-<pre class="example">
-戴尔EMC网络引导选项
-================================
-
-在3秒内选择一个菜单选项，否则将启动操作代码
-
-自动...
-
-1  - 启动操作代码
-2  - 显示启动菜单
-
-选择（1,2）＃2
-</pre>
-</div>
-</div>
-
-<div id="outline-container-orgd725049" class="outline-3">
-<h3 id="orgd725049"><span class="section-number-3">1.3</span> 进入ONIE救援模式</h3>
-<div class="outline-text-3" id="text-1-3">
-<p>
-出现 *Boot Main Menu *时，选择选项“13”进入ONIE救援模式。
-</p>
-
-<pre class="example">
-启动主菜单
-==============
-
-1  - 启动操作代码
-2  - 选择波特率
-3  - 检索日志
-4  - 加载新的操作代码
-5  - 显示操作代码详细信息
-9  - 重新启动
-10  - 将配置恢复为出厂默认值
-11  - 激活备份映像
-12  - 启动密码恢复
-13  -  Boot ONIE（救援模式）
-14  - 引导诊断
-
-输入选择＃13
-</pre>
-
-
-
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-left" />
-</colgroup>
-<tbody>
-<tr>
-<td class="org-left"><b>注意：</b></td>
-</tr>
-
-<tr>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left">如果未执行任何操作，系统将在5秒后启动到PICOS。</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-
-<div id="outline-container-org7ed8436" class="outline-3">
-<h3 id="org7ed8436"><span class="section-number-3">1.4</span> 安装PicOS</h3>
-<div class="outline-text-3" id="text-1-4">
-<p>
-在ONIE提示符下，运行 <b>onie-nos-install</b> 命令安装PICOS。
-</p>
-
-
-
-<ul class="org-ul">
-<li><p>
-<b>通过TFTP安装</b>
-</p>
-
-<pre class="example">
-ONIE＃onie-nos-install tftp：// &lt;image路径&gt; /PicOS.bin
-</pre></li>
-
-<li><p>
-<b>通过FTP安装</b>
-</p>
-
-<p>
-通过FTP安装时，您需要输入 像文件所在的FTP服务器的 <b>username</b> 和 <b>password</b>
-</p>
-
-<pre class="example">
-ONIE＃onie-nos-install ftp：//用户名：密码@ &lt;image路径&gt; /PicOS.bin
-</pre></li>
-
-<li><p>
-<b>通过HTTP</b> 安装
-</p>
-<pre class="example">
-ONIE＃onie-nos-install http：// &lt;image路径&gt; /PicOS.bin
-</pre></li>
-
-<li><b>通过本地目录安装</b>
-
-<ul class="org-ul">
-<li><p>
-在* ONIE rescue *模式下，将image文件复制到当前  目录。
-</p>
-
-<pre class="example">
-ONIE #scp username @ &lt;image路径&gt; /PicOS.bin。
-</pre></li>
-
-<li><p>
-运行* onie-nos-install *命令开始安装。
-</p>
-
-<pre class="example">
-ONIE＃onie-nos-install PicOS.bin
-</pre></li>
-</ul></li>
-</ul>
-
-<p>
-安装程序运行并在完成安装后运行
-自动重启，系统将运行新网络
-操作系统。
-</p>
-
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-left" />
-</colgroup>
-<tbody>
-<tr>
-<td class="org-left"><b>注意：</b></td>
-</tr>
-
-<tr>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left">- 系统重启后，需要输入用户名和密码，初始登录用户名为* admin <b>，密码为</b> pica8 *。</td>
-</tr>
-
-<tr>
-<td class="org-left">- 输入用户名和密码后，系统会要求用户为admin选择新密码。这是安装后的唯一步骤，之后可以使用PicOS操作系统。</td>
-</tr>
-</tbody>
-</table>
-
-
-<p>
-如果已经安装好，底下不用看了。
-</p>
-</div>
-</div>
-</div>
-
-<div id="outline-container-orgef97a78" class="outline-2">
-<h2 id="orgef97a78"><span class="section-number-2">2</span> <b>传统安装流程</b></h2>
-<div class="outline-text-2" id="text-2">
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-left" />
-</colgroup>
-<tbody>
-<tr>
-<td class="org-left"><b>注意：</b></td>
-</tr>
-
-<tr>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left">您需要通过交换机的控制台端口登录并执行本节中描述的ONIE安装。</td>
-</tr>
-</tbody>
-</table>
-</div>
-
-
-
-
-<div id="outline-container-orgf58dc3d" class="outline-3">
-<h3 id="orgf58dc3d"><span class="section-number-3">2.1</span> 文件准备</h3>
-<div class="outline-text-3" id="text-2-1">
-<p>
-<b>确保</b> .bin *文件的安装包已加载到服务器（服务器可能是HTTP，TFTP或
-FTP服务器或交换机本地目录根据实际情况而定安装环境）。
-</p>
-</div>
-</div>
-
-<div id="outline-container-orgd79996b" class="outline-3">
-<h3 id="orgd79996b"><span class="section-number-3">2.2</span> 进入救援模式</h3>
-<div class="outline-text-3" id="text-2-2">
-<p>
-进入ONIE安装环境。
-</p>
-
-<p>
-打开电源，当出现* Boot Main Menu <b>时，选择选项“</b> 2 *”进入ONIE救援模式。
-</p>
-
-<pre class="example">
-启动主菜单
-====================
-1  - 引导PICOS（默认）
-2  - 启动ONIE（救援模式）
-3  - 引导诊断
-4  - 引导Dell EMC网络系统
-输入您的选择（1,2,3,4）：2
-</pre>
-
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-left" />
-</colgroup>
-<tbody>
-<tr>
-<td class="org-left"><b>注意：</b></td>
-</tr>
-
-<tr>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left">如果未执行任何操作，系统将在5秒后启动到PICOS。</td>
-</tr>
-</tbody>
-</table>
-</div>
-
-<div id="outline-container-org57ed218" class="outline-4">
-<h4 id="org57ed218"><span class="section-number-4">2.2.1</span> 在ONIE提示符下，运行 <b>onie-nos-install</b> 命令安装PICOS。</h4>
-<div class="outline-text-4" id="text-2-2-1">
-<ul class="org-ul">
-<li><p>
-<b>通过TFTP安装</b>
-</p>
-
-<pre class="example">
-ONIE＃onie-nos-install tftp：// &lt;image路径&gt; /PicOS.bin
-</pre></li>
-
-<li><p>
-<b>通过FTP安装</b>
-</p>
-
-<p>
-通过FTP安装时，您需要
-输入image文件所在的FTP服务器的* username <b>和</b> password *
-已加载。
-</p>
-
-<pre class="example">
-ONIE＃onie-nos-install ftp：//用户名：密码@ &lt;image路径&gt; /PicOS.bin
-</pre></li>
-
-<li><p>
-*通过HTTP *安装
-</p>
-
-<pre class="example">
-ONIE＃onie-nos-install http：// &lt;image路径&gt; /PicOS.bin
-</pre></li>
-
-<li><p>
-<b>通过本地目录安装</b>
-</p>
-
-<p>
-a）在* ONIE rescue *模式下，将image文件复制到当前
-目录。
-</p>
-
-<pre class="example">
-ONIE #scp username @ &lt;image路径&gt; /PicOS.bin。
-</pre>
-
-<p>
-b）运行* onie-nos-install *命令开始安装。
-</p>
-
-<pre class="example">
-ONIE＃onie-nos-install PicOS.bin
-</pre></li>
-</ul>
-
-<p>
-安装程序运行并在完成安装后运行
-自动重启，系统将运行新网络
-操作系统。
-</p>
-
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-left" />
-</colgroup>
-<tbody>
-<tr>
-<td class="org-left"><b>注意：</b></td>
-</tr>
-
-<tr>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left">- 系统重启后，需要输入用户名和密码，初始登录用户名为* admin <b>，密码为</b> pica8 *。</td>
-</tr>
-
-<tr>
-<td class="org-left">- 输入用户名和密码后，系统会要求用户为admin选择新密码。这是安装后的唯一步骤，之后可以使用PicOS操作系统。</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
-<p>There are <a href="/lab/install_picos_on_dell.html#disqus_thread">comments</a>.</p>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
+设定服务器将将该.bin 文件的安装包通过（HTTP …</p></div></div></div>
+                <a class="readmore" href="https://bbill.github.io/lab/install_picos_on_dell.html">read more</a>
+<p>There are <a href="https://bbill.github.io/lab/install_picos_on_dell.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>
-                    <h1><a href="/product/barefoot.html" rel="bookmark"
+                    <h1><a href="https://bbill.github.io/product/barefoot.html" rel="bookmark"
                            title="Permalink to Barefoot P4 Switch">Barefoot P4 Switch</a></h1>
                 </header>
 
                 <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2017-10-28T00:00:00+08:00">
-                Published: 六 28 十月 2017
+                Published: Sat 28 October 2017
         </abbr>
 
         <address class="vcard author">
-                By                         <a class="url fn" href="/author/bill.html">bill</a>
+                By                         <a class="url fn" href="https://bbill.github.io/author/bill.html">bill</a>
         </address>
-<p>In <a href="/category/chan-pin.html">产品</a>.</p>
-<p>tags: <a href="/tag/sdn.html">sdn</a> <a href="/tag/openflow.html">openflow</a> <a href="/tag/p4.html">p4</a> <a href="/tag/tofino.html">tofino</a> <a href="/tag/barefoot.html">barefoot</a> <a href="/tag/onie.html">onie</a> <a href="/tag/capilano.html">capilano</a> </p>
+<p>In <a href="https://bbill.github.io/category/chan-pin.html">产品</a>.</p>
+<p>tags: <a href="https://bbill.github.io/tag/sdn.html">sdn</a> <a href="https://bbill.github.io/tag/openflow.html">openflow</a> <a href="https://bbill.github.io/tag/p4.html">p4</a> <a href="https://bbill.github.io/tag/tofino.html">tofino</a> <a href="https://bbill.github.io/tag/barefoot.html">barefoot</a> <a href="https://bbill.github.io/tag/onie.html">onie</a> <a href="https://bbill.github.io/tag/capilano.html">capilano</a> </p>
 </footer><!-- /.post-info -->                Barefoot P4 交换机概况
-                <a class="readmore" href="/product/barefoot.html">read more</a>
-<p>There are <a href="/product/barefoot.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
+                <a class="readmore" href="https://bbill.github.io/product/barefoot.html">read more</a>
+<p>There are <a href="https://bbill.github.io/product/barefoot.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
             </article></li>
                 </ol><!-- /#posts-list -->
                 </section><!-- /#content -->
@@ -476,6 +303,13 @@ ONIE＃onie-nos-install PicOS.bin
                             <li><a href="http://www.tooyum.com/">tooyum</a></li>
                         </ul>
                 </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+                            <li><a href="https://bbill.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+
+                        </ul>
+                </div><!-- /.social -->
         </section><!-- /#extras -->
 
         <footer id="contentinfo" class="body">

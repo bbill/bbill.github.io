@@ -1,0 +1,2953 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>SDN Hands ON!</title><link href="https://bbill.github.io/" rel="alternate"></link><link href="https://bbill.github.io/feeds/all.atom.xml" rel="self"></link><id>https://bbill.github.io/</id><updated>2022-12-05T00:00:00+08:00</updated><entry><title>科研机构怎么选购 p4 交换机</title><link href="https://bbill.github.io/product/select_the_right_switch.html" rel="alternate"></link><published>2022-12-05T00:00:00+08:00</published><updated>2022-12-05T00:00:00+08:00</updated><author><name>bill</name></author><id>tag:bbill.github.io,2022-12-05:/product/select_the_right_switch.html</id><summary type="html">不再纠结</summary><content type="html">&lt;div id="table-of-contents" role="doc-toc"&gt;
+&lt;h2&gt;Table of Contents&lt;/h2&gt;
+&lt;div id="text-table-of-contents" role="doc-toc"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#org5c6d845"&gt;1. 选择CPU&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#orgfe2d8f8"&gt;2. 交换芯片&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#orgc002c38"&gt;3. 软件支持&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org3092ff6"&gt;4. 扩展能力&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id="outline-container-org5c6d845" class="outline-2"&gt;
+&lt;h2 id="org5c6d845"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; 选择CPU&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-1"&gt;
+&lt;p&gt;
+CPU 分两类
+&lt;/p&gt;
+
+&lt;ol class="org-ol"&gt;
+&lt;li&gt;管理CPU
+包括 Intel D-1517，D-1527，C3558 C35xx等&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;ol class="org-ol"&gt;
+&lt;li&gt;&lt;p&gt;
+管理CPU + 流量处理
+主要有Intel  至强 Skylake ，Cascade Lake 等湖系列双至强方案
+&lt;/p&gt;
+
+&lt;p&gt;
+在同一类CPU中，CPU之间的差异就不再是选择产品的决定因素了。
+&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id="outline-container-orgfe2d8f8" class="outline-2"&gt;
+&lt;h2 id="orgfe2d8f8"&gt;&lt;span class="section-number-2"&gt;2.&lt;/span&gt; 交换芯片&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-2"&gt;
+&lt;p&gt;
+Intel Tofino 系列芯片：
+&lt;/p&gt;
+
+&lt;ol class="org-ol"&gt;
+&lt;li&gt;一代&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides"&gt;
+
+
+&lt;colgroup&gt;
+&lt;col  class="org-left" /&gt;
+
+&lt;col  class="org-right" /&gt;
+
+&lt;col  class="org-left" /&gt;
+
+&lt;col  class="org-left" /&gt;
+&lt;/colgroup&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td class="org-left"&gt;&amp;#xa0;&lt;/td&gt;
+&lt;td class="org-right"&gt;32D&lt;/td&gt;
+&lt;td class="org-left"&gt;32Q&lt;/td&gt;
+&lt;td class="org-left"&gt;64Q&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;pipeline&lt;/td&gt;
+&lt;td class="org-right"&gt;2&lt;/td&gt;
+&lt;td class="org-left"&gt;4&lt;/td&gt;
+&lt;td class="org-left"&gt;4&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;交换容量&lt;/td&gt;
+&lt;td class="org-right"&gt;3.2T&lt;/td&gt;
+&lt;td class="org-left"&gt;3.2T&lt;/td&gt;
+&lt;td class="org-left"&gt;6.4T&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;
+最核心的区别是容量和pipeline，更多的流水线意味着更多的资源，在一些应
+用里会采用折叠pipeline的方式实现更为复杂的处理逻辑。
+&lt;/p&gt;
+
+
+&lt;ol class="org-ol"&gt;
+&lt;li&gt;二代以后芯片
+二代芯片从12.8T容量起步，资源也略有增加，主要以400G接口为主，目前看性价比不高。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id="outline-container-orgc002c38" class="outline-2"&gt;
+&lt;h2 id="orgc002c38"&gt;&lt;span class="section-number-2"&gt;3.&lt;/span&gt; 软件支持&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-3"&gt;
+&lt;ol class="org-ol"&gt;
+&lt;li&gt;&lt;p&gt;
+Sonic
+&lt;/p&gt;
+
+&lt;p&gt;
+作为目前最为火热的开源NOS，基本所有交换机都支持，但是支持的好坏还
+是有区别。官方的仓库直接可以编译运行为佳，这样有新的版本，马上就可
+以尝试。
+&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;Stratum NOS for the next generation of SDN，同样的理由，官方认证的
+平台为最佳，能不能站在巨人肩膀上再说，至少不要从填坑开始。&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;
+论文的复现
+&lt;/p&gt;
+
+&lt;p&gt;
+github 上的大牛开源出来的代码，能不能复现，大牛用什么平台也是一个
+重要的参考。尤其是研究方向已经非常确定的时候。
+&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id="outline-container-org3092ff6" class="outline-2"&gt;
+&lt;h2 id="org3092ff6"&gt;&lt;span class="section-number-2"&gt;4.&lt;/span&gt; 扩展能力&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-4"&gt;
+&lt;p&gt;
+Tofino作为交换芯片，受资源限制表项一般模糊匹配一万条左右，精确10万条
+左右，如果要实现大表项，或者对数据包做4层以上的处理，就要辅之以CPU，
+FGGA，智能网卡。这时需要考虑的是扩展能力，根据具体需求可以选择
+&lt;/p&gt;
+
+&lt;ol class="org-ol"&gt;
+&lt;li&gt;NP 扣卡扩展&lt;/li&gt;
+&lt;li&gt;FGPA扩展&lt;/li&gt;
+&lt;li&gt;标准PCI-e扩展支持&lt;/li&gt;
+&lt;li&gt;正交背板扩展&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;p&gt;
+综合考虑了上述问题后，如果您还不知道要选择哪款设备。那么拿起电话
+&lt;/p&gt;
+
+&lt;p&gt;
+&lt;b&gt;致电 021-52378166&lt;/b&gt;
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</content><category term="产品"></category><category term="sdn"></category><category term="openflow"></category><category term="p4"></category><category term="tofino"></category><category term="barefoot"></category><category term="onie"></category><category term="openmesh"></category><category term="edgecore"></category></entry><entry><title>Pica8 白盒交换机快速上手</title><link href="https://bbill.github.io/lab/pica8_quick_start.html" rel="alternate"></link><published>2022-12-04T00:00:00+08:00</published><updated>2022-12-04T00:00:00+08:00</updated><author><name>bill</name></author><id>tag:bbill.github.io,2022-12-04:/lab/pica8_quick_start.html</id><summary type="html">&lt;div id="table-of-contents" role="doc-toc"&gt;
+&lt;h2&gt;Table of Contents&lt;/h2&gt;
+&lt;div id="text-table-of-contents" role="doc-toc"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#org073984c"&gt;1. 初始设置和访问&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#orge0d75bf"&gt;1.1. 登陆交换机&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org7001f53"&gt;1.2. 设定默认启动模式&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#orgf45ab38"&gt;1.3. 设置 Openflow SDN网络&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org6e772ce"&gt;2. TAP简单上手&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org4bae0bf"&gt;3. CrossFlow 配置&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org4326f3d"&gt;4. 软件版本升级&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#orge9814d1"&gt;5. 手册及参考&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+
+&lt;div id="outline-container-org073984c" class="outline-2"&gt;
+&lt;h2 id="org073984c"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; 初始设置和访问&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-1"&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-orge0d75bf" class="outline-3"&gt;
+&lt;h3 id="orge0d75bf"&gt;&lt;span class="section-number-3"&gt;1.1.&lt;/span&gt; 登陆交换机&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-1-1"&gt;
+&lt;p&gt;
+交换机开箱后的初始登录，可以通过 串口(RJ45)来进行。 找到交换机 的console
+口(一般会标有Con)。通过windows 主机上的超级终端工具，或者putty,
+securecrt 等 终端工具，配置串口参数为 115200,
+8/N/1 …&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</summary><content type="html">&lt;div id="table-of-contents" role="doc-toc"&gt;
+&lt;h2&gt;Table of Contents&lt;/h2&gt;
+&lt;div id="text-table-of-contents" role="doc-toc"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#org073984c"&gt;1. 初始设置和访问&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#orge0d75bf"&gt;1.1. 登陆交换机&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org7001f53"&gt;1.2. 设定默认启动模式&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#orgf45ab38"&gt;1.3. 设置 Openflow SDN网络&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org6e772ce"&gt;2. TAP简单上手&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org4bae0bf"&gt;3. CrossFlow 配置&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org4326f3d"&gt;4. 软件版本升级&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#orge9814d1"&gt;5. 手册及参考&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+
+&lt;div id="outline-container-org073984c" class="outline-2"&gt;
+&lt;h2 id="org073984c"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; 初始设置和访问&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-1"&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-orge0d75bf" class="outline-3"&gt;
+&lt;h3 id="orge0d75bf"&gt;&lt;span class="section-number-3"&gt;1.1.&lt;/span&gt; 登陆交换机&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-1-1"&gt;
+&lt;p&gt;
+交换机开箱后的初始登录，可以通过 串口(RJ45)来进行。 找到交换机 的console
+口(一般会标有Con)。通过windows 主机上的超级终端工具，或者putty,
+securecrt 等 终端工具，配置串口参数为 115200,
+8/N/1,硬件流控设为没有（关闭）.后即可 登录。默认用户名 admin ，密码
+&lt;b&gt;pica8&lt;/b&gt; 。
+&lt;/p&gt;
+
+
+&lt;div id="org53be04e" class="figure"&gt;
+&lt;p&gt;&lt;img src="http://www.tooyum.com/images/rs232.png" alt="rs232.png" width="300px" /&gt;
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;pre class="example" id="org65bb948"&gt;
+PicOS-OVS login: admin
+Password:
+
+admin@XorPlus$
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id="outline-container-org7001f53" class="outline-3"&gt;
+&lt;h3 id="org7001f53"&gt;&lt;span class="section-number-3"&gt;1.2.&lt;/span&gt; 设定默认启动模式&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-1-2"&gt;
+&lt;ol class="org-ol"&gt;
+&lt;li&gt;&lt;p&gt;
+验证当前Pica8模式 
+&lt;/p&gt;
+
+&lt;p&gt;
+通过发出下面的命令检查PICOS交换机 的当前模式。
+&lt;/p&gt;
+
+&lt;pre class="example" id="org6ceaf57"&gt;
+admin@XorPlus$ps -ef | grep xorp | grep -v grep
+admin@XorPlus$ps -ef | grep ovs | grep -v grep
+admin@XorPlus$
+admin@XorPlus$
+&lt;/pre&gt;
+
+&lt;p&gt;
+如果有xorp 进程输出表明目前处于传统模式（可通过crossflow
+支持混杂），如 果有ovs 输出则为纯 SDN模式。
+&lt;/p&gt;
+
+&lt;p&gt;
+默认启动模式可以通过如下命令向导进行切换，以切换到 SDN模式为例：
+&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;
+运行Pica8模式切换程序
+&lt;/p&gt;
+
+&lt;p&gt;
+由于我们建立Pica8交换机的SDN应用程序，我们将把交换机设为
+OVS模式以支持 OpenFlow。要做到这一点，我们将运行Pica8模式切换程序。
+&lt;/p&gt;
+
+&lt;p&gt;
+在命令行中输入'sudo picos_boot' ，当系统提示时输入' 2 '
+选择OVS模式。
+&lt;/p&gt;
+
+&lt;pre class="example" id="org6f8d5d8"&gt;
+admin@XorPlus$sudo picos_boot
+Please configure the default system start-up options:
+ (Press other key if no change)
+    [1]  PicOS L2/L3
+    [2]  PicOS Open vSwitch/OpenFlow
+    [3]  No start-up options   * default
+Enter your choice (1,2,3):2
+&lt;/pre&gt;
+
+&lt;p&gt;
+接下来的一系列提示将设置 eth0接口 IP地址
+。OpenFlow的包和SSH通信将使用
+这个IP地址。输入IP地址，子网掩码和默认网关。
+&lt;/p&gt;
+
+&lt;pre class="example" id="org0ddf473"&gt;
+
+PicOS Open vSwitch/OpenFlow is selected.
+
+Note: Defaultly, the OVS server is runned with static local management IP and port 6640.
+The default way of vswitch connecting to server is PTCP.
+
+Please set a static IP and netmask for the switch (e.g. 128.0.0.10/24) : 192.168.16.101/24
+
+Please set the gateway IP (e.g 172.168.1.2):192.168.16.1
+
+admin@XorPlus$
+&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;
+启动PicOS 服务
+&lt;/p&gt;
+
+&lt;p&gt;
+验证PICOS模式的改变。启动PICOS服务 'sudo service picos start'
+来应用这 个改变
+&lt;/p&gt;
+
+&lt;pre class="example" id="org0d9b6d4"&gt;
+admin@XorPlus$sudo service picos start
+[....] Stopping enhanced syslogd: rsyslogd.
+[....] Starting enhanced syslogd: rsyslogd.
+[....] Stopping internet superserver: xinetd.
+[....] Restarting OpenBSD Secure Shell server: sshd.
+[....] Create OVS database file.
+RTNETLINK answers: No such process
+[....] Starting: PicOS Open vSwitch/OpenFlow.
+[....] Starting web server: lighttpd.
+&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;
+验证 PicOS 模式
+&lt;/p&gt;
+
+&lt;p&gt;
+验证对 'picos_start.conf' 文件的改变。
+&lt;/p&gt;
+
+&lt;pre class="example" id="orgd5da5bb"&gt;
+admin@XorPlus$more /etc/picos/picos_start.conf
+# configuration file for PicOS
+
+[PICOS]
+picos_start=ovs
+
+[XORPPLUS]
+xorpplus_rtrmgr_verbose=
+xorpplus_log_facility=local0
+xorpplus_finder_client_address=127.0.0.1
+xorpplis_finder_server_address=127.0.0.1
+
+[OVS]
+ovs_database_file=/ovs/ovs-vswitchd.conf.db
+ovs_db_sock_file=/ovs/var/run/openvswitch/db.sock
+ovs_switch_ip_address=192.168.16.101
+ovs_switch_ip_netmask=255.255.255.0
+ovs_switch_gateway_ip=192.168.16.1
+ovs_switch_tcp_port=6633
+ovs_host_name=PicOS-OVS
+
+[ZTP]
+ztp_disable=false
+&lt;/pre&gt;
+
+&lt;p&gt;
+验证OVS进程正在运行:
+&lt;/p&gt;
+
+&lt;p&gt;
+如果进程输出如下，则Pica8 交换机运行在 OVS/Openflow 模式下。
+&lt;/p&gt;
+
+&lt;pre class="example" id="org883f4db"&gt;
+admin@XorPlus$ps -ef | grep ovs | grep -v grep
+root      3182     1  0 05:26 ttyS0    00:00:00 ovsdb-server /ovs/ovs-vswitchd.conf.db --remote=ptcp:6633:192.168.16.101 --remote=punix:/ovs/var/run/openvswitch/db.sock
+root      3184     1  0 05:26 ttyS0    00:00:00 ovs-vswitchd --pidfile=ovs-vswitchd.pid --overwrite-pidfile
+&lt;/pre&gt;
+
+&lt;p&gt;
+现在重新启动交换机，以确保配置是持久的。这可能需要几分钟的时间才能完成。(如果确认 /etc/picos/picos_start.conf 已经成功修改，则此步骤可以省略）
+&lt;/p&gt;
+
+&lt;pre class="example" id="orgace7c23"&gt;
+admin@XorPlus$sudo reboot
+
+Broadcast message from root@PicOS-OVS (ttyS0) (Tue Oct 21 05:47:19 2014):
+
+The system is going down for reboot NOW!
+&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;
+验证 Pica8 网络连通性 
+&lt;/p&gt;
+
+&lt;p&gt;
+一旦重启完成后，作为管理员重新登录，检查和验证eth0接口到默认
+网关的网络连接。需要注意的是主机名已经按照‘ picos_start.conf
+“文件更改。
+&lt;/p&gt;
+
+&lt;pre class="example" id="org818ca39"&gt;
+admin@PicOS-OVS$ifconfig eth0
+eth0      Link encap:Ethernet  HWaddr 48:6e:73:02:00:22
+          inet addr:192.168.16.101  Bcast:192.168.16.255  Mask:255.255.255.0
+          inet6 addr: fe80::4a6e:73ff:fe02:22/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:8 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:15 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:608 (608.0 B)  TX bytes:3082 (3.0 KiB)
+          Base address:0x2000
+
+admin@PicOS-OVS$
+admin@PicOS-OVS$ping 192.168.16.1
+PING 192.168.16.1 (192.168.16.1) 56(84) bytes of data.
+64 bytes from 192.168.16.1: icmp_req=1 ttl=64 time=32.7 ms
+64 bytes from 192.168.16.1: icmp_req=2 ttl=64 time=2.00 ms
+64 bytes from 192.168.16.1: icmp_req=3 ttl=64 time=0.939 ms
+^C
+--- 192.168.16.1 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2002ms
+rtt min/avg/max/mdev = 0.939/11.900/32.754/14.752 ms
+&lt;/pre&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id="outline-container-orgf45ab38" class="outline-3"&gt;
+&lt;h3 id="orgf45ab38"&gt;&lt;span class="section-number-3"&gt;1.3.&lt;/span&gt; 设置 Openflow SDN网络&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-1-3"&gt;
+&lt;ol class="org-ol"&gt;
+&lt;li&gt;&lt;p&gt;
+创建虚拟交换机 
+&lt;/p&gt;
+
+&lt;p&gt;
+接下来的步骤将指导如何创建使用OpenFlow的一个基本的桥(虚拟交换机)。
+&lt;/p&gt;
+&lt;ol class="org-ol"&gt;
+&lt;li&gt;&lt;p&gt;
+license 检查
+&lt;/p&gt;
+
+&lt;p&gt;
+在开始设定之前需要确认交换机的license
+是否激活，在交换机的命令行界面里执行
+&lt;/p&gt;
+
+&lt;pre class="example" id="org82bdf15"&gt;
+license -s
+&lt;/pre&gt;
+
+&lt;p&gt;
+如果显示：
+&lt;/p&gt;
+
+&lt;pre class="example" id="org7e81a5d"&gt;
+No license installed.Use below information to create a license
+&lt;/pre&gt;
+
+&lt;p&gt;
+&amp;#x2026;
+&lt;/p&gt;
+
+&lt;p&gt;
+请将输出的Hardware ID，发邮件到 service@tooyum.com,我们会帮助申
+请license，并发回。 您收到 file.lic文件后将该文件复制到交换机的
+/etc 目录下。或者创建一个新的文件并将file.lic 文件的内容复制到
+该文件中。 然后在交换机上执行
+&lt;/p&gt;
+
+&lt;pre class="example" id="org1c9d4d2"&gt;
+sudo license -i /etc/file.lic
+&lt;/pre&gt;
+
+&lt;p&gt;
+并再次执行
+&lt;/p&gt;
+
+&lt;pre class="example" id="org05716b8"&gt;
+license -s
+&lt;/pre&gt;
+
+&lt;p&gt;
+以确认 license 成功导入。
+&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;
+创建虚拟交换机
+&lt;/p&gt;
+
+&lt;p&gt;
+在成功激活所有端口后，可以使用如下 open vSwitch
+命令,创建一个虚拟交换机br0。以命令行为例：
+&lt;/p&gt;
+
+&lt;pre class="example" id="org1e6ee06"&gt;
+admin@PicOS-OVS$ovs-vsctl add-br br0 -- set bridge br0 datapath_type=pica8
+
+device ovs-pica8 entered promiscuous mode
+device br0 entered promiscuous mode
+admin@PicOS-OVS$
+&lt;/pre&gt;&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;
+验证虚拟交换机
+&lt;/p&gt;
+
+&lt;p&gt;
+下一步验证桥已成功创建。
+&lt;/p&gt;
+
+&lt;pre class="example" id="org174dce3"&gt;
+
+admin@PicOS-OVS$ovs-ofctl show br0
+OFPT_FEATURES_REPLY (OF1.4) (xid=0x2): dpid:5e3ea67edf6c5f60
+n_tables:254, n_buffers:256
+capabilities: FLOW_STATS TABLE_STATS PORT_STATS GROUP_STATS
+OFPST_PORT_DESC reply (OF1.4) (xid=0x4):
+ LOCAL(br0): addr:a6:7e:df:6c:5f:60
+     config:     0
+     state:      LINK_UP
+     current:    10MB-FD COPPER
+     supported:  10MB-FD COPPER
+     speed: 10 Mbps now, 10 Mbps max
+OFPT_GET_CONFIG_REPLY (OF1.4) (xid=0x6): frags=normal miss_send_len=0
+&lt;/pre&gt;
+
+&lt;p&gt;
+问：br0 包含物理接口吗？
+&lt;/p&gt;
+
+&lt;p&gt;
+回答：不包含。虽然虚拟交换机已经创建，物理接口需要被添加到虚拟交换机。
+&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;
+给虚拟交换机加入接口
+&lt;/p&gt;
+
+&lt;p&gt;
+接下来，我们将添加物理接口给虚拟交换机br0。实验拓扑结构，我们将加入
+GE-1/1/1 ， GE-1/1/2 ，和GE-1/1/48,请注意，务必正确输入下面命令。
+&lt;/p&gt;
+
+&lt;pre class="example" id="org664e390"&gt;
+admin@PicOS-OVS$ovs-vsctl add-port br0 ge-1/1/1 vlan_mode=trunk tag=1 -- set interface ge-1/1/1 type=pica8
+admin@PicOS-OVS$ovs-vsctl add-port br0 ge-1/1/2 vlan_mode=trunk tag=1 -- set interface ge-1/1/2 type=pica8
+admin@PicOS-OVS$ovs-vsctl add-port br0 ge-1/1/48 vlan_mode=trunk tag=1 -- set interface ge-1/1/48 type=pica8
+admin@PicOS-OVS$
+&lt;/pre&gt;
+
+&lt;p&gt;
+如果您需要连续的加入每个千兆端口则可以用一个 for 循环来简化输入,以24口千兆+4口万兆交换机为例：
+&lt;/p&gt;
+
+&lt;p&gt;
+添加千兆端口&lt;sup&gt;&lt;a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink"&gt;1&lt;/a&gt;&lt;/sup&gt;
+&lt;/p&gt;
+
+&lt;pre class="example" id="org158c2f8"&gt;
+for i in $(seq 1 24);do ovs-vsctl add-port br0 ge-1/1/$i vlan_mode=trunk tag=1 -- set interface ge-1/1/$i type=pica8;done
+&lt;/pre&gt;
+
+&lt;p&gt;
+添加万兆端口，万兆端口的编号视不同平台不同，可能是 （25~28，49~52等请根据实际情况调整）。
+&lt;/p&gt;
+
+&lt;pre class="example" id="org93983d6"&gt;
+for i in $(seq 25 28);do ovs-vsctl add-port br0 te-1/1/$i vlan_mode=trunk tag=1 -- set interface te-1/1/$i type=pica8;done
+&lt;/pre&gt;
+
+&lt;p&gt;
+5101 添加所有端口可以采用如下命令：
+&lt;/p&gt;
+
+&lt;pre class="example" id="org600cebc"&gt;
+for i in $(seq 1 48);do ovs-vsctl add-port br0 te-1/1/$i vlan_mode=trunk tag=1 -- set interface te-1/1/$i type=pica8;done
+for i in $(seq 49 54);do ovs-vsctl add-port br0 qe-1/1/$i vlan_mode=trunk tag=1 -- set interface qe-1/1/$i type=pica8;done
+&lt;/pre&gt;
+
+&lt;p&gt;
+一般来说采用outband模式进行SDN网络管理无须额外设定，但是如果测试时
+为了方便将SDN交换机的数据端口和管理端口挂接在相同的二层网络里可能
+会导致交换机触发inband相关配置（因为在PicOS 2.4 以后默认的连接方式
+为 in-band），为了规避可能的问题，可以用如下命令禁用：
+&lt;/p&gt;
+
+&lt;pre class="example" id="orgc9708ad"&gt;
+ovs-vsctl set bridge br0 other_config=disable-in-band=true
+&lt;/pre&gt;
+
+&lt;ol class="org-ol"&gt;
+&lt;li&gt;&lt;p&gt;
+快速创建多个br的脚本
+&lt;/p&gt;
+
+&lt;p&gt;
+以48口千兆交换机建8个br，每个br依次分配6个端口为例。
+&lt;/p&gt;
+
+&lt;div class="org-src-container"&gt;
+&lt;pre class="src src-bash"&gt;&lt;span style="font-weight: bold; font-style: italic;"&gt;#&lt;/span&gt;&lt;span style="font-weight: bold; font-style: italic;"&gt;!/bin/&lt;/span&gt;&lt;span style="font-weight: bold;"&gt;bash&lt;/span&gt;
+&lt;span style="font-weight: bold;"&gt;for&lt;/span&gt; i&lt;span style="font-weight: bold;"&gt; in&lt;/span&gt; $(&lt;span style="font-weight: bold;"&gt;seq 1 8&lt;/span&gt;); &lt;span style="font-weight: bold;"&gt;do&lt;/span&gt;
+
+     ovs-vsctl add-br br$&lt;span style="font-weight: bold; font-style: italic;"&gt;i&lt;/span&gt;
+
+    &lt;span style="font-weight: bold;"&gt;for&lt;/span&gt; j&lt;span style="font-weight: bold;"&gt; in&lt;/span&gt; $(&lt;span style="font-weight: bold;"&gt;seq 0 5&lt;/span&gt;)
+
+    &lt;span style="font-weight: bold;"&gt;do&lt;/span&gt;  ovs-vsctl add-port br$&lt;span style="font-weight: bold; font-style: italic;"&gt;i&lt;/span&gt; ge-1/1/$(&lt;span style="font-weight: bold;"&gt;($i*6+$j&lt;/span&gt;)) &lt;span style="font-weight: bold; font-style: italic;"&gt;vlan_mode&lt;/span&gt;=trunk &lt;span style="font-weight: bold; font-style: italic;"&gt;tag&lt;/span&gt;=1 -- set interface ge-1/1/$(&lt;span style="font-weight: bold;"&gt;($i*6+$j&lt;/span&gt;)) &lt;span style="font-weight: bold; font-style: italic;"&gt;type&lt;/span&gt;=pica8&amp;#8221;
+
+    &lt;span style="font-weight: bold;"&gt;done&lt;/span&gt;
+&lt;span style="font-weight: bold;"&gt;done&lt;/span&gt;
+&lt;/pre&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+
+
+&lt;ol class="org-ol"&gt;
+&lt;li&gt;&lt;p&gt;
+验证虚拟交换机连接
+&lt;/p&gt;
+
+&lt;p&gt;
+我们可以使用相同的命令验证对br0的修改。
+&lt;/p&gt;
+
+&lt;pre class="example" id="org1e52209"&gt;
+admin@PicOS-OVS$ovs-ofctl show br0
+OFPT_FEATURES_REPLY (OF1.4) (xid=0x2): dpid:5e3e486e73020023
+n_tables:254, n_buffers:256
+capabilities: FLOW_STATS TABLE_STATS PORT_STATS GROUP_STATS
+OFPST_PORT_DESC reply (OF1.4) (xid=0x4):
+ 1(ge-1/1/1): addr:48:6e:73:02:00:23
+     config:     0
+     state:      LINK_UP
+     current:    1GB-FD COPPER AUTO_NEG
+     advertised: 10MB-HD 10MB-FD 100MB-HD 100MB-FD 1GB-FD COPPER AUTO_NEG
+     supported:  10MB-HD 10MB-FD 100MB-HD 100MB-FD 1GB-FD COPPER AUTO_NEG
+     peer:       10MB-HD 10MB-FD 100MB-HD 100MB-FD 1GB-FD COPPER
+     speed: 1000 Mbps now, 1000 Mbps max
+ 2(ge-1/1/2): addr:48:6e:73:02:00:23
+     config:     0
+     state:      LINK_UP
+     current:    1GB-FD COPPER AUTO_NEG
+     advertised: 10MB-HD 10MB-FD 100MB-HD 100MB-FD 1GB-FD COPPER AUTO_NEG
+     supported:  10MB-HD 10MB-FD 100MB-HD 100MB-FD 1GB-FD COPPER AUTO_NEG
+     peer:       10MB-HD 10MB-FD 100MB-HD 100MB-FD 1GB-FD COPPER
+     speed: 1000 Mbps now, 1000 Mbps max
+ 48(ge-1/1/48): addr:48:6e:73:02:00:23
+     config:     0
+     state:      LINK_UP
+     current:    1GB-FD COPPER AUTO_NEG
+     advertised: 10MB-HD 10MB-FD 100MB-HD 100MB-FD 1GB-FD COPPER AUTO_NEG
+     supported:  10MB-HD 10MB-FD 100MB-HD 100MB-FD 1GB-FD COPPER AUTO_NEG
+     peer:       10MB-HD 10MB-FD 100MB-HD 100MB-FD 1GB-FD COPPER
+     speed: 1000 Mbps now, 1000 Mbps max
+ LOCAL(br0): addr:48:6e:73:02:00:23
+     config:     0
+     state:      LINK_UP
+     current:    10MB-FD COPPER
+     supported:  10MB-FD COPPER
+     speed: 10 Mbps now, 10 Mbps max
+OFPT_GET_CONFIG_REPLY (OF1.4) (xid=0x6): frags=normal miss_send_len=0
+admin@PicOS-OVS$
+&lt;/pre&gt;
+
+&lt;p&gt;
+问：在交换机上运行什么版本的OpenFlow？
+&lt;/p&gt;
+
+&lt;p&gt;
+答：如OFPT_GET_CONFIG_REPLY 所示，PicOS
+2.4.1交换机默认运行OF1.4。
+&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;ol class="org-ol"&gt;
+&lt;li&gt;&lt;p&gt;
+测试主机连接
+&lt;/p&gt;
+
+&lt;p&gt;
+vBridge添加物理端口后，我们将试图通过Pica8交换机转发一些数据包。从连接在1口上的主机ping
+2口上连接的主机。
+&lt;/p&gt;
+
+&lt;pre class="example" id="org3f837c1"&gt;
+pica8@of-dev01-traff01:~$ ping 10.10.11.3
+PING 10.10.11.3 (10.10.11.3) 56(84) bytes of data.
+^C
+--- 10.10.11.3 ping statistics ---
+3 packets transmitted, 0 received, +1 errors, 100% packet loss, time 2000ms
+&lt;/pre&gt;
+
+&lt;p&gt;
+ping失败，是因为Pica8交换机尚未连接到OpenFlow控制器。由
+于Pica8遵循OpenFlow的标准，不匹配任何流规则的流量包，应首先通 过
+OFPT_PACKET_OUT 消息重定向到控制器。
+&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;
+验证控制器可达
+&lt;/p&gt;
+
+&lt;p&gt;
+我们必须配置交换机连接到通过OpenFlow的控制器。
+&lt;/p&gt;
+
+&lt;pre class="example" id="orga6dce07"&gt;
+admin@PicOS-OVS$ping 192.168.16.82 -c 3
+PING 192.168.16.82 (192.168.16.82) 56(84) bytes of data.
+64 bytes from 192.168.16.82: icmp_req=1 ttl=64 time=3.28 ms
+64 bytes from 192.168.16.82: icmp_req=2 ttl=64 time=0.393 ms
+64 bytes from 192.168.16.82: icmp_req=3 ttl=64 time=0.458 ms
+
+--- 192.168.16.82 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2001ms
+rtt min/avg/max/mdev = 0.393/1.378/3.284/1.348 ms
+&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;
+配置Pica8交换机连接到Ryu Openflow 控制器。
+&lt;/p&gt;
+
+&lt;p&gt;
+配置Pica8交换机连接到通过对应的 Ryu 控制器。
+&lt;/p&gt;
+
+&lt;pre class="example" id="org8547e3c"&gt;
+admin@PicOS-OVS$
+admin@PicOS-OVS$ovs-vsctl set-controller br0 tcp:192.168.16.82:6633
+admin@PicOS-OVS$
+&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;
+验证OpenFlow的连接
+&lt;/p&gt;
+
+&lt;p&gt;
+验证Pica8 交换机 有一个到端口6633的连接 。
+&lt;/p&gt;
+
+&lt;pre class="example" id="orgb365aa7"&gt;
+admin@PicOS-OVS$
+admin@PicOS-OVS$netstat -n | grep 6633
+admin@PicOS-OVS$
+&lt;/pre&gt;
+
+&lt;p&gt;
+问：交换机和控制器是否打开了一个会话？
+&lt;/p&gt;
+
+&lt;p&gt;
+答：不可以，要搞清楚OpenFlow的各种设备支持哪些版本。回想一下我们以前的步骤，
+所述交换机默认为OF1.4
+。也许我们的应用程序不支持默认版本。请注意，您还
+可以看到会话状态处于TIME_WAIT或FIN_WAIT2 状态。
+&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;
+设置 OpenFlow 版本 
+&lt;/p&gt;
+
+&lt;p&gt;
+我们将试图通过设置交换机的OpenFlow的版本为1.3来解决交换机和控制器之间的问题：
+。在交换机上使用下面的命令进行此更改。
+&lt;/p&gt;
+
+&lt;pre class="example" id="orgb33337f"&gt;
+admin@PicOS-OVS$
+admin@PicOS-OVS$ovs-vsctl set Bridge br0 protocols=OpenFlow13
+admin@PicOS-OVS$
+&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;
+验证OpenFlow的连接
+&lt;/p&gt;
+
+&lt;p&gt;
+运行'netstat -n | grep 6633'命令，看看是否已经解决了问题。
+&lt;/p&gt;
+
+&lt;pre class="example" id="orgb83ae4e"&gt;
+admin@PicOS-OVS$netstat -n | grep 6633
+tcp        0      0 192.168.16.101:56974    192.168.16.82:6633      ESTABLISHED
+admin@PicOS-OVS$
+&lt;/pre&gt;
+
+&lt;p&gt;
+问：交换机打开了和控制器的会话吗？
+&lt;/p&gt;
+
+&lt;p&gt;
+答：是的！成功，我们已经通过OpenFlow的控制器连接到Pica8交换机。
+&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id="outline-container-org6e772ce" class="outline-2"&gt;
+&lt;h2 id="org6e772ce"&gt;&lt;span class="section-number-2"&gt;2.&lt;/span&gt; TAP简单上手&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-2"&gt;
+&lt;p&gt;
+系统启动后，将需要设定的流表命令追加到/etc/rc3.d/S06tap，如果要确认效果，可以执行
+&lt;/p&gt;
+
+&lt;pre class="example" id="org792bddc"&gt;
+source /etc/rc3.d/S06tap
+&lt;/pre&gt;
+
+&lt;p&gt;
+用类似如下命令查看生效的流表：
+&lt;/p&gt;
+
+&lt;pre class="example" id="org564f282"&gt;
+
+ovs-ofctl dump-flows br0
+
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id="outline-container-org4bae0bf" class="outline-2"&gt;
+&lt;h2 id="org4bae0bf"&gt;&lt;span class="section-number-2"&gt;3.&lt;/span&gt; CrossFlow 配置&lt;/h2&gt;
+&lt;/div&gt;
+
+&lt;div id="outline-container-org4326f3d" class="outline-2"&gt;
+&lt;h2 id="org4326f3d"&gt;&lt;span class="section-number-2"&gt;4.&lt;/span&gt; 软件版本升级&lt;/h2&gt;
+&lt;/div&gt;
+
+&lt;div id="outline-container-orge9814d1" class="outline-2"&gt;
+&lt;h2 id="orge9814d1"&gt;&lt;span class="section-number-2"&gt;5.&lt;/span&gt; 手册及参考&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-5"&gt;
+&lt;p&gt;
+由于产品版本更新较快，随机并没有附操作手册。
+&lt;/p&gt;
+
+&lt;p&gt;
+Pica8 交换机的配置文档主要有:
+&lt;/p&gt;
+
+&lt;p&gt;
+在OVS模式下的纯OpenFlow配置手册及传统交换机（二、三层）配置手册请访问
+&lt;a href="https://pan.baidu.com/s/1c2zpZeK"&gt;https://pan.baidu.com/s/1c2zpZeK&lt;/a&gt;
+&lt;/p&gt;
+
+&lt;p&gt;
+如果要查找最新的文档请参考
+&lt;a href="http://www.pica8.com/support/documentation/"&gt;Pica8 文档&lt;/a&gt;.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="footnotes"&gt;
+&lt;h2 class="footnotes"&gt;Footnotes: &lt;/h2&gt;
+&lt;div id="text-footnotes"&gt;
+
+&lt;div class="footdef"&gt;&lt;sup&gt;&lt;a id="fn.1" class="footnum" href="#fnr.1" role="doc-backlink"&gt;1&lt;/a&gt;&lt;/sup&gt; &lt;div class="footpara" role="doc-footnote"&gt;&lt;p class="footpara"&gt;
+可以使用命令 ovs-appctl pica/show 列出当前交换机所有端口，及对应的端口名。 
+&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;
+
+
+&lt;/div&gt;
+&lt;/div&gt;</content><category term="lab"></category><category term="pica"></category><category term="white box"></category><category term="openflow"></category><category term="sdn"></category></entry><entry><title>在Dell N3048/24 上安装 PicOS</title><link href="https://bbill.github.io/lab/install_picos_on_dell.html" rel="alternate"></link><published>2019-06-04T00:00:00+08:00</published><updated>2019-06-04T00:00:00+08:00</updated><author><name>bill</name></author><id>tag:bbill.github.io,2019-06-04:/lab/install_picos_on_dell.html</id><summary type="html">&lt;div id="table-of-contents" role="doc-toc"&gt;
+&lt;h2&gt;Table of Contents&lt;/h2&gt;
+&lt;div id="text-table-of-contents" role="doc-toc"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#orge8271fc"&gt;1. &lt;b&gt;首次安装PICOS&lt;/b&gt;&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#orga264900"&gt;1.1. 确保已经下载了正确的安装文件&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org0f3a709"&gt;1.2. 进入Boot Main Menu。&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org6bc3b59"&gt;1.3. 进入ONIE救援模式&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org384f06f"&gt;1.4. 安装PicOS&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org0e475c7"&gt;2. &lt;b&gt;传统安装流程&lt;/b&gt;&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#org8865aef"&gt;2.1. 文件准备&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org767a37f"&gt;2.2. 进入救援模式&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#orgb93c612"&gt;2.2.1. 在ONIE提示符下，运行 &lt;b&gt;onie-nos-install&lt;/b&gt; 命令安装PICOS。&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;
+使用google translate 翻译自 &lt;a href="https://docs.pica8.com/display/PicOS21118sp/Installing+PICOS+on+Bare+Metal+Switches+for+N3048EP-ON"&gt;here&lt;/a&gt;.
+&lt;/p&gt;
+
+&lt;div id="outline-container-orge8271fc" class="outline-2"&gt;
+&lt;h2 id="orge8271fc"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; &lt;b&gt;首次安装PICOS&lt;/b&gt;&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-1"&gt;
+&lt;table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides"&gt;
+
+
+&lt;colgroup&gt;
+&lt;col  class="org-left" /&gt;
+&lt;/colgroup&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td class="org-left"&gt;&lt;b&gt;注意：&lt;/b&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;您需要通过交换机的控制台端口登录并执行本节中描述的ONIE安装。系统的波特率为115200&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+
+
+&lt;div id="outline-container-orga264900" class="outline-3"&gt;
+&lt;h3 id="orga264900"&gt;&lt;span class="section-number-3"&gt;1.1.&lt;/span&gt; 确保已经下载了正确的安装文件&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-1-1"&gt;
+&lt;p&gt;
+设定服务器将将该.bin 文件的安装包通过（HTTP …&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</summary><content type="html">&lt;div id="table-of-contents" role="doc-toc"&gt;
+&lt;h2&gt;Table of Contents&lt;/h2&gt;
+&lt;div id="text-table-of-contents" role="doc-toc"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#orge8271fc"&gt;1. &lt;b&gt;首次安装PICOS&lt;/b&gt;&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#orga264900"&gt;1.1. 确保已经下载了正确的安装文件&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org0f3a709"&gt;1.2. 进入Boot Main Menu。&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org6bc3b59"&gt;1.3. 进入ONIE救援模式&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org384f06f"&gt;1.4. 安装PicOS&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org0e475c7"&gt;2. &lt;b&gt;传统安装流程&lt;/b&gt;&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#org8865aef"&gt;2.1. 文件准备&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org767a37f"&gt;2.2. 进入救援模式&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#orgb93c612"&gt;2.2.1. 在ONIE提示符下，运行 &lt;b&gt;onie-nos-install&lt;/b&gt; 命令安装PICOS。&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;
+使用google translate 翻译自 &lt;a href="https://docs.pica8.com/display/PicOS21118sp/Installing+PICOS+on+Bare+Metal+Switches+for+N3048EP-ON"&gt;here&lt;/a&gt;.
+&lt;/p&gt;
+
+&lt;div id="outline-container-orge8271fc" class="outline-2"&gt;
+&lt;h2 id="orge8271fc"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; &lt;b&gt;首次安装PICOS&lt;/b&gt;&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-1"&gt;
+&lt;table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides"&gt;
+
+
+&lt;colgroup&gt;
+&lt;col  class="org-left" /&gt;
+&lt;/colgroup&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td class="org-left"&gt;&lt;b&gt;注意：&lt;/b&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;您需要通过交换机的控制台端口登录并执行本节中描述的ONIE安装。系统的波特率为115200&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+
+
+&lt;div id="outline-container-orga264900" class="outline-3"&gt;
+&lt;h3 id="orga264900"&gt;&lt;span class="section-number-3"&gt;1.1.&lt;/span&gt; 确保已经下载了正确的安装文件&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-1-1"&gt;
+&lt;p&gt;
+设定服务器将将该.bin 文件的安装包通过（HTTP，TFTP，FTP或交换机本
+地目录可访问，根据实际情况而定）。
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id="outline-container-org0f3a709" class="outline-3"&gt;
+&lt;h3 id="org0f3a709"&gt;&lt;span class="section-number-3"&gt;1.2.&lt;/span&gt; 进入Boot Main Menu。&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-1-2"&gt;
+&lt;p&gt;
+当开关打开电源时   &lt;b&gt;出现Dell EMC Networking Boot Options&lt;/b&gt; 菜单，选择选项“2”
+进入Boot Main Menu。
+&lt;/p&gt;
+
+&lt;pre class="example" id="org3554120"&gt;
+戴尔EMC网络引导选项
+================================
+
+在3秒内选择一个菜单选项，否则将启动操作代码
+
+自动...
+
+1  - 启动操作代码
+2  - 显示启动菜单
+
+选择（1,2）＃2
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id="outline-container-org6bc3b59" class="outline-3"&gt;
+&lt;h3 id="org6bc3b59"&gt;&lt;span class="section-number-3"&gt;1.3.&lt;/span&gt; 进入ONIE救援模式&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-1-3"&gt;
+&lt;p&gt;
+出现 *Boot Main Menu *时，选择选项“13”进入ONIE救援模式。
+&lt;/p&gt;
+
+&lt;pre class="example" id="org9532e52"&gt;
+启动主菜单
+==============
+
+1  - 启动操作代码
+2  - 选择波特率
+3  - 检索日志
+4  - 加载新的操作代码
+5  - 显示操作代码详细信息
+9  - 重新启动
+10  - 将配置恢复为出厂默认值
+11  - 激活备份映像
+12  - 启动密码恢复
+13  -  Boot ONIE（救援模式）
+14  - 引导诊断
+
+输入选择＃13
+&lt;/pre&gt;
+
+
+
+&lt;table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides"&gt;
+
+
+&lt;colgroup&gt;
+&lt;col  class="org-left" /&gt;
+&lt;/colgroup&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td class="org-left"&gt;&lt;b&gt;注意：&lt;/b&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;&amp;#xa0;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;如果未执行任何操作，系统将在5秒后启动到PICOS。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id="outline-container-org384f06f" class="outline-3"&gt;
+&lt;h3 id="org384f06f"&gt;&lt;span class="section-number-3"&gt;1.4.&lt;/span&gt; 安装PicOS&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-1-4"&gt;
+&lt;p&gt;
+在ONIE提示符下，运行 &lt;b&gt;onie-nos-install&lt;/b&gt; 命令安装PICOS。
+&lt;/p&gt;
+
+
+
+&lt;ul class="org-ul"&gt;
+&lt;li&gt;&lt;p&gt;
+&lt;b&gt;通过TFTP安装&lt;/b&gt;
+&lt;/p&gt;
+
+&lt;pre class="example" id="orgd19bf04"&gt;
+ONIE＃onie-nos-install tftp：// &amp;lt;image路径&amp;gt; /PicOS.bin
+&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;
+&lt;b&gt;通过FTP安装&lt;/b&gt;
+&lt;/p&gt;
+
+&lt;p&gt;
+通过FTP安装时，您需要输入 像文件所在的FTP服务器的 &lt;b&gt;username&lt;/b&gt; 和 &lt;b&gt;password&lt;/b&gt;
+&lt;/p&gt;
+
+&lt;pre class="example" id="orgb6eadbf"&gt;
+ONIE＃onie-nos-install ftp：//用户名：密码@ &amp;lt;image路径&amp;gt; /PicOS.bin
+&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;
+&lt;b&gt;通过HTTP&lt;/b&gt; 安装
+&lt;/p&gt;
+&lt;pre class="example" id="org1172ed8"&gt;
+ONIE＃onie-nos-install http：// &amp;lt;image路径&amp;gt; /PicOS.bin
+&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;b&gt;通过本地目录安装&lt;/b&gt;
+
+&lt;ul class="org-ul"&gt;
+&lt;li&gt;&lt;p&gt;
+在* ONIE rescue *模式下，将image文件复制到当前  目录。
+&lt;/p&gt;
+
+&lt;pre class="example" id="orgde20337"&gt;
+ONIE #scp username @ &amp;lt;image路径&amp;gt; /PicOS.bin。
+&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;
+运行* onie-nos-install *命令开始安装。
+&lt;/p&gt;
+
+&lt;pre class="example" id="orgbea0bc3"&gt;
+ONIE＃onie-nos-install PicOS.bin
+&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;
+安装程序运行并在完成安装后运行
+自动重启，系统将运行新网络
+操作系统。
+&lt;/p&gt;
+
+&lt;table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides"&gt;
+
+
+&lt;colgroup&gt;
+&lt;col  class="org-left" /&gt;
+&lt;/colgroup&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td class="org-left"&gt;&lt;b&gt;注意：&lt;/b&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;&amp;#xa0;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;- 系统重启后，需要输入用户名和密码，初始登录用户名为* admin &lt;b&gt;，密码为&lt;/b&gt; pica8 *。&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;- 输入用户名和密码后，系统会要求用户为admin选择新密码。这是安装后的唯一步骤，之后可以使用PicOS操作系统。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+&lt;p&gt;
+如果已经安装好，底下不用看了。
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id="outline-container-org0e475c7" class="outline-2"&gt;
+&lt;h2 id="org0e475c7"&gt;&lt;span class="section-number-2"&gt;2.&lt;/span&gt; &lt;b&gt;传统安装流程&lt;/b&gt;&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-2"&gt;
+&lt;table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides"&gt;
+
+
+&lt;colgroup&gt;
+&lt;col  class="org-left" /&gt;
+&lt;/colgroup&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td class="org-left"&gt;&lt;b&gt;注意：&lt;/b&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;&amp;#xa0;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;您需要通过交换机的控制台端口登录并执行本节中描述的ONIE安装。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+
+
+
+
+&lt;div id="outline-container-org8865aef" class="outline-3"&gt;
+&lt;h3 id="org8865aef"&gt;&lt;span class="section-number-3"&gt;2.1.&lt;/span&gt; 文件准备&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-2-1"&gt;
+&lt;p&gt;
+&lt;b&gt;确保&lt;/b&gt; .bin *文件的安装包已加载到服务器（服务器可能是HTTP，TFTP或
+FTP服务器或交换机本地目录根据实际情况而定安装环境）。
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id="outline-container-org767a37f" class="outline-3"&gt;
+&lt;h3 id="org767a37f"&gt;&lt;span class="section-number-3"&gt;2.2.&lt;/span&gt; 进入救援模式&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-2-2"&gt;
+&lt;p&gt;
+进入ONIE安装环境。
+&lt;/p&gt;
+
+&lt;p&gt;
+打开电源，当出现* Boot Main Menu &lt;b&gt;时，选择选项“&lt;/b&gt; 2 *”进入ONIE救援模式。
+&lt;/p&gt;
+
+&lt;pre class="example" id="orgf4a39c8"&gt;
+启动主菜单
+====================
+1  - 引导PICOS（默认）
+2  - 启动ONIE（救援模式）
+3  - 引导诊断
+4  - 引导Dell EMC网络系统
+输入您的选择（1,2,3,4）：2
+&lt;/pre&gt;
+
+&lt;table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides"&gt;
+
+
+&lt;colgroup&gt;
+&lt;col  class="org-left" /&gt;
+&lt;/colgroup&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td class="org-left"&gt;&lt;b&gt;注意：&lt;/b&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;&amp;#xa0;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;如果未执行任何操作，系统将在5秒后启动到PICOS。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+
+&lt;div id="outline-container-orgb93c612" class="outline-4"&gt;
+&lt;h4 id="orgb93c612"&gt;&lt;span class="section-number-4"&gt;2.2.1.&lt;/span&gt; 在ONIE提示符下，运行 &lt;b&gt;onie-nos-install&lt;/b&gt; 命令安装PICOS。&lt;/h4&gt;
+&lt;div class="outline-text-4" id="text-2-2-1"&gt;
+&lt;ul class="org-ul"&gt;
+&lt;li&gt;&lt;p&gt;
+&lt;b&gt;通过TFTP安装&lt;/b&gt;
+&lt;/p&gt;
+
+&lt;pre class="example" id="org0908bd5"&gt;
+ONIE＃onie-nos-install tftp：// &amp;lt;image路径&amp;gt; /PicOS.bin
+&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;
+&lt;b&gt;通过FTP安装&lt;/b&gt;
+&lt;/p&gt;
+
+&lt;p&gt;
+通过FTP安装时，您需要
+输入image文件所在的FTP服务器的* username &lt;b&gt;和&lt;/b&gt; password *
+已加载。
+&lt;/p&gt;
+
+&lt;pre class="example" id="org17bf36b"&gt;
+ONIE＃onie-nos-install ftp：//用户名：密码@ &amp;lt;image路径&amp;gt; /PicOS.bin
+&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;
+*通过HTTP *安装
+&lt;/p&gt;
+
+&lt;pre class="example" id="org5a66289"&gt;
+ONIE＃onie-nos-install http：// &amp;lt;image路径&amp;gt; /PicOS.bin
+&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;
+&lt;b&gt;通过本地目录安装&lt;/b&gt;
+&lt;/p&gt;
+
+&lt;p&gt;
+a）在* ONIE rescue *模式下，将image文件复制到当前
+目录。
+&lt;/p&gt;
+
+&lt;pre class="example" id="org0c2b5be"&gt;
+ONIE #scp username @ &amp;lt;image路径&amp;gt; /PicOS.bin。
+&lt;/pre&gt;
+
+&lt;p&gt;
+b）运行* onie-nos-install *命令开始安装。
+&lt;/p&gt;
+
+&lt;pre class="example" id="org6fe74e0"&gt;
+ONIE＃onie-nos-install PicOS.bin
+&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;
+安装程序运行并在完成安装后运行
+自动重启，系统将运行新网络
+操作系统。
+&lt;/p&gt;
+
+&lt;table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides"&gt;
+
+
+&lt;colgroup&gt;
+&lt;col  class="org-left" /&gt;
+&lt;/colgroup&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td class="org-left"&gt;&lt;b&gt;注意：&lt;/b&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;&amp;#xa0;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;- 系统重启后，需要输入用户名和密码，初始登录用户名为* admin &lt;b&gt;，密码为&lt;/b&gt; pica8 *。&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td class="org-left"&gt;- 输入用户名和密码后，系统会要求用户为admin选择新密码。这是安装后的唯一步骤，之后可以使用PicOS操作系统。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</content><category term="lab"></category><category term="lab"></category><category term="install"></category><category term="onie"></category><category term="picos"></category><category term="dell"></category><category term="n3048"></category><category term="n3024"></category><category term="uboot"></category></entry><entry><title>正确的流表收不到包</title><link href="https://bbill.github.io/troubleshooting/no_rx_while_correct_rule.html" rel="alternate"></link><published>2018-11-10T00:00:00+08:00</published><updated>2018-11-10T00:00:00+08:00</updated><author><name>bill</name></author><id>tag:bbill.github.io,2018-11-10:/troubleshooting/no_rx_while_correct_rule.html</id><summary type="html">&lt;div id="table-of-contents" role="doc-toc"&gt;
+&lt;h2&gt;Table of Contents&lt;/h2&gt;
+&lt;div id="text-table-of-contents" role="doc-toc"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#org54adcd2"&gt;1. 流表配置如下&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id="outline-container-org54adcd2" class="outline-2"&gt;
+&lt;h2 id="org54adcd2"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; 流表配置如下&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-1"&gt;
+&lt;pre class="example"&gt;
+ovs-ofctl -O OpenFlow13 add-flow br0 table=0,in_port=50,actions=mod_vlan_vid:10,mod_dl_src:6c:59:79:33:44:55,mod_dl_dst:f8:bc:12:4d:e9:d8,goto_table:8
+ovs-ofctl -O OpenFlow13 add-flow br0 table=8,actions=output:49
+&lt;/pre&gt;
+
+&lt;p&gt;
+从50口发包，49口抓包无数据。
+&lt;/p&gt;
+
+
+&lt;p&gt;
+执行
+&lt;/p&gt;
+
+&lt;pre class="example"&gt;
+admin@PICOS-OVS …&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</summary><content type="html">&lt;div id="table-of-contents" role="doc-toc"&gt;
+&lt;h2&gt;Table of Contents&lt;/h2&gt;
+&lt;div id="text-table-of-contents" role="doc-toc"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#org54adcd2"&gt;1. 流表配置如下&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id="outline-container-org54adcd2" class="outline-2"&gt;
+&lt;h2 id="org54adcd2"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; 流表配置如下&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-1"&gt;
+&lt;pre class="example"&gt;
+ovs-ofctl -O OpenFlow13 add-flow br0 table=0,in_port=50,actions=mod_vlan_vid:10,mod_dl_src:6c:59:79:33:44:55,mod_dl_dst:f8:bc:12:4d:e9:d8,goto_table:8
+ovs-ofctl -O OpenFlow13 add-flow br0 table=8,actions=output:49
+&lt;/pre&gt;
+
+&lt;p&gt;
+从50口发包，49口抓包无数据。
+&lt;/p&gt;
+
+
+&lt;p&gt;
+执行
+&lt;/p&gt;
+
+&lt;pre class="example"&gt;
+admin@PICOS-OVS:~$ ovs-ofctl dump-ports br0 49                                                                                                          
+OFPST_PORT reply (OF1.4) (xid=0x2): 1 ports
+  port 49: rx pkts=1008, bytes=67912, drop=1008, errs=0, frame=0, over=0, crc=0
+	   tx pkts=1199, bytes=122946, drop=67348, errs=0, coll=0
+	   duration=74363.674s
+&lt;/pre&gt;
+
+
+&lt;p&gt;
+发现数据包 drop,查看端口状态。
+&lt;/p&gt;
+
+&lt;pre class="example"&gt;
+admin@PICOS-OVS:~$ ovs-vsctl list port te-1/1/49
+_uuid               : 3bb02a50-e4a1-4c9c-987d-59f11c181b64
+bond_downdelay      : 0
+bond_fake_iface     : false
+bond_mode           : []
+bond_updelay        : 0
+external_ids        : {}
+fake_bridge         : false
+interfaces          : [5dfff0ee-0fdd-4ed0-a713-ae68c39d2b1d]
+lacp                : []
+mac                 : []
+name                : "te-1/1/49"
+other_config        : {}
+qos                 : []
+statistics          : {}
+status              : {}
+tag                 : {}
+trunks              : []
+vlan_mode           : {}
+
+
+&lt;/pre&gt;
+
+&lt;p&gt;
+因为流表将出口数据包打tag 10.
+&lt;/p&gt;
+
+&lt;p&gt;
+如果设置出口为access 口则可以
+&lt;/p&gt;
+
+&lt;pre class="example"&gt;
+ovs-vsctl set port te-1/1/49 vlan_mode=access 
+ovs-vsctl set port te-1/1/49 tag=10
+&lt;/pre&gt;
+
+&lt;p&gt;
+如果设置出口为trunk 口则可以
+&lt;/p&gt;
+
+&lt;pre class="example"&gt;
+ovs-vsctl set port te-1/1/49 vlan_mode=access 
+ovs-vsctl set port te-1/1/49 trunks=10  
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</content><category term="troubleshooting"></category><category term="pica8"></category><category term="vlan"></category><category term="trunk"></category><category term="access"></category></entry><entry><title>barefoot硬件可编程交换机（OpenMesh）快速上手</title><link href="https://bbill.github.io/lab/barefoot_quick_start.html" rel="alternate"></link><published>2018-11-08T00:00:00+08:00</published><updated>2018-11-08T00:00:00+08:00</updated><author><name>bill</name></author><id>tag:bbill.github.io,2018-11-08:/lab/barefoot_quick_start.html</id><content type="html">&lt;div id="table-of-contents" role="doc-toc"&gt;
+&lt;h2&gt;Table of Contents&lt;/h2&gt;
+&lt;div id="text-table-of-contents" role="doc-toc"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#org31c4f5e"&gt;1. 初始设置和访问&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#orgd330cdc"&gt;1.1. 登陆交换机&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+
+
+&lt;div id="outline-container-org31c4f5e" class="outline-2"&gt;
+&lt;h2 id="org31c4f5e"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; 初始设置和访问&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-1"&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-orgd330cdc" class="outline-3"&gt;
+&lt;h3 id="orgd330cdc"&gt;&lt;span class="section-number-3"&gt;1.1.&lt;/span&gt; 登陆交换机&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-1-1"&gt;
+&lt;p&gt;
+交换机开箱后的初始登录，可以通过 串口(RJ45)来进行。 找到交换机 的console
+口(一般会标有Con)。通过windows 主机上的超级终端工具，或者putty,
+securecrt 等 终端工具，配置串口参数为 115200,
+8/N/1,硬件流控设为没有（关闭）.后即可 登录。默认用户名 root ，密码
+&lt;b&gt;onl&lt;/b&gt; 。
+&lt;/p&gt;
+
+
+&lt;div id="org0393079" class="figure"&gt;
+&lt;p&gt;&lt;img src="http://www.tooyum.com/images/rs232.png" alt="rs232.png" width="300px" /&gt;
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</content><category term="lab"></category><category term="openflow"></category><category term="sdn"></category><category term="barefoot"></category><category term="tofino"></category></entry><entry><title>XFS repair on failed SSD</title><link href="https://bbill.github.io/troubleshooting/xfs_on_crash_ssd.html" rel="alternate"></link><published>2018-03-18T00:00:00+08:00</published><updated>2018-03-18T00:00:00+08:00</updated><author><name>bill</name></author><id>tag:bbill.github.io,2018-03-18:/troubleshooting/xfs_on_crash_ssd.html</id><summary type="html">&lt;div id="table-of-contents" role="doc-toc"&gt;
+&lt;h2&gt;Table of Contents&lt;/h2&gt;
+&lt;div id="text-table-of-contents" role="doc-toc"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#orga987269"&gt;1. 先备份&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#orgcffcd9f"&gt;2. 恢复&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org9be6157"&gt;3. 重新启用该SSD&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;
+突然VPN无法登录了，本地登录服务器，悲摧了，一块盘不见了，尝试重新挂载
+失败.
+&lt;/p&gt;
+
+&lt;p&gt;
+尝试重启，再挂载,当然还是不行，因为是一块PCI-E SSD 卡，非常担心数据搞不出来。
+&lt;/p&gt;
+
+&lt;div id="outline-container-orga987269" class="outline-2"&gt;
+&lt;h2 id="orga987269"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; 先备份&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-1"&gt;
+&lt;p&gt;
+保险起见，先dd出来，因为本地没有足够大的空间，尝试将现有信息保存到另外一台主机，
+&lt;/p&gt;
+
+&lt;p&gt;
+在有空间的主机（192.168.1.2)运行：
+&lt;/p&gt;
+&lt;pre class="example" id="orgecc53a4"&gt;
+ssh root@192.168.1.1 "dd iflag=fullblock  conv=sync,noerror if=/dev/nvme0n1 |gzip …&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</summary><content type="html">&lt;div id="table-of-contents" role="doc-toc"&gt;
+&lt;h2&gt;Table of Contents&lt;/h2&gt;
+&lt;div id="text-table-of-contents" role="doc-toc"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#orga987269"&gt;1. 先备份&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#orgcffcd9f"&gt;2. 恢复&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org9be6157"&gt;3. 重新启用该SSD&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;
+突然VPN无法登录了，本地登录服务器，悲摧了，一块盘不见了，尝试重新挂载
+失败.
+&lt;/p&gt;
+
+&lt;p&gt;
+尝试重启，再挂载,当然还是不行，因为是一块PCI-E SSD 卡，非常担心数据搞不出来。
+&lt;/p&gt;
+
+&lt;div id="outline-container-orga987269" class="outline-2"&gt;
+&lt;h2 id="orga987269"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; 先备份&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-1"&gt;
+&lt;p&gt;
+保险起见，先dd出来，因为本地没有足够大的空间，尝试将现有信息保存到另外一台主机，
+&lt;/p&gt;
+
+&lt;p&gt;
+在有空间的主机（192.168.1.2)运行：
+&lt;/p&gt;
+&lt;pre class="example" id="orgecc53a4"&gt;
+ssh root@192.168.1.1 "dd iflag=fullblock  conv=sync,noerror if=/dev/nvme0n1 |gzip -1 -" |dd  of=/mnt/nvme.bak
+&lt;/pre&gt;
+
+&lt;p&gt;
+还好可以执行，庆幸SSD盘似乎没有挂的很彻底。没有高兴太久，发现800G的盘
+dd出来只有267G，看了下warning,似乎是因为中间有坏块读不出来，造成dd出来
+的后面的部分，覆盖了前面的内容。
+&lt;/p&gt;
+
+&lt;p&gt;
+按理dd应该有选项避免这种情况，但是没查到，感觉过于复杂，不友善放弃。换
+ddrescue，没看到可以支持管道到远端，放弃。换dd&lt;sub&gt;rescue&lt;/sub&gt;。是的 dd&lt;sub&gt;rescue&lt;/sub&gt;
+和ddrescue 是两个不同的软件。
+命令够简单：
+在故障磁盘(/dev/nvme0n1)所在主机执行
+&lt;/p&gt;
+&lt;pre class="example" id="org8a718a1"&gt;
+dd_rescue /dev/nvme0n1 - | ssh root@192.168.1.2 "cat - &amp;gt; /mnt/filename.img"
+&lt;/pre&gt;
+
+&lt;p&gt;
+执行效果不错，速度更是令人惊喜，千兆网络可以跑满。用dd只有一半速度。
+关键是文件大小基本靠谱。
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id="outline-container-orgcffcd9f" class="outline-2"&gt;
+&lt;h2 id="orgcffcd9f"&gt;&lt;span class="section-number-2"&gt;2.&lt;/span&gt; 恢复&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-2"&gt;
+&lt;p&gt;
+备份完成后在原始磁盘上尝试修复。
+直接上大招
+&lt;/p&gt;
+&lt;pre class="example" id="orgca1dc4a"&gt;
+xfs_repair -L  /dev/nvme0n1
+&lt;/pre&gt;
+&lt;p&gt;
+输出如下：
+&lt;/p&gt;
+
+&lt;pre class="example" id="org0a89158"&gt;
+xfs_repair -L /dev/nvme0n1                                                        
+Phase 1 - find and verify superblock...
+Phase 2 - using internal log
+	- zero log...
+ALERT: The filesystem has valuable metadata changes in a log which is being
+destroyed because the -L option was used.
+xfs_repair: libxfs_device_zero write failed: Input/output error
+&lt;/pre&gt;
+
+&lt;p&gt;
+没戏。
+&lt;/p&gt;
+
+&lt;p&gt;
+尝试从备份出来的文件进行恢复。
+&lt;/p&gt;
+&lt;pre class="example" id="org331ac7f"&gt;
+xfs_repair -Lf /mnt/filename.img 
+&lt;/pre&gt;
+
+&lt;p&gt;
+尝试挂载这个文件
+&lt;/p&gt;
+&lt;pre class="example" id="org2e0377c"&gt;
+mount /mnt/filename.img /media/
+ls /media
+&lt;/pre&gt;
+
+&lt;p&gt;
+运气不错，至少看起来大部分文件都在。
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id="outline-container-org9be6157" class="outline-2"&gt;
+&lt;h2 id="org9be6157"&gt;&lt;span class="section-number-2"&gt;3.&lt;/span&gt; 重新启用该SSD&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-3"&gt;
+&lt;p&gt;
+SSD还没有完全故障，还是要利用起来。看了下xfs似乎没有排除坏块的选项，用ext4重新格式化，再挂载。（当然，这次要定期做好备份）
+&lt;/p&gt;
+&lt;pre class="example" id="org6f09773"&gt;
+mkfs.ext4 -c -c /dev/nvme0n1
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</content><category term="troubleshooting"></category><category term="xfs"></category><category term="ssd"></category><category term="unreadable"></category></entry><entry><title>The SPICE support in KVM Ubunt 16.04 guest</title><link href="https://bbill.github.io/product/Spice_over_Ubuntu_16.04.html" rel="alternate"></link><published>2018-01-23T00:00:00+08:00</published><updated>2018-01-23T00:00:00+08:00</updated><author><name>bill</name></author><id>tag:bbill.github.io,2018-01-23:/product/Spice_over_Ubuntu_16.04.html</id><summary type="html">&lt;div id="table-of-contents" role="doc-toc"&gt;
+&lt;h2&gt;Table of Contents&lt;/h2&gt;
+&lt;div id="text-table-of-contents" role="doc-toc"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#orga321c72"&gt;1. Problem&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org9a6ebda"&gt;2. Solution&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id="outline-container-orga321c72" class="outline-2"&gt;
+&lt;h2 id="orga321c72"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; Problem&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-1"&gt;
+&lt;p&gt;
+The OS can't detect the qxl video driver. The display resolution
+can't be changed not to mention adjust automatically.
+&lt;/p&gt;
+
+&lt;p&gt;
+Try to solve it by kill X,then reconfigure it.
+&lt;/p&gt;
+&lt;pre class="example" id="org280716e"&gt;
+init 3
+&lt;/pre&gt;
+&lt;p&gt;
+after relogin
+&lt;/p&gt;
+
+&lt;pre class="example" id="org1a4485b"&gt;
+X -configure
+&lt;/pre&gt;
+
+&lt;p&gt;
+It keep complains 
+&lt;/p&gt;
+
+&lt;pre class="example" id="orgb075db9"&gt;
+X.Org X …&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</summary><content type="html">&lt;div id="table-of-contents" role="doc-toc"&gt;
+&lt;h2&gt;Table of Contents&lt;/h2&gt;
+&lt;div id="text-table-of-contents" role="doc-toc"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#orga321c72"&gt;1. Problem&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org9a6ebda"&gt;2. Solution&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id="outline-container-orga321c72" class="outline-2"&gt;
+&lt;h2 id="orga321c72"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; Problem&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-1"&gt;
+&lt;p&gt;
+The OS can't detect the qxl video driver. The display resolution
+can't be changed not to mention adjust automatically.
+&lt;/p&gt;
+
+&lt;p&gt;
+Try to solve it by kill X,then reconfigure it.
+&lt;/p&gt;
+&lt;pre class="example" id="org280716e"&gt;
+init 3
+&lt;/pre&gt;
+&lt;p&gt;
+after relogin
+&lt;/p&gt;
+
+&lt;pre class="example" id="org1a4485b"&gt;
+X -configure
+&lt;/pre&gt;
+
+&lt;p&gt;
+It keep complains 
+&lt;/p&gt;
+
+&lt;pre class="example" id="orgb075db9"&gt;
+X.Org X Server 1.18.4
+Release Date: 2016-07-19
+X Protocol Version 11, Revision 0
+Build Operating System: Linux 4.4.0-97-generic x86_64 Ubuntu
+Current Operating System: Linux station167 4.4.0-62-generic #83-Ubuntu SMP Wed Jan 18 14:10:15 UTC 2017 x86_64
+Kernel command line: BOOT_IMAGE=/boot/vmlinuz-4.4.0-62-generic root=UUID=355663b7-9481-4414-bcb9-4ee9b76c4a6b ro
+Build Date: 13 October 2017  01:57:05PM
+xorg-server 2:1.18.4-0ubuntu0.7 (For technical support please see http://www.ubuntu.com/support) 
+Current version of pixman: 0.33.6
+      Before reporting problems, check http://wiki.x.org
+      to make sure that you have the latest version.
+Markers: (--) probed, (**) from config file, (==) default setting,
+      (++) from command line, (!!) notice, (II) informational,
+      (WW) warning, (EE) error, (NI) not implemented, (??) unknown.
+(==) Log file: "/var/log/Xorg.0.log", Time: Sat Jan 20 09:50:48 2018
+List of video drivers:
+      amdgpu
+      ati
+      intel
+      nouveau
+      qxl
+      radeon
+      vmware
+      modesetting
+      vesa
+      fbdev
+(II) [KMS] Kernel modesetting enabled.
+No devices to configure.  Configuration failed.
+(EE) Server terminated with error (2). Closing log file.
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id="outline-container-org9a6ebda" class="outline-2"&gt;
+&lt;h2 id="org9a6ebda"&gt;&lt;span class="section-number-2"&gt;2.&lt;/span&gt; Solution&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-2"&gt;
+&lt;ol class="org-ol"&gt;
+&lt;li&gt;&lt;p&gt;
+Turn off Xserver used
+&lt;/p&gt;
+&lt;pre class="example" id="org2aad8e7"&gt;
+sudo init 3
+&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;
+Remove xserver-xorg-core
+&lt;/p&gt;
+&lt;pre class="example" id="org4e16571"&gt;
+sudo apt-get remove  xserver-xorg-core -y
+&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;
+Install the driver or so
+&lt;/p&gt;
+&lt;pre class="example" id="orgf7fe66c"&gt;
+sudo apt-get install  spice-vdagent gdm xserver-xorg-video-qxl-hwe-16.04 
+&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;
+Create the xorg.conf we needed
+&lt;/p&gt;
+&lt;pre class="example" id="org5205a6d"&gt;
+sudo X -configure
+sudo cp ./xorg.conf.new /etc/X11/xorg.conf
+
+&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;
+Get X Back
+&lt;/p&gt;
+&lt;pre class="example" id="orgd409ea4"&gt;
+sudo apt-get install   xserver-xorg-core xserver-xorg-input-all -y
+&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;
+Make sure spice-vdagent start automatically
+&lt;/p&gt;
+&lt;pre class="example" id="orgb74db6e"&gt;
+sudo systemctl enable spice-vdagentd
+sudo systemctl start spice-vdagentd
+&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;
+Time to cross your fingers
+&lt;/p&gt;
+&lt;pre class="example" id="org43cbb88"&gt;
+sudo init 5
+&lt;/pre&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;
+If everything goes smoothly, your screen resolution will change automatically. 
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</content><category term="product"></category><category term="kvm"></category><category term="ovirt"></category><category term="spice"></category><category term="qxl"></category><category term="ubuntu 16.04"></category></entry><entry><title>libvirtd 导致的dnsmasq 冲突问题</title><link href="https://bbill.github.io/lab/libvirt_dnsmasq_conflict.html" rel="alternate"></link><published>2018-01-20T00:00:00+08:00</published><updated>2018-01-20T00:00:00+08:00</updated><author><name>bill</name></author><id>tag:bbill.github.io,2018-01-20:/lab/libvirt_dnsmasq_conflict.html</id><content type="html">&lt;p&gt;
+在一台机器上用dnsmasq 做dhcp server，报错
+&lt;/p&gt;
+
+&lt;pre class="example" id="org7abade0"&gt;
+failed to bind dhcp server socket: Address already in use.
+&lt;/pre&gt;
+&lt;p&gt;
+查看后发现系统内已经由libvirtd 启动了一个dnsmasq，对virtbr0提供服务。&lt;a href="https://wiki.libvirt.org/page/Libvirtd_and_dnsmasq"&gt;这里&lt;/a&gt;提供了解决方案。
+关键是取消  bind-interfaces这一行的注释。并且指定需要监听的interface或者IP。
+&lt;/p&gt;
+
+&lt;pre class="example" id="org3248fca"&gt;
+bind-interfaces
+interface=eth0
+listen-address=192.168.0.1
+&lt;/pre&gt;
+</content><category term="lab"></category><category term="libvirtd"></category><category term="dasmasq"></category><category term="conflict"></category></entry><entry><title>Pica8 OVS 模式常用命令</title><link href="https://bbill.github.io/lab/pica8_OVS_Command_Reference.html" rel="alternate"></link><published>2018-01-05T00:00:00+08:00</published><updated>2018-01-05T00:00:00+08:00</updated><author><name>bill</name></author><id>tag:bbill.github.io,2018-01-05:/lab/pica8_OVS_Command_Reference.html</id><summary type="html">&lt;div id="table-of-contents" role="doc-toc"&gt;
+&lt;h2&gt;Table of Contents&lt;/h2&gt;
+&lt;div id="text-table-of-contents" role="doc-toc"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#orgf90f4cb"&gt;1. 确认端口状态&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org387789a"&gt;2. 确认硬件流表支持的最大条目&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id="outline-container-orgf90f4cb" class="outline-2"&gt;
+&lt;h2 id="orgf90f4cb"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; 确认端口状态&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-1"&gt;
+&lt;ol class="org-ol"&gt;
+&lt;li&gt;&lt;p&gt;
+端口计数器
+&lt;/p&gt;
+&lt;pre class="example" id="orgec2350c"&gt;
+admin@PicOS-OVS$ovs-ofctl dump-ports  br0
+OFPST_PORT reply (OF1.3) (xid=0x2): 49 ports
+  port  1: rx pkts=0, bytes=979551, drop=0, errs=518513, frame=0, over=0, crc=0
+           tx pkts=457981, bytes=34858800, drop=0, errs=0, coll …&lt;/pre&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;&lt;/div&gt;</summary><content type="html">&lt;div id="table-of-contents" role="doc-toc"&gt;
+&lt;h2&gt;Table of Contents&lt;/h2&gt;
+&lt;div id="text-table-of-contents" role="doc-toc"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#orgf90f4cb"&gt;1. 确认端口状态&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org387789a"&gt;2. 确认硬件流表支持的最大条目&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id="outline-container-orgf90f4cb" class="outline-2"&gt;
+&lt;h2 id="orgf90f4cb"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; 确认端口状态&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-1"&gt;
+&lt;ol class="org-ol"&gt;
+&lt;li&gt;&lt;p&gt;
+端口计数器
+&lt;/p&gt;
+&lt;pre class="example" id="orgec2350c"&gt;
+admin@PicOS-OVS$ovs-ofctl dump-ports  br0
+OFPST_PORT reply (OF1.3) (xid=0x2): 49 ports
+  port  1: rx pkts=0, bytes=979551, drop=0, errs=518513, frame=0, over=0, crc=0
+           tx pkts=457981, bytes=34858800, drop=0, errs=0, coll=0
+           duration=232370.287s
+  port  2: rx pkts=2465, bytes=635018, drop=4, errs=0, frame=0, over=0, crc=0
+           tx pkts=455681, bytes=34236034, drop=0, errs=0, coll=0
+           duration=232372.854s
+  port  3: rx pkts=0, bytes=979534, drop=0, errs=517694, frame=0, over=0, crc=0
+           tx pkts=457981, bytes=34858800, drop=0, errs=0, coll=0
+           duration=232371.098s
+   	....................................
+
+  port 48: rx pkts=905539, bytes=67054286, drop=449858, errs=0, frame=0, over=0, crc=0
+           tx pkts=502, bytes=36333, drop=0, errs=0, coll=0
+           duration=232374.984s
+  port LOCAL: rx pkts=7, bytes=738, drop=0, errs=0, frame=0, over=0, crc=0
+           tx pkts=1339, bytes=80340, drop=0, errs=0, coll=0
+           duration=232369.846s
+admin@PicOS-OVS$
+
+&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;
+端口链路状态
+&lt;/p&gt;
+&lt;pre class="example" id="org942c2ee"&gt;
+
+admin@PicOS-OVS$ovs-ofctl dump-ports-desc  br0 
+OFPST_PORT_DESC reply (OF1.3) (xid=0x2):
+ 1(te-1/1/1): addr:cc:37:ab:f5:3b:37
+     config:     0
+     state:      LINK_UP
+     current:    10GB-FD COPPER
+     advertised: 1GB-FD 10GB-FD FIBER
+     supported:  10MB-FD 100MB-FD 1GB-FD 10GB-FD FIBER AUTO_NEG
+     speed: 10000 Mbps now, 10000 Mbps max
+ 2(te-1/1/2): addr:cc:37:ab:f5:3b:37
+     config:     0
+     state:      LINK_UP
+     current:    10GB-FD COPPER
+     advertised: 1GB-FD 10GB-FD FIBER
+     supported:  10MB-FD 100MB-FD 1GB-FD 10GB-FD FIBER AUTO_NEG
+     speed: 10000 Mbps now, 10000 Mbps max
+ 3(te-1/1/3): addr:cc:37:ab:f5:3b:37
+     config:     0
+     state:      LINK_UP
+     current:    10GB-FD COPPER
+     advertised: 1GB-FD 10GB-FD FIBER
+     supported:  10MB-FD 100MB-FD 1GB-FD 10GB-FD FIBER AUTO_NEG
+     speed: 10000 Mbps now, 10000 Mbps max
+     ..............................
+ 48(te-1/1/48): addr:cc:37:ab:f5:3b:37
+     config:     0
+     state:      LINK_UP
+     current:    1GB-FD COPPER
+     advertised: 1GB-FD 10GB-FD FIBER
+     supported:  10MB-FD 100MB-FD 1GB-FD 10GB-FD FIBER AUTO_NEG
+     speed: 1000 Mbps now, 10000 Mbps max
+ LOCAL(br0): addr:cc:37:ab:f5:3b:37
+     config:     0
+     state:      LINK_UP
+     current:    10MB-FD COPPER
+     supported:  10MB-FD COPPER
+     speed: 10 Mbps now, 10 Mbps max
+&lt;/pre&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+
+
+
+
+&lt;div id="outline-container-org387789a" class="outline-2"&gt;
+&lt;h2 id="org387789a"&gt;&lt;span class="section-number-2"&gt;2.&lt;/span&gt; 确认硬件流表支持的最大条目&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-2"&gt;
+&lt;pre class="example"&gt;
+admin@PICOS-OVS:~$ ovs-appctl pica/show tables
+Pica Tables Statistics:
+    Pica Tables              Max Limitation          Current Used
+    -----------------------------------------------------------------------
+    ICAP Table                 4094                    79        
+    ECAP Table                 (null)                  (null)    
+    VCAP Table                 1022                    0         
+    L2 System Table            (null)                  (null)    
+    L2 FDB Table               (null)                  (null)    
+    L3 Host Table              (null)                  (null)    
+    L3 Route Table             (null)                  (null)    
+    UDF Table                  (null)                  (null)    
+admin@PICOS-OVS:~$   
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</content><category term="lab"></category><category term="pica"></category><category term="white box"></category><category term="openflow"></category><category term="sdn"></category></entry><entry><title>OpenMesh SDN 交换机的静态流表配置</title><link href="https://bbill.github.io/product/openmesh_static_flow.html" rel="alternate"></link><published>2018-01-03T00:00:00+08:00</published><updated>2018-01-03T00:00:00+08:00</updated><author><name>bill</name></author><id>tag:bbill.github.io,2018-01-03:/product/openmesh_static_flow.html</id><summary type="html">&lt;div id="table-of-contents" role="doc-toc"&gt;
+&lt;h2&gt;Table of Contents&lt;/h2&gt;
+&lt;div id="text-table-of-contents" role="doc-toc"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#orgc28be64"&gt;1. OpenMesh SDN交换机设置静态流表的"正确"方法&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#org1a17c45"&gt;1.1. 系统初始设置&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#orga532dff"&gt;1.2. 添加静态流配置命令&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id="outline-container-orgc28be64" class="outline-2"&gt;
+&lt;h2 id="orgc28be64"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; OpenMesh SDN交换机设置静态流表的"正确"方法&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-1"&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-org1a17c45" class="outline-3"&gt;
+&lt;h3 id="org1a17c45"&gt;&lt;span class="section-number-3"&gt;1.1.&lt;/span&gt; 系统初始设置&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-1-1"&gt;
+&lt;p&gt;
+参见 &lt;a href="../lab/pica8_quick_start.html"&gt;快速上手&lt;/a&gt;
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id="outline-container-orga532dff" class="outline-3"&gt;
+&lt;h3 id="orga532dff"&gt;&lt;span class="section-number-3"&gt;1.2.&lt;/span&gt; 添加静态流配置命令&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-1-2"&gt;
+&lt;pre class="example" id="org12daf75"&gt;
+admin@PICOS-OVS$sudo mkdir /cftmp/
+&lt;/pre&gt;
+
+&lt;p&gt;
+创建规则脚本
+&lt;/p&gt;
+
+&lt;pre class="example" id="org38088e7"&gt;
+admin@PICOS-OVS$sudo vi /cftmp/auto/post-ovs
+
+&lt;/pre&gt;
+
+&lt;p&gt;
+在规则脚本 /cftmp/auto/post-ovs 中写入如下内容
+&lt;/p&gt;
+
+&lt;pre class="example" id="org89ea61e"&gt;
+#!/bin/bash                                                                                                                                                   
+export PATH=/ovs …&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</summary><content type="html">&lt;div id="table-of-contents" role="doc-toc"&gt;
+&lt;h2&gt;Table of Contents&lt;/h2&gt;
+&lt;div id="text-table-of-contents" role="doc-toc"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#orgc28be64"&gt;1. OpenMesh SDN交换机设置静态流表的"正确"方法&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#org1a17c45"&gt;1.1. 系统初始设置&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#orga532dff"&gt;1.2. 添加静态流配置命令&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id="outline-container-orgc28be64" class="outline-2"&gt;
+&lt;h2 id="orgc28be64"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; OpenMesh SDN交换机设置静态流表的"正确"方法&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-1"&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-org1a17c45" class="outline-3"&gt;
+&lt;h3 id="org1a17c45"&gt;&lt;span class="section-number-3"&gt;1.1.&lt;/span&gt; 系统初始设置&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-1-1"&gt;
+&lt;p&gt;
+参见 &lt;a href="../lab/pica8_quick_start.html"&gt;快速上手&lt;/a&gt;
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id="outline-container-orga532dff" class="outline-3"&gt;
+&lt;h3 id="orga532dff"&gt;&lt;span class="section-number-3"&gt;1.2.&lt;/span&gt; 添加静态流配置命令&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-1-2"&gt;
+&lt;pre class="example" id="org12daf75"&gt;
+admin@PICOS-OVS$sudo mkdir /cftmp/
+&lt;/pre&gt;
+
+&lt;p&gt;
+创建规则脚本
+&lt;/p&gt;
+
+&lt;pre class="example" id="org38088e7"&gt;
+admin@PICOS-OVS$sudo vi /cftmp/auto/post-ovs
+
+&lt;/pre&gt;
+
+&lt;p&gt;
+在规则脚本 /cftmp/auto/post-ovs 中写入如下内容
+&lt;/p&gt;
+
+&lt;pre class="example" id="org89ea61e"&gt;
+#!/bin/bash                                                                                                                                                   
+export PATH=/ovs/bin:$PATH                                                                                                                                    
+while [ 1 ]; do                                                                                                                                               
+    ret=`/ovs/bin/ovs-ofctl show br0 | grep dpid | wc -l`                                                                                                     
+    if [ $ret -eq 1 ]; then                                                                                                                                   
+        break                                                                                                                                                 
+    else                                                                                                                                                      
+        sleep 5                                                                                                                                               
+    fi                                                                                                                                                        
+done                                                                                                                                                          
+
+ovs-ofctl add-flow br0 in_port=1,actions=5,9,13                                                                                                               
+ovs-ofctl add-flow br0 in_port=2,actions=6,10,14                                                                                                              
+ovs-ofctl add-flow br0 in_port=3,actions=7,11,15                                                                                                              
+ovs-ofctl add-flow br0 in_port=4,actions=8,12,16
+ovs-ofctl add-flow br0 tcp,in_port=13,tp_dst=53 actions=output:16                                                                                             
+ovs-ofctl add-flow br0 udp,in_port=13,tp_dst=53 actions=output:16 
+ovs-ofctl add-flow br0 ip,in_port=11,nw_src=10.1.0.0/16 actions=output:15                                                                                     
+ovs-ofctl add-flow br0 ip,in_port=11,nw_dst=10.1.0.0/16 actions=output:15 
+&lt;/pre&gt;
+
+&lt;p&gt;
+ovs-ofctl 为流表设置命令，本文中的例子比较简单，不做过多解释。更多
+的选项（匹配规则），可以参考OVS手册。
+&lt;/p&gt;
+
+&lt;p&gt;
+在文件创建好后，别忘了赋予可执行权限。
+&lt;/p&gt;
+
+&lt;pre class="example" id="orgb4d7a75"&gt;
+admin@PICOS-OVS$sudo chmod +x /cftmp/auto/post-ovs
+&lt;/pre&gt;
+
+&lt;p&gt;
+接下来重启验证一下，不出意外重启后脚本会正常执行。
+&lt;/p&gt;
+
+&lt;p&gt;
+为什么说这是“正确”的方法呢，因为将启动文件放在这里，即便系统升级依然可以保留配置。
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</content><category term="产品"></category><category term="sdn"></category><category term="openflow"></category><category term="ovs-vsctl"></category><category term="static"></category><category term="flow"></category></entry><entry><title>Barefoot P4 Switch</title><link href="https://bbill.github.io/product/barefoot.html" rel="alternate"></link><published>2017-10-28T00:00:00+08:00</published><updated>2017-10-28T00:00:00+08:00</updated><author><name>bill</name></author><id>tag:bbill.github.io,2017-10-28:/product/barefoot.html</id><summary type="html">Barefoot P4 交换机概况</summary><content type="html">&lt;div id="table-of-contents" role="doc-toc"&gt;
+&lt;h2&gt;Table of Contents&lt;/h2&gt;
+&lt;div id="text-table-of-contents" role="doc-toc"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#org639fced"&gt;1. Barefoot Tofino™&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#orgc257d29"&gt;2. Barefoot Capilano™ SDE&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#orgc83d998"&gt;3. Wedge 100BF-32X&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#orgc6858c7"&gt;4. CPU,BMC,Platform Software&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org2c4c362"&gt;5. Wedge 100B Series – A Summary&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+
+
+&lt;div id="outline-container-org639fced" class="outline-2"&gt;
+&lt;h2 id="org639fced"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; Barefoot Tofino™&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-1"&gt;
+&lt;ul class="org-ul"&gt;
+&lt;li&gt;6.5 Tb/s P4-programmable Ethernet Switch&lt;/li&gt;
+&lt;li&gt;Port Configurations
+&lt;ul class="org-ul"&gt;
+&lt;li&gt;65x100GE/40GE&lt;/li&gt;
+&lt;li&gt;130x50GE&lt;/li&gt;
+&lt;li&gt;260x10/25GE&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Programmable Packet Processing Pipeline
+&lt;ul class="org-ul"&gt;
+&lt;li&gt;switch.p4 forwarding plane program&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;CPU Interface
+&lt;ul class="org-ul"&gt;
+&lt;li&gt;PCIe Gen3 x4&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id="outline-container-orgc257d29" class="outline-2"&gt;
+&lt;h2 id="orgc257d29"&gt;&lt;span class="section-number-2"&gt;2.&lt;/span&gt; Barefoot Capilano™ SDE&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-2"&gt;
+
+&lt;div id="orgefd4bff" class="figure"&gt;
+&lt;p&gt;&lt;img src="../fig/capilano.png" alt="capilano.png" width="450;" /&gt;
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-orgc83d998" class="outline-2"&gt;
+&lt;h2 id="orgc83d998"&gt;&lt;span class="section-number-2"&gt;3.&lt;/span&gt; Wedge 100BF-32X&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-3"&gt;
+
+&lt;div id="orgcbb2796" class="figure"&gt;
+&lt;p&gt;&lt;img src="../fig/wedge_100bf-32x.png" alt="wedge_100bf-32x.png" width="450;" /&gt;
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id="outline-container-orgc6858c7" class="outline-2"&gt;
+&lt;h2 id="orgc6858c7"&gt;&lt;span class="section-number-2"&gt;4.&lt;/span&gt; CPU,BMC,Platform Software&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-4"&gt;
+&lt;ul class="org-ul"&gt;
+&lt;li&gt;CPU
+&lt;ul class="org-ul"&gt;
+&lt;li&gt;Modular COM Express Type 6&lt;/li&gt;
+&lt;li&gt;PCIe Gen2/3 x4&lt;/li&gt;
+&lt;li&gt;Intel Xeon D-1517
+&lt;ul class="org-ul"&gt;
+&lt;li&gt;4 Core@2.2GHz&lt;/li&gt;
+&lt;li&gt;8GB DDR4 SDRAM&lt;/li&gt;
+&lt;li&gt;128GB M.2 SSD&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;BMC
+&lt;ul class="org-ul"&gt;
+&lt;li&gt;ASPEED AST1250A1-GP&lt;/li&gt;
+&lt;li&gt;400MHz&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Platform Software
+&lt;ul class="org-ul"&gt;
+&lt;li&gt;OpenBMC&lt;/li&gt;
+&lt;li&gt;ONIE&lt;/li&gt;
+&lt;li&gt;ONL&lt;/li&gt;
+&lt;li&gt;Debian&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id="outline-container-org2c4c362" class="outline-2"&gt;
+&lt;h2 id="org2c4c362"&gt;&lt;span class="section-number-2"&gt;5.&lt;/span&gt; Wedge 100B Series – A Summary&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-5"&gt;
+&lt;ul class="org-ul"&gt;
+&lt;li&gt;Two platforms
+&lt;ul class="org-ul"&gt;
+&lt;li&gt;Wedge  100BF-32X - 1RU 32x100GE&lt;/li&gt;
+&lt;li&gt;Wedge  100BF-65X - 2RU 65x100GE&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Derived from Wedge 100&lt;/li&gt;
+&lt;li&gt;Includes several cost and quality enhancements&lt;/li&gt;
+&lt;li&gt;User-programmable forwarding plane using P4, Tofino &amp;amp; Capilano&lt;/li&gt;
+&lt;li&gt;Includes the World’s Fastest and Fully Programmable Ethernet Switch ASIC&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</content><category term="产品"></category><category term="sdn"></category><category term="openflow"></category><category term="p4"></category><category term="tofino"></category><category term="barefoot"></category><category term="onie"></category><category term="capilano"></category></entry><entry><title>SDN 教学大纲</title><link href="https://bbill.github.io/lab/jiaxuedagang.html" rel="alternate"></link><published>2017-10-21T00:00:00+08:00</published><updated>2017-10-21T00:00:00+08:00</updated><author><name>service@tooyum.com</name></author><id>tag:bbill.github.io,2017-10-21:/lab/jiaxuedagang.html</id><summary type="html">一个简单的教学大纲,</summary><content type="html">&lt;div id="table-of-contents" role="doc-toc"&gt;
+&lt;h2&gt;Table of Contents&lt;/h2&gt;
+&lt;div id="text-table-of-contents" role="doc-toc"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#orgb06a3ca"&gt;1. 教学环境准备&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#org8540333"&gt;1.1. 仿真工具&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org6049915"&gt;1.2. 常用工具&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org0ade73b"&gt;2. 传统网络基础&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org3741d8b"&gt;3. SDN 与 OpenFlow 技术基本概念&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#orgfd0e891"&gt;4. SDN 网络入门实验&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#orgcf123ac"&gt;5. 了解流表&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org20ae494"&gt;6. RYU控制器初步&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org32eac3e"&gt;7. 进阶应用&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org2173293"&gt;8. 实体交换机验证&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+
+&lt;div id="outline-container-orgb06a3ca" class="outline-2"&gt;
+&lt;h2 id="orgb06a3ca"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; 教学环境准备&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-1"&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-org8540333" class="outline-3"&gt;
+&lt;h3 id="org8540333"&gt;&lt;span class="section-number-3"&gt;1.1.&lt;/span&gt; 仿真工具&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-1-1"&gt;
+&lt;p&gt;
+可选开源(mininet)，商用(estinet)仿真软件
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-org6049915" class="outline-3"&gt;
+&lt;h3 id="org6049915"&gt;&lt;span class="section-number-3"&gt;1.2.&lt;/span&gt; 常用工具&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-1-2"&gt;
+&lt;ol class="org-ol"&gt;
+&lt;li&gt;Wireshark 网路抓包工具&lt;/li&gt;
+&lt;li&gt;xterm&lt;/li&gt;
+&lt;li&gt;tcptrace&lt;/li&gt;
+&lt;li&gt;WinSCP&lt;/li&gt;
+&lt;li&gt;Gnuplot&lt;/li&gt;
+&lt;li&gt;Docker 与 OVS 介绍&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+
+&lt;div id="outline-container-org0ade73b" class="outline-2"&gt;
+&lt;h2 id="org0ade73b"&gt;&lt;span class="section-number-2"&gt;2.&lt;/span&gt; 传统网络基础&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-2"&gt;
+&lt;ol class="org-ol"&gt;
+&lt;li&gt;NAT 网路地址址转换（Network Address Translation）&lt;/li&gt;
+&lt;li&gt;DHCP 动态主机设定协议（Dynamic Host Configuration Protocol）&lt;/li&gt;
+&lt;li&gt;域名解析 DNS（Domain Name System）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id="outline-container-org3741d8b" class="outline-2"&gt;
+&lt;h2 id="org3741d8b"&gt;&lt;span class="section-number-2"&gt;3.&lt;/span&gt; SDN 与 OpenFlow 技术基本概念&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-3"&gt;
+&lt;ol class="org-ol"&gt;
+&lt;li&gt;软体定义网路（Software-Defined Networking）&lt;/li&gt;
+&lt;li&gt;控制平面（Control Plane）&lt;/li&gt;
+&lt;li&gt;资料平面（Data Plane）&lt;/li&gt;
+&lt;li&gt;OpenFlow 架构与运作原理&lt;/li&gt;
+&lt;li&gt;SDN 控制器（SDN Controller）
+&lt;ol class="org-ol"&gt;
+&lt;li&gt;POX&lt;/li&gt;
+&lt;li&gt;RYU&lt;/li&gt;
+&lt;li&gt;ONOS&lt;/li&gt;
+&lt;li&gt;ODL&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;li&gt;OVS（Open vSwitch）/ ovs-ofctl 简介&lt;/li&gt;
+&lt;li&gt;网路功能虚拟化&lt;/li&gt;
+&lt;li&gt;SDN与网路安全&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+
+&lt;div id="outline-container-orgfd0e891" class="outline-2"&gt;
+&lt;h2 id="orgfd0e891"&gt;&lt;span class="section-number-2"&gt;4.&lt;/span&gt; SDN 网络入门实验&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-4"&gt;
+&lt;ol class="org-ol"&gt;
+&lt;li&gt;RYU 控制器安装启动&lt;/li&gt;
+&lt;li&gt;仿真工具建立一个简单的拓扑&lt;/li&gt;
+&lt;li&gt;控制器和交换机（仿真拓扑）的对接&lt;/li&gt;
+&lt;li&gt;验证&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+
+&lt;div id="outline-container-orgcf123ac" class="outline-2"&gt;
+&lt;h2 id="orgcf123ac"&gt;&lt;span class="section-number-2"&gt;5.&lt;/span&gt; 了解流表&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-5"&gt;
+&lt;ol class="org-ol"&gt;
+&lt;li&gt;查看&lt;/li&gt;
+&lt;li&gt;增加删除修改&lt;/li&gt;
+&lt;li&gt;匹配项&lt;/li&gt;
+&lt;li&gt;动作&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id="outline-container-org20ae494" class="outline-2"&gt;
+&lt;h2 id="org20ae494"&gt;&lt;span class="section-number-2"&gt;6.&lt;/span&gt; RYU控制器初步&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-6"&gt;
+&lt;ol class="org-ol"&gt;
+&lt;li&gt;控制器框架&lt;/li&gt;
+&lt;li&gt;事件驱动&lt;/li&gt;
+&lt;li&gt;一个简单的APP（HUB）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id="outline-container-org32eac3e" class="outline-2"&gt;
+&lt;h2 id="org32eac3e"&gt;&lt;span class="section-number-2"&gt;7.&lt;/span&gt; 进阶应用&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-7"&gt;
+&lt;ol class="org-ol"&gt;
+&lt;li&gt;simpleswitch&lt;/li&gt;
+&lt;li&gt;arp proxy&lt;/li&gt;
+&lt;li&gt;security （自定义策略）
+&lt;ol class="org-ol"&gt;
+&lt;li&gt;Firewall&lt;/li&gt;
+&lt;li&gt;QOS&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;li&gt;RYU: Dijkstra 算法&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id="outline-container-org2173293" class="outline-2"&gt;
+&lt;h2 id="org2173293"&gt;&lt;span class="section-number-2"&gt;8.&lt;/span&gt; 实体交换机验证&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-8"&gt;
+&lt;ol class="org-ol"&gt;
+&lt;li&gt;在实体交换机上验证自己的APP&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</content><category term="实验"></category><category term="ryu"></category><category term="openflow"></category><category term="mininet"></category><category term="estinet"></category></entry><entry><title>在P-3290 系统上安装 PicOS 操作系统</title><link href="https://bbill.github.io/lab/upgrade_P-3290.html" rel="alternate"></link><published>2017-10-16T00:00:00+08:00</published><updated>2017-10-16T00:00:00+08:00</updated><author><name>bill</name></author><id>tag:bbill.github.io,2017-10-16:/lab/upgrade_P-3290.html</id><summary type="html">&lt;div id="table-of-contents" role="doc-toc"&gt;
+&lt;h2&gt;Table of Contents&lt;/h2&gt;
+&lt;div id="text-table-of-contents" role="doc-toc"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#org4ccb982"&gt;1. 重启交换机&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-org4ccb982" class="outline-2"&gt;
+&lt;h2 id="org4ccb982"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; 重启交换机&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-1"&gt;
+&lt;p&gt;
+以3290 为例，不同交换机进入 底层 shell的方法不同
+&lt;/p&gt;
+
+&lt;p&gt;
+使用串口连接交换机，重启后在系统出现
+&lt;/p&gt;
+
+&lt;p&gt;
+press any key to stop autoboot 时，按回车
+&lt;/p&gt;
+
+&lt;p&gt;
+会进入一个shell
+&lt;/p&gt;
+
+&lt;p&gt;
+执行run flash&lt;sub&gt;bootcmd&lt;/sub&gt;
+&lt;/p&gt;
+
+&lt;p&gt;
+等待运行结束，出现菜单选项时，敲两次 &lt;b&gt;ctrl +d&lt;/b&gt;, 进入shell
+&lt;/p&gt;
+
+
+&lt;div class="org-src-container"&gt;
+&lt;pre class="src src-bash"&gt;&lt;span style="font-weight: bold;"&gt;cd&lt;/span&gt; /cf_card
+rm &amp;#8211;rf [a-y]* 
+tftp -gr picos-2.9.2.5-P3290-30f7332.tar.gz -l z.tgz 192.168 …&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</summary><content type="html">&lt;div id="table-of-contents" role="doc-toc"&gt;
+&lt;h2&gt;Table of Contents&lt;/h2&gt;
+&lt;div id="text-table-of-contents" role="doc-toc"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#org4ccb982"&gt;1. 重启交换机&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-org4ccb982" class="outline-2"&gt;
+&lt;h2 id="org4ccb982"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; 重启交换机&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-1"&gt;
+&lt;p&gt;
+以3290 为例，不同交换机进入 底层 shell的方法不同
+&lt;/p&gt;
+
+&lt;p&gt;
+使用串口连接交换机，重启后在系统出现
+&lt;/p&gt;
+
+&lt;p&gt;
+press any key to stop autoboot 时，按回车
+&lt;/p&gt;
+
+&lt;p&gt;
+会进入一个shell
+&lt;/p&gt;
+
+&lt;p&gt;
+执行run flash&lt;sub&gt;bootcmd&lt;/sub&gt;
+&lt;/p&gt;
+
+&lt;p&gt;
+等待运行结束，出现菜单选项时，敲两次 &lt;b&gt;ctrl +d&lt;/b&gt;, 进入shell
+&lt;/p&gt;
+
+
+&lt;div class="org-src-container"&gt;
+&lt;pre class="src src-bash"&gt;&lt;span style="font-weight: bold;"&gt;cd&lt;/span&gt; /cf_card
+rm &amp;#8211;rf [a-y]* 
+tftp -gr picos-2.9.2.5-P3290-30f7332.tar.gz -l z.tgz 192.168.10.250
+tar xzvf z.tgz
+sync
+reboot
+&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;
+重启交换机确认，系统已经更新至最新版本。
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</content><category term="lab"></category><category term="P-3290"></category><category term="upgrade"></category><category term="pica8"></category><category term="sdn"></category><category term="openflow"></category><category term="baremetal"></category></entry><entry><title>升级Pica8操作系统</title><link href="https://bbill.github.io/lab/upgrade_picos.html" rel="alternate"></link><published>2017-10-16T00:00:00+08:00</published><updated>2017-10-16T00:00:00+08:00</updated><author><name>bill</name></author><id>tag:bbill.github.io,2017-10-16:/lab/upgrade_picos.html</id><summary type="html">&lt;p&gt;
+更新前需要做如下检查，确保能使用upgrade命令升级：
+&lt;/p&gt;
+
+
+&lt;ol class="org-ol"&gt;
+&lt;li&gt;查看当前状态，备份基础配置
+ifconfig 
+ovs-vsctl show
+cd /home/admin 
+tar czvf ovs.tgz  /ovs/ovs-vswitchd.conf.db /etc/picos/picos&lt;sub&gt;start.conf&lt;/sub&gt;
+tar cavf lic.tgz  /etc/picos/switch-public.key /etc/picos/pica.lic
+用scp 将 ovs.tgz lic.tgz 复制出来&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;
+确定备份分区状态（它必须是ok或者up-to-date）
+&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;
+admin@PicOS-OVS$cat /etc/picos/fs …&lt;/p&gt;&lt;/blockquote&gt;&lt;/li&gt;&lt;/ol&gt;</summary><content type="html">&lt;p&gt;
+更新前需要做如下检查，确保能使用upgrade命令升级：
+&lt;/p&gt;
+
+
+&lt;ol class="org-ol"&gt;
+&lt;li&gt;查看当前状态，备份基础配置
+ifconfig 
+ovs-vsctl show
+cd /home/admin 
+tar czvf ovs.tgz  /ovs/ovs-vswitchd.conf.db /etc/picos/picos&lt;sub&gt;start.conf&lt;/sub&gt;
+tar cavf lic.tgz  /etc/picos/switch-public.key /etc/picos/pica.lic
+用scp 将 ovs.tgz lic.tgz 复制出来&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;
+确定备份分区状态（它必须是ok或者up-to-date）
+&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;
+admin@PicOS-OVS$cat /etc/picos/fs&lt;sub&gt;status&lt;/sub&gt;
+&lt;/p&gt;
+
+&lt;p&gt;
+primary: ok
+&lt;/p&gt;
+
+&lt;p&gt;
+secondary: up-to-date
+&lt;/p&gt;
+
+&lt;p&gt;
+admin@PicOS-OVS$
+&lt;/p&gt;
+&lt;/blockquote&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;
+上传更新image文件到交换机的/cftmp 目录
+&lt;/p&gt;
+
+&lt;p&gt;
+假设您用来下载的主机系统为linux，IP地址为 10.10.10.16，下载的文
+件名为 picos-2.8.0-P5401-45ec985.tar.gz 在确保交换机可以ping 通
+10.10.50.16后，可以在 &lt;b&gt;交换机&lt;/b&gt; 上执行
+&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;
+admin@PicOS-OVS$cd &lt;i&gt;cftmp&lt;/i&gt;
+&lt;/p&gt;
+
+&lt;p&gt;
+admin@PicOS-OVS$sudo scp user@10.10.50.16:/home/user/picos-2.8.0-P5401-45ec985.tar.gz ./
+&lt;/p&gt;
+
+&lt;p&gt;
+admin@PicOS-OVS$sudo scp user@10.10.50.16:/home/user/picos-2.8.0-P5401-45ec985.tar.gz.md5 ./
+&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;
+此步骤的目的是将升级映像复制到交换机的/cftmp 目录下。
+&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;
+在/cftmp下执行upgrade命令升级交换机版本
+&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;
+admin@PicOS-OVS$ cd /cftmp
+admin@PicOS-OVS$ sudo upgrade picos-2.8.0-P5401-45ec985.tar.gz  
+&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;
+./etc/lsb-release
+&lt;/p&gt;
+
+&lt;p&gt;
+Upgrading P5401
+&lt;/p&gt;
+
+&lt;p&gt;
+Upgrade P5401 started
+&lt;/p&gt;
+
+&lt;p&gt;
+Checking MD5 of image
+&lt;/p&gt;
+
+&lt;p&gt;
+MD5 Check OK!
+&lt;/p&gt;
+
+&lt;p&gt;
+./etc/p1upgrade.sh
+&lt;/p&gt;
+
+&lt;p&gt;
+Back up PicOS configuration files
+&lt;/p&gt;
+
+&lt;p&gt;
+/ovs/ovs-vswitchd.conf.db /etc/picos/picos&lt;sub&gt;start.conf&lt;/sub&gt;
+&lt;/p&gt;
+
+&lt;p&gt;
+Config files saved locally as
+&lt;/p&gt;
+
+&lt;p&gt;
+/cftmp/CONFIG&lt;sub&gt;FILE&lt;/sub&gt;&lt;sub&gt;P5401&lt;/sub&gt;-10.10.51.162-@20170116.tgz
+&lt;/p&gt;
+
+&lt;p&gt;
+Backup PicOS license files
+&lt;/p&gt;
+
+&lt;p&gt;
+/etc/picos/switch-public.key /etc/picos/pica.lic
+&lt;/p&gt;
+
+&lt;p&gt;
+License files saved locally as
+&lt;/p&gt;
+
+&lt;p&gt;
+/cftmp/LICENSE&lt;sub&gt;FILE&lt;/sub&gt;&lt;sub&gt;P5401&lt;/sub&gt;-10.10.51.162-@20170116.tgz
+&lt;/p&gt;
+
+&lt;p&gt;
+Rebooting in 10 seconds!
+&lt;/p&gt;
+
+&lt;p&gt;
+admin@PicOS-OVS$
+&lt;/p&gt;
+&lt;/blockquote&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;
+回滚
+&lt;/p&gt;
+
+&lt;p&gt;
+如果新操作系统无法及时上线工作，则以携带的备份机器顶上。
+恢复之前备份之配置，
+&lt;/p&gt;
+&lt;pre class="example"&gt;
+tar xzvf ovs.tgz    
+&lt;/pre&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</content><category term="lab"></category><category term="pica8"></category><category term="maitainence"></category><category term="openflow"></category><category term="hardware"></category><category term="upgrade"></category></entry><entry><title>Ryu 控制器的安装及基本操作</title><link href="https://bbill.github.io/lab/ryu_lab1.html" rel="alternate"></link><published>2017-09-24T00:00:00+08:00</published><updated>2017-09-24T00:00:00+08:00</updated><author><name>bill</name></author><id>tag:bbill.github.io,2017-09-24:/lab/ryu_lab1.html</id><summary type="html">RYU 安装操作</summary><content type="html">&lt;div id="table-of-contents" role="doc-toc"&gt;
+&lt;h2&gt;Table of Contents&lt;/h2&gt;
+&lt;div id="text-table-of-contents" role="doc-toc"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#org1337435"&gt;1. 实验环境&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org887cbb2"&gt;2. 实验目的&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org35cfb57"&gt;3. 操作步骤&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#org7e00df2"&gt;3.1. 安装一些后续需要使用的软件&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#orgb06f4c8"&gt;3.2. 安装 ryu&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org00d323f"&gt;3.3. 安装 mininet&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#orgfc30b92"&gt;3.4. ryu 控制和mininet连接&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="#org9d5f80a"&gt;4. 附录&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#org2d7d03d"&gt;4.1. 用到的命令&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+
+
+&lt;div id="outline-container-org1337435" class="outline-2"&gt;
+&lt;h2 id="org1337435"&gt;&lt;span class="section-number-2"&gt;1.&lt;/span&gt; 实验环境&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-1"&gt;
+&lt;ol class="org-ol"&gt;
+&lt;li&gt;一台可以上网的主机station X (IP 地址 192.168.10.X）&lt;/li&gt;
+&lt;li&gt;ubuntu 14.04 操作系统,用户名 user 密码 linux123&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id="outline-container-org887cbb2" class="outline-2"&gt;
+&lt;h2 id="org887cbb2"&gt;&lt;span class="section-number-2"&gt;2.&lt;/span&gt; 实验目的&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-2"&gt;
+&lt;ol class="org-ol"&gt;
+&lt;li&gt;掌握Linux 命令行基础使用方法&lt;/li&gt;
+&lt;li&gt;掌握Ubuntu 软件安装方法&lt;/li&gt;
+&lt;li&gt;掌握 mininet 基础使用方法&lt;/li&gt;
+&lt;li&gt;掌握 ryu 控制器的基本用法&lt;/li&gt;
+&lt;li&gt;了解 screen 的用法&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id="outline-container-org35cfb57" class="outline-2"&gt;
+&lt;h2 id="org35cfb57"&gt;&lt;span class="section-number-2"&gt;3.&lt;/span&gt; 操作步骤&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-3"&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-org7e00df2" class="outline-3"&gt;
+&lt;h3 id="org7e00df2"&gt;&lt;span class="section-number-3"&gt;3.1.&lt;/span&gt; 安装一些后续需要使用的软件&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-3-1"&gt;
+&lt;ul class="org-ul"&gt;
+&lt;li&gt;git 版本管理工具&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;
+screen 终端增强工具
+ubuntu 是基于debian的linux 发行版，采用 apt-get/aptitude 来进行软件的安装，升级，解决依赖关系等.
+可以在终端执行
+&lt;/p&gt;
+
+&lt;div class="org-src-container"&gt;
+&lt;pre class="src src-bash"&gt;apt-get install git screen
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;
+来安装 git和screen 两个包.
+&lt;/p&gt;
+
+&lt;p&gt;
+由于当前用户是普通用户不具备安装软件的权限，所以以上命令会失败，那
+么普通用户如何获得root权限呢，一般有两种方式su （siwtch user）获
+得一个交互shell 或者 sudo （switch user do） 在执行命令时获得
+root权限，不进入交互模式。将以上命令修改为：
+&lt;/p&gt;
+
+&lt;div class="org-src-container"&gt;
+&lt;pre class="src src-bash"&gt;sudo apt-get install git screen
+&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;
+提示输入密码（输入 user 用户密码 linux123), 你可以看到命令成功执行了。
+&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-orgb06f4c8" class="outline-3"&gt;
+&lt;h3 id="orgb06f4c8"&gt;&lt;span class="section-number-3"&gt;3.2.&lt;/span&gt; 安装 ryu&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-3-2"&gt;
+&lt;ol class="org-ol"&gt;
+&lt;li&gt;&lt;p&gt;
+下载安装脚本
+&lt;/p&gt;
+&lt;div class="org-src-container"&gt;
+&lt;pre class="src src-shell"&gt;wget https://raw.githubusercontent.com/sdnds-tw/ryuInstallHelper/master/ryuInstallHelper.sh
+&lt;/pre&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;
+查看安装脚本内容
+&lt;/p&gt;
+&lt;div class="org-src-container"&gt;
+&lt;pre class="src src-bash"&gt;user@station21:~$ cat ryuInstallHelper.sh 
+&lt;/pre&gt;
+&lt;/div&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;
+执行安装脚本
+&lt;/p&gt;
+&lt;div class="org-src-container"&gt;
+&lt;pre class="src src-bash"&gt;sudo bash ryuInstallHelper.sh
+&lt;/pre&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;
+补充，
+&lt;/p&gt;
+
+&lt;p&gt;
+sudo aptitude install debian-keyring debian-archive-keyring
+&lt;/p&gt;
+
+&lt;p&gt;
+sudo apt-key adv &amp;#x2013;keyserver keyserver.ubuntu.com &amp;#x2013;recv-keys
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+
+&lt;div id="outline-container-org00d323f" class="outline-3"&gt;
+&lt;h3 id="org00d323f"&gt;&lt;span class="section-number-3"&gt;3.3.&lt;/span&gt; 安装 mininet&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-3-3"&gt;
+&lt;p&gt;
+mininet 是一个网络拓扑仿真程序，可以非常方便的实现拓扑/交换机的模拟，
+支持openflow协议。方便用户定制自己的SDN 网络拓扑。
+&lt;/p&gt;
+&lt;ol class="org-ol"&gt;
+&lt;li&gt;&lt;p&gt;
+安装mininet
+执行
+&lt;/p&gt;
+&lt;div class="org-src-container"&gt;
+&lt;pre class="src src-bash"&gt;sudo apt-get install mininet
+pip install networkx 
+&lt;/pre&gt;
+&lt;/div&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;
+停止并禁用 openvswitch-controller 服务
+mininet 默认会安装一个openvswitch-controller 控制器，此服务启动后会占用控制器的默认端口，所以先暂时停止
+&lt;/p&gt;
+
+&lt;div class="org-src-container"&gt;
+&lt;pre class="src src-bash"&gt;sudo /etc/init.d/openvswitch-controller  stop
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;
+并禁用该服务
+&lt;/p&gt;
+&lt;div class="org-src-container"&gt;
+&lt;pre class="src src-bash"&gt;sudo update-rc.d -f openvswitch-controller remove
+&lt;/pre&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+
+&lt;div id="outline-container-orgfc30b92" class="outline-3"&gt;
+&lt;h3 id="orgfc30b92"&gt;&lt;span class="section-number-3"&gt;3.4.&lt;/span&gt; ryu 控制和mininet连接&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-3-4"&gt;
+&lt;ol class="org-ol"&gt;
+&lt;li&gt;启动 screen 终端管理工具
+screen -DR
+&lt;ul class="org-ul"&gt;
+&lt;li&gt;通过Ctrl-a S 快捷键将屏幕切分为三份 #注意大小写&lt;/li&gt;
+&lt;li&gt;Ctrl-a [Tab] 切换到下方区域执行　Ctrl-a c&lt;/li&gt;
+&lt;li&gt;Ctrl-a [Tab] 切换到下方区域执行　Ctrl-a c&lt;/li&gt;
+&lt;li&gt;Ctrl-a [Tab] 切换到第一个窗口&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;启动一个简单网络拓扑
+&lt;ul class="org-ul"&gt;
+&lt;li&gt;&lt;p&gt;
+启动ovs服务
+&lt;/p&gt;
+&lt;div class="org-src-container"&gt;
+&lt;pre class="src src-bash"&gt;sudo /etc/init.d/openvswitch-switch start
+&lt;/pre&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;
+启动mininet拓扑
+&lt;/p&gt;
+
+&lt;p&gt;
+在该窗口启动一个简单mininet 拓扑,并指定SDN 控制器为本地地址（192.168.10.21）
+&lt;/p&gt;
+&lt;div class="org-src-container"&gt;
+&lt;pre class="src src-bash"&gt;sudo mn --topo single,3 --mac --switch ovsk --controller remote,&lt;span style="font-weight: bold; font-style: italic;"&gt;ip&lt;/span&gt;=192.168.10.21,&lt;span style="font-weight: bold; font-style: italic;"&gt;port&lt;/span&gt;=6633
+&lt;/pre&gt;
+&lt;/div&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;
+检查交换机状态
+&lt;/p&gt;
+&lt;div class="org-src-container"&gt;
+&lt;pre class="src src-bash"&gt;sudo ovs-vsctl show
+bee7cda2-0792-4de4-9381-fc7f298f3baa
+    Bridge &lt;span style="font-style: italic;"&gt;"s1"&lt;/span&gt;   
+        Controller &lt;span style="font-style: italic;"&gt;"ptcp:6634"&lt;/span&gt;
+        Controller &lt;span style="font-style: italic;"&gt;"tcp:192.168.10.21:6633"&lt;/span&gt;
+        fail_mode: secure
+        Port &lt;span style="font-style: italic;"&gt;"s1-eth3"&lt;/span&gt;
+            Interface &lt;span style="font-style: italic;"&gt;"s1-eth3"&lt;/span&gt;
+        Port &lt;span style="font-style: italic;"&gt;"s1-eth1"&lt;/span&gt;
+            Interface &lt;span style="font-style: italic;"&gt;"s1-eth1"&lt;/span&gt;
+        Port &lt;span style="font-style: italic;"&gt;"s1"&lt;/span&gt;
+            Interface &lt;span style="font-style: italic;"&gt;"s1"&lt;/span&gt;
+                &lt;span style="font-weight: bold;"&gt;type&lt;/span&gt;: internal
+        Port &lt;span style="font-style: italic;"&gt;"s1-eth2"&lt;/span&gt;
+            Interface &lt;span style="font-style: italic;"&gt;"s1-eth2"&lt;/span&gt;
+    ovs_version: &lt;span style="font-style: italic;"&gt;"2.0.2"&lt;/span&gt;
+&lt;/pre&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;启动ryu 控制器
+&lt;ul class="org-ul"&gt;
+&lt;li&gt;Ctrl-a [Tab] 切换到第二个窗口&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;
+启动 ryu 控制器，以及一个简单的应用
+&lt;/p&gt;
+&lt;div class="org-src-container"&gt;
+&lt;pre class="src src-bash"&gt;./ryu/bin/ryu-manager ./ryu/ryu/app/simple_switch_13.py
+&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;
+启动一个符合 openflow 1.3 标准的交换机应用
+&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;
+确认交换机和控制器的连接是否成功
+&lt;/p&gt;
+&lt;div class="org-src-container"&gt;
+&lt;pre class="src src-bash"&gt;sudo ovs-vsctl show
+bee7cda2-0792-4de4-9381-fc7f298f3baa
+    Bridge &lt;span style="font-style: italic;"&gt;"s1"&lt;/span&gt;   
+        Controller &lt;span style="font-style: italic;"&gt;"ptcp:6634"&lt;/span&gt;
+        Controller &lt;span style="font-style: italic;"&gt;"tcp:192.168.10.21:6633"&lt;/span&gt;
+             is_connected: true
+        fail_mode: secure
+        Port &lt;span style="font-style: italic;"&gt;"s1-eth3"&lt;/span&gt;
+            Interface &lt;span style="font-style: italic;"&gt;"s1-eth3"&lt;/span&gt;
+        Port &lt;span style="font-style: italic;"&gt;"s1-eth1"&lt;/span&gt;
+            Interface &lt;span style="font-style: italic;"&gt;"s1-eth1"&lt;/span&gt;
+        Port &lt;span style="font-style: italic;"&gt;"s1"&lt;/span&gt;
+            Interface &lt;span style="font-style: italic;"&gt;"s1"&lt;/span&gt;
+                &lt;span style="font-weight: bold;"&gt;type&lt;/span&gt;: internal
+        Port &lt;span style="font-style: italic;"&gt;"s1-eth2"&lt;/span&gt;
+            Interface &lt;span style="font-style: italic;"&gt;"s1-eth2"&lt;/span&gt;
+    ovs_version: &lt;span style="font-style: italic;"&gt;"2.0.2"&lt;/span&gt;
+&lt;/pre&gt;
+&lt;/div&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;
+网络通吗？
+&lt;/p&gt;
+
+&lt;p&gt;
+在mininet 终端下主机之间互ping ，可以看到是无法ping 通的。
+&lt;/p&gt;
+
+&lt;p&gt;
+检查控制器的输出你可以注意到如下内容：
+&lt;/p&gt;
+&lt;div class="org-src-container"&gt;
+&lt;pre class="src src-bash"&gt;./ryu/bin/ryu-manager ./ryu/ryu/app/simple_switch_13.py
+unsupported version 0x1. If possible, set the switch to use one of the versions [4]
+&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;
+这意味着交换机（mininet) 和ryu 控制器之间的openflow 协议协商不成功。我们需要手工指定交换机的openflow 协议版本。
+&lt;/p&gt;
+
+&lt;div class="org-src-container"&gt;
+&lt;pre class="src src-bash"&gt;ovs-vsctl set bridge s1 &lt;span style="font-weight: bold; font-style: italic;"&gt;protocols&lt;/span&gt;=OpenFlow10,OpenFlow13
+&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;
+可选多个版本。
+&lt;/p&gt;
+
+&lt;p&gt;
+观察ryu-manager 的输出是不是有一些不同，尝试在mininet中ping，现在网络应该通了。
+&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+
+
+
+
+
+&lt;div id="outline-container-org9d5f80a" class="outline-2"&gt;
+&lt;h2 id="org9d5f80a"&gt;&lt;span class="section-number-2"&gt;4.&lt;/span&gt; 附录&lt;/h2&gt;
+&lt;div class="outline-text-2" id="text-4"&gt;
+&lt;/div&gt;
+&lt;div id="outline-container-org2d7d03d" class="outline-3"&gt;
+&lt;h3 id="org2d7d03d"&gt;&lt;span class="section-number-3"&gt;4.1.&lt;/span&gt; 用到的命令&lt;/h3&gt;
+&lt;div class="outline-text-3" id="text-4-1"&gt;
+&lt;div class="org-src-container"&gt;
+&lt;pre class="src src-bash"&gt;apt-get install git screen
+sudo apt-get install git screen -y
+wget https://raw.githubusercontent.com/sdnds-tw/ryuInstallHelper/master/ryuInstallHelper.sh
+less ryuInstallHelper.sh
+sudo bash ryuInstallHelper.sh
+sudo apt-get install  mininet  -y
+sudo /etc/init.d/openvswitch-switch status
+sudo /etc/init.d/openvswitch-switch start
+sudo /etc/init.d/openvswitch-controller stop
+sudo update-rc.d -f openvswitch-controller remove
+sudo mn --topo single,3 --mac --switch ovsk --controller remote,&lt;span style="font-weight: bold; font-style: italic;"&gt;ip&lt;/span&gt;=192.168.10.21,&lt;span style="font-weight: bold; font-style: italic;"&gt;port&lt;/span&gt;=6633
+sudo ovs-vsctl show
+/etc/init.d/openvswitch-switch status
+screen -DR
+sudo mn --topo single,3 --mac --switch ovsk --controller remote,&lt;span style="font-weight: bold; font-style: italic;"&gt;ip&lt;/span&gt;=192.168.10.21,&lt;span style="font-weight: bold; font-style: italic;"&gt;port&lt;/span&gt;=6633
+./ryu/bin/ryu-manager ./ryu/ryu/app/simple_switch_13.py 
+sudo ovs-vsctl set bridge s1 &lt;span style="font-weight: bold; font-style: italic;"&gt;protocols&lt;/span&gt;=OpenFlow10,OpenFlow13 
+sudo kill -9 &lt;span style="font-weight: bold;"&gt;`pgrep -f 'ryu-manager'`&lt;/span&gt;
+&lt;/pre&gt;
+&lt;/div&gt;
+
+
+
+&lt;p&gt;
+如果ubuntu没有安装图形界面，可以通过 
+&lt;/p&gt;
+&lt;div class="org-src-container"&gt;
+&lt;pre class="src src-bash"&gt;apt-get install gnome-shell ubuntu-gnome-desktop
+&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;
+在虚拟化环境中加以禁用3D效果以改善体验：
+&lt;/p&gt;
+&lt;div class="org-src-container"&gt;
+&lt;pre class="src src-bash"&gt;apt-get  install gnome-session-fallback
+&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;
+然后从图形界面 logout，在登录时选择 GNOME FlashBack (metacity)。
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</content><category term="lab"></category><category term="ryu"></category><category term="openflow"></category><category term="mininet"></category></entry></feed>

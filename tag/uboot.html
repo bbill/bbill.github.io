@@ -3,7 +3,8 @@
 <head>
         <meta charset="utf-8" />
         <title>SDN Hands ON! - uboot</title>
-        <link rel="stylesheet" href="/theme/css/main.css" />
+        <link rel="stylesheet" href="https://bbill.github.io/theme/css/main.css" />
+        <link href="https://bbill.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="SDN Hands ON! Atom Feed" />
 
         <!--[if IE]>
             <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -12,47 +13,47 @@
 
 <body id="index" class="home">
         <header id="banner" class="body">
-                <h1><a href="/">SDN Hands ON! </a></h1>
+                <h1><a href="https://bbill.github.io/">SDN Hands ON! </a></h1>
                 <nav><ul>
-                    <li><a href="/category/chan-pin.html">产品</a></li>
-                    <li><a href="/category/lab.html">lab</a></li>
-                    <li><a href="/category/product.html">product</a></li>
-                    <li><a href="/category/shi-yan.html">实验</a></li>
-                    <li><a href="/category/troubleshooting.html">troubleshooting</a></li>
+                    <li><a href="https://bbill.github.io/category/chan-pin.html">产品</a></li>
+                    <li><a href="https://bbill.github.io/category/lab.html">lab</a></li>
+                    <li><a href="https://bbill.github.io/category/product.html">product</a></li>
+                    <li><a href="https://bbill.github.io/category/shi-yan.html">实验</a></li>
+                    <li><a href="https://bbill.github.io/category/troubleshooting.html">troubleshooting</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/lab/install_picos_on_dell.html">在Dell N3048/24 上安装 PicOS</a></h1>
+                    <h1 class="entry-title"><a href="https://bbill.github.io/lab/install_picos_on_dell.html">在Dell N3048/24 上安装 PicOS</a></h1>
 <footer class="post-info">
         <abbr class="published" title="2019-06-04T00:00:00+08:00">
-                Published: 二 04 六月 2019
+                Published: Tue 04 June 2019
         </abbr>
 
         <address class="vcard author">
-                By                         <a class="url fn" href="/author/bill.html">bill</a>
+                By                         <a class="url fn" href="https://bbill.github.io/author/bill.html">bill</a>
         </address>
-<p>In <a href="/category/lab.html">lab</a>.</p>
-<p>tags: <a href="/tag/lab.html">lab</a> <a href="/tag/install.html">install</a> <a href="/tag/onie.html">onie</a> <a href="/tag/picos.html">picos</a> <a href="/tag/dell.html">dell</a> <a href="/tag/n3048.html">n3048</a> <a href="/tag/n3024.html">n3024</a> <a href="/tag/uboot.html">uboot</a> </p>
-</footer><!-- /.post-info --><div id="table-of-contents">
+<p>In <a href="https://bbill.github.io/category/lab.html">lab</a>.</p>
+<p>tags: <a href="https://bbill.github.io/tag/lab.html">lab</a> <a href="https://bbill.github.io/tag/install.html">install</a> <a href="https://bbill.github.io/tag/onie.html">onie</a> <a href="https://bbill.github.io/tag/picos.html">picos</a> <a href="https://bbill.github.io/tag/dell.html">dell</a> <a href="https://bbill.github.io/tag/n3048.html">n3048</a> <a href="https://bbill.github.io/tag/n3024.html">n3024</a> <a href="https://bbill.github.io/tag/uboot.html">uboot</a> </p>
+</footer><!-- /.post-info --><div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgfc85fd6">1. <b>首次安装PICOS</b></a>
+<li><a href="#orge8271fc">1. <b>首次安装PICOS</b></a>
 <ul>
-<li><a href="#org01ab76a">1.1. 确保已经下载了正确的安装文件</a></li>
-<li><a href="#org515a396">1.2. 进入Boot Main Menu。</a></li>
-<li><a href="#orgd725049">1.3. 进入ONIE救援模式</a></li>
-<li><a href="#org7ed8436">1.4. 安装PicOS</a></li>
+<li><a href="#orga264900">1.1. 确保已经下载了正确的安装文件</a></li>
+<li><a href="#org0f3a709">1.2. 进入Boot Main Menu。</a></li>
+<li><a href="#org6bc3b59">1.3. 进入ONIE救援模式</a></li>
+<li><a href="#org384f06f">1.4. 安装PicOS</a></li>
 </ul>
 </li>
-<li><a href="#orgef97a78">2. <b>传统安装流程</b></a>
+<li><a href="#org0e475c7">2. <b>传统安装流程</b></a>
 <ul>
-<li><a href="#orgf58dc3d">2.1. 文件准备</a></li>
-<li><a href="#orgd79996b">2.2. 进入救援模式</a>
+<li><a href="#org8865aef">2.1. 文件准备</a></li>
+<li><a href="#org767a37f">2.2. 进入救援模式</a>
 <ul>
-<li><a href="#org57ed218">2.2.1. 在ONIE提示符下，运行 <b>onie-nos-install</b> 命令安装PICOS。</a></li>
+<li><a href="#orgb93c612">2.2.1. 在ONIE提示符下，运行 <b>onie-nos-install</b> 命令安装PICOS。</a></li>
 </ul>
 </li>
 </ul>
@@ -64,8 +65,8 @@
 使用google translate 翻译自 <a href="https://docs.pica8.com/display/PicOS21118sp/Installing+PICOS+on+Bare+Metal+Switches+for+N3048EP-ON">here</a>.
 </p>
 
-<div id="outline-container-orgfc85fd6" class="outline-2">
-<h2 id="orgfc85fd6"><span class="section-number-2">1</span> <b>首次安装PICOS</b></h2>
+<div id="outline-container-orge8271fc" class="outline-2">
+<h2 id="orge8271fc"><span class="section-number-2">1.</span> <b>首次安装PICOS</b></h2>
 <div class="outline-text-2" id="text-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -86,8 +87,8 @@
 </div>
 
 
-<div id="outline-container-org01ab76a" class="outline-3">
-<h3 id="org01ab76a"><span class="section-number-3">1.1</span> 确保已经下载了正确的安装文件</h3>
+<div id="outline-container-orga264900" class="outline-3">
+<h3 id="orga264900"><span class="section-number-3">1.1.</span> 确保已经下载了正确的安装文件</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 设定服务器将将该.bin 文件的安装包通过（HTTP，TFTP，FTP或交换机本
@@ -96,15 +97,15 @@
 </div>
 </div>
 
-<div id="outline-container-org515a396" class="outline-3">
-<h3 id="org515a396"><span class="section-number-3">1.2</span> 进入Boot Main Menu。</h3>
+<div id="outline-container-org0f3a709" class="outline-3">
+<h3 id="org0f3a709"><span class="section-number-3">1.2.</span> 进入Boot Main Menu。</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 当开关打开电源时   <b>出现Dell EMC Networking Boot Options</b> 菜单，选择选项“2”
 进入Boot Main Menu。
 </p>
 
-<pre class="example">
+<pre class="example" id="org3554120">
 戴尔EMC网络引导选项
 ================================
 
@@ -120,14 +121,14 @@
 </div>
 </div>
 
-<div id="outline-container-orgd725049" class="outline-3">
-<h3 id="orgd725049"><span class="section-number-3">1.3</span> 进入ONIE救援模式</h3>
+<div id="outline-container-org6bc3b59" class="outline-3">
+<h3 id="org6bc3b59"><span class="section-number-3">1.3.</span> 进入ONIE救援模式</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
 出现 *Boot Main Menu *时，选择选项“13”进入ONIE救援模式。
 </p>
 
-<pre class="example">
+<pre class="example" id="org9532e52">
 启动主菜单
 ==============
 
@@ -171,8 +172,8 @@
 </div>
 </div>
 
-<div id="outline-container-org7ed8436" class="outline-3">
-<h3 id="org7ed8436"><span class="section-number-3">1.4</span> 安装PicOS</h3>
+<div id="outline-container-org384f06f" class="outline-3">
+<h3 id="org384f06f"><span class="section-number-3">1.4.</span> 安装PicOS</h3>
 <div class="outline-text-3" id="text-1-4">
 <p>
 在ONIE提示符下，运行 <b>onie-nos-install</b> 命令安装PICOS。
@@ -185,7 +186,7 @@
 <b>通过TFTP安装</b>
 </p>
 
-<pre class="example">
+<pre class="example" id="orgd19bf04">
 ONIE＃onie-nos-install tftp：// &lt;image路径&gt; /PicOS.bin
 </pre></li>
 
@@ -197,14 +198,14 @@ ONIE＃onie-nos-install tftp：// &lt;image路径&gt; /PicOS.bin
 通过FTP安装时，您需要输入 像文件所在的FTP服务器的 <b>username</b> 和 <b>password</b>
 </p>
 
-<pre class="example">
+<pre class="example" id="orgb6eadbf">
 ONIE＃onie-nos-install ftp：//用户名：密码@ &lt;image路径&gt; /PicOS.bin
 </pre></li>
 
 <li><p>
 <b>通过HTTP</b> 安装
 </p>
-<pre class="example">
+<pre class="example" id="org1172ed8">
 ONIE＃onie-nos-install http：// &lt;image路径&gt; /PicOS.bin
 </pre></li>
 
@@ -215,7 +216,7 @@ ONIE＃onie-nos-install http：// &lt;image路径&gt; /PicOS.bin
 在* ONIE rescue *模式下，将image文件复制到当前  目录。
 </p>
 
-<pre class="example">
+<pre class="example" id="orgde20337">
 ONIE #scp username @ &lt;image路径&gt; /PicOS.bin。
 </pre></li>
 
@@ -223,7 +224,7 @@ ONIE #scp username @ &lt;image路径&gt; /PicOS.bin。
 运行* onie-nos-install *命令开始安装。
 </p>
 
-<pre class="example">
+<pre class="example" id="orgbea0bc3">
 ONIE＃onie-nos-install PicOS.bin
 </pre></li>
 </ul></li>
@@ -268,8 +269,8 @@ ONIE＃onie-nos-install PicOS.bin
 </div>
 </div>
 
-<div id="outline-container-orgef97a78" class="outline-2">
-<h2 id="orgef97a78"><span class="section-number-2">2</span> <b>传统安装流程</b></h2>
+<div id="outline-container-org0e475c7" class="outline-2">
+<h2 id="org0e475c7"><span class="section-number-2">2.</span> <b>传统安装流程</b></h2>
 <div class="outline-text-2" id="text-2">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -296,8 +297,8 @@ ONIE＃onie-nos-install PicOS.bin
 
 
 
-<div id="outline-container-orgf58dc3d" class="outline-3">
-<h3 id="orgf58dc3d"><span class="section-number-3">2.1</span> 文件准备</h3>
+<div id="outline-container-org8865aef" class="outline-3">
+<h3 id="org8865aef"><span class="section-number-3">2.1.</span> 文件准备</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 <b>确保</b> .bin *文件的安装包已加载到服务器（服务器可能是HTTP，TFTP或
@@ -306,8 +307,8 @@ FTP服务器或交换机本地目录根据实际情况而定安装环境）。
 </div>
 </div>
 
-<div id="outline-container-orgd79996b" class="outline-3">
-<h3 id="orgd79996b"><span class="section-number-3">2.2</span> 进入救援模式</h3>
+<div id="outline-container-org767a37f" class="outline-3">
+<h3 id="org767a37f"><span class="section-number-3">2.2.</span> 进入救援模式</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 进入ONIE安装环境。
@@ -317,7 +318,7 @@ FTP服务器或交换机本地目录根据实际情况而定安装环境）。
 打开电源，当出现* Boot Main Menu <b>时，选择选项“</b> 2 *”进入ONIE救援模式。
 </p>
 
-<pre class="example">
+<pre class="example" id="orgf4a39c8">
 启动主菜单
 ====================
 1  - 引导PICOS（默认）
@@ -349,15 +350,15 @@ FTP服务器或交换机本地目录根据实际情况而定安装环境）。
 </table>
 </div>
 
-<div id="outline-container-org57ed218" class="outline-4">
-<h4 id="org57ed218"><span class="section-number-4">2.2.1</span> 在ONIE提示符下，运行 <b>onie-nos-install</b> 命令安装PICOS。</h4>
+<div id="outline-container-orgb93c612" class="outline-4">
+<h4 id="orgb93c612"><span class="section-number-4">2.2.1.</span> 在ONIE提示符下，运行 <b>onie-nos-install</b> 命令安装PICOS。</h4>
 <div class="outline-text-4" id="text-2-2-1">
 <ul class="org-ul">
 <li><p>
 <b>通过TFTP安装</b>
 </p>
 
-<pre class="example">
+<pre class="example" id="org0908bd5">
 ONIE＃onie-nos-install tftp：// &lt;image路径&gt; /PicOS.bin
 </pre></li>
 
@@ -371,7 +372,7 @@ ONIE＃onie-nos-install tftp：// &lt;image路径&gt; /PicOS.bin
 已加载。
 </p>
 
-<pre class="example">
+<pre class="example" id="org17bf36b">
 ONIE＃onie-nos-install ftp：//用户名：密码@ &lt;image路径&gt; /PicOS.bin
 </pre></li>
 
@@ -379,7 +380,7 @@ ONIE＃onie-nos-install ftp：//用户名：密码@ &lt;image路径&gt; /PicOS.b
 *通过HTTP *安装
 </p>
 
-<pre class="example">
+<pre class="example" id="org5a66289">
 ONIE＃onie-nos-install http：// &lt;image路径&gt; /PicOS.bin
 </pre></li>
 
@@ -392,7 +393,7 @@ a）在* ONIE rescue *模式下，将image文件复制到当前
 目录。
 </p>
 
-<pre class="example">
+<pre class="example" id="org0c2b5be">
 ONIE #scp username @ &lt;image路径&gt; /PicOS.bin。
 </pre>
 
@@ -400,7 +401,7 @@ ONIE #scp username @ &lt;image路径&gt; /PicOS.bin。
 b）运行* onie-nos-install *命令开始安装。
 </p>
 
-<pre class="example">
+<pre class="example" id="org6fe74e0">
 ONIE＃onie-nos-install PicOS.bin
 </pre></li>
 </ul>
@@ -439,7 +440,7 @@ ONIE＃onie-nos-install PicOS.bin
 </div>
 </div>
 </div>
-<p>There are <a href="/lab/install_picos_on_dell.html#disqus_thread">comments</a>.</p>                </article>
+<p>There are <a href="https://bbill.github.io/lab/install_picos_on_dell.html#disqus_thread">comments</a>.</p>                </article>
             </aside><!-- /#featured -->
         <section id="extras" class="body">
                 <div class="blogroll">
@@ -448,6 +449,13 @@ ONIE＃onie-nos-install PicOS.bin
                             <li><a href="http://www.tooyum.com/">tooyum</a></li>
                         </ul>
                 </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+                            <li><a href="https://bbill.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+
+                        </ul>
+                </div><!-- /.social -->
         </section><!-- /#extras -->
 
         <footer id="contentinfo" class="body">

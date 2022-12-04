@@ -3,7 +3,8 @@
 <head>
         <meta charset="utf-8" />
         <title>The SPICE support in KVM Ubunt 16.04 guest</title>
-        <link rel="stylesheet" href="/theme/css/main.css" />
+        <link rel="stylesheet" href="https://bbill.github.io/theme/css/main.css" />
+        <link href="https://bbill.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="SDN Hands ON! Atom Feed" />
 
         <!--[if IE]>
             <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -12,13 +13,13 @@
 
 <body id="index" class="home">
         <header id="banner" class="body">
-                <h1><a href="/">SDN Hands ON! </a></h1>
+                <h1><a href="https://bbill.github.io/">SDN Hands ON! </a></h1>
                 <nav><ul>
-                    <li><a href="/category/chan-pin.html">产品</a></li>
-                    <li><a href="/category/lab.html">lab</a></li>
-                    <li class="active"><a href="/category/product.html">product</a></li>
-                    <li><a href="/category/shi-yan.html">实验</a></li>
-                    <li><a href="/category/troubleshooting.html">troubleshooting</a></li>
+                    <li><a href="https://bbill.github.io/category/chan-pin.html">产品</a></li>
+                    <li><a href="https://bbill.github.io/category/lab.html">lab</a></li>
+                    <li class="active"><a href="https://bbill.github.io/category/product.html">product</a></li>
+                    <li><a href="https://bbill.github.io/category/shi-yan.html">实验</a></li>
+                    <li><a href="https://bbill.github.io/category/troubleshooting.html">troubleshooting</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -32,33 +33,33 @@
     <header>
 
       <h1 class="entry-title">
-        <a href="/product/Spice_over_Ubuntu_16.04.html" rel="bookmark"
+        <a href="https://bbill.github.io/product/Spice_over_Ubuntu_16.04.html" rel="bookmark"
            title="Permalink to The SPICE support in KVM Ubunt 16.04 guest">The SPICE support in KVM Ubunt 16.04 guest</a></h1>
     </header>
 
     <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2018-01-23T00:00:00+08:00">
-                Published: 二 23 一月 2018
+                Published: Tue 23 January 2018
         </abbr>
 
         <address class="vcard author">
-                By                         <a class="url fn" href="/author/bill.html">bill</a>
+                By                         <a class="url fn" href="https://bbill.github.io/author/bill.html">bill</a>
         </address>
-<p>In <a href="/category/product.html">product</a>.</p>
-<p>tags: <a href="/tag/kvm.html">kvm</a> <a href="/tag/ovirt.html">ovirt</a> <a href="/tag/spice.html">spice</a> <a href="/tag/qxl.html">qxl</a> <a href="/tag/ubuntu-1604.html">ubuntu 16.04</a> </p>
-</footer><!-- /.post-info -->      <div id="table-of-contents">
+<p>In <a href="https://bbill.github.io/category/product.html">product</a>.</p>
+<p>tags: <a href="https://bbill.github.io/tag/kvm.html">kvm</a> <a href="https://bbill.github.io/tag/ovirt.html">ovirt</a> <a href="https://bbill.github.io/tag/spice.html">spice</a> <a href="https://bbill.github.io/tag/qxl.html">qxl</a> <a href="https://bbill.github.io/tag/ubuntu-1604.html">ubuntu 16.04</a> </p>
+</footer><!-- /.post-info -->      <div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org12e3bc9">1. Problem</a></li>
-<li><a href="#org5d6d6ea">2. Solution</a></li>
+<li><a href="#orga321c72">1. Problem</a></li>
+<li><a href="#org9a6ebda">2. Solution</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org12e3bc9" class="outline-2">
-<h2 id="org12e3bc9"><span class="section-number-2">1</span> Problem</h2>
+<div id="outline-container-orga321c72" class="outline-2">
+<h2 id="orga321c72"><span class="section-number-2">1.</span> Problem</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 The OS can't detect the qxl video driver. The display resolution
@@ -68,14 +69,14 @@ can't be changed not to mention adjust automatically.
 <p>
 Try to solve it by kill X,then reconfigure it.
 </p>
-<pre class="example">
+<pre class="example" id="org280716e">
 init 3
 </pre>
 <p>
 after relogin
 </p>
 
-<pre class="example">
+<pre class="example" id="org1a4485b">
 X -configure
 </pre>
 
@@ -83,7 +84,7 @@ X -configure
 It keep complains 
 </p>
 
-<pre class="example">
+<pre class="example" id="orgb075db9">
 X.Org X Server 1.18.4
 Release Date: 2016-07-19
 X Protocol Version 11, Revision 0
@@ -117,32 +118,32 @@ No devices to configure.  Configuration failed.
 </div>
 </div>
 
-<div id="outline-container-org5d6d6ea" class="outline-2">
-<h2 id="org5d6d6ea"><span class="section-number-2">2</span> Solution</h2>
+<div id="outline-container-org9a6ebda" class="outline-2">
+<h2 id="org9a6ebda"><span class="section-number-2">2.</span> Solution</h2>
 <div class="outline-text-2" id="text-2">
 <ol class="org-ol">
 <li><p>
 Turn off Xserver used
 </p>
-<pre class="example">
+<pre class="example" id="org2aad8e7">
 sudo init 3
 </pre></li>
 <li><p>
 Remove xserver-xorg-core
 </p>
-<pre class="example">
+<pre class="example" id="org4e16571">
 sudo apt-get remove  xserver-xorg-core -y
 </pre></li>
 <li><p>
 Install the driver or so
 </p>
-<pre class="example">
+<pre class="example" id="orgf7fe66c">
 sudo apt-get install  spice-vdagent gdm xserver-xorg-video-qxl-hwe-16.04 
 </pre></li>
 <li><p>
 Create the xorg.conf we needed
 </p>
-<pre class="example">
+<pre class="example" id="org5205a6d">
 sudo X -configure
 sudo cp ./xorg.conf.new /etc/X11/xorg.conf
 
@@ -150,20 +151,20 @@ sudo cp ./xorg.conf.new /etc/X11/xorg.conf
 <li><p>
 Get X Back
 </p>
-<pre class="example">
+<pre class="example" id="orgd409ea4">
 sudo apt-get install   xserver-xorg-core xserver-xorg-input-all -y
 </pre></li>
 <li><p>
 Make sure spice-vdagent start automatically
 </p>
-<pre class="example">
+<pre class="example" id="orgb74db6e">
 sudo systemctl enable spice-vdagentd
 sudo systemctl start spice-vdagentd
 </pre></li>
 <li><p>
 Time to cross your fingers
 </p>
-<pre class="example">
+<pre class="example" id="org43cbb88">
 sudo init 5
 </pre></li>
 </ol>
@@ -176,6 +177,24 @@ If everything goes smoothly, your screen resolution will change automatically.
 
 
 
+
+    <div class="comments">
+      <h2>Comments !</h2>
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+        var disqus_shortname = 'bbill';
+        var disqus_identifier = 'product/Spice_over_Ubuntu_16.04.html';
+        var disqus_url = 'https://bbill.github.io/product/Spice_over_Ubuntu_16.04.html';
+        (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//bbill.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+
+
+      <noscript>Please enable JavaScript to view the comments.</noscript>
+    </div>
     <section id="lg"></section>
   <section id="md"></section>
   <section id="sm"></section>
@@ -194,6 +213,13 @@ If everything goes smoothly, your screen resolution will change automatically.
                             <li><a href="http://www.tooyum.com/">tooyum</a></li>
                         </ul>
                 </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+                            <li><a href="https://bbill.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+
+                        </ul>
+                </div><!-- /.social -->
         </section><!-- /#extras -->
 
         <footer id="contentinfo" class="body">

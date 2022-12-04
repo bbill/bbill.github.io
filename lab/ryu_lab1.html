@@ -3,7 +3,8 @@
 <head>
         <meta charset="utf-8" />
         <title>Ryu 控制器的安装及基本操作</title>
-        <link rel="stylesheet" href="/theme/css/main.css" />
+        <link rel="stylesheet" href="https://bbill.github.io/theme/css/main.css" />
+        <link href="https://bbill.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="SDN Hands ON! Atom Feed" />
 
         <!--[if IE]>
             <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -12,13 +13,13 @@
 
 <body id="index" class="home">
         <header id="banner" class="body">
-                <h1><a href="/">SDN Hands ON! </a></h1>
+                <h1><a href="https://bbill.github.io/">SDN Hands ON! </a></h1>
                 <nav><ul>
-                    <li><a href="/category/chan-pin.html">产品</a></li>
-                    <li class="active"><a href="/category/lab.html">lab</a></li>
-                    <li><a href="/category/product.html">product</a></li>
-                    <li><a href="/category/shi-yan.html">实验</a></li>
-                    <li><a href="/category/troubleshooting.html">troubleshooting</a></li>
+                    <li><a href="https://bbill.github.io/category/chan-pin.html">产品</a></li>
+                    <li class="active"><a href="https://bbill.github.io/category/lab.html">lab</a></li>
+                    <li><a href="https://bbill.github.io/category/product.html">product</a></li>
+                    <li><a href="https://bbill.github.io/category/shi-yan.html">实验</a></li>
+                    <li><a href="https://bbill.github.io/category/troubleshooting.html">troubleshooting</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -32,38 +33,38 @@
     <header>
 
       <h1 class="entry-title">
-        <a href="/lab/ryu_lab1.html" rel="bookmark"
+        <a href="https://bbill.github.io/lab/ryu_lab1.html" rel="bookmark"
            title="Permalink to Ryu 控制器的安装及基本操作">Ryu 控制器的安装及基本操作</a></h1>
     </header>
 
     <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2017-09-24T00:00:00+08:00">
-                Published: 日 24 九月 2017
+                Published: Sun 24 September 2017
         </abbr>
 
         <address class="vcard author">
-                By                         <a class="url fn" href="/author/bill.html">bill</a>
+                By                         <a class="url fn" href="https://bbill.github.io/author/bill.html">bill</a>
         </address>
-<p>In <a href="/category/lab.html">lab</a>.</p>
-<p>tags: <a href="/tag/ryu.html">ryu</a> <a href="/tag/openflow.html">openflow</a> <a href="/tag/mininet.html">mininet</a> </p>
-</footer><!-- /.post-info -->      <div id="table-of-contents">
+<p>In <a href="https://bbill.github.io/category/lab.html">lab</a>.</p>
+<p>tags: <a href="https://bbill.github.io/tag/ryu.html">ryu</a> <a href="https://bbill.github.io/tag/openflow.html">openflow</a> <a href="https://bbill.github.io/tag/mininet.html">mininet</a> </p>
+</footer><!-- /.post-info -->      <div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgcd8e630">1. 实验环境</a></li>
-<li><a href="#org74970df">2. 实验目的</a></li>
-<li><a href="#org11786c2">3. 操作步骤</a>
+<li><a href="#org1337435">1. 实验环境</a></li>
+<li><a href="#org887cbb2">2. 实验目的</a></li>
+<li><a href="#org35cfb57">3. 操作步骤</a>
 <ul>
-<li><a href="#orgceb77d7">3.1. 安装一些后续需要使用的软件</a></li>
-<li><a href="#org193a392">3.2. 安装 ryu</a></li>
-<li><a href="#org4ba26e9">3.3. 安装 mininet</a></li>
-<li><a href="#orgecd994e">3.4. ryu 控制和mininet连接</a></li>
+<li><a href="#org7e00df2">3.1. 安装一些后续需要使用的软件</a></li>
+<li><a href="#orgb06f4c8">3.2. 安装 ryu</a></li>
+<li><a href="#org00d323f">3.3. 安装 mininet</a></li>
+<li><a href="#orgfc30b92">3.4. ryu 控制和mininet连接</a></li>
 </ul>
 </li>
-<li><a href="#org89ffc75">4. 附录</a>
+<li><a href="#org9d5f80a">4. 附录</a>
 <ul>
-<li><a href="#orgb6701ee">4.1. 用到的命令</a></li>
+<li><a href="#org2d7d03d">4.1. 用到的命令</a></li>
 </ul>
 </li>
 </ul>
@@ -72,8 +73,8 @@
 
 
 
-<div id="outline-container-orgcd8e630" class="outline-2">
-<h2 id="orgcd8e630"><span class="section-number-2">1</span> 实验环境</h2>
+<div id="outline-container-org1337435" class="outline-2">
+<h2 id="org1337435"><span class="section-number-2">1.</span> 实验环境</h2>
 <div class="outline-text-2" id="text-1">
 <ol class="org-ol">
 <li>一台可以上网的主机station X (IP 地址 192.168.10.X）</li>
@@ -82,8 +83,8 @@
 </div>
 </div>
 
-<div id="outline-container-org74970df" class="outline-2">
-<h2 id="org74970df"><span class="section-number-2">2</span> 实验目的</h2>
+<div id="outline-container-org887cbb2" class="outline-2">
+<h2 id="org887cbb2"><span class="section-number-2">2.</span> 实验目的</h2>
 <div class="outline-text-2" id="text-2">
 <ol class="org-ol">
 <li>掌握Linux 命令行基础使用方法</li>
@@ -95,12 +96,12 @@
 </div>
 </div>
 
-<div id="outline-container-org11786c2" class="outline-2">
-<h2 id="org11786c2"><span class="section-number-2">3</span> 操作步骤</h2>
+<div id="outline-container-org35cfb57" class="outline-2">
+<h2 id="org35cfb57"><span class="section-number-2">3.</span> 操作步骤</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-orgceb77d7" class="outline-3">
-<h3 id="orgceb77d7"><span class="section-number-3">3.1</span> 安装一些后续需要使用的软件</h3>
+<div id="outline-container-org7e00df2" class="outline-3">
+<h3 id="org7e00df2"><span class="section-number-3">3.1.</span> 安装一些后续需要使用的软件</h3>
 <div class="outline-text-3" id="text-3-1">
 <ul class="org-ul">
 <li>git 版本管理工具</li>
@@ -136,8 +137,8 @@ root权限，不进入交互模式。将以上命令修改为：
 </ul>
 </div>
 </div>
-<div id="outline-container-org193a392" class="outline-3">
-<h3 id="org193a392"><span class="section-number-3">3.2</span> 安装 ryu</h3>
+<div id="outline-container-orgb06f4c8" class="outline-3">
+<h3 id="orgb06f4c8"><span class="section-number-3">3.2.</span> 安装 ryu</h3>
 <div class="outline-text-3" id="text-3-2">
 <ol class="org-ol">
 <li><p>
@@ -179,8 +180,8 @@ sudo apt-key adv &#x2013;keyserver keyserver.ubuntu.com &#x2013;recv-keys
 </div>
 
 
-<div id="outline-container-org4ba26e9" class="outline-3">
-<h3 id="org4ba26e9"><span class="section-number-3">3.3</span> 安装 mininet</h3>
+<div id="outline-container-org00d323f" class="outline-3">
+<h3 id="org00d323f"><span class="section-number-3">3.3.</span> 安装 mininet</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 mininet 是一个网络拓扑仿真程序，可以非常方便的实现拓扑/交换机的模拟，
@@ -218,8 +219,8 @@ mininet 默认会安装一个openvswitch-controller 控制器，此服务启动�
 </div>
 
 
-<div id="outline-container-orgecd994e" class="outline-3">
-<h3 id="orgecd994e"><span class="section-number-3">3.4</span> ryu 控制和mininet连接</h3>
+<div id="outline-container-orgfc30b92" class="outline-3">
+<h3 id="orgfc30b92"><span class="section-number-3">3.4.</span> ryu 控制和mininet连接</h3>
 <div class="outline-text-3" id="text-3-4">
 <ol class="org-ol">
 <li>启动 screen 终端管理工具
@@ -356,12 +357,12 @@ unsupported version 0x1. If possible, set the switch to use one of the versions 
 
 
 
-<div id="outline-container-org89ffc75" class="outline-2">
-<h2 id="org89ffc75"><span class="section-number-2">4</span> 附录</h2>
+<div id="outline-container-org9d5f80a" class="outline-2">
+<h2 id="org9d5f80a"><span class="section-number-2">4.</span> 附录</h2>
 <div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-orgb6701ee" class="outline-3">
-<h3 id="orgb6701ee"><span class="section-number-3">4.1</span> 用到的命令</h3>
+<div id="outline-container-org2d7d03d" class="outline-3">
+<h3 id="org2d7d03d"><span class="section-number-3">4.1.</span> 用到的命令</h3>
 <div class="outline-text-3" id="text-4-1">
 <div class="org-src-container">
 <pre class="src src-bash">apt-get install git screen
@@ -412,6 +413,24 @@ sudo kill -9 <span style="font-weight: bold;">`pgrep -f 'ryu-manager'`</span>
 
 
 
+
+    <div class="comments">
+      <h2>Comments !</h2>
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+        var disqus_shortname = 'bbill';
+        var disqus_identifier = 'lab/ryu_lab1.html';
+        var disqus_url = 'https://bbill.github.io/lab/ryu_lab1.html';
+        (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//bbill.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+
+
+      <noscript>Please enable JavaScript to view the comments.</noscript>
+    </div>
     <section id="lg"></section>
   <section id="md"></section>
   <section id="sm"></section>
@@ -430,6 +449,13 @@ sudo kill -9 <span style="font-weight: bold;">`pgrep -f 'ryu-manager'`</span>
                             <li><a href="http://www.tooyum.com/">tooyum</a></li>
                         </ul>
                 </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+                            <li><a href="https://bbill.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+
+                        </ul>
+                </div><!-- /.social -->
         </section><!-- /#extras -->
 
         <footer id="contentinfo" class="body">
