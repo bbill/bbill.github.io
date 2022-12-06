@@ -47,56 +47,61 @@
                 By                         <a class="url fn" href="https://bbill.github.io/author/bill.html">bill</a>
         </address>
 <p>In <a href="https://bbill.github.io/category/chan-pin.html">产品</a>.</p>
-<p>tags: <a href="https://bbill.github.io/tag/sdn.html">sdn</a> <a href="https://bbill.github.io/tag/openflow.html">openflow</a> <a href="https://bbill.github.io/tag/p4.html">p4</a> <a href="https://bbill.github.io/tag/tofino.html">tofino</a> <a href="https://bbill.github.io/tag/barefoot.html">barefoot</a> <a href="https://bbill.github.io/tag/onie.html">onie</a> <a href="https://bbill.github.io/tag/openmesh.html">openmesh</a> <a href="https://bbill.github.io/tag/edgecore.html">edgecore</a> </p>
+<p>tags: <a href="https://bbill.github.io/tag/sdn.html">sdn</a> <a href="https://bbill.github.io/tag/openflow.html">openflow</a> <a href="https://bbill.github.io/tag/p4.html">p4</a> <a href="https://bbill.github.io/tag/tofino.html">tofino</a> <a href="https://bbill.github.io/tag/barefoot.html">barefoot</a> <a href="https://bbill.github.io/tag/openmesh.html">openmesh</a> <a href="https://bbill.github.io/tag/edgecore.html">edgecore</a> </p>
 </footer><!-- /.post-info -->      <div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgffa48f0">1. 选择CPU</a></li>
-<li><a href="#org8eedc3f">2. 交换芯片</a></li>
-<li><a href="#org68580ec">3. 软件支持</a></li>
-<li><a href="#orgddcd3e4">4. 扩展能力</a></li>
+<li><a href="#orga6545a0">1. 选择CPU</a></li>
+<li><a href="#orgdce2c38">2. 交换芯片</a></li>
+<li><a href="#org2ceead4">3. 软件支持</a></li>
+<li><a href="#org1e7baab">4. 扩展能力</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgffa48f0" class="outline-2">
-<h2 id="orgffa48f0"><span class="section-number-2">1.</span> 选择CPU</h2>
+<div id="outline-container-orga6545a0" class="outline-2">
+<h2 id="orga6545a0"><span class="section-number-2">1.</span> 选择CPU</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 CPU 分两类
 </p>
 
 <ol class="org-ol">
-<li>管理CPU
-包括 Intel D-1517，D-1527，C3558 C35xx等</li>
+<li><p>
+管理CPU
+</p>
+
+<p>
+包括 Intel D-1517，D-1527，C3558 C35xx等
+</p></li>
 </ol>
 
 
 <ol class="org-ol">
 <li><p>
 管理CPU + 流量处理
-主要有Intel  至强 Skylake ，Cascade Lake 等湖系列双至强方案
 </p>
 
 <p>
+主要有Intel  至强 Skylake ，Cascade Lake 等"湖"系列双至强方案
 在同一类CPU中，CPU之间的差异就不再是选择产品的决定因素了。
 </p></li>
 </ol>
 </div>
 </div>
 
-<div id="outline-container-org8eedc3f" class="outline-2">
-<h2 id="org8eedc3f"><span class="section-number-2">2.</span> 交换芯片</h2>
+<div id="outline-container-orgdce2c38" class="outline-2">
+<h2 id="orgdce2c38"><span class="section-number-2">2.</span> 交换芯片</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Intel Tofino 系列芯片：
 </p>
 
 <ol class="org-ol">
-<li>一代</li>
-</ol>
-
+<li><p>
+一代
+</p>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -136,18 +141,21 @@ Intel Tofino 系列芯片：
 <p>
 最核心的区别是容量和pipeline，更多的流水线意味着更多的资源，在一些应
 用里会采用折叠pipeline的方式实现更为复杂的处理逻辑。
+</p></li>
+
+<li><p>
+二代以后芯片
 </p>
 
-
-<ol class="org-ol">
-<li>二代以后芯片
-二代芯片从12.8T容量起步，资源也略有增加，主要以400G接口为主，目前看性价比不高。</li>
+<p>
+二代芯片从12.8T容量起步，资源也略有增加，主要以400G接口为主，目前看性价比不高。
+</p></li>
 </ol>
 </div>
 </div>
 
-<div id="outline-container-org68580ec" class="outline-2">
-<h2 id="org68580ec"><span class="section-number-2">3.</span> 软件支持</h2>
+<div id="outline-container-org2ceead4" class="outline-2">
+<h2 id="org2ceead4"><span class="section-number-2">3.</span> 软件支持</h2>
 <div class="outline-text-2" id="text-3">
 <ol class="org-ol">
 <li><p>
@@ -160,8 +168,14 @@ Sonic
 以尝试。
 </p></li>
 
-<li>Stratum NOS for the next generation of SDN，同样的理由，官方认证的
-平台为最佳，能不能站在巨人肩膀上再说，至少不要从填坑开始。</li>
+<li><p>
+Stratum
+</p>
+
+<p>
+被称为“ NOS for the next generation of SDN”，同样的理由，官方认证的
+平台为最佳，能不能站在巨人肩膀上再说，至少不要从填坑开始。
+</p></li>
 
 <li><p>
 论文的复现
@@ -175,13 +189,13 @@ github 上的大牛开源出来的代码，能不能复现，大牛用什么平�
 </div>
 </div>
 
-<div id="outline-container-orgddcd3e4" class="outline-2">
-<h2 id="orgddcd3e4"><span class="section-number-2">4.</span> 扩展能力</h2>
+<div id="outline-container-org1e7baab" class="outline-2">
+<h2 id="org1e7baab"><span class="section-number-2">4.</span> 扩展能力</h2>
 <div class="outline-text-2" id="text-4">
 <p>
-Tofino作为交换芯片，受资源限制表项一般模糊匹配一万条左右，精确10万条
+Tofino作为交换芯片，受资源限制,模糊匹配大约支持一万条表项，精确匹配10万条
 左右，如果要实现大表项，或者对数据包做4层以上的处理，就要辅之以CPU，
-FGGA，智能网卡。这时需要考虑的是扩展能力，根据具体需求可以选择
+FPGA，智能网卡。这时需要考虑的是扩展能力，根据具体需求可以选择
 </p>
 
 <ol class="org-ol">
